@@ -114,6 +114,7 @@ function renderWorkspace() {
       html += `<button class="residue ${difference ? "diff" : ""} ${state.position === i + 1 ? "active" : ""}" data-position="${i + 1}" aria-label="${esc(m.external_id)} ${esc(chain.id)} sequence index ${i + 1} ${chain.sequence[i]}"><small>${i + 1}</small>${chain.sequence[i]}</button>`;
     }
     html += `</div><label class="field">Jump to sequence index<input type="number" data-jump="${m.id}" min="1" max="${chain.sequence.length}" value="${state.position || 1}"></label><p class="sequence-details">${state.position ? `Selected index ${state.position}: ${esc(chain.sequence[state.position - 1] || "absent in this chain")} · numbering mapping unavailable` : "Choose a sequence index to compare. Gold marks raw position differences."}</p><details><summary>Sequence source and raw record</summary><p>${esc(m.source.name)} / ${esc(m.source.version || "version unknown")}</p><pre>${pretty(m)}</pre></details>`;
+    html += renderComposition(m);
     const constructs = entities("construct").filter((c) => c.molecule_id === m.id);
     html += '<p class="section-label">CONSTRUCTS & MATERIALS</p>';
     html += constructs.length ? constructs.map((c) => `<details><summary>${esc(c.name)} (${c.id})</summary><pre>${pretty(c)}</pre><p class="muted">CDS translation and signal-peptide processing are not validated.</p>${entities("material").filter((s) => s.construct_id === c.id).map((s) => `<p class="muted">${esc(s.name)} / lot ${esc(s.lot)}<br><span class="mono">${s.id}</span></p>`).join("")}</details>`).join("") : '<p class="muted">No construct or material registered.</p>';
@@ -122,9 +123,42 @@ function renderWorkspace() {
   return html + '</div><button data-screen="R">Follow evidence and record a question →</button>';
 }
 
+function renderComposition(molecule) {
+  let html = '<p class="section-label">DECLARED MOLECULAR COMPOSITION</p>';
+  const graph = molecule.component_graph;
+  if (!graph) html += '<p class="muted">Composition undefined. Chain pairing, domain order and copy counts were not supplied; nothing is inferred.</p>';
+  else {
+    html += '<p class="muted">Declared metadata; folding, pairing and assembly are not validated. Connections refer to component definitions, not individual chain-copy contacts.</p>';
+    for (const chain of graph.chains) {
+      html += `<div class="composition-chain"><h3>${esc(chain.chain_id)} · ${chain.copies} declared ${chain.copies === 1 ? "copy" : "copies"}</h3><div class="component-order">`;
+      for (const component of chain.components) {
+        html += `<details class="component-item"><summary>${esc(component.id)} / ${esc(component.role)} / ${component.sequence.length} aa</summary>`;
+        if (component.origin) {
+          const origin = component.origin, unit = index().get(origin.binding_unit_id);
+          html += `<p class="muted">Binding unit: ${esc(unit?.name)}<br><span class="mono">${esc(origin.binding_unit_id)}</span><br>Chain ${esc(origin.chain_id)}, raw indexes ${origin.start}–${origin.end}</p>`;
+          if (unit) {
+            html += `<p class="muted">Topology: ${esc(unit.topology)}<br>Source: ${esc(unit.source.name)} / ${esc(unit.source.version || "version unknown")}</p><pre>${pretty(unit)}</pre>`;
+            html += unit.chains.filter((c) => c.origin).map((c) => `<button class="text-button" data-open="${c.origin.molecule_id}">Inspect unit origin: ${esc(index().get(c.origin.molecule_id)?.name)} / ${esc(c.origin.chain_id)} / indexes ${c.origin.start}–${c.origin.end}</button>`).join("");
+          }
+        } else html += '<p class="muted">Explicit sequence declaration. No binding-unit origin supplied.</p>';
+        html += `<p class="mono">${esc(component.sequence)}</p></details>`;
+      }
+      html += '</div></div>';
+    }
+    html += '<details><summary>Declared connections and complete component graph</summary><pre>' + pretty(graph) + '</pre></details>';
+  }
+  const lineage = entities("lineage").filter((edge) => edge.parent_id === molecule.id || edge.child_id === molecule.id);
+  html += '<p class="section-label">PARENT / CHILD COMPOSITION HISTORY</p>';
+  html += lineage.length ? lineage.map((edge) => {
+    const parent = index().get(edge.parent_id), child = index().get(edge.child_id);
+    return `<details><summary>${esc(parent?.name)} → ${esc(child?.name)}</summary><p class="mono">${edge.id}</p><p class="muted">${esc(edge.change_set.reason)}</p><button class="text-button" data-open="${edge.parent_id}">Inspect parent</button> <button class="text-button" data-open="${edge.child_id}">Inspect child</button><p class="muted">Parent measurements stay on the original material. This history creates no child measurements.</p><pre>${pretty(edge.change_set)}</pre></details>`;
+  }).join("") : '<p class="muted">No lineage record registered.</p>';
+  return html;
+}
+
 function renderDesign() {
   return heading("PRESERVE THE DESIGN HISTORY", "Design & Compare", "A shared design context for mutations, molecular composition and expression constructs.") +
-    `<div class="panel"><div class="panel-body"><h2>Design operations are not implemented in this build</h2><p class="muted">${state.selected.length} selected candidate IDs remain in context. No design result or scientific score is generated.</p><ul class="scope-list"><li>M2: verified numbering and structure correspondence</li><li>M3: numbered mutations, parent–child lineage and ordered component graphs</li><li>M4: construct comparisons and experimental questions</li></ul><button data-screen="W" class="secondary">Inspect source sequences</button></div></div>`;
+    `<div class="panel"><div class="panel-body"><h2>Design operations are not implemented in this build</h2><p class="muted">${state.selected.length} selected candidate IDs remain in context. No design result or scientific score is generated. Imported declared component graphs and composition lineage can be inspected in W.</p><ul class="scope-list"><li>M2: verified numbering and structure correspondence</li><li>M3: create numbered mutations, lineage and molecular assemblies interactively</li><li>M4: construct comparisons and experimental questions</li></ul><button data-screen="W" class="secondary">Inspect source sequences</button></div></div>`;
 }
 
 function renderEvidence() {
@@ -200,8 +234,8 @@ document.addEventListener("click", async (event) => {
       loading = true; button.disabled = true;
       const saved = await api("/api/import", pendingImport); $("#import-dialog").close(); pendingImport = null;
       await refreshProjects(saved.project_id); notify(`Saved ${saved.imported} entities. IDs and source metadata were retained.`);
-    } else if (button.id === "fixture-button") {
-      const example = await api("/api/example"); renderPreview({bundle:example, report:{total_rows:example.entities.length, valid_rows:example.entities.length, excluded:[], duplicates:[], warnings:[]}}, true);
+    } else if (button.id === "fixture-button" || button.id === "composition-fixture-button") {
+      const example = await api(button.id === "fixture-button" ? "/api/example" : "/api/example-composition"); renderPreview({bundle:example, report:{total_rows:example.entities.length, valid_rows:example.entities.length, excluded:[], duplicates:[], warnings:[]}}, true);
     } else if (button.id === "export-button") {
       // Fetch fresh DB state, rather than exporting a stale tab snapshot.
       const fresh = await api("/api/bundle?project_id=" + encodeURIComponent(bundle.project.id));

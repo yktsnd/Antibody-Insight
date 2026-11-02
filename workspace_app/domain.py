@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 
 SCHEMA = "awx/1"
 PREFIX = {"project": "prj", "molecule": "mol", "construct": "con", "material": "mat",
-          "evidence": "evd", "decision": "dec"}
+          "evidence": "evd", "decision": "dec", "binding_unit": "bnd", "lineage": "lin"}
 AA = frozenset("ACDEFGHIKLMNPQRSTVWYBXZJUO")
 MAX_SAFE_INTEGER = 2**53 - 1
 CORE = {"id", "type", "project_id", "created_at"}
@@ -18,6 +18,8 @@ FIELDS = {
     "molecule": {"name", "external_id", "format", "chains", "source"},
     "construct": {"name", "molecule_id", "cds", "vector", "signal_peptide"},
     "material": {"name", "construct_id", "lot"},
+    "binding_unit": {"name", "topology", "chains", "source"},
+    "lineage": {"parent_id", "child_id", "change_set"},
     "evidence": {"subject_id", "kind", "metric", "source", "timestamp", "conditions", "value", "unit"},
     "decision": {"candidate_ids", "criteria", "evidence_snapshot", "reason", "timestamp",
                  "revision", "supersedes", "status"},
@@ -43,9 +45,9 @@ def require(test, message):
         raise ValidationError(message)
 
 
-def fields(obj, required, path):
+def fields(obj, required, path, optional=frozenset()):
     require(isinstance(obj, dict), f"{path}: expected object")
-    unknown = sorted(set(obj) - required)
+    unknown = sorted(set(obj) - required - optional)
     missing = sorted(required - set(obj))
     if unknown:
         raise ValidationError("Unsupported fields; nothing was imported", [f"{path}.{x}" for x in unknown])
@@ -146,7 +148,7 @@ def validate_entity(entity, project_id):
     require(isinstance(entity, dict), "entity must be object")
     kind = entity.get("type")
     require(isinstance(kind, str) and kind in FIELDS, "Unsupported entity type")
-    fields(entity, CORE | FIELDS[kind], "entity")
+    fields(entity, CORE | FIELDS[kind], "entity", {"component_graph"} if kind == "molecule" else frozenset())
     identifier(entity["id"], kind)
     require(entity["project_id"] == project_id, "Cross-project entity rejected")
     timestamp(entity["created_at"], "created_at")
@@ -164,6 +166,11 @@ def validate_entity(entity, project_id):
             seen.add(chain["id"])
             text(chain["role"], "chain.role", 100)
             sequence(chain["sequence"], "chain.sequence")
+        from .composition import validate_component_graph_shape
+        validate_component_graph_shape(entity)
+    elif kind in ("binding_unit", "lineage"):
+        from .composition import validate_composition_entity
+        validate_composition_entity(entity)
     elif kind == "construct":
         text(entity["name"], "construct.name")
         identifier(entity["molecule_id"], "molecule")
@@ -249,6 +256,8 @@ def validate_graph(project, entities):
                 subject = ref(original["subject_id"], {"molecule", "construct", "material"})
                 require(molecule_id_for(subject, index) in entity["candidate_ids"],
                         "Evidence does not belong to selected candidates")
+    from .composition import validate_composition_references
+    validate_composition_references(index)
     return index
 
 

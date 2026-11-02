@@ -15,7 +15,7 @@ from urllib.parse import parse_qs, urlsplit
 from . import __version__
 from .adapters import new_project, parse_json, preview
 from .domain import ValidationError, fields, require
-from .fixtures import example_bundle
+from .fixtures import composition_bundle, example_bundle
 from .storage import Store
 
 WEB = Path(__file__).resolve().parent.parent / "web"
@@ -97,6 +97,8 @@ class Handler(BaseHTTPRequestHandler):
                     self.reply(200, self.server.store.bundle(project_id))
                 elif parsed.path == "/api/example":
                     self.reply(200, example_bundle())
+                elif parsed.path == "/api/example-composition":
+                    self.reply(200, composition_bundle())
                 else:
                     self.reply(404, {"error": "Unknown API route"})
             except ValidationError as exc:

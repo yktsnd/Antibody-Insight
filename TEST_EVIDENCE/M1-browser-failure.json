@@ -1,36 +1,51 @@
 {
-  "timestamp": "2026-11-02T14:29:31.118Z",
-  "error": "Error: locator.waitFor: Error: strict mode violation: getByText('hostile <img src=x onerror=window.INJECTED=1>', { exact: true }) resolved to 2 elements:\n    1) <button class=\"name-button\" data-open=\"mol_92130fdb-4c58-4c11-8ef5-209897fd3f4d\">hostile <img src=x onerror=window.INJECTED=1></button> aka getByRole('button', { name: 'hostile <img src=x onerror=' })\n    2) <small>hostile <img src=x onerror=window.INJECTED=1></small> aka locator('small').filter({ hasText: 'hostile <img src=x onerror=' })\n\nCall log:\n\u001b[2m  - waiting for getByText('hostile <img src=x onerror=window.INJECTED=1>', { exact: true }) to be visible\u001b[22m\n",
+  "timestamp": "2026-11-02T14:46:49.629Z",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'unit-A / declared binding segment / 32 aa',\n-   'unit-A / declared binding segment / 30 aa',\n    'linker / linker / 3 aa',\n+   'unit-B / declared binding segment / 32 aa'\n-   'unit-B / declared binding segment / 30 aa'\n  ]\n",
   "results": [
     {
       "name": "empty workspace and explicit fixture preview",
       "status": "PASS",
-      "duration_ms": 998
+      "duration_ms": 1059
     },
     {
       "name": "five IDs persist across E W D R and residue selection",
       "status": "PASS",
-      "duration_ms": 790
+      "duration_ms": 854
     },
     {
       "name": "measured computed null zero conditions and immutable five-candidate draft",
       "status": "PASS",
-      "duration_ms": 487
+      "duration_ms": 351
     },
     {
       "name": "fresh JSON export and restart preserve IDs snapshots selection and source versions",
       "status": "PASS",
-      "duration_ms": 1232
+      "duration_ms": 1523
     },
     {
       "name": "English and Japanese researcher explanations use curated terminology",
       "status": "PASS",
-      "duration_ms": 200
+      "duration_ms": 247
     },
     {
       "name": "duplicate ID rejected atomically; unknown fields and corrupt structures do not change state",
       "status": "PASS",
-      "duration_ms": 142
+      "duration_ms": 107
+    },
+    {
+      "name": "hostile imported text stays text with no script execution",
+      "status": "PASS",
+      "duration_ms": 300
+    },
+    {
+      "name": "800-candidate FASTA QC preview; valid subset explicitly saved; responsive UI",
+      "status": "PASS",
+      "duration_ms": 8693
+    },
+    {
+      "name": "fresh environment JSON import roundtrip equals exported dataset",
+      "status": "PASS",
+      "duration_ms": 1116
     }
   ]
 }

@@ -141,9 +141,57 @@ async function fromPage(page, route, data) {
     await page.locator('#candidate-count').filter({hasText:'8'}).waitFor();
     const current = await page.evaluate(async (id)=>(await (await fetch('/api/bundle?project_id='+id)).json()),exported.project.id);assert.deepEqual(current,exported);
   });
+  await check('F06 declared units component order copy counts and lineage in the workspace',async () => {
+    // Keep the existing fixture project to verify real same-workspace coexistence.
+    await page.goto(server.origin);await page.getByRole('button',{name:'Import data',exact:true}).click();
+    await page.getByRole('button',{name:'Preview composition fixture',exact:true}).click();
+    await page.getByRole('button',{name:/Save \d+ valid rows/}).click();
+    await page.locator('#candidate-count').filter({hasText:'9'}).waitFor();
+    await page.getByRole('checkbox',{name:'Select COMP-001',exact:true}).check();
+    await page.getByRole('button',{name:'Fixture tandem composition',exact:true}).click();
+    await bodyContains(page,'tandem · 2 declared copies');await bodyContains(page,'partner · 1 declared copy');
+    const firstChain = page.locator('.composition-chain').first();
+    assert.deepEqual(await firstChain.locator('.component-item summary').allTextContents(),[
+      'unit-A / declared binding segment / 32 aa','linker / linker / 3 aa','unit-B / declared binding segment / 32 aa'
+    ]);
+    await firstChain.locator('.component-item summary').first().click();
+    await bodyContains(page,'Fixture binding unit 1');
+    await page.getByRole('button',{name:/Inspect unit origin: Fixture candidate 001/}).click();
+    assert.equal(await page.locator('.panel-head h2').first().textContent(),'Fixture candidate 001');
+    assert.equal(await page.locator('#selection-count').textContent(),'1 selected');
+    await page.getByText('Fixture candidate 001 → Fixture tandem composition',{exact:true}).first().click();
+    await page.getByRole('button',{name:'Inspect child',exact:true}).first().click();
+    assert.equal(await page.locator('.panel-head h2').first().textContent(),'Fixture tandem composition');
+    await navigate(page,'R');await bodyContains(page,'Not measured / not predicted. No evidence records');
+    assert.equal(await page.locator('.tag.measured').count(),0);
+    await navigate(page,'W');await page.evaluate(()=>window.scrollTo(0,0));
+    await page.screenshot({path:path.join(evidenceDir,'M1-composition-screen.png'),fullPage:true});
+    const original = await page.evaluate(async () => {
+      const projects = (await (await fetch('/api/bootstrap')).json()).projects;
+      if (projects.length !== 2) throw new Error('Both fixture projects must coexist');
+      const project = projects.find((p)=>p.title.includes('Explicit composition'));
+      return await (await fetch('/api/bundle?project_id='+project.id)).json();
+    });
+    const port = Number(new URL(server.origin).port);await stop(server);server=await start(path.join(temp,'fresh.sqlite3'),port);
+    await page.reload();await bodyContains(page,'tandem · 2 declared copies');
+    const restart = await page.evaluate(async (id)=>(await (await fetch('/api/bundle?project_id='+id)).json()),original.project.id);
+    assert.deepEqual(restart,original);
+    await stop(server);server=await start(path.join(temp,'composition-fresh.sqlite3'));
+    await page.goto(server.origin);await page.getByRole('button',{name:'Import data',exact:true}).click();
+    await page.locator('#import-format').selectOption('json');await page.locator('#import-text').fill(JSON.stringify(original));
+    await page.getByRole('button',{name:'Validate & preview'}).click();await page.getByRole('button',{name:/Save \d+ valid rows/}).click();
+    await page.locator('#candidate-count').filter({hasText:'9'}).waitFor();
+    const reimported = await page.evaluate(async (id)=>(await (await fetch('/api/bundle?project_id='+id)).json()),original.project.id);
+    assert.deepEqual(reimported,original);
+    const corrupted = structuredClone(original);const graphMolecule=corrupted.entities.find((e)=>e.component_graph);
+    graphMolecule.component_graph.chains[0].copies=true;
+    assert.equal((await fromPage(page,'/api/import',corrupted)).status,422);
+    const unchanged=await page.evaluate(async(id)=>(await (await fetch('/api/bundle?project_id='+id)).json()),original.project.id);
+    assert.deepEqual(unchanged,original);
+  });
   assert.deepEqual(outbound,[]);assert.deepEqual(consoleErrors,[]);
   results.push({name:'no outbound browser requests or JavaScript errors',status:'PASS'});
-  const report = {scope:'M1 initial F01-F05 only; not final 8/8 or 16/16 acceptance',status:'PASS',timestamp:new Date().toISOString(),browser:await browser.version(),dataset_sha256:crypto.createHash('sha256').update(JSON.stringify(exported)).digest('hex'),results};
+  const report = {scope:'M1 foundation F01-F06; not final 8/8 or 16/16 acceptance',status:'PASS',timestamp:new Date().toISOString(),browser:await browser.version(),dataset_sha256:crypto.createHash('sha256').update(JSON.stringify(exported)).digest('hex'),results};
   fs.writeFileSync(path.join(evidenceDir,'M1-browser-results.json'),JSON.stringify(report,null,2));
   console.log(JSON.stringify({status:report.status,checks:results.length,browser:report.browser}));
 })().catch((error)=>{console.error(error);fs.writeFileSync(path.join(evidenceDir,'M1-browser-failure.json'),JSON.stringify({timestamp:new Date().toISOString(),error:String(error),results},null,2));process.exitCode=1;}).finally(async()=>{if(browser)await browser.close();await stop(server);});

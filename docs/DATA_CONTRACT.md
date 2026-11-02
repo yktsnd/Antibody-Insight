@@ -34,10 +34,11 @@ project内容の不一致、内部ID衝突、同じproject内の外部ID衝突�
 | evidence | subject_id, kind, metric, source, timestamp, conditions, value, unit | kind=measured/computed/literature/annotation。measuredの対象はMaterial。source.nameとversionキーは必須で、実際に版が不明ならversion=null。value=nullならunit=null可。数値なら単位必須（無次元は1）。conditionsはオブジェクトまたはnull |
 | decision | candidate_ids, criteria, evidence_snapshot, reason, timestamp, revision, supersedes, status | M1はstatus=draft、criteria=[]、revision=1、supersedes=nullのみ。スナップショットは対象候補に関係する既存Evidenceの完全コピー。候補/根拠IDの重複禁止。確定判定は未実装 |
 
-M1のmolecule.chainsは配列観察の最小モデルである。
-結合単位、領域、リンカー、鎖間結合を持つcomponent graphは未実装であり、複雑分子設計をこの最小モデルで代替しない。
-BindingUnit、Lineage、ResidueMap、Hypothesisの編集は後続のM2/M3に残す。
-その型の入力は、未対応として拒否する。
+初期のmolecule.chainsは配列観察の最小モデルである。
+追加のF06では、BindingUnit、明示されたcomponent_graph、構成変更のLineageを[追加契約](COMPONENT_CONTRACT.md)に従って保存、検証する。
+旧データを推測で補完せず、保存済みの内容は書き換えない。
+対話的な組立操作、ResidueMap、Hypothesis、番号付き変異は後続のM2/M3に残す。
+未実装型の入力は未対応として拒否する。
 構造ファイルはM2で対応するため、M1では未対応形式としてDB変更前に拒否する。
 
 ## FASTAとCSV

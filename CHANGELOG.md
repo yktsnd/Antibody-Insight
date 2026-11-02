@@ -1,5 +1,15 @@
 # Changes
 
+## 0.2.0-dev (declared composition foundation)
+
+- Independent BindingUnit IDs, declared paired/single-chain topology and exact source intervals.
+- Ordered molecular components, explicit chain copy counts and declared connections, with sequence/source consistency checks.
+- Immutable composition lineage and separate iterative checks for provenance and parent/child cycles.
+- W displays component order, origins and before/after history; parent measurements remain on the original Material.
+- Separate fixture namespaces allow both synthetic example projects to coexist in one workspace.
+
+Interactive assembly, copy-specific physical contacts, biological assembly validation and the full eight journeys remain pending.
+
 ## 0.1.0-dev (initial foundation)
 
 - Local Python/SQLite application and four-screen navigation with persistent selection context.

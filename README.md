@@ -4,7 +4,7 @@ A local research workspace connecting antibody candidates to sequences, material
 
 [日本語の利用ガイド](README.ja.md) · [Product goal](PRODUCT_GOAL.md) · [Development specification](DEVELOPMENT_PLAN.md) · [Current limitations](KNOWN_LIMITATIONS.md)
 
-**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** The current build implements the first foundation slice F01–F05, not Release 1.0. It does not run predictive models or assign antibody numbering.
+**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** The current build implements the foundation slices F01–F06, not Release 1.0. It does not run predictive models or assign antibody numbering.
 
 ## Run locally
 
@@ -26,6 +26,8 @@ The default database is `%LOCALAPPDATA%/AntibodyInsight/workspace.sqlite3` on Wi
 4. In **R**, inspect measured/computed labels, source, event time, conditions and the Material → Construct → Molecule path. Record the reason for a shortlist, preview the IDs and evidence, then save a draft.
 5. Restart the server and reopen the workspace. Saved records and drafts persist. **Export JSON** creates an explicit local download suitable for reimport into an empty database.
 
+Use **Preview composition fixture** to inspect two explicitly declared binding units, ordered components/linker, chain copy counts and composition lineage in W. Origin IDs and before/after signatures remain intact after restart and reimport. The declaration does not validate physical assembly, chemical connectivity or binding.
+
 **D** retains the selection context and explicitly identifies pending design operations. The researcher guide in the application switches between English and Japanese. UI labels, code and identifiers use English. Japanese explanations use curated antibody-research terminology.
 
 ## Import contracts
@@ -35,7 +37,7 @@ The default database is `%LOCALAPPDATA%/AntibodyInsight/workspace.sqlite3` on Wi
 - Workspace JSON: versioned `awx/1` with strict entity/reference validation. Measured evidence requires a Material ID. Missing values/conditions remain null; zero remains zero. Unknown source version stays null.
 - ID collisions reject the entire save. Unknown fields are reported rather than discarded. Entities and draft snapshots are append-only. An existing project can accept new entities only with unchanged project metadata.
 
-See [the data contract](docs/DATA_CONTRACT.md). Structures, verified numbering, domain/linker graphs, variants/lineage, criteria-based final decisions, measurement CSV and AIRR adapters remain pending.
+See [the data contract](docs/DATA_CONTRACT.md) and [explicit composition contract](docs/COMPONENT_CONTRACT.md). Stored component graphs and composition lineage are supported. Structures, verified numbering, interactive assembly, numbered variants, hypotheses, criteria-based final decisions, measurement CSV and AIRR adapters remain pending.
 
 ## Verify
 

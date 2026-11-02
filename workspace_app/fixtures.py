@@ -50,3 +50,54 @@ def example_bundle(count=8):
                                    molecule_id=molecule["id"], cds="GAG", vector="fixture vector", signal_peptide="fixture signal")
                 entity("material", "alternate-material", name="Fixture alternate lot", construct_id=alternate["id"], lot="fixture-lot-B")
     return {"schema_version": SCHEMA, "project": project, "entities": entities}
+
+
+def composition_bundle():
+    """Two separate same-sequence units with explicit origins; no assembly claim."""
+    from .composition import composition_signature
+    bundle = example_bundle()
+    remap = {bundle["project"]["id"]: fixture_id("project", "composition-project")}
+    remap.update({e["id"]: fixture_id(e["type"], "composition/base/" + e["id"]) for e in bundle["entities"]})
+
+    def namespaced(value):
+        if isinstance(value, str):
+            return remap.get(value, value)
+        if isinstance(value, list):
+            return [namespaced(item) for item in value]
+        if isinstance(value, dict):
+            return {key: namespaced(item) for key, item in value.items()}
+        return value
+
+    bundle = namespaced(bundle)
+    bundle["project"]["title"] = "[SYNTHETIC FIXTURE] Explicit composition"
+    parents = [e for e in bundle["entities"] if e["type"] == "molecule"][:2]
+    units = []
+    for i, parent in enumerate(parents):
+        seq = parent["chains"][0]["sequence"]
+        unit = {"id": fixture_id("binding_unit", f"composition-unit-{i}"), "type": "binding_unit",
+                "project_id": bundle["project"]["id"], "created_at": STAMP, "name": f"Fixture binding unit {i + 1}",
+                "topology": "single_chain", "source": {"name": "SYNTHETIC component fixture; no binding validation", "version": "1"},
+                "chains": [{"id": "unit-chain", "role": "declared variable segment", "sequence": seq,
+                            "origin": {"molecule_id": parent["id"], "chain_id": "chain-1", "start": 1, "end": len(seq)}}]}
+        units.append(unit)
+    def component(label, unit=None):
+        return {"id": label, "role": "linker" if unit is None else "declared binding segment",
+                "sequence": "GGS" if unit is None else unit["chains"][0]["sequence"],
+                "origin": None if unit is None else {"binding_unit_id": unit["id"], "chain_id": "unit-chain", "start": 1,
+                                                    "end": len(unit["chains"][0]["sequence"])}}
+    first, linker, second, partner = component("unit-A", units[0]), component("linker"), component("unit-B", units[1]), component("partner-B", units[1])
+    child = {"id": fixture_id("molecule", "composition-child"), "type": "molecule", "project_id": bundle["project"]["id"],
+             "created_at": STAMP, "name": "Fixture tandem composition", "external_id": "COMP-001", "format": "declared tandem fixture",
+             "source": {"name": "SYNTHETIC composition declaration; no assembly validation", "version": "1"},
+             "chains": [{"id": "tandem", "role": "declared tandem", "sequence": first["sequence"] + linker["sequence"] + second["sequence"]},
+                        {"id": "partner", "role": "declared partner", "sequence": partner["sequence"]}],
+             "component_graph": {"chains": [{"chain_id": "tandem", "copies": 2, "components": [first, linker, second]},
+                                               {"chain_id": "partner", "copies": 1, "components": [partner]}],
+                                 "connections": [{"left": {"chain_id": "tandem", "component_id": "unit-A"},
+                                                  "right": {"chain_id": "partner", "component_id": "partner-B"}, "kind": "declared_pairing"}]}}
+    lineage = {"id": fixture_id("lineage", "composition-lineage"), "type": "lineage", "project_id": bundle["project"]["id"],
+               "created_at": STAMP, "parent_id": parents[0]["id"], "child_id": child["id"],
+               "change_set": {"kind": "composition", "reason": "Synthetic data consistency and origin-tracking test only.",
+                              "before": composition_signature(parents[0]), "after": composition_signature(child)}}
+    bundle["entities"].extend([*units, child, lineage])
+    return bundle

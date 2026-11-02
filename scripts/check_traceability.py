@@ -21,7 +21,7 @@ def main():
             raise AssertionError("Full acceptance gate requires a release verifier; not implemented in this initial checker")
     with (ROOT / "IMPLEMENTATION_TRACEABILITY.csv").open(encoding="utf-8-sig", newline="") as f:
         slices = list(csv.DictReader(f))
-    assert {s["ticket"] for s in slices} == {f"F{i:02}" for i in range(1, 6)}
+    assert {s["ticket"] for s in slices} == {f"F{i:02}" for i in range(1, 7)}
     for s in slices:
         assert s["persona_ids"] and s["scenario_ids"] and s["acceptance_ids"]
         assert set(s["acceptance_ids"].split(";")) == {"AC-" + j for j in s["scenario_ids"].split(";")}

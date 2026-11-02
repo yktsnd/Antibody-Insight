@@ -8,5 +8,7 @@ Store the input identity/checksum, target commit or exact source digest, command
 - `M1-evidence-screen.png`, `M1-explorer-800.png`, `M1-mobile.png`: synthetic engineering fixtures only. The Explorer image captures a viewport of the 800-row dataset.
 - `M1-browser-failure.json`: first browser run's strict-locator failure, retained as debugging evidence; later run supersedes it.
 - `M1-initial-independent-review.md`: implementation verdict when the independent replay is complete.
+- `M1-composition-independent-review.md`, `M1-composition-independent-test-log.txt`: F06 implementation and M1 engineering-gate PASS; 104 tests and 11 browser checks. The final journey/scientific/user gates remain pending.
+- `M1-composition-screen.png`: explicit declared components and lineage, not validated physical assembly.
 
 The prescribed eight journeys and sixteen negatives remain separate final acceptance items. An unsupported-structure rejection in the foundation is not a successful complete J08 structure-import journey.

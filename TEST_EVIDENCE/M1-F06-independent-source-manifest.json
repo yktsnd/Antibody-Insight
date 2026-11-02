@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-11-02T14:53:34.479976+00:00",
+  "scope": "M1 F01-F06 engineering foundation gate; human scientific fixtures and final eight journeys remain pending",
+  "git_base": "ab6f4d6f22fe73396b1cb455fecc63b74239c8fd",
+  "source_state": "Exact working-tree source digests; use these when tested changes are not yet committed",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_sha256": "925f8cb7e947093d9ccc05785bc0665db12a1cba631896eb48d2cae713fe20a4",
+  "files": {
+    "AGENTS.md": "48da1e28541ff39a3f1683ecfb92b14aefba26534faedf37976f7c362aff85ae",
+    "DEVELOPMENT_PLAN.md": "9138c7e502394336584fde184b5a25e70cf04b6cab01111de1e7e5810e7840dd",
+    "PRODUCT_GOAL.md": "67deb593ba3dd45a4ff7cd3b62a0516d62615e68cdc5c8bd40deeffbec9158f2",
+    "scripts/check_traceability.py": "cb4191b181acd230453938b40138c8f3897fbe8de96e6e5d370645230216a74a",
+    "scripts/record_evidence.py": "224e8519ac03a7a149ba25e54027c4fabe3eb87b250191675d7aad77b5ee50d0",
+    "tests/browser.cjs": "4ea09ae9698fc420d4719298743cb73b8af4615f1bfcc8bdc573588b968b3bab",
+    "tests/test_composition.py": "62001ef49fe62e401fa79b870b8c5de071fa1ce4f954ab8c1539776b940e4a45",
+    "tests/test_composition_independent.py": "dfe7150ebb6c87e38b6f3170cbd29ee9574e1a5352ca3000e6ab7abed9a03993",
+    "tests/test_foundation.py": "3be90ab93b0f6eae3bebb0ab37548302402ca4af32c51a1420e8275a53c32c67",
+    "tests/test_independent_review.py": "6418fc3d9c03e41c08f794cafdc115e059b3aab03fc11e02ef053785b07030fd",
+    "web/app.js": "cbd9f623fbe611ec0f5ce27e875b04a1265c937851e785a5ff4c13256deca64a",
+    "web/index.html": "be85962bfccf862600d3fd4f79b1feb4e2edc8b99885d0ba5a083e1a1d14f09d",
+    "web/style.css": "ce095ef29f517f32dbdfbe46ef7696a44575e795d9747559946b2e9df3f88b01",
+    "workspace_app/__init__.py": "bdc3fcb35ad895d3b3c483129b717a008710bdca22bfa74f81b2632457f79840",
+    "workspace_app/adapters.py": "b1c7b3e9fb31f41edbc9e7d8a1de53b379cbda0eafa919ebef1f5dfe0fe3e638",
+    "workspace_app/composition.py": "a0b7feaebbe9cd35f35236e11e62f09a236ce07efb1a42feb409efa9e09a4161",
+    "workspace_app/domain.py": "652b66ec75f18f7f816e06e020e4503cee34163a2408b537394e68f870de1770",
+    "workspace_app/fixtures.py": "8addc3fd9b3e42dccda18c146355f7edfa89cda7261a04481bcbf964cdbb36ae",
+    "workspace_app/server.py": "ad2f9a214edf2a93b6dfb222a3b82fcafc617711ba05e82b2e208445fc377a36",
+    "workspace_app/storage.py": "00b7b47dd98a7c970ca9b0b39635ee71307b3d203bab8e4b3dccbedeb4b9f536"
+  },
+  "commands": [
+    "python -m pytest -q --tb=short",
+    "node tests/browser.cjs",
+    "python scripts/check_traceability.py"
+  ]
+}
