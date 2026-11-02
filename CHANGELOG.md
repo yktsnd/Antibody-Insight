@@ -1,5 +1,14 @@
 # Changes
 
+## Local structural observation (F08, independently verified)
+
+- Pinned local Gemmi parser and vendored 3Dmol viewer, with retained license options/notices and no runtime CDN or remote structure lookup.
+- Exact PDB/mmCIF source text/digest, independent author/label/model/segment/insertion/conformer identities and explicit missing-source states.
+- Actual 3D atom clicks and reciprocal explicit sequence correspondence; manual chain/residue pairing with preview and immutable map revisions.
+- Linked physical rotation/zoom, independent centers and persisted camera context; no structural superposition claim.
+- Direct computed structure evidence retains model scope, while measured evidence still belongs to Material. Missing confidence and B-fields are not converted into predictions.
+- Independent review has driven fixes for CIF token distinctions, alternate/microheterogeneity locus uniqueness, TER reuse, stale derived views and project camera isolation.
+
 ## Imported numbering observation (F07, independently verified)
 
 - Explicit molecule/chain/domain map identities, source verification attestations, unavailable/failed states and optional project data classification.

@@ -10,7 +10,8 @@ from datetime import datetime, timezone
 
 SCHEMA = "awx/1"
 PREFIX = {"project": "prj", "molecule": "mol", "construct": "con", "material": "mat",
-          "evidence": "evd", "decision": "dec", "binding_unit": "bnd", "lineage": "lin", "residue_map": "rmp"}
+          "evidence": "evd", "decision": "dec", "binding_unit": "bnd", "lineage": "lin", "residue_map": "rmp",
+          "structure": "stc", "structure_map": "smp"}
 AA = frozenset("ACDEFGHIKLMNPQRSTVWYBXZJUO")
 MAX_SAFE_INTEGER = 2**53 - 1
 CORE = {"id", "type", "project_id", "created_at"}
@@ -22,6 +23,8 @@ FIELDS = {
     "lineage": {"parent_id", "child_id", "change_set"},
     "residue_map": {"molecule_id", "chain_id", "domain_id", "chain_type", "scheme", "definition", "status", "reason",
                     "sequence_start", "sequence_end", "source", "verification", "entries"},
+    "structure": {"name", "molecule_id", "file_format", "content", "sha256", "origin_kind", "source"},
+    "structure_map": {"structure_id", "molecule_id", "source", "chain_assignments", "residues"},
     "evidence": {"subject_id", "kind", "metric", "source", "timestamp", "conditions", "value", "unit"},
     "decision": {"candidate_ids", "criteria", "evidence_snapshot", "reason", "timestamp",
                  "revision", "supersedes", "status"},
@@ -130,6 +133,8 @@ def molecule_id_for(entity, index):
         return entity["id"]
     if entity["type"] == "construct":
         return entity["molecule_id"]
+    if entity["type"] == "structure":
+        return entity["molecule_id"]
     if entity["type"] == "material":
         construct = index.get(entity["construct_id"])
         require(construct is not None and construct["type"] == "construct",
@@ -177,6 +182,9 @@ def validate_entity(entity, project_id):
     elif kind == "residue_map":
         from .numbering import validate_numbering_shape
         validate_numbering_shape(entity)
+    elif kind in ("structure", "structure_map"):
+        from .structures import validate_structure_shape
+        validate_structure_shape(entity)
     elif kind == "construct":
         text(entity["name"], "construct.name")
         identifier(entity["molecule_id"], "molecule")
@@ -243,7 +251,7 @@ def validate_graph(project, entities):
         elif kind == "material":
             ref(entity["construct_id"], {"construct"})
         elif kind == "evidence":
-            subject = ref(entity["subject_id"], {"molecule", "construct", "material"})
+            subject = ref(entity["subject_id"], {"molecule", "construct", "material", "structure"})
             require(entity["kind"] != "measured" or subject["type"] == "material",
                     "Measured evidence requires an explicit Material ID")
         elif kind == "decision":
@@ -259,13 +267,15 @@ def validate_graph(project, entities):
                         "Evidence snapshot differs from stored source")
                 require(original["id"] not in snapshot_ids, "Duplicate snapshot evidence")
                 snapshot_ids.add(original["id"])
-                subject = ref(original["subject_id"], {"molecule", "construct", "material"})
+                subject = ref(original["subject_id"], {"molecule", "construct", "material", "structure"})
                 require(molecule_id_for(subject, index) in entity["candidate_ids"],
                         "Evidence does not belong to selected candidates")
     from .composition import validate_composition_references
     validate_composition_references(index)
     from .numbering import validate_numbering_references
     validate_numbering_references(project, index)
+    from .structures import validate_structure_references
+    validate_structure_references(index)
     return index
 
 

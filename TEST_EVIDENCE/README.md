@@ -13,5 +13,7 @@ Store the input identity/checksum, target commit or exact source digest, command
 - `M2-numbering-independent-review.md`, `M2-numbering-independent-test-log.txt`: F07 PASS; 159 Python tests and 5 numbering Chrome checks, with the full M2/journeys still pending.
 - `M2-retained-foundation-browser-review.json`: all 11 retained browser assertions passed, followed by a OneDrive/Windows result-write error; the original nonzero exit and results are retained transparently.
 - `M2-numbering-screen.png`, `M2-numbering-explorer.png`: synthetic imported maps and complete CDR-H3 groups. They are not human-validated scientific golden data.
+- `M2-structure-independent-review.md`, `M2-structure-independent-test-log.txt`: F08 PASS; 207 Python tests and11/5/11 Chrome checks with actual PDB/mmCIF atom clicks, physical rotation/wheel zoom, manual correspondence, missing-source handling, project isolation and restart/roundtrip. All exit0. Full M2 and final journeys remain pending.
+- `M2-structure-screen.png`: actual local WebGL rendering of synthetic coordinates, with source/model/chain roles and internal computed metrics explicitly labeled.
 
 The prescribed eight journeys and sixteen negatives remain separate final acceptance items. An unsupported-structure rejection in the foundation is not a successful complete J08 structure-import journey.

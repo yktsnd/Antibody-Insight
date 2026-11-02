@@ -215,8 +215,11 @@ def test_invalid_json_rejected(raw):
 
 def test_corrupt_structure_rejected_without_changing_database(store):
     b = example_bundle(); store.import_bundle(b)
-    with pytest.raises(ValidationError, match="Unsupported file format"):
-        preview("ATOM broken", "pdb", "corrupt.pdb", b["project"])
+    molecule_id = next(e["id"] for e in b["entities"] if e["type"] == "molecule")
+    # F08 supports PDB; exercise actual corruption with otherwise valid explicit import context.
+    with pytest.raises(ValidationError, match="coordinate|PDB"):
+        preview("ATOM broken", "pdb", "corrupt.pdb", b["project"],
+                {"molecule_id": molecule_id, "origin_kind": "unknown", "source_name": "corrupt fixture", "source_version": None})
     assert store.bundle(b["project"]["id"]) == b
 
 

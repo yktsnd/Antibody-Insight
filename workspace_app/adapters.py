@@ -84,9 +84,21 @@ def csv_rows(raw):
         raise ValidationError("Malformed CSV") from exc
 
 
-def preview(raw, file_format, filename, project):
+def preview(raw, file_format, filename, project, structure_options=None):
     require(isinstance(raw, str), "File text required")
     require(isinstance(filename, str) and 0 < len(filename) <= 500, "Source filename required")
+    if file_format in ("pdb", "mmcif"):
+        require(isinstance(structure_options, dict), "Import sequences first, then explicitly choose a structure's molecule")
+        fields(structure_options, {"molecule_id", "origin_kind", "source_name", "source_version"}, "structure options")
+        validate_project(project)
+        entity = {"id": new_id("structure"), "type": "structure", "project_id": project["id"], "created_at": now(),
+                  "name": filename, "molecule_id": structure_options["molecule_id"], "file_format": file_format, "content": raw,
+                  "sha256": hashlib.sha256(raw.encode("utf-8")).hexdigest(), "origin_kind": structure_options["origin_kind"],
+                  "source": {"name": structure_options["source_name"] or filename, "version": structure_options["source_version"]}}
+        validate_entity(entity, project["id"])
+        return {"bundle": {"schema_version": SCHEMA, "project": project, "entities": [entity]},
+                "report": {"total_rows": 1, "valid_rows": 1, "excluded": [], "duplicates": [],
+                           "warnings": [{"message": "Coordinate source preserved. Chain/residue correspondence must be explicitly assigned; header/chemical metadata is retained but not automatically interpreted."}]}}
     if file_format == "json":
         bundle = parse_json(raw)
         fields(bundle, {"schema_version", "project", "entities"}, "bundle")

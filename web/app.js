@@ -6,7 +6,8 @@ const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({"&":"&am
 const pretty = (value) => esc(JSON.stringify(value, null, 2));
 const screenNames = {E:"Candidate Explorer", W:"Molecule Workspace", D:"Design & Compare", R:"Evidence & Decision"};
 let csrf = "", projects = [], bundle = null, pendingImport = null, pendingShortlist = null;
-const emptyState = () => ({screen:"E", selected:[], focus:null, chains:{}, position:null, filter:"", mapChoices:{}, chainMaps:{}, groupBy:"none", cdr3Group:""});
+const emptyState = () => ({screen:"E", selected:[], focus:null, chains:{}, position:null, filter:"", mapChoices:{}, chainMaps:{}, groupBy:"none", cdr3Group:"",
+  structureChoices:{},structureModels:{},structureMapChoices:{},structureViews:{},structureResidues:{},residueSelection:null,linkStructureViews:false});
 let state = emptyState();
 let numberingView = {maps:[]}, groupView = {candidates:[], groups:[]};
 let loading = false;
@@ -23,6 +24,8 @@ async function api(path, data) {
 }
 function notify(message, error = false) {
   const box = $("#notification"); box.hidden = false; box.className = error ? "error" : ""; box.textContent = message;
+  const open = document.querySelector('dialog[open]');
+  if (open && error) {let local=open.querySelector(':scope > .dialog-error');if(!local){local=document.createElement('p');local.className='dialog-error';local.setAttribute('role','alert');open.prepend(local);}local.textContent=message;}
 }
 function safeStorage(key, value) {
   try { if (value === undefined) return localStorage.getItem(key); localStorage.setItem(key, value); } catch { /* DB persistence still works. */ }
@@ -49,7 +52,7 @@ function subjectPath(evidence) {
   while (subject) {
     path.push(subject);
     if (subject.type === "material") subject = records.get(subject.construct_id);
-    else if (subject.type === "construct") subject = records.get(subject.molecule_id);
+    else if (subject.type === "construct" || subject.type === "structure") subject = records.get(subject.molecule_id);
     else break;
   }
   return path;
@@ -63,6 +66,7 @@ function heading(label, title, description) {
 function fixtureBanner() { return bundle?.project.data_class === "synthetic_fixture" ? '<div class="fixture-notice">Synthetic engineering fixture. Values are invented test data, not real experiments or model predictions.</div>' : ""; }
 function emptySelection() { return '<div class="panel empty"><h2>Choose candidates to continue</h2><p class="muted">Select candidates in the Explorer. Their IDs remain selected as you move through the workspace.</p><button data-screen="E">Open Candidate Explorer</button></div>'; }
 function render() {
+  StructureUI.dispose();
   remember();
   document.querySelectorAll("nav [data-screen]").forEach((b) => { b.classList.toggle("active", b.dataset.screen === state.screen); b.setAttribute("aria-current", b.dataset.screen === state.screen ? "page" : "false"); });
   $("#selection-count").textContent = `${state.selected.length} selected`;
@@ -76,6 +80,7 @@ function render() {
   }
   readyControls(ready);
   $("#content").innerHTML = fixtureBanner() + ({E:renderExplorer, W:renderWorkspace, D:renderDesign, R:renderEvidence}[state.screen])();
+  if (state.screen === "W") StructureUI.mount();
 }
 
 function renderExplorer() {
@@ -116,7 +121,7 @@ function renderWorkspace() {
   const focus = entities("molecule").find((m) => m.id === state.focus);
   const molecules = focus ? [focus, ...selected.filter((m) => m.id !== focus.id)] : selected;
   if (!molecules.length) return html + emptySelection();
-  html += '<p class="muted">Raw sequence indexes are 1-based and unaligned. Imported antibody coordinates, when present, have a separate chain/domain identity and verification status. Equal raw indexes do not establish homologous residues. Structure: not registered.</p>';
+  html += '<p class="muted">Raw sequence indexes are 1-based and unaligned. Imported antibody and structural coordinates retain separate chain/domain/model identities. Shared camera orientation is not structural superposition.</p>';
   if (molecules.length > 2) html += `<p class="muted">Showing the first 2 of ${molecules.length} candidates in context. The full selection is retained.</p>`;
   const displayed = molecules.slice(0, 2);
   const chains = displayed.map((m) => m.chains.find((c) => c.id === state.chains[m.id]) || m.chains[0]);
@@ -136,10 +141,11 @@ function renderWorkspace() {
     for (let i = start; i < Math.min(start + 200, chain.sequence.length); i++) {
       const difference = other && (other.sequence[i] ?? "absent") !== chain.sequence[i];
       const annotation = positions.get(i + 1);
-      html += `<button class="residue ${difference ? "diff" : ""} ${state.position === i + 1 ? "active" : ""} ${annotation?.region.startsWith("CDR") ? "cdr-residue" : ""}" data-position="${i + 1}" aria-label="${esc(m.external_id)} ${esc(chain.id)} sequence index ${i + 1} ${chain.sequence[i]}" title="${annotation ? esc(`${map.scheme} ${annotation.coordinate} / ${annotation.region} / ${map.domain_id}`) : "No imported antibody coordinate"}"><small>${i + 1}</small>${chain.sequence[i]}${annotation ? `<small>${esc(annotation.coordinate)}</small>` : ""}</button>`;
+      html += `<button class="residue ${difference ? "diff" : ""} ${state.position === i + 1 ? "active" : ""} ${annotation?.region.startsWith("CDR") ? "cdr-residue" : ""}" data-position="${i + 1}" data-position-molecule="${m.id}" data-position-chain="${esc(chain.id)}" aria-label="${esc(m.external_id)} ${esc(chain.id)} sequence index ${i + 1} ${chain.sequence[i]}" title="${annotation ? esc(`${map.scheme} ${annotation.coordinate} / ${annotation.region} / ${map.domain_id}`) : "No imported antibody coordinate"}"><small>${i + 1}</small>${chain.sequence[i]}${annotation ? `<small>${esc(annotation.coordinate)}</small>` : ""}</button>`;
     }
     const current = positions.get(state.position);
     html += `</div><label class="field">Jump to sequence index<input type="number" data-jump="${m.id}" min="1" max="${chain.sequence.length}" value="${state.position || 1}"></label><p class="sequence-details">${state.position ? `Selected raw index ${state.position}: ${esc(chain.sequence[state.position - 1] || "absent in this chain")} · ${current ? esc(`${map.scheme} ${current.coordinate} / ${current.region} / ${map.domain_id}`) : "numbering mapping unavailable for this index"}` : "Choose a sequence index to compare. Gold marks raw position differences."}</p><details><summary>Sequence source and raw record</summary><p>${esc(m.source.name)} / ${esc(m.source.version || "version unknown")}</p><pre>${pretty(m)}</pre></details>`;
+    html += StructureUI.panel(m);
     html += renderComposition(m);
     const constructs = entities("construct").filter((c) => c.molecule_id === m.id);
     html += '<p class="section-label">CONSTRUCTS & MATERIALS</p>';
@@ -195,7 +201,7 @@ function renderEvidence() {
   if (!evidence.length) html += '<div class="panel-body"><p class="muted">Not measured / not predicted. No evidence records were registered for this selection.</p></div>';
   for (const e of evidence) {
     const path = subjectPath(e);
-    html += `<article class="evidence-row"><div class="metric"><div><span class="tag ${esc(e.kind)}">${esc(e.kind)}</span><p>${esc(e.metric)}</p></div><div class="value">${e.value === null ? '<span class="muted">Value missing</span>' : esc(e.value) + ' <span class="muted">' + esc(e.unit) + '</span>'}</div></div><p class="muted">${path.map((p) => `${esc(p.type)}: ${esc(p.name)}`).join(" → ")}</p><p>Source: ${esc(e.source.name)} / ${esc(e.source.version || "version unknown")}<br>Event time: ${esc(e.timestamp)}</p><p>${e.conditions === null ? '<span class="tag warning">Conditions unknown — do not pool</span>' : 'Conditions: ' + esc(JSON.stringify(e.conditions))}</p>${e.kind === "computed" ? '<p class="muted">Computed result. Interpretation and uncertainty depend on the source; this is not an experimental measurement.</p>' : ""}<details><summary>Original record, subject IDs & provenance</summary><pre>${pretty(e)}</pre>${path.map((p) => `<p class="mono">${esc(p.type)}: ${p.id}</p>`).join("")}</details><label class="evidence-check"><input type="checkbox" data-evidence="${e.id}" checked> Include in draft snapshot</label></article>`;
+    html += `<article class="evidence-row"><div class="metric"><div><span class="tag ${esc(e.kind)}">${esc(e.kind)}</span><p>${esc(e.metric)}</p></div><div class="value">${e.value === null ? '<span class="muted">Value missing</span>' : esc(e.value) + ' <span class="muted">' + esc(e.unit) + '</span>'}</div></div><p class="muted">${path.map((p) => `${esc(p.type)}: ${esc(p.name)}`).join(" → ")}</p><p>Source: ${esc(e.source.name)} / ${esc(e.source.version || "version unknown")}<br>Event time: ${esc(e.timestamp)}</p><p>${e.conditions === null ? '<span class="tag warning">Conditions unknown — do not pool</span>' : 'Conditions: ' + esc(JSON.stringify(e.conditions))}</p>${["iptm","ptm"].includes(e.metric.toLowerCase()) ? '<p class="muted">Model-internal metric; not measured binding affinity. Model scope is declared in the source conditions or remains unspecified.</p>' : ""}${e.kind === "computed" ? '<p class="muted">Computed result. Interpretation and uncertainty depend on the source; this is not an experimental measurement.</p>' : ""}<details><summary>Original record, subject IDs & provenance</summary><pre>${pretty(e)}</pre>${path.map((p) => `<p class="mono">${esc(p.type)}: ${p.id}</p>`).join("")}</details><label class="evidence-check"><input type="checkbox" data-evidence="${e.id}" checked> Include in draft snapshot</label></article>`;
   }
   html += '</div></div><div><div class="panel"><div class="panel-head"><h2>Save a shortlist draft</h2><span class="tag">Draft only</span></div><div class="panel-body"><p class="muted">Record why these candidates deserve further investigation. Final decisions with criteria, weights and missing-data gates are scheduled for M4.</p><p class="section-label">CANDIDATES IN CONTEXT</p>';
   html += selectedMolecules().map((m) => `<p class="wrap">${esc(m.external_id)} — ${esc(m.name)}<br><span class="mono">${m.id}</span></p>`).join("");
@@ -208,6 +214,8 @@ function renderEvidence() {
 }
 
 async function loadProject(id) {
+  StructureUI.dispose();
+  remember();
   readyControls(false);
   bundle = await api("/api/bundle?project_id=" + encodeURIComponent(id));
   let saved;
@@ -243,6 +251,17 @@ function showImport() {
   pendingImport = null; $("#import-preview").hidden = true; $("#import-form").hidden = false;
   $("#import-target").value = bundle?.project.id || ""; $("#new-project-fields").hidden = !!bundle;
   $("#import-dialog").showModal();
+  updateStructureImport();
+}
+async function updateStructureImport() {
+  const coordinate = ["pdb","mmcif"].includes($("#import-format").value);
+  $("#structure-import-options").hidden = !coordinate;
+  if (!coordinate) return;
+  const target=$("#import-target").value;
+  let incoming=target===bundle?.project.id?entities("molecule"):[];
+  if (target && target!==bundle?.project.id) {try {incoming=(await api('/api/bundle?project_id='+encodeURIComponent(target))).entities.filter((e)=>e.type==='molecule');} catch(error){notify(error.message,true);}}
+  if ($("#import-target").value!==target) return;
+  $("#structure-molecule").innerHTML = '<option value="">Choose an explicitly registered molecule</option>' + incoming.map((m)=>`<option value="${m.id}">${esc(m.external_id)} / ${esc(m.name)}</option>`).join("");
 }
 function renderPreview(result, synthetic = false) {
   pendingImport = result.bundle;
@@ -253,8 +272,8 @@ function renderPreview(result, synthetic = false) {
 }
 
 const guides = {
-  en:`<h3>Observe, then retain the reasoning</h3><ol class="scope-list"><li>Import a local FASTA, sequence CSV or awx/1 JSON. Inspect the preview and excluded rows before saving.</li><li>Select candidates in E. Open W to inspect chains and compare raw sequence indexes. These are not IMGT positions or an alignment.</li><li>In R, follow each evidence record to its source and subject. Measured values belong to a particular material and construct.</li><li>Write a reason, review the candidate IDs and evidence snapshot, and save a shortlist draft.</li><li>Export JSON for an explicit local backup or import into a fresh database. An existing ID collision rejects the entire import.</li></ol><p>Missing values stay unknown; zero remains zero. Measured, computed, literature and annotation are distinct. Drafts are not finalized decisions. Imported source-bearing maps and CDR-H3 groups are supported; structures, automatic numbering, mutations, interactive assembly and final decisions are not implemented yet.</p><h3>Terminology</h3><p>Humanization means engineering a non-human antibody toward a human antibody framework while evaluating effects experimentally. A humanness score has a model-specific definition; no such score is implemented or inferred here.</p>`,
-  ja:`<h3>観察した内容と判断の理由を残す</h3><ol class="scope-list"><li>ローカルのFASTA、配列CSV、awx/1形式のJSONを読み込みます。保存前に取込内容と除外行を確認します。</li><li>Eで候補を選び、Wで鎖と配列を確認します。表示位置は配列先頭からの通し番号で、IMGT番号やアラインメントによる対応位置ではありません。</li><li>Rでは根拠の出典と対象を確認します。実測値は特定の試料とコンストラクトに紐づきます。</li><li>選定理由を書き、候補IDと根拠の保存内容を確認して、ショートリストの下書きを保存します。</li><li>明示的にJSONを書き出し、バックアップや空のデータベースへの再取込に利用できます。同じIDがあれば取込全体を拒否します。</li></ol><p>欠測値と0は区別します。実測、計算結果、文献、注釈も区別します。下書きは確定した意思決定ではありません。出典を持つ番号対応表の取込とCDR-H3群分けに対応しています。構造表示、番号付けの自動実行、変異体設計、対話的な組立、判断の確定は未実装です。</p><h3>用語について</h3><p>humanizationは「ヒト化」です。非ヒト抗体の配列をヒト抗体に近づける改変を指し、機能への影響は別途評価します。humannessは指標ごとに定義が異なるため、必要に応じて英語を併記し、ヒト抗体配列との類似性をどう評価した値かを説明します。この製品では現時点でその指標を計算していません。</p>`
+  en:`<h3>Observe, then retain the reasoning</h3><ol class="scope-list"><li>Import a local FASTA, sequence CSV or awx/1 JSON. Inspect the preview and excluded rows before saving.</li><li>Select candidates in E. Open W to inspect chains and compare raw sequence indexes. These are not IMGT positions or an alignment.</li><li>In R, follow each evidence record to its source and subject. Measured values belong to a particular material and construct.</li><li>Write a reason, review the candidate IDs and evidence snapshot, and save a shortlist draft.</li><li>Export JSON for an explicit local backup or import into a fresh database. An existing ID collision rejects the entire import.</li></ol><p>Missing values stay unknown; zero remains zero. Measured, computed, literature and annotation are distinct. Drafts are not finalized decisions. Imported numbering maps, CDR-H3 groups and local PDB/mmCIF observation with explicit correspondence are supported. Automatic numbering, mutations, interactive assembly and final decisions are not implemented yet. Camera linking shares orientation and zoom; it does not superpose structures. B-values are not automatically treated as confidence.</p><h3>Terminology</h3><p>Humanization means engineering a non-human antibody toward a human antibody framework while evaluating effects experimentally. A humanness score has a model-specific definition; no such score is implemented or inferred here.</p>`,
+  ja:`<h3>観察した内容と判断の理由を残す</h3><ol class="scope-list"><li>ローカルのFASTA、配列CSV、awx/1形式のJSONを読み込みます。保存前に取込内容と除外行を確認します。</li><li>Eで候補を選び、Wで鎖と配列を確認します。表示位置は配列先頭からの通し番号で、IMGT番号やアラインメントによる対応位置ではありません。</li><li>Rでは根拠の出典と対象を確認します。実測値は特定の試料とコンストラクトに紐づきます。</li><li>選定理由を書き、候補IDと根拠の保存内容を確認して、ショートリストの下書きを保存します。</li><li>明示的にJSONを書き出し、バックアップや空のデータベースへの再取込に利用できます。同じIDがあれば取込全体を拒否します。</li></ol><p>欠測値と0は区別します。実測、計算結果、文献、注釈も区別します。下書きは確定した意思決定ではありません。出典を持つ番号対応表の取込、CDR-H3群分け、ローカルのPDB/mmCIF表示に対応しています。構造ファイル中の鎖ID、残基番号、挿入コードと配列位置を明示的に対応付けます。視点の同期は構造の重ね合わせではありません。B値を予測信頼度と自動的に同一視しません。番号付けの自動実行、変異体設計、対話的な組立、判断の確定は未実装です。</p><h3>用語について</h3><p>humanizationは「ヒト化」です。非ヒト抗体の配列をヒト抗体に近づける改変を指し、機能への影響は別途評価します。humannessは指標ごとに定義が異なるため、必要に応じて英語を併記し、ヒト抗体配列との類似性をどう評価した値かを説明します。この製品では現時点でその指標を計算していません。</p>`
 };
 function renderHelp() { $("#help-content").innerHTML = guides[$("#help-language").value]; }
 
@@ -266,15 +285,15 @@ document.addEventListener("click", async (event) => {
     else if (button.dataset.close) $("#" + button.dataset.close).close();
     else if (button.dataset.action === "import" || button.id === "import-button") showImport();
     else if (button.dataset.open) { state.focus = button.dataset.open; state.screen = "W"; render(); }
-    else if (button.dataset.position) { state.position = Number(button.dataset.position); render(); }
+    else if (button.dataset.position) { state.position = Number(button.dataset.position); state.focus=button.dataset.positionMolecule; state.residueSelection={molecule_id:button.dataset.positionMolecule,chain_id:button.dataset.positionChain,sequence_index:state.position}; render(); }
     else if (button.dataset.restore) { const d = entities("decision").find((e) => e.id === button.dataset.restore); state.selected = [...d.candidate_ids]; state.focus = null; render(); }
     else if (button.id === "back-import") { pendingImport = null; $("#import-preview").hidden = true; $("#import-form").hidden = false; }
     else if (button.id === "commit-import") {
       loading = true; button.disabled = true;
       const saved = await api("/api/import", pendingImport); $("#import-dialog").close(); pendingImport = null;
       await refreshProjects(saved.project_id); notify(`Saved ${saved.imported} entities. IDs and source metadata were retained.`);
-    } else if (["fixture-button", "composition-fixture-button", "numbering-fixture-button"].includes(button.id)) {
-      const route = {"fixture-button":"/api/example", "composition-fixture-button":"/api/example-composition", "numbering-fixture-button":"/api/example-numbering"}[button.id];
+    } else if (["fixture-button", "composition-fixture-button", "numbering-fixture-button", "structure-fixture-button"].includes(button.id)) {
+      const route = {"fixture-button":"/api/example", "composition-fixture-button":"/api/example-composition", "numbering-fixture-button":"/api/example-numbering", "structure-fixture-button":"/api/example-structures"}[button.id];
       const example = await api(route); renderPreview({bundle:example, report:{total_rows:example.entities.length, valid_rows:example.entities.length, excluded:[], duplicates:[], warnings:[]}}, true);
     } else if (button.id === "export-button") {
       // Fetch fresh DB state, rather than exporting a stale tab snapshot.
@@ -299,15 +318,16 @@ document.addEventListener("change", async (event) => {
   const el = event.target;
   try {
     if (el.dataset.select) { if (el.checked) state.selected.push(el.dataset.select); else state.selected = state.selected.filter((x) => x !== el.dataset.select); render(); }
-    else if (el.dataset.chain) { state.chains[el.dataset.chain] = el.value; render(); }
+    else if (el.dataset.chain) { state.chains[el.dataset.chain] = el.value; if(state.residueSelection?.molecule_id===el.dataset.chain&&state.residueSelection.chain_id!==el.value)state.residueSelection=null; render(); }
     else if (el.dataset.chainMap) { if (el.value) state.chainMaps[el.dataset.chainMap] = el.value; else delete state.chainMaps[el.dataset.chainMap]; render(); }
     else if (el.dataset.mapChoice) { if (el.value) state.mapChoices[el.dataset.mapChoice] = el.value; else delete state.mapChoices[el.dataset.mapChoice]; await refreshNumbering(); render(); }
     else if (el.id === "group-by") {state.groupBy = el.value;render();}
     else if (el.id === "cdr3-filter") {state.cdr3Group = el.value;render();}
     else if (el.dataset.jump) { const pos = Number(el.value), m = entities("molecule").find((x) => x.id === el.dataset.jump); const c = m.chains.find((x) => x.id === state.chains[m.id]) || m.chains[0]; if (!Number.isInteger(pos) || pos < 1 || pos > c.sequence.length) throw new Error("Sequence index is outside this chain."); state.position = pos; render(); }
     else if (el.id === "project-select") { await loadProject(el.value); }
-    else if (el.id === "import-target") $("#new-project-fields").hidden = !!el.value;
-    else if (el.id === "import-file" && el.files[0]) { const file = el.files[0]; if (file.size > 24 * 1024 * 1024) throw new Error("Maximum input file size is 24 MiB."); $("#import-text").value = await file.text(); const ext = file.name.split(".").pop().toLowerCase(); if (["json","csv"].includes(ext)) $("#import-format").value = ext; else if (["fa","fasta","faa"].includes(ext)) $("#import-format").value = "fasta"; else throw new Error("Unsupported file format; no data saved."); }
+    else if (el.id === "import-target") {$("#new-project-fields").hidden = !!el.value;updateStructureImport();}
+    else if (el.id === "import-format") updateStructureImport();
+    else if (el.id === "import-file" && el.files[0]) { const file = el.files[0]; if (file.size > 24 * 1024 * 1024) throw new Error("Maximum input file size is 24 MiB."); $("#import-text").value = await file.text(); const ext = file.name.split(".").pop().toLowerCase(); if (["json","csv","pdb"].includes(ext)) $("#import-format").value = ext; else if (["cif","mmcif"].includes(ext)) $("#import-format").value="mmcif"; else if (["fa","fasta","faa"].includes(ext)) $("#import-format").value = "fasta"; else throw new Error("Unsupported file format; no data saved.");updateStructureImport(); }
     else if (el.id === "help-language") renderHelp();
   } catch (error) { notify(error.message, true); }
 });
@@ -320,11 +340,18 @@ $("#import-form").addEventListener("submit", async (event) => {
   event.preventDefault(); if (loading) return;
   loading = true;
   try {
-    const result = await api("/api/preview", {text:$("#import-text").value, format:$("#import-format").value,
+    const request = {text:$("#import-text").value, format:$("#import-format").value,
       filename:$("#import-file").files[0]?.name || "pasted-local-input", project_id:$("#import-target").value || null,
-      title:$("#project-title").value, goal:$("#project-goal").value});
+      title:$("#project-title").value, goal:$("#project-goal").value};
+    if (["pdb","mmcif"].includes(request.format)) request.structure_options={molecule_id:$("#structure-molecule").value,origin_kind:$("#structure-origin").value,
+      source_name:$("#structure-source").value,source_version:$("#structure-source-version").value || null};
+    const result = await api("/api/preview", request);
     renderPreview(result);
   } catch (error) { notify(error.message, true); }
   finally { loading = false; }
+});
+StructureUI.configure({api,bundle:()=>bundle,state:()=>state,remember,notify,render,
+  focusSequence(selection){state.residueSelection=selection;state.focus=selection.molecule_id;state.chains[selection.molecule_id]=selection.chain_id;state.position=selection.sequence_index;render();},
+  async reload(){bundle=await api('/api/bundle?project_id='+encodeURIComponent(bundle.project.id));await refreshNumbering();render();}
 });
 refreshProjects().catch((error) => notify(error.message, true));

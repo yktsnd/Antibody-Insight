@@ -1,0 +1,19 @@
+{
+  "3dmol": {
+    "version": "2.5.5",
+    "package_url": "https://registry.npmjs.org/3dmol/-/3dmol-2.5.5.tgz",
+    "integrity": "sha512-kqNHouGqq3YfW58174tdERvm0XYTmP0tavQKOqIw1ouc2OJ7epkXEFrtEkVXV0clBZT2Ze2xHRC/qxX0u0qCdw==",
+    "license": "BSD-3-Clause with included upstream notices"
+  },
+  "gemmi": {
+    "version": "0.7.5",
+    "source": "https://github.com/project-gemmi/gemmi/tree/v0.7.5",
+    "license": "MPL-2.0",
+    "distribution": "unmodified external Python package"
+  },
+  "files": {
+    "3Dmol-2.5.5.min.js": "f7cc78921ae72e7623e89cdd111434f58c2efddd2ffda1cd212644b406fb8016",
+    "3Dmol-LICENSE.txt": "4c6eaaed856f3f28a3b1a98e74f4a8a71618de7d51ea4155c29f6f793bcef861",
+    "Gemmi-MPL-2.0.txt": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+  }
+}

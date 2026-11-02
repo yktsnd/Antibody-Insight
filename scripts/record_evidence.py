@@ -4,6 +4,8 @@ import hashlib
 import argparse
 import json
 import platform
+import importlib.metadata
+import uuid
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -15,8 +17,8 @@ parser.add_argument("--scope", default="Initial M1 F01-F05; not final eight jour
 args = parser.parse_args()
 if not args.stage.replace("-", "").isalnum():
     parser.error("Stage must contain only letters, numbers and hyphens")
-paths = [ROOT / p for p in ("AGENTS.md", "PRODUCT_GOAL.md", "DEVELOPMENT_PLAN.md")]
-for folder, pattern in (("workspace_app", "*.py"), ("web", "*"), ("tests", "*.py"), ("tests", "*.cjs"), ("scripts", "*.py")):
+paths = [ROOT / p for p in ("AGENTS.md", "PRODUCT_GOAL.md", "DEVELOPMENT_PLAN.md", "requirements.txt", "start.ps1", "THIRD_PARTY_NOTICES.md") if (ROOT / p).exists()]
+for folder, pattern in (("workspace_app", "*.py"), ("web", "*"), ("web/vendor", "*"), ("tests", "*.py"), ("tests", "*.cjs"), ("scripts", "*.py")):
     paths.extend((ROOT / folder).glob(pattern))
 checksums = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(paths)) if p.is_file()}
 record = {
@@ -27,7 +29,14 @@ record = {
     "python": platform.python_version(), "platform": platform.platform(),
     "source_sha256": hashlib.sha256(json.dumps(checksums, sort_keys=True).encode()).hexdigest(),
     "files": checksums,
-    "commands": ["python -m pytest -q --tb=short", "node tests/browser.cjs", "python scripts/check_traceability.py"],
+    "commands": [".venv/Scripts/python.exe -m pytest -q --tb=short", "node tests/browser.cjs", "node tests/numbering-browser.cjs", "node tests/structures-browser.cjs", "python scripts/check_traceability.py"],
 }
-(ROOT / "TEST_EVIDENCE" / f"{args.stage}-source-manifest.json").write_text(json.dumps(record, indent=2), encoding="utf-8")
+try:
+    record["gemmi_version"] = importlib.metadata.version("gemmi")
+except importlib.metadata.PackageNotFoundError:
+    record["gemmi_version"] = None
+target = ROOT / "TEST_EVIDENCE" / f"{args.stage}-source-manifest.json"
+pending = target.with_name(target.name + ".pending-" + uuid.uuid4().hex)
+pending.write_text(json.dumps(record, indent=2), encoding="utf-8")
+pending.replace(target)
 print("Recorded source digest", record["source_sha256"])

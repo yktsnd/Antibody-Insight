@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antibody Insight | Research Workspace</title>
   <link rel="stylesheet" href="/style.css">
+  <script src="/vendor/3Dmol-2.5.5.min.js" defer></script>
+  <script src="/structures.js" defer></script>
   <script src="/app.js" defer></script>
 </head>
 <body>
@@ -29,11 +31,12 @@
   <dialog id="import-dialog">
     <form id="import-form"><div class="dialog-heading"><div><p class="eyebrow">LOCAL IMPORT</p><h2>Bring your research into context</h2></div><button type="button" data-close="import-dialog" class="icon-button" aria-label="Close import">×</button></div>
       <p class="muted">Preview before saving. Sequences are not sent to an external service.</p>
-      <div class="form-row"><label class="field">Import into<select id="import-target"><option value="">New project</option></select></label><label class="field">Format<select id="import-format"><option value="fasta">FASTA (unpaired sequences)</option><option value="csv">Sequence CSV</option><option value="json">Workspace JSON (awx/1)</option></select></label></div>
+      <div class="form-row"><label class="field">Import into<select id="import-target"><option value="">New project</option></select></label><label class="field">Format<select id="import-format"><option value="fasta">FASTA (unpaired sequences)</option><option value="csv">Sequence CSV</option><option value="json">Workspace JSON (awx/1)</option><option value="pdb">PDB coordinates</option><option value="mmcif">mmCIF coordinates</option></select></label></div>
+      <div id="structure-import-options" hidden><div class="form-row"><label class="field">Declared molecule<select id="structure-molecule"></select></label><label class="field">Structural origin<select id="structure-origin"><option value="unknown">Unknown</option><option value="computed">Computed / predicted</option><option value="experimental">Experimental</option></select></label></div><div class="form-row"><label class="field">Actual source / tool<input id="structure-source" placeholder="Source filename if unspecified"></label><label class="field">Actual tool / source version<input id="structure-source-version" placeholder="Unknown if unspecified"></label></div><p class="muted">No model, confidence, chain assignment or residue mapping is inferred.</p></div>
       <div id="new-project-fields" class="form-row"><label class="field">Project title<input id="project-title" value="Antibody research" maxlength="200"></label><label class="field">Research goal<input id="project-goal" value="Observe candidates and retain the evidence behind selection."></label></div>
-      <label class="field">Choose a local file<input id="import-file" type="file" accept=".fasta,.fa,.faa,.csv,.json"></label>
+      <label class="field">Choose a local file<input id="import-file" type="file" accept=".fasta,.fa,.faa,.csv,.json,.pdb,.cif,.mmcif"></label>
       <label class="field">Or paste file contents<textarea id="import-text" rows="6" spellcheck="false" placeholder=">candidate-1&#10;EVQLVESGGGLVQPGGSLRLSCAASGFTF"></textarea></label>
-      <div class="dialog-actions"><button type="button" id="numbering-fixture-button" class="secondary">Preview numbering fixture</button><button type="button" id="composition-fixture-button" class="secondary">Preview composition fixture</button><button type="button" id="fixture-button" class="secondary">Preview synthetic example</button><button type="submit">Validate &amp; preview</button></div>
+      <div class="dialog-actions"><button type="button" id="structure-fixture-button" class="secondary">Preview structure fixture</button><button type="button" id="numbering-fixture-button" class="secondary">Preview numbering fixture</button><button type="button" id="composition-fixture-button" class="secondary">Preview composition fixture</button><button type="button" id="fixture-button" class="secondary">Preview synthetic example</button><button type="submit">Validate &amp; preview</button></div>
     </form>
     <section id="import-preview" hidden></section>
   </dialog>

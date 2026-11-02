@@ -14,10 +14,11 @@ from urllib.parse import parse_qs, urlsplit
 
 from . import __version__
 from .adapters import new_project, parse_json, preview
-from .domain import ValidationError, fields, require
+from .domain import SCHEMA, ValidationError, fields, new_id, now, require, validate_graph
 from .fixtures import composition_bundle, example_bundle, numbering_bundle
 from .numbering import cdr3_groups, observations
 from .storage import Store
+from .structures import structure_observation
 
 WEB = Path(__file__).resolve().parent.parent / "web"
 MAX_BODY = 32 * 1024 * 1024
@@ -107,12 +108,20 @@ class Handler(BaseHTTPRequestHandler):
                 elif parsed.path == "/api/numbering":
                     project_id = parse_qs(parsed.query).get("project_id", [""])[0]
                     self.reply(200, observations(self.server.store.bundle(project_id)))
+                elif parsed.path == "/api/example-structures":
+                    from .structure_fixtures import structure_bundle
+                    self.reply(200, structure_bundle())
+                elif parsed.path == "/api/structure-view":
+                    query = parse_qs(parsed.query)
+                    bundle = self.server.store.bundle(query.get("project_id", [""])[0])
+                    self.reply(200, structure_observation(bundle, query.get("structure_id", [""])[0], query.get("map_id", [None])[0]))
                 else:
                     self.reply(404, {"error": "Unknown API route"})
             except ValidationError as exc:
                 self.reply(422, {"error": str(exc), "details": exc.details})
             return
-        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css"}
+        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js",
+                 "/vendor/3Dmol-2.5.5.min.js": "vendor/3Dmol-2.5.5.min.js"}
         filename = files.get(parsed.path)
         if filename is None:
             self.reply(404, {"error": "Not found"})
@@ -135,14 +144,14 @@ class Handler(BaseHTTPRequestHandler):
             data = parse_json(raw)
             route = urlsplit(self.path).path
             if route == "/api/preview":
-                fields(data, {"text", "format", "filename", "project_id", "title", "goal"}, "request")
+                fields(data, {"text", "format", "filename", "project_id", "title", "goal"}, "request", {"structure_options"})
                 if data["format"] == "json":
                     project = None
                 elif data["project_id"]:
                     project = self.server.store.bundle(data["project_id"])["project"]
                 else:
                     project = new_project(data["title"], data["goal"])
-                result = preview(data["text"], data["format"], data["filename"], project)
+                result = preview(data["text"], data["format"], data["filename"], project, data.get("structure_options"))
             elif route == "/api/import":
                 result = self.server.store.import_bundle(data)
             elif route == "/api/shortlist":
@@ -152,6 +161,13 @@ class Handler(BaseHTTPRequestHandler):
             elif route == "/api/cdr3-groups":
                 fields(data, {"project_id", "map_choices"}, "request")
                 result = cdr3_groups(self.server.store.bundle(data["project_id"]), data["map_choices"])
+            elif route == "/api/structure-map-preview":
+                fields(data, {"project_id", "definition"}, "request")
+                fields(data["definition"], {"structure_id", "molecule_id", "source", "chain_assignments", "residues"}, "mapping definition")
+                bundle = self.server.store.bundle(data["project_id"])
+                candidate = {**data["definition"], "id": new_id("structure_map"), "type": "structure_map", "project_id": data["project_id"], "created_at": now()}
+                validate_graph(bundle["project"], [*bundle["entities"], candidate])
+                result = {"schema_version": SCHEMA, "project": bundle["project"], "entities": [candidate]}
             else:
                 self.reply(404, {"error": "Unknown API route"})
                 return

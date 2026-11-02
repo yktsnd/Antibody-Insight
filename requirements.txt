@@ -1,0 +1,2 @@
+# PDB/mmCIF parser; unmodified external MPL-2.0 dependency.
+gemmi==0.7.5

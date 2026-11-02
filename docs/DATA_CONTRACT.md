@@ -43,6 +43,9 @@ ResidueMapはF07の[番号付け契約](NUMBERING_CONTRACT.md)に従って取り
 対話的な組立操作、Hypothesis、番号付き変異は後続のM3に残す。
 未実装型の入力は未対応として拒否する。
 構造ファイルはM2で対応するため、M1では未対応形式としてDB変更前に拒否する。
+F08では[構造契約](STRUCTURE_CONTRACT.md)に従い、StructureとStructureMapを追加する。
+computed Evidenceの直接対象にStructureを認め、元の構造から宣言されたMoleculeへたどれるようにする。
+measured Evidenceの直接対象は引き続きMaterialに限り、構造や分子へ実測として付け替えない。
 
 ## FASTAとCSV
 
