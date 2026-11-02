@@ -10,5 +10,8 @@ Store the input identity/checksum, target commit or exact source digest, command
 - `M1-initial-independent-review.md`: implementation verdict when the independent replay is complete.
 - `M1-composition-independent-review.md`, `M1-composition-independent-test-log.txt`: F06 implementation and M1 engineering-gate PASS; 104 tests and 11 browser checks. The final journey/scientific/user gates remain pending.
 - `M1-composition-screen.png`: explicit declared components and lineage, not validated physical assembly.
+- `M2-numbering-independent-review.md`, `M2-numbering-independent-test-log.txt`: F07 PASS; 159 Python tests and 5 numbering Chrome checks, with the full M2/journeys still pending.
+- `M2-retained-foundation-browser-review.json`: all 11 retained browser assertions passed, followed by a OneDrive/Windows result-write error; the original nonzero exit and results are retained transparently.
+- `M2-numbering-screen.png`, `M2-numbering-explorer.png`: synthetic imported maps and complete CDR-H3 groups. They are not human-validated scientific golden data.
 
 The prescribed eight journeys and sixteen negatives remain separate final acceptance items. An unsupported-structure rejection in the foundation is not a successful complete J08 structure-import journey.

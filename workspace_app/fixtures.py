@@ -15,7 +15,7 @@ def example_bundle(count=8):
     project = {"id": fixture_id("project", "project-" + str(count)),
                "title": "[SYNTHETIC FIXTURE] Candidate study",
                "goal": "Engineering tests only; no experimentally validated antibodies or predictions.",
-               "created_at": STAMP}
+               "created_at": STAMP, "data_class": "synthetic_fixture"}
     entities = []
 
     def entity(entity_type, label, **values):
@@ -100,4 +100,44 @@ def composition_bundle():
                "change_set": {"kind": "composition", "reason": "Synthetic data consistency and origin-tracking test only.",
                               "before": composition_signature(parents[0]), "after": composition_signature(child)}}
     bundle["entities"].extend([*units, child, lineage])
+    return bundle
+
+
+def numbering_bundle(count=8):
+    """Explicit synthetic numbering annotations; not a biological golden set."""
+    bundle = example_bundle(count)
+    remap = {bundle["project"]["id"]: fixture_id("project", f"numbering-project-{count}")}
+    remap.update({e["id"]: fixture_id(e["type"], "numbering/base/" + e["id"]) for e in bundle["entities"]})
+
+    def namespaced(value):
+        if isinstance(value, str): return remap.get(value, value)
+        if isinstance(value, list): return [namespaced(item) for item in value]
+        if isinstance(value, dict): return {key: namespaced(item) for key, item in value.items()}
+        return value
+
+    bundle = namespaced(bundle)
+    bundle["project"]["title"] = f"[SYNTHETIC FIXTURE] {count} imported numbering maps"
+    alphabet = "ACDEFGHIKLMNPQRSTVWY"
+    maps = []
+    for i, molecule in enumerate(e for e in bundle["entities"] if e["type"] == "molecule"):
+        molecule["name"] = f"Numbered fixture candidate {i + 1:03}"
+        molecule["external_id"] = f"NUM-{i + 1:03}"
+        positions = [(n, "") for n in range(1, 112)] + [(111, ".1"), (112, ".1")] + [(n, "") for n in range(112, 130)]
+        chains = []
+        for chain_id, chain_type in [("H", "heavy")] + ([("L", "light")] if i < 2 else []):
+            coordinates = positions if chain_type == "heavy" else [(n, "") for n in range(1, 130)]
+            entries = [{"sequence_index": j, "aa": alphabet[(n + (i % 3 if 105 <= n <= 117 else 0)) % 20],
+                        "number": n, "ins_code": code} for j, (n, code) in enumerate(coordinates, 1)]
+            chains.append({"id": chain_id, "role": f"declared {chain_type} variable chain (fixture)",
+                           "sequence": "".join(entry["aa"] for entry in entries)})
+            maps.append({"id": fixture_id("residue_map", f"numbering-{count}-{i}-{chain_id}"), "type": "residue_map",
+                         "project_id": bundle["project"]["id"], "created_at": STAMP, "molecule_id": molecule["id"],
+                         "chain_id": chain_id, "domain_id": "fixture-V", "chain_type": chain_type, "scheme": "IMGT",
+                         "definition": "rearranged_v_domain", "status": "mapped", "reason": None,
+                         "sequence_start": 1, "sequence_end": len(entries),
+                         "source": {"name": "SYNTHETIC coordinate mapping; not assigned by IMGT or an antibody tool", "version": "1"},
+                         "verification": {"status": "engineering_fixture", "reference": "Engineering consistency test only; human scientific validation pending",
+                                          "reviewer": None, "reviewed_at": None}, "entries": entries})
+        molecule["chains"] = chains
+    bundle["entities"].extend(maps)
     return bundle

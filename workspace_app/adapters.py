@@ -36,7 +36,7 @@ def parse_json(raw):
 
 
 def new_project(title, goal):
-    project = {"id": new_id("project"), "title": title, "goal": goal, "created_at": now()}
+    project = {"id": new_id("project"), "title": title, "goal": goal, "created_at": now(), "data_class": "research"}
     validate_project(project)
     return project
 

@@ -7,6 +7,8 @@
 
 awx/1はprojectとentitiesを含むJSONオブジェクトとする。
 projectにはid、title、goal、created_atがある。
+data_classは任意でresearch/synthetic_fixtureを指定でき、省略した既存データはresearchとして扱う。
+プロジェクト名だけでは試験例としての番号付け処理を有効にしない。
 entityにはid、type、project_id、created_atと型固有属性がある。
 内部IDは型プレフィックスとUUID（例mol_…）とし、外部ラベルとは別に保存する。
 projectと全entityのID衝突を上書きしない。
@@ -37,7 +39,8 @@ project内容の不一致、内部ID衝突、同じproject内の外部ID衝突�
 初期のmolecule.chainsは配列観察の最小モデルである。
 追加のF06では、BindingUnit、明示されたcomponent_graph、構成変更のLineageを[追加契約](COMPONENT_CONTRACT.md)に従って保存、検証する。
 旧データを推測で補完せず、保存済みの内容は書き換えない。
-対話的な組立操作、ResidueMap、Hypothesis、番号付き変異は後続のM2/M3に残す。
+ResidueMapはF07の[番号付け契約](NUMBERING_CONTRACT.md)に従って取り込む。
+対話的な組立操作、Hypothesis、番号付き変異は後続のM3に残す。
 未実装型の入力は未対応として拒否する。
 構造ファイルはM2で対応するため、M1では未対応形式としてDB変更前に拒否する。
 

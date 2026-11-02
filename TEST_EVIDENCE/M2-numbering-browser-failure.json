@@ -1,0 +1,15 @@
+{
+  "error": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('combobox', { name: 'CDR-H3 map for NUM-001', exact: true }) to be visible\u001b[22m\n",
+  "results": [
+    {
+      "name": "800 candidates imported with explicit synthetic numbering metadata",
+      "status": "PASS",
+      "duration_ms": 17103
+    },
+    {
+      "name": "CDR-H3 grouping retains five selected IDs across raw chain and exact insertion observations",
+      "status": "PASS",
+      "duration_ms": 5196
+    }
+  ]
+}

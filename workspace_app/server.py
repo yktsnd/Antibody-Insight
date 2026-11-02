@@ -15,7 +15,8 @@ from urllib.parse import parse_qs, urlsplit
 from . import __version__
 from .adapters import new_project, parse_json, preview
 from .domain import ValidationError, fields, require
-from .fixtures import composition_bundle, example_bundle
+from .fixtures import composition_bundle, example_bundle, numbering_bundle
+from .numbering import cdr3_groups, observations
 from .storage import Store
 
 WEB = Path(__file__).resolve().parent.parent / "web"
@@ -99,6 +100,13 @@ class Handler(BaseHTTPRequestHandler):
                     self.reply(200, example_bundle())
                 elif parsed.path == "/api/example-composition":
                     self.reply(200, composition_bundle())
+                elif parsed.path == "/api/example-numbering":
+                    count = parse_qs(parsed.query).get("count", ["8"])[0]
+                    require(count in ("8", "800"), "Fixture count must be 8 or 800")
+                    self.reply(200, numbering_bundle(int(count)))
+                elif parsed.path == "/api/numbering":
+                    project_id = parse_qs(parsed.query).get("project_id", [""])[0]
+                    self.reply(200, observations(self.server.store.bundle(project_id)))
                 else:
                     self.reply(404, {"error": "Unknown API route"})
             except ValidationError as exc:
@@ -141,6 +149,9 @@ class Handler(BaseHTTPRequestHandler):
                 fields(data, {"project_id", "candidate_ids", "evidence_ids", "reason"}, "request")
                 result = self.server.store.save_shortlist(data["project_id"], data["candidate_ids"],
                                                          data["evidence_ids"], data["reason"])
+            elif route == "/api/cdr3-groups":
+                fields(data, {"project_id", "map_choices"}, "request")
+                result = cdr3_groups(self.server.store.bundle(data["project_id"]), data["map_choices"])
             else:
                 self.reply(404, {"error": "Unknown API route"})
                 return

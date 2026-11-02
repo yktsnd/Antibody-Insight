@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 
 SCHEMA = "awx/1"
 PREFIX = {"project": "prj", "molecule": "mol", "construct": "con", "material": "mat",
-          "evidence": "evd", "decision": "dec", "binding_unit": "bnd", "lineage": "lin"}
+          "evidence": "evd", "decision": "dec", "binding_unit": "bnd", "lineage": "lin", "residue_map": "rmp"}
 AA = frozenset("ACDEFGHIKLMNPQRSTVWYBXZJUO")
 MAX_SAFE_INTEGER = 2**53 - 1
 CORE = {"id", "type", "project_id", "created_at"}
@@ -20,6 +20,8 @@ FIELDS = {
     "material": {"name", "construct_id", "lot"},
     "binding_unit": {"name", "topology", "chains", "source"},
     "lineage": {"parent_id", "child_id", "change_set"},
+    "residue_map": {"molecule_id", "chain_id", "domain_id", "chain_type", "scheme", "definition", "status", "reason",
+                    "sequence_start", "sequence_end", "source", "verification", "entries"},
     "evidence": {"subject_id", "kind", "metric", "source", "timestamp", "conditions", "value", "unit"},
     "decision": {"candidate_ids", "criteria", "evidence_snapshot", "reason", "timestamp",
                  "revision", "supersedes", "status"},
@@ -137,11 +139,12 @@ def molecule_id_for(entity, index):
 
 
 def validate_project(project):
-    fields(project, {"id", "title", "goal", "created_at"}, "project")
+    fields(project, {"id", "title", "goal", "created_at"}, "project", {"data_class"})
     identifier(project["id"], "project")
     text(project["title"], "project.title", 200)
     text(project["goal"], "project.goal")
     timestamp(project["created_at"], "project.created_at")
+    require(project.get("data_class", "research") in ("research", "synthetic_fixture"), "Unsupported project data class")
 
 
 def validate_entity(entity, project_id):
@@ -171,6 +174,9 @@ def validate_entity(entity, project_id):
     elif kind in ("binding_unit", "lineage"):
         from .composition import validate_composition_entity
         validate_composition_entity(entity)
+    elif kind == "residue_map":
+        from .numbering import validate_numbering_shape
+        validate_numbering_shape(entity)
     elif kind == "construct":
         text(entity["name"], "construct.name")
         identifier(entity["molecule_id"], "molecule")
@@ -258,6 +264,8 @@ def validate_graph(project, entities):
                         "Evidence does not belong to selected candidates")
     from .composition import validate_composition_references
     validate_composition_references(index)
+    from .numbering import validate_numbering_references
+    validate_numbering_references(project, index)
     return index
 
 

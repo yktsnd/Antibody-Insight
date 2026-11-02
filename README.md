@@ -4,7 +4,7 @@ A local research workspace connecting antibody candidates to sequences, material
 
 [日本語の利用ガイド](README.ja.md) · [Product goal](PRODUCT_GOAL.md) · [Development specification](DEVELOPMENT_PLAN.md) · [Current limitations](KNOWN_LIMITATIONS.md)
 
-**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** The current build implements the foundation slices F01–F06, not Release 1.0. It does not run predictive models or assign antibody numbering.
+**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F07 is independently verified, including imported numbering and CDR-H3 observation. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
 
 ## Run locally
 
@@ -28,6 +28,8 @@ The default database is `%LOCALAPPDATA%/AntibodyInsight/workspace.sqlite3` on Wi
 
 Use **Preview composition fixture** to inspect two explicitly declared binding units, ordered components/linker, chain copy counts and composition lineage in W. Origin IDs and before/after signatures remain intact after restart and reimport. The declaration does not validate physical assembly, chemical connectivity or binding.
 
+Use **Preview numbering fixture** for explicitly synthetic IMGT annotations. W separates raw indexes, imported IMGT coordinates, domain IDs and verification states. E can group complete heavy-chain CDR3 sequences using eligible imported maps; multiple map versions/domains require an explicit choice. Unknown, truncated, unverified and failed maps remain visible. No sequence is sent to a numbering service.
+
 **D** retains the selection context and explicitly identifies pending design operations. The researcher guide in the application switches between English and Japanese. UI labels, code and identifiers use English. Japanese explanations use curated antibody-research terminology.
 
 ## Import contracts
@@ -37,7 +39,7 @@ Use **Preview composition fixture** to inspect two explicitly declared binding u
 - Workspace JSON: versioned `awx/1` with strict entity/reference validation. Measured evidence requires a Material ID. Missing values/conditions remain null; zero remains zero. Unknown source version stays null.
 - ID collisions reject the entire save. Unknown fields are reported rather than discarded. Entities and draft snapshots are append-only. An existing project can accept new entities only with unchanged project metadata.
 
-See [the data contract](docs/DATA_CONTRACT.md) and [explicit composition contract](docs/COMPONENT_CONTRACT.md). Stored component graphs and composition lineage are supported. Structures, verified numbering, interactive assembly, numbered variants, hypotheses, criteria-based final decisions, measurement CSV and AIRR adapters remain pending.
+See [the data contract](docs/DATA_CONTRACT.md), [explicit composition contract](docs/COMPONENT_CONTRACT.md) and [numbering contract](docs/NUMBERING_CONTRACT.md). Stored component graphs, composition lineage and source-bearing IMGT maps are supported. The initial insertion subset is 111/112 decimal extensions; other legitimate IMGT additions are explicitly unsupported. Structures, interactive assembly, numbered variants, hypotheses, criteria-based final decisions, measurement CSV and AIRR adapters remain pending.
 
 ## Verify
 
@@ -46,12 +48,15 @@ Development tests require pytest (MIT). Browser tests require Node.js, Playwrigh
 ```powershell
 python -m pytest -q
 node tests/browser.cjs
+node tests/numbering-browser.cjs
 python scripts/check_traceability.py
 ```
 
 If Playwright is supplied by a separate runtime, set `NODE_PATH` to that runtime's `node_modules` directory. `PYTHON` can select the Python executable and `PLAYWRIGHT_CHANNEL` can select an installed Playwright browser channel. The browser test creates temporary databases and runs its own loopback servers. It does not access the user's research database.
 
 The initial browser suite verifies import preview/QC, 800 records, five selections across E/W/D/R, selected-candidate focus, null versus zero, evidence snapshots, a real process restart, JSON roundtrip, hostile text escaping, no outbound browser requests, a mobile viewport and bilingual explanations. These checks are partial-path evidence and must not be counted as final 8/8 or 16/16 acceptance.
+
+The numbering suite uses 800 synthetic candidates to verify CDR-H3 grouping, chain-specific insertion coordinates, explicit ambiguous-map selection, unavailable/partial/unverified states, map-choice restart persistence and ID-only group-filter storage. Engineering fixture success is not human scientific validation.
 
 See [test evidence](TEST_EVIDENCE/README.md), [traceability](TRACEABILITY.csv), [the initial review](docs/INITIAL_REVIEW.md) and [the acceptance plan](docs/ACCEPTANCE.md). Human-validated scientific golden fixtures and researcher evaluations remain outstanding.
 

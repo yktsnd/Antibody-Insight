@@ -1,5 +1,13 @@
 # Changes
 
+## Imported numbering observation (F07, independently verified)
+
+- Explicit molecule/chain/domain map identities, source verification attestations, unavailable/failed states and optional project data classification.
+- Raw-index/IMGT-coordinate/region display with insertion identities preserved as text.
+- Complete CDR-H3 grouping requires observed anchors and eligible maps; ambiguous versions/domains require explicit selection.
+- Group filters persist opaque map IDs rather than sequence strings; navigation waits for project initialization.
+- Initial supported IMGT subset and the FR4 source discrepancy are documented without inventing numbering or scientific validation.
+
 ## 0.2.0-dev (declared composition foundation)
 
 - Independent BindingUnit IDs, declared paired/single-chain topology and exact source intervals.

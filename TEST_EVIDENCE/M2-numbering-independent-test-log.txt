@@ -1,0 +1,62 @@
+Independent reviewer: /root/independent_review
+Date: 2026-11-03 Asia/Tokyo
+Scope: F07 imported numbering and retained F01-F06 regression
+
+Command: python -m pytest -q tests/test_numbering_independent.py
+.................................                                        [100%]
+33 passed in 1.29s
+Exit code: 0
+
+Command: python -m pytest -q
+........................................................................ [ 45%]
+........................................................................ [ 90%]
+...............                                                          [100%]
+159 passed in 15.97s
+Exit code: 0
+
+PowerShell environment for both browser commands:
+$env:NODE_PATH='C:\Users\yukis\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
+
+Command: node tests/browser.cjs
+PASS empty workspace and explicit fixture preview
+PASS five IDs persist across E W D R and residue selection
+PASS measured computed null zero conditions and immutable five-candidate draft
+PASS fresh JSON export and restart preserve IDs snapshots selection and source versions
+PASS English and Japanese researcher explanations use curated terminology
+PASS duplicate ID rejected atomically; unknown fields and corrupt structures do not change state
+PASS hostile imported text stays text with no script execution
+PASS 800-candidate FASTA QC preview; valid subset explicitly saved; responsive UI
+PASS fresh environment JSON import roundtrip equals exported dataset
+PASS F06 declared units component order copy counts and lineage in the workspace
+The eleventh no-outbound/no-JavaScript-errors assertion passed and is in the
+saved result list. The command then failed opening M1-browser-results.json:
+Error: UNKNOWN: unknown error, open '...\TEST_EVIDENCE\M1-browser-results.json'
+errno: -4094; code: UNKNOWN; syscall: open
+Observed exit code: 1 (artifact write failure after all 11 product assertions).
+Original failure/results timestamp: 2026-11-02T15:13:27.313Z
+Verified unique fallback artifact: M2-retained-foundation-browser-review.json
+The fallback preserves all 11 PASS checks and the original process exit/error.
+
+Command: node tests/numbering-browser.cjs
+PASS 800 candidates imported with explicit synthetic numbering metadata
+PASS CDR-H3 grouping retains five selected IDs across raw chain and exact insertion observations
+PASS unavailable partial unverified and ambiguous mappings remain explicit
+PASS bad sequence annotation and malformed map choices reject without overwrite
+PASS server restart preserves map choice chain context and exact map provenance
+PASS F07 browser checks 5
+Exit code: 0
+Chrome: 156.0.8078.79
+Report timestamp: 2026-11-02T15:14:58.774Z
+Detailed evidence: M2-numbering-browser-results.json
+No outbound requests: true. No JavaScript errors: true.
+
+Command: python scripts/check_traceability.py
+PASS: 8 complete journey definitions and 7 traced implementation slices
+Full journey acceptance: 0/8. Prescribed final browser edge cases: 0/16.
+Initial checks are not counted as full acceptance.
+Exit code: 0
+
+Source manifest: M2-F07-independent-source-manifest.json
+Source digest: 5e0ed23d037ceecaf0d3ab59c3add83853f29ba72ef728af9ca60fb1c6069b8e
+Final UI help/D wording reviewed separately from the earlier full Python run;
+both browser suites exercised that final UI. No product behavior changed for I/O.

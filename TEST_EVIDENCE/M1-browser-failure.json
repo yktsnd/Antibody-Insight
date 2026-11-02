@@ -1,51 +1,60 @@
 {
-  "timestamp": "2026-11-02T14:46:49.629Z",
-  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'unit-A / declared binding segment / 32 aa',\n-   'unit-A / declared binding segment / 30 aa',\n    'linker / linker / 3 aa',\n+   'unit-B / declared binding segment / 32 aa'\n-   'unit-B / declared binding segment / 30 aa'\n  ]\n",
+  "timestamp": "2026-11-02T15:13:27.313Z",
+  "error": "Error: UNKNOWN: unknown error, open 'C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\TEST_EVIDENCE\\M1-browser-results.json'",
   "results": [
     {
       "name": "empty workspace and explicit fixture preview",
       "status": "PASS",
-      "duration_ms": 1059
+      "duration_ms": 1101
     },
     {
       "name": "five IDs persist across E W D R and residue selection",
       "status": "PASS",
-      "duration_ms": 854
+      "duration_ms": 768
     },
     {
       "name": "measured computed null zero conditions and immutable five-candidate draft",
       "status": "PASS",
-      "duration_ms": 351
+      "duration_ms": 446
     },
     {
       "name": "fresh JSON export and restart preserve IDs snapshots selection and source versions",
       "status": "PASS",
-      "duration_ms": 1523
+      "duration_ms": 1440
     },
     {
       "name": "English and Japanese researcher explanations use curated terminology",
       "status": "PASS",
-      "duration_ms": 247
+      "duration_ms": 332
     },
     {
       "name": "duplicate ID rejected atomically; unknown fields and corrupt structures do not change state",
       "status": "PASS",
-      "duration_ms": 107
+      "duration_ms": 101
     },
     {
       "name": "hostile imported text stays text with no script execution",
       "status": "PASS",
-      "duration_ms": 300
+      "duration_ms": 250
     },
     {
       "name": "800-candidate FASTA QC preview; valid subset explicitly saved; responsive UI",
       "status": "PASS",
-      "duration_ms": 8693
+      "duration_ms": 7450
     },
     {
       "name": "fresh environment JSON import roundtrip equals exported dataset",
       "status": "PASS",
-      "duration_ms": 1116
+      "duration_ms": 1313
+    },
+    {
+      "name": "F06 declared units component order copy counts and lineage in the workspace",
+      "status": "PASS",
+      "duration_ms": 2959
+    },
+    {
+      "name": "no outbound browser requests or JavaScript errors",
+      "status": "PASS"
     }
   ]
 }

@@ -1,59 +1,59 @@
 {
   "scope": "M1 foundation F01-F06; not final 8/8 or 16/16 acceptance",
   "status": "PASS",
-  "timestamp": "2026-11-02T14:51:08.365Z",
+  "timestamp": "2026-11-02T15:04:55.191Z",
   "browser": "156.0.8078.79",
-  "dataset_sha256": "797f4ca3cfd633a85391485d23974ec2ad231fe162f9475d6465620db9f7642d",
+  "dataset_sha256": "901cf7a43f3705efe54bb43599945ac37c2462ecd84c0df5be70b613232d360f",
   "results": [
     {
       "name": "empty workspace and explicit fixture preview",
       "status": "PASS",
-      "duration_ms": 1049
+      "duration_ms": 1150
     },
     {
       "name": "five IDs persist across E W D R and residue selection",
       "status": "PASS",
-      "duration_ms": 795
+      "duration_ms": 867
     },
     {
       "name": "measured computed null zero conditions and immutable five-candidate draft",
       "status": "PASS",
-      "duration_ms": 350
+      "duration_ms": 405
     },
     {
       "name": "fresh JSON export and restart preserve IDs snapshots selection and source versions",
       "status": "PASS",
-      "duration_ms": 1206
+      "duration_ms": 1503
     },
     {
       "name": "English and Japanese researcher explanations use curated terminology",
       "status": "PASS",
-      "duration_ms": 232
+      "duration_ms": 210
     },
     {
       "name": "duplicate ID rejected atomically; unknown fields and corrupt structures do not change state",
       "status": "PASS",
-      "duration_ms": 89
+      "duration_ms": 117
     },
     {
       "name": "hostile imported text stays text with no script execution",
       "status": "PASS",
-      "duration_ms": 284
+      "duration_ms": 300
     },
     {
       "name": "800-candidate FASTA QC preview; valid subset explicitly saved; responsive UI",
       "status": "PASS",
-      "duration_ms": 7993
+      "duration_ms": 8658
     },
     {
       "name": "fresh environment JSON import roundtrip equals exported dataset",
       "status": "PASS",
-      "duration_ms": 1314
+      "duration_ms": 1420
     },
     {
       "name": "F06 declared units component order copy counts and lineage in the workspace",
       "status": "PASS",
-      "duration_ms": 3548
+      "duration_ms": 3098
     },
     {
       "name": "no outbound browser requests or JavaScript errors",

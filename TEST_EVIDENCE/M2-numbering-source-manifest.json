@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-11-02T15:11:49.922884+00:00",
+  "scope": "F07 imported numbering observation; full M2 and eight workflows pending",
+  "git_base": "1a0258754fddce41f517d5c561bfcc557578d9ef",
+  "source_state": "Exact working-tree source digests; use these when tested changes are not yet committed",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_sha256": "e6efcff0047c2abdaec310fa552152b5ae1de22257785bc3532036e22230bfb9",
+  "files": {
+    "AGENTS.md": "48da1e28541ff39a3f1683ecfb92b14aefba26534faedf37976f7c362aff85ae",
+    "DEVELOPMENT_PLAN.md": "9138c7e502394336584fde184b5a25e70cf04b6cab01111de1e7e5810e7840dd",
+    "PRODUCT_GOAL.md": "67deb593ba3dd45a4ff7cd3b62a0516d62615e68cdc5c8bd40deeffbec9158f2",
+    "scripts/check_traceability.py": "5619fb04e4b579abddefbfb4a55d86292d37d79c5077b576b047d4c59d739797",
+    "scripts/record_evidence.py": "224e8519ac03a7a149ba25e54027c4fabe3eb87b250191675d7aad77b5ee50d0",
+    "tests/browser.cjs": "4ea09ae9698fc420d4719298743cb73b8af4615f1bfcc8bdc573588b968b3bab",
+    "tests/numbering-browser.cjs": "b3ca63b83aa799eb59cc300d84d4d1225adb6bcb70855e0c3d233d9843ed2322",
+    "tests/test_composition.py": "62001ef49fe62e401fa79b870b8c5de071fa1ce4f954ab8c1539776b940e4a45",
+    "tests/test_composition_independent.py": "dfe7150ebb6c87e38b6f3170cbd29ee9574e1a5352ca3000e6ab7abed9a03993",
+    "tests/test_foundation.py": "3be90ab93b0f6eae3bebb0ab37548302402ca4af32c51a1420e8275a53c32c67",
+    "tests/test_independent_review.py": "6418fc3d9c03e41c08f794cafdc115e059b3aab03fc11e02ef053785b07030fd",
+    "tests/test_numbering.py": "7ac355d20579a1c881c504d3c6bb3c4060302095cc4bb8dce4bbe984f8994be2",
+    "tests/test_numbering_independent.py": "b22fce30e3857bedd556923b468a6117e6e30381b237cb6acef89e37ce05f934",
+    "web/app.js": "f32758b4d38aa393fd75c4acf4f12dc7fb8dd31bfe6220f761a012023898ded6",
+    "web/index.html": "d711a435d61e5297a495b31d1451dda66b0d9a8fd5b3a35b65620b5106ac0856",
+    "web/style.css": "ff3a52525e9b1b2bb09b57ec45f710e17049a7658bd5f4770749ff9924e59bc8",
+    "workspace_app/__init__.py": "bdc3fcb35ad895d3b3c483129b717a008710bdca22bfa74f81b2632457f79840",
+    "workspace_app/adapters.py": "cc8f5080dba125ebd30b9df0c7db6b73d1c1dfea956434ed65ec6da9da97dab8",
+    "workspace_app/composition.py": "a0b7feaebbe9cd35f35236e11e62f09a236ce07efb1a42feb409efa9e09a4161",
+    "workspace_app/domain.py": "4b5a607c6fdde82b21e6be1c0b138d7eb8cc0bad32b83f0afddd2dc248a70033",
+    "workspace_app/fixtures.py": "f70f5d8f7659fb2259ac9d347e2462802b180fa4ab5871d6711de0221be9cbc7",
+    "workspace_app/numbering.py": "d6973ffcd0cc0de1225ee40fc2bd329963ceaa521018f2b29dc48d98cf3bdf4d",
+    "workspace_app/server.py": "56f485fb4c202d2c3c11e7fed2df7649209746e3a19b457ad0cdb351853ae2dc",
+    "workspace_app/storage.py": "00b7b47dd98a7c970ca9b0b39635ee71307b3d203bab8e4b3dccbedeb4b9f536"
+  },
+  "commands": [
+    "python -m pytest -q --tb=short",
+    "node tests/browser.cjs",
+    "python scripts/check_traceability.py"
+  ]
+}
