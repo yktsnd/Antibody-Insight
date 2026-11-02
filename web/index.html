@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antibody Insight | Research Workspace</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Antibody Insight home"><span class="brand-symbol">Y</span><span>Antibody<br><strong>Insight</strong></span></a>
+    <p class="eyebrow">RESEARCH WORKSPACE</p>
+    <label class="field">Project<select id="project-select" aria-label="Project"><option>Loading…</option></select></label>
+    <nav aria-label="Research screens">
+      <button data-screen="E"><span>E</span>Candidate Explorer</button>
+      <button data-screen="W"><span>W</span>Molecule Workspace</button>
+      <button data-screen="D"><span>D</span>Design &amp; Compare</button>
+      <button data-screen="R"><span>R</span>Evidence &amp; Decision</button>
+    </nav>
+    <div class="sidebar-bottom"><span class="online-dot"></span> Local workspace<p>No external services connected</p><button class="text-button" id="help-button">Researcher guide / 利用ガイド</button></div>
+  </aside>
+  <main>
+    <header class="topbar"><div id="breadcrumb">Project / No project selected</div><div class="top-actions"><span id="selection-count">0 selected</span><button id="export-button" class="secondary">Export JSON</button><button id="import-button">Import data</button></div></header>
+    <div class="stage-notice">DEVELOPMENT BUILD <span>Initial foundation. Full 8 researcher workflows, structure mapping and design are not yet complete.</span></div>
+    <div id="notification" role="status" hidden></div>
+    <section id="content" aria-live="polite"></section>
+  </main>
+  <dialog id="import-dialog">
+    <form id="import-form"><div class="dialog-heading"><div><p class="eyebrow">LOCAL IMPORT</p><h2>Bring your research into context</h2></div><button type="button" data-close="import-dialog" class="icon-button" aria-label="Close import">×</button></div>
+      <p class="muted">Preview before saving. Sequences are not sent to an external service.</p>
+      <div class="form-row"><label class="field">Import into<select id="import-target"><option value="">New project</option></select></label><label class="field">Format<select id="import-format"><option value="fasta">FASTA (unpaired sequences)</option><option value="csv">Sequence CSV</option><option value="json">Workspace JSON (awx/1)</option></select></label></div>
+      <div id="new-project-fields" class="form-row"><label class="field">Project title<input id="project-title" value="Antibody research" maxlength="200"></label><label class="field">Research goal<input id="project-goal" value="Observe candidates and retain the evidence behind selection."></label></div>
+      <label class="field">Choose a local file<input id="import-file" type="file" accept=".fasta,.fa,.faa,.csv,.json"></label>
+      <label class="field">Or paste file contents<textarea id="import-text" rows="6" spellcheck="false" placeholder=">candidate-1&#10;EVQLVESGGGLVQPGGSLRLSCAASGFTF"></textarea></label>
+      <div class="dialog-actions"><button type="button" id="fixture-button" class="secondary">Preview synthetic example</button><button type="submit">Validate &amp; preview</button></div>
+    </form>
+    <section id="import-preview" hidden></section>
+  </dialog>
+  <dialog id="shortlist-dialog"><div class="dialog-heading"><h2>Review shortlist draft</h2><button data-close="shortlist-dialog" class="icon-button" aria-label="Close shortlist preview">×</button></div><div id="shortlist-preview"></div><div class="dialog-actions"><button data-close="shortlist-dialog" class="secondary">Back</button><button id="confirm-shortlist">Save draft</button></div></dialog>
+  <dialog id="help-dialog"><div class="dialog-heading"><h2>Researcher guide / 利用ガイド</h2><button data-close="help-dialog" class="icon-button" aria-label="Close guide">×</button></div><label class="field">Explanation language / 説明の言語<select id="help-language"><option value="en">English</option><option value="ja">日本語</option></select></label><div id="help-content"></div></dialog>
+</body>
+</html>

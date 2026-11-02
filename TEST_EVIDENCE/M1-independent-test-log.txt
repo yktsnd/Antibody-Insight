@@ -1,0 +1,29 @@
+Independent reviewer: /root/independent_review
+Date: 2026-11-02 Asia/Tokyo
+Scope: initial M1 F01-F05; not full M1 or final eight journeys
+
+Command: python -m pytest -q
+.......................................................                  [100%]
+55 passed in 7.66s
+Exit code: 0
+
+Command (PowerShell):
+$env:NODE_PATH='C:\Users\yukis\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
+node tests/browser.cjs
+
+PASS empty workspace and explicit fixture preview
+PASS five IDs persist across E W D R and residue selection
+PASS measured computed null zero conditions and immutable five-candidate draft
+PASS fresh JSON export and restart preserve IDs snapshots selection and source versions
+PASS English and Japanese researcher explanations use curated terminology
+PASS duplicate ID rejected atomically; unknown fields and corrupt structures do not change state
+PASS hostile imported text stays text with no script execution
+PASS 800-candidate FASTA QC preview; valid subset explicitly saved; responsive UI
+PASS fresh environment JSON import roundtrip equals exported dataset
+{"status":"PASS","checks":10,"browser":"156.0.8078.79"}
+Exit code: 0
+
+Final browser result timestamp: 2026-11-02T14:35:24.974Z
+Detailed browser evidence: M1-browser-results.json
+The tenth check (no outbound requests or JavaScript errors) is asserted and
+recorded in the JSON report; it does not print its own separate PASS line.

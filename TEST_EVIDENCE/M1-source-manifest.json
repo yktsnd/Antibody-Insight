@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-11-02T14:36:40.482389+00:00",
+  "scope": "Initial M1 F01-F05; not final eight journeys or sixteen edge cases",
+  "git_base": "0fa83529cb04dfc3128730b8997d91c058424e1d",
+  "source_state": "Exact working-tree source digests; use these when tested changes are not yet committed",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_sha256": "1e03a6c3ea07c3503a48da4fa2c8ba87d1676e8b7ec7b6cf62ba1d7473ded8da",
+  "files": {
+    "AGENTS.md": "48da1e28541ff39a3f1683ecfb92b14aefba26534faedf37976f7c362aff85ae",
+    "DEVELOPMENT_PLAN.md": "9138c7e502394336584fde184b5a25e70cf04b6cab01111de1e7e5810e7840dd",
+    "PRODUCT_GOAL.md": "67deb593ba3dd45a4ff7cd3b62a0516d62615e68cdc5c8bd40deeffbec9158f2",
+    "scripts/check_traceability.py": "13b4bedff38cba8fd5159b2f23353af51d6e876bcf743a49ac4b0f6f18d5a696",
+    "scripts/record_evidence.py": "37125b7b147ac6aa69943d2733dfa2931ea677575396c20ec9180a46a08c21a9",
+    "tests/browser.cjs": "1d96de98ca398ddbc561829046047109f46792884260c653789c8455e88e65c3",
+    "tests/test_foundation.py": "3be90ab93b0f6eae3bebb0ab37548302402ca4af32c51a1420e8275a53c32c67",
+    "tests/test_independent_review.py": "6418fc3d9c03e41c08f794cafdc115e059b3aab03fc11e02ef053785b07030fd",
+    "web/app.js": "43c79fe075a341814d972f290e78c45a5d40502200c89a930ee2e8f668ee8bdd",
+    "web/index.html": "d9e5ec2ff1f1958bdb985c99e19f2a038ac3f19ff5ba21b72be590110c9a0516",
+    "web/style.css": "670ef8f5393147427ab331f72f92758c9a7a2bd58853ef80c6fa764fad7fe867",
+    "workspace_app/__init__.py": "8c9e41dba49a51ba1a6f07230bdf980dc12d0ff937e3383291426c22ee7f9823",
+    "workspace_app/adapters.py": "b1c7b3e9fb31f41edbc9e7d8a1de53b379cbda0eafa919ebef1f5dfe0fe3e638",
+    "workspace_app/domain.py": "611885cf132af18e005556829758cb09b613dda30d6fde7a4efc6d9e4b07457d",
+    "workspace_app/fixtures.py": "1d42f1ef77e2b71f9a83ea5d3bf960d86de88bc44ac38e5ef34bbe957d169241",
+    "workspace_app/server.py": "20be0f47eff92d0c17e9d6d79b26fc1417fabcf357861d59e84fe2fd9223a8e8",
+    "workspace_app/storage.py": "00b7b47dd98a7c970ca9b0b39635ee71307b3d203bab8e4b3dccbedeb4b9f536"
+  },
+  "commands": [
+    "python -m pytest -q --tb=short",
+    "node tests/browser.cjs",
+    "python scripts/check_traceability.py"
+  ]
+}
