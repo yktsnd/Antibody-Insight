@@ -1,0 +1,2 @@
+# Keep verified upstream assets and notices byte-for-byte across Windows checkouts.
+web/vendor/** -text -whitespace
