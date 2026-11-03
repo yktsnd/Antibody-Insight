@@ -157,7 +157,8 @@ def validate_entity(entity, project_id):
     require(isinstance(entity, dict), "entity must be object")
     kind = entity.get("type")
     require(isinstance(kind, str) and kind in FIELDS, "Unsupported entity type")
-    fields(entity, CORE | FIELDS[kind], "entity", {"component_graph"} if kind == "molecule" else frozenset())
+    optional = {"component_graph"} if kind == "molecule" else {"residue_refs", "description"} if kind == "evidence" else frozenset()
+    fields(entity, CORE | FIELDS[kind], "entity", optional)
     identifier(entity["id"], kind)
     require(entity["project_id"] == project_id, "Cross-project entity rejected")
     timestamp(entity["created_at"], "created_at")
@@ -213,6 +214,9 @@ def validate_entity(entity, project_id):
             number(value, "value")
         nullable_text(entity["unit"], "unit")
         require(value is None or entity["unit"] is not None, "Numerical values require a unit; use 1 for dimensionless")
+        nullable_text(entity.get("description"), "Evidence description")
+        from .residue_evidence import validate_evidence_position_shape
+        validate_evidence_position_shape(entity.get("residue_refs", []))
     elif kind == "decision":
         require(entity["status"] == "draft", "Finalized decisions are not supported in M1")
         require(type(entity["revision"]) is int and entity["revision"] == 1 and entity["supersedes"] is None,
@@ -258,6 +262,10 @@ def validate_graph(project, entities):
             subject = ref(entity["subject_id"], {"molecule", "construct", "material", "structure"})
             require(entity["kind"] != "measured" or subject["type"] == "material",
                     "Measured evidence requires an explicit Material ID")
+            if entity.get("residue_refs"):
+                from .residue_evidence import validate_evidence_position_references
+                molecule = ref(molecule_id_for(subject, index), {"molecule"})
+                validate_evidence_position_references(entity, molecule)
         elif kind == "decision":
             for key in entity["candidate_ids"]:
                 ref(key, {"molecule"})

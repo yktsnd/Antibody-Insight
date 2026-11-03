@@ -8,7 +8,7 @@ from __future__ import annotations
 import copy
 
 from . import __version__
-from .domain import SCHEMA, fields, identifier, molecule_id_for, new_id, now, nullable_text, require, source, text, validate_graph
+from .domain import SCHEMA, fields, identifier, json_value, molecule_id_for, new_id, now, nullable_text, require, source, text, validate_graph
 
 
 def id_list(value, kind, label, nonempty=False):
@@ -37,13 +37,20 @@ def validate_hypothesis_shape(record):
     require(isinstance(record["structure_refs"], list) and len(record["structure_refs"]) <= 100, "Structural contexts must be a list")
     seen = set()
     for ref in record["structure_refs"]:
-        fields(ref, {"structure_id", "model", "structure_map_id"}, "hypothesis structure")
+        fields(ref, {"structure_id", "model", "structure_map_id"}, "hypothesis structure", {"residue"})
         identifier(ref["structure_id"], "structure")
         require(ref["model"] is None or type(ref["model"]) is int, "Structural model must be its actual integer identity or null")
         if ref["structure_map_id"] is not None:
             identifier(ref["structure_map_id"], "structure_map")
         key = ref["structure_id"], ref["model"], ref["structure_map_id"]
         require(key not in seen, "Duplicate hypothesis structural context"); seen.add(key)
+        if ref.get("residue") is not None:
+            from .structures import RESIDUE_FIELDS
+            fields(ref["residue"], {"source_key", "altloc"}, "hypothesis structural residue")
+            fields(ref["residue"]["source_key"], RESIDUE_FIELDS, "hypothesis structural residue source key")
+            json_value(ref["residue"]["source_key"], "structural residue source key")
+            alt = ref["residue"]["altloc"]
+            require(alt is None or isinstance(alt, str) and len(alt) <= 1, "Retain the actual alternate-location identifier or unknown null")
 
 
 def validate_hypothesis_references(index):
@@ -73,6 +80,15 @@ def validate_hypothesis_references(index):
             from .structures import parse_structure
             models = parse_structure(structure["content"], structure["file_format"])["models"]
             require(ref["model"] in models, "Hypothesis source model does not exist; no invented model identity")
+            if ref.get("residue") is not None:
+                from .composition import exact_json
+                from .structures import RESIDUE_FIELDS
+                selected = ref["residue"]; key = selected["source_key"]
+                require(exact_json(key["model"], ref["model"]), "Hypothesis residue and selected model differ")
+                parsed = parse_structure(structure["content"], structure["file_format"])
+                residue = next((r for r in parsed["residues"] if exact_json({field: r[field] for field in RESIDUE_FIELDS}, key)), None)
+                require(residue is not None and selected["altloc"] in residue["altlocs"],
+                        "Hypothesis source residue/conformer is absent from the named file/model; no neighbouring fallback")
             if ref["structure_map_id"] is not None:
                 mapping = resolve(ref["structure_map_id"], "structure_map")
                 require(mapping["structure_id"] == structure["id"], "Hypothesis correspondence belongs to another coordinate source")

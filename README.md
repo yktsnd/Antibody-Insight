@@ -40,6 +40,8 @@ The viewers can link rotation and zoom while retaining separate centers. This is
 
 **D** creates explicit source-numbered substitutions with a before/after preview and immutable parent/child lineage. Select a mapped residue in W and choose **Design a substitution**, or choose the parent/map in D. An optional reference comparison preserves its source and gaps. The child receives no parent measurements, structures or verified numbering. In R, **Record research hypothesis** retains the proposal, original Evidence, limitations and next experiment. Interactive assembly and final decisions remain pending. The researcher guide in the application switches between English and Japanese. UI labels, code and identifiers use English. Japanese explanations use curated antibody-research terminology.
 
+Source-reported position links in W/R navigate to the original molecule/chain/raw index while retaining the Evidence subject, kind, note and conditions. The association does not establish residue-localized measurement or causality. W offers atom, distance-based ball-and-stick and standard amino-acid C-alpha atom views, plus exact-source focus. Source-only selections remain distinct from antibody sequence correspondence. Reviewed hypotheses can retain the actual source file/model/residue/alternate state. F12/F13 implementation is under independent verification; full J03/J04 acceptance is not yet registered.
+
 ## Import contracts
 
 - FASTA: one header/sequence record creates one unpaired molecule with `format=unspecified` and `role=unknown`. Pairing, molecular format and biological function are not inferred.
@@ -66,6 +68,7 @@ node tests/numbering-browser.cjs
 node tests/structures-browser.cjs
 node tests/j01-browser.cjs
 node tests/j02-browser.cjs
+node tests/observation-journeys-browser.cjs
 python scripts/check_traceability.py
 ```
 

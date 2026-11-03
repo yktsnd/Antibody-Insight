@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-03T09:40:09.125Z",
+  "scope": "Full synthetic J03 and both prescribed negatives; scientific validation pending",
+  "results": [
+    {
+      "name": "e2e_j03_complex_comparison",
+      "status": "PASS",
+      "duration_ms": 29670
+    },
+    {
+      "name": "e2e_j03_unmappable_residue",
+      "status": "PASS",
+      "duration_ms": 2568
+    },
+    {
+      "name": "e2e_j03_missing_confidence",
+      "status": "PASS",
+      "duration_ms": 5110
+    }
+  ]
+}

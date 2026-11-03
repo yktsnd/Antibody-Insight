@@ -51,17 +51,18 @@ window.StructureUI = (() => {
         const viewKey=sid+":"+modelChoice, mapId=state().structureMapChoices[viewKey] || (available.length===1?available[0].id:null);
         if(mapId) data=await load(sid,mapId);
         if(tick!==generation || !host.isConnected)return;
-        host.innerHTML=`<div class="form-row"><label class="field">Source model<select data-coordinate-model="${sid}" aria-label="Source model for ${escape(molecule.external_id)}">${option("","Choose a source model",model)}${data.parsed.models.map((m)=>option(m??'unknown',m===null?'Model unknown (source omitted ID)':`Model ${m}`,modelChoice)).join("")}</select></label><label class="field">Correspondence<select data-coordinate-map="${escape(viewKey)}" aria-label="Correspondence for ${escape(molecule.external_id)}">${option("","No map selected",mapId)}${available.map((m)=>option(m.id,`${m.source.name} / ${m.id.slice(-8)}`,mapId)).join("")}</select></label></div><p class="muted">${escape(data.structure.name)} · ${escape(data.structure.origin_kind)} · ${escape(data.parsed.parser.name)} ${escape(data.parsed.parser.version)}<br>Source: ${escape(data.structure.source.name)} / ${escape(data.structure.source.version||"version unknown")}</p>${modelChoice?`<label class="evidence-check"><input type="checkbox" data-link-views ${state().linkStructureViews?"checked":""}> Link orientation &amp; zoom (independent centers; no superposition)</label><div class="coordinate-canvas" id="coordinate-${molecule.id}" aria-label="Interactive structure for ${escape(molecule.external_id)}"></div><p class="structure-selection muted" role="status">Choose an atom or a mapped sequence position.</p><details><summary>Selected residue source atom fields</summary><div class="source-atom-details muted">No mapped residue selected.</div></details><button class="secondary" data-edit-correspondence="${molecule.id}" ${model===null?'disabled':''}>Create correspondence revision</button><div class="declared-struct-chains">${data.map?data.map.chain_assignments.filter((a)=>a.model===model).map((a)=>`<p class="muted">${escape(a.role)}: author ${escape(a.auth_chain??"unknown")} / label ${escape(a.label_asym??"unknown")} / segment ${escape(a.segment===null?"unknown":a.segment||"blank")} → ${a.molecule_chain_id?escape(a.molecule_chain_id):a.target_ref?escape(a.target_ref.namespace+":"+a.target_ref.identifier):"unassigned"}</p>`).join(""):'<p class="muted">Correspondence unavailable. No sequence identity is inferred.</p>'}</div>${confidence(data,model)}<details><summary>Source digest, mapping IDs and actual coordinates</summary><p class="mono">${sid}<br>${escape(data.structure.sha256)}<br>${mapId||"No correspondence chosen"}</p><p class="muted">Cartesian coordinates use Å. All supplied alternate locations are displayed. Mapping chooses an explicit conformer. Spheres/cartoon are viewer representations, not proof of bonds or secondary structure.</p></details>`:'<p class="muted">Choose a source model before observing coordinates. No first-model fallback.</p>'}`;
+        host.innerHTML=`<div class="form-row"><label class="field">Source model<select data-coordinate-model="${sid}" aria-label="Source model for ${escape(molecule.external_id)}">${option("","Choose a source model",model)}${data.parsed.models.map((m)=>option(m??'unknown',m===null?'Model unknown (source omitted ID)':`Model ${m}`,modelChoice)).join("")}</select></label><label class="field">Correspondence<select data-coordinate-map="${escape(viewKey)}" aria-label="Correspondence for ${escape(molecule.external_id)}">${option("","No map selected",mapId)}${available.map((m)=>option(m.id,`${m.source.name} / ${m.id.slice(-8)}`,mapId)).join("")}</select></label></div><p class="muted">${escape(data.structure.name)} · ${escape(data.structure.origin_kind)} · ${escape(data.parsed.parser.name)} ${escape(data.parsed.parser.version)}<br>Source: ${escape(data.structure.source.name)} / ${escape(data.structure.source.version||"version unknown")}</p>${modelChoice?`<label class="evidence-check"><input type="checkbox" data-link-views ${state().linkStructureViews?"checked":""}> Link orientation &amp; zoom (independent centers; no superposition)</label><div class="coordinate-canvas" id="coordinate-${molecule.id}" aria-label="Interactive structure for ${escape(molecule.external_id)}"></div><p class="structure-selection muted" role="status">Choose an atom or a mapped sequence position.</p><details><summary>Selected residue source atom fields</summary><div class="source-atom-details muted">No mapped residue selected.</div></details><button class="secondary" data-edit-correspondence="${molecule.id}" ${model===null?'disabled':''}>Create correspondence revision</button><div class="declared-struct-chains">${data.map?data.map.chain_assignments.filter((a)=>a.model===model).map((a)=>`<p class="muted">${escape(a.role)}: author ${escape(a.auth_chain??"unknown")} / label ${escape(a.label_asym??"unknown")} / segment ${escape(a.segment===null?"unknown":a.segment||"blank")} → ${a.molecule_chain_id?escape(a.molecule_chain_id):a.target_ref?escape(a.target_ref.namespace+":"+a.target_ref.identifier):"unassigned"}</p>`).join(""):'<p class="muted">Correspondence unavailable. No sequence identity is inferred.</p>'}</div>${confidence(data,model)}<details><summary>Source digest, mapping IDs and actual coordinates</summary><p class="mono">${sid}<br>${escape(data.structure.sha256)}<br>${mapId||"No correspondence chosen"}</p><p class="muted">Cartesian coordinates use Å. All supplied alternate locations are displayed. Mapping chooses an explicit conformer. Atoms, ball-and-stick and C-alpha atom overview are display representations, not proof of bonds or secondary structure.</p></details>`:'<p class="muted">Choose a source model before observing coordinates. No first-model fallback.</p>'}`;
         if(!modelChoice)continue;
         const element=host.querySelector('.coordinate-canvas');
         const viewer=$3Dmol.createViewer(element,{backgroundColor:'#f6f9fa',antialias:true});
         const assignment=new Map((data.map?.chain_assignments||[]).map((a)=>[chainKey(a),a]));
         const colors={antibody:'#237d85',antigen:'#bd8c3a',other:'#849ba5'};
-        const atoms=data.parsed.atoms.filter((a)=>a.model===model).map((a)=>({x:a.x,y:a.y,z:a.z,elem:a.element||'X',atom:a.atom_name,resn:a.residue_name,
+        const atoms=data.parsed.atoms.filter((a)=>a.model===model).map((a)=>({x:a.x,y:a.y,z:a.z,elem:a.element||'X',atom:a.atom_name,resn:a.residue_name,altLoc:a.altloc??'?',
           resi:Number(a.residue_uid.split('-')[1]),chain:chainKey(a),serial:a.index+1,ss:'c',color:colors[assignment.get(chainKey(a))?.role]||'#899aa5',
           properties:{sourceIndex:a.index,residueUid:a.residue_uid,altloc:a.altloc}}));
-        const glModel=viewer.addModel();glModel.addAtoms(atoms);viewer.setStyle({},{sphere:{radius:.55}});
+        const glModel=viewer.addModel();glModel.addAtoms(atoms);
         const context={viewer,glModel,host,molecule,data,model,viewKey,atoms};live.set(molecule.id,context);
+        host.querySelector('.coordinate-canvas').insertAdjacentHTML('beforebegin',`<div class="form-row"><label class="field">Representation<select data-structure-mode="${molecule.id}" aria-label="Representation for ${escape(molecule.external_id)}">${[['atoms','Atoms'],['ballstick','Ball and stick (distance-based visual bonds)'],['calpha','C-alpha atoms (standard amino acids)']].map(([value,label])=>option(value,label,state().structureModes[viewKey]||'atoms')).join('')}</select></label><button class="secondary" data-focus-structure="${molecule.id}" disabled>Focus selected source residue</button><button class="secondary" data-fit-structure="${molecule.id}">Fit source model</button></div><p class="muted representation-note"></p>`);
         state().observedStructures[molecule.id]={structure_id:sid,model,structure_map_id:mapId};
         viewer.setClickable({},true,(atom)=>selectAtom(context,atom));viewer.zoomTo();
         const saved=state().structureViews[viewKey];
@@ -70,6 +71,38 @@ window.StructureUI = (() => {
         viewer.setViewChangeCallback(()=>cameraChanged(context));viewer.render();highlight(context);
       } catch(error) {host.textContent='Structure observation unavailable: '+error.message;cfg.notify(error.message,true);}
     }
+  }
+  function visualBonds(context) {
+    if(context.bondsAssigned)return;
+    context.glModel.assignBonds();
+    const rendered=context.glModel.selectedAtoms({}), source=new Map(context.data.parsed.atoms.map((a)=>[a.index,a]));
+    for(const atom of rendered) {
+      const actual=source.get(atom.properties.sourceIndex),bonds=[],orders=[];
+      for(let i=0;i<(atom.bonds||[]).length;i++) {
+        const other=source.get(rendered[atom.bonds[i]]?.properties.sourceIndex);
+        if(!actual.element||!other?.element||actual.altloc===null||other.altloc===null||
+            (actual.altloc&&other.altloc&&actual.altloc!==other.altloc))continue;
+        bonds.push(atom.bonds[i]);orders.push(1);
+      }
+      atom.bonds=bonds;atom.bondOrder=orders;
+    }
+    context.bondsAssigned=true;
+  }
+  function representation(context, selected) {
+    const {viewer,data,model,host,viewKey}=context,mode=state().structureModes[viewKey]||'atoms';
+    viewer.setStyle({},{});viewer.setClickable({},false);
+    let visible=data.parsed.atoms.filter((a)=>a.model===model);
+    if(mode==='calpha') {
+      const standard=new Set(data.parsed.residues.filter((r)=>r.aa!==null).map((r)=>r.uid));
+      visible=visible.filter((a)=>a.atom_name==='CA'&&a.element==='C'&&standard.has(a.residue_uid));
+      viewer.setStyle({serial:visible.map((a)=>a.index+1)},{sphere:{radius:.7}});
+    } else if(mode==='ballstick') {
+      visualBonds(context);viewer.setStyle({},{sphere:{radius:.28},stick:{radius:.14}});
+    } else viewer.setStyle({},{sphere:{radius:.55}});
+    if(selected.length)viewer.setStyle({serial:selected.map((a)=>a.index+1)},{sphere:{radius:.85,color:'#cf733b'}});
+    context.visibleSerials=[...new Set([...visible,...selected].map((a)=>a.index+1))];
+    viewer.setClickable({serial:context.visibleSerials},true,(atom)=>selectAtom(context,atom));
+    host.querySelector('.representation-note').textContent=mode==='ballstick'?'Distance-based single bonds are a visual aid, not validated chemical connectivity or valence. All supplied atoms remain visible.':mode==='calpha'?'Standard amino-acid C-alpha atoms only; selected residue in atomic detail. Missing atoms are not reconstructed. No secondary structure is inferred.':'All supplied atom positions, including alternate locations. No bonds or secondary structure are inferred.';
   }
   let synchronizing=false;
   function cameraChanged(context) {
@@ -83,23 +116,53 @@ window.StructureUI = (() => {
     cfg.remember();
   }
   function highlight(context) {
-    context.viewer.setStyle({},{sphere:{radius:.55}});
     const selection=state().residueSelection;
     const entry=selection?.molecule_id===context.molecule.id ? context.data.map?.residues.find((e)=>e.status==='mapped'&&e.chain_id===selection.chain_id&&e.sequence_index===selection.sequence_index&&e.structure_residue.model===context.model):null;
     let atoms=[];
     if(entry) atoms=context.data.parsed.atoms.filter((a)=>residueKey(a)===residueKey(entry.structure_residue)&&(a.altloc===''||a.altloc===entry.altloc));
-    if(atoms.length) {context.viewer.setStyle({serial:atoms.map((a)=>a.index+1)},{sphere:{radius:.85,color:'#cf733b'}});context.host.querySelector('.structure-selection').textContent=`Mapped ${entry.chain_id} raw index ${entry.sequence_index} ↔ ${sourceLabel(entry.structure_residue)} / conformer ${entry.altloc||'common'}`;}
+    if(atoms.length) context.host.querySelector('.structure-selection').textContent=`Mapped ${entry.chain_id} raw index ${entry.sequence_index} ↔ ${sourceLabel(entry.structure_residue)} / conformer ${entry.altloc||'common'}`;
     else if(selection?.molecule_id===context.molecule.id) context.host.querySelector('.structure-selection').textContent='Mapping unavailable for this sequence position; no other residue was highlighted.';
+    else {
+      const picked=state().structureResidues[context.viewKey];
+      const residue=context.data.parsed.residues.find((r)=>r.uid===picked?.residue_uid&&r.model===context.model);
+      if(residue&&residue.altlocs.includes(picked.altloc)) {
+        atoms=context.data.parsed.atoms.filter((a)=>a.residue_uid===residue.uid&&(a.altloc===''||a.altloc===picked.altloc));
+        context.host.querySelector('.structure-selection').textContent=`Source-only selection: ${sourceLabel(residue)} / alt ${picked.altloc??'unknown'}. No antibody sequence correspondence is asserted.`;
+      }
+    }
+    context.selectionAtoms=atoms;
+    context.host.querySelector('[data-focus-structure]').disabled=!atoms.length;
+    representation(context,atoms);
     const details=context.host.querySelector('.source-atom-details');
     if(details)details.innerHTML=atoms.length?atoms.map((a)=>`<p>${escape(a.atom_name)} / alt ${escape(a.altloc??'unknown')} / (${a.x}, ${a.y}, ${a.z}) Å<br>Source occupancy: ${a.occupancy??'unknown'} / source B-field (uninterpreted): ${a.b_value??'unknown'}</p>`).join(''):'No mapped source atom fields; no adjacent residue substituted.';
     context.viewer.render();
   }
   function selectAtom(context,atom) {
-    const source=context.data.parsed.atoms.find((a)=>a.index===atom.properties.sourceIndex);
+    const source=context.data.parsed.atoms.find((a)=>a.index===atom.properties.sourceIndex);if(!source)return;
     const entry=context.data.map?.residues.find((e)=>e.status==='mapped'&&residueKey(e.structure_residue)===residueKey(source)&&(source.altloc===''||source.altloc===e.altloc));
     state().structureResidues[context.viewKey]={residue_uid:source.residue_uid,altloc:source.altloc};
     if(entry) cfg.focusSequence({molecule_id:context.molecule.id,chain_id:entry.chain_id,sequence_index:entry.sequence_index});
     else {state().residueSelection=null;state().position=null;cfg.remember();cfg.render();cfg.notify(`Structure selection is unmapped: ${sourceLabel(source)} / alt ${source.altloc??'unknown'}. No sequence residue was selected.`);}
+  }
+  async function hypothesisContexts(ids) {
+    // Capture IDs and view selections before any asynchronous local source load.
+    const project=cfg.bundle().project.id,selection=structuredClone(state().residueSelection);
+    const observed=Object.entries(state().observedStructures||{}).filter(([id])=>ids.includes(id)).map(([id,ref])=>({id,ref:{...ref},pick:structuredClone(state().structureResidues[ref.structure_id+':'+(ref.model??'unknown')]||null)}));
+    const refs=[];
+    for(const {id,ref,pick} of observed) {
+      const data=await load(ref.structure_id,ref.structure_map_id);
+      if(cfg.bundle().project.id!==project)throw Error('Structural observation project changed. Reopen the hypothesis.');
+      let residue,altloc;
+      if(selection?.molecule_id===id) {
+        const entry=data.map?.residues.find((e)=>e.status==='mapped'&&e.chain_id===selection.chain_id&&e.sequence_index===selection.sequence_index&&e.structure_residue.model===ref.model);
+        if(entry){residue=entry.structure_residue;altloc=entry.altloc;}
+      } else {
+        residue=data.parsed.residues.find((r)=>r.uid===pick?.residue_uid&&r.model===ref.model&&r.altlocs.includes(pick.altloc));altloc=pick?.altloc;
+      }
+      if(residue)ref.residue={source_key:Object.fromEntries(['model','auth_chain','label_asym','segment','auth_number','label_number','insertion_code','residue_name'].map((n)=>[n,residue[n]])),altloc};
+      refs.push(ref);
+    }
+    return refs;
   }
   function editorRows() {
     const context=editor.context, molecule=context.molecule;
@@ -120,7 +183,9 @@ window.StructureUI = (() => {
   async function click(event) {
     const b=event.target.closest('button');if(!b||!cfg)return;
     try {
-      if(b.dataset.editCorrespondence)openEditor(live.get(b.dataset.editCorrespondence));
+      if(b.dataset.fitStructure) {const c=live.get(b.dataset.fitStructure);if(c){c.viewer.zoomTo();c.viewer.render();cameraChanged(c);}}
+      else if(b.dataset.focusStructure) {const c=live.get(b.dataset.focusStructure);if(c?.selectionAtoms?.length){c.viewer.zoomTo({serial:c.selectionAtoms.map((a)=>a.index+1)});c.viewer.render();cameraChanged(c);}}
+      else if(b.dataset.editCorrespondence)openEditor(live.get(b.dataset.editCorrespondence));
       else if(b.hasAttribute('data-map-close'))document.querySelector('#structure-map-dialog').close();
       else if(b.hasAttribute('data-map-remove')){editor.definition.residues.splice(Number(b.dataset.mapRemove),1);renderPairs();}
       else if(b.hasAttribute('data-map-add-pair')) {
@@ -144,7 +209,8 @@ window.StructureUI = (() => {
   }
   async function change(event) {
     const e=event.target;if(!cfg)return;
-    if(e.dataset.coordinateChoice){state().structureChoices[e.dataset.coordinateChoice]=e.value;cfg.render();}
+    if(e.dataset.structureMode){const c=live.get(e.dataset.structureMode);if(c){state().structureModes[c.viewKey]=e.value;highlight(c);cfg.remember();}}
+    else if(e.dataset.coordinateChoice){state().structureChoices[e.dataset.coordinateChoice]=e.value;cfg.render();}
     else if(e.dataset.coordinateModel){if(e.value)state().structureModels[e.dataset.coordinateModel]=e.value==='unknown'?'unknown':Number(e.value);else delete state().structureModels[e.dataset.coordinateModel];cfg.render();}
     else if(e.dataset.coordinateMap){if(e.value)state().structureMapChoices[e.dataset.coordinateMap]=e.value;else delete state().structureMapChoices[e.dataset.coordinateMap];cfg.render();}
     else if(e.hasAttribute('data-link-views')){state().linkStructureViews=e.checked;document.querySelectorAll('[data-link-views]').forEach((control)=>{control.checked=e.checked;});const first=live.values().next().value;if(first)cameraChanged(first);}
@@ -152,5 +218,5 @@ window.StructureUI = (() => {
       document.querySelector('#map-pair-alt').innerHTML=alts.length?option('','Choose a supplied alternate','')+alts.map((a)=>option(a,a,null)).join(''):option('','Common / no alternate','');}
   }
   document.addEventListener('click',click);document.addEventListener('change',change);
-  return {configure(options){cfg=options;},panel,mount,dispose,viewerFor(id){return live.get(id)?.viewer;},contextFor(id){return live.get(id);}};
+  return {configure(options){cfg=options;},panel,mount,dispose,hypothesisContexts,sourceLabel,viewerFor(id){return live.get(id)?.viewer;},contextFor(id){return live.get(id);}};
 })();

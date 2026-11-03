@@ -23,8 +23,8 @@ def digest(path):
 
 
 def source_files(root):
-    paths = {root / p for p in ("AGENTS.md", "PRODUCT_GOAL.md", "DEVELOPMENT_PLAN.md", "requirements.txt", "requirements-dev.txt", "start.ps1", "THIRD_PARTY_NOTICES.md") if (root / p).is_file()}
-    for folder, pattern in (("workspace_app", "*.py"), ("web", "*"), ("web/vendor", "*"), ("tests", "*.py"), ("tests", "*.cjs"), ("scripts", "*.py")):
+    paths = {root / p for p in (".gitattributes", "AGENTS.md", "PRODUCT_GOAL.md", "DEVELOPMENT_PLAN.md", "requirements.txt", "requirements-dev.txt", "start.ps1", "THIRD_PARTY_NOTICES.md") if (root / p).is_file()}
+    for folder, pattern in (("workspace_app", "*.py"), ("web", "*"), ("web/vendor", "*"), ("tests", "*.py"), ("tests", "*.cjs"), ("scripts", "*.py"), ("fixtures/public", "*")):
         paths.update(p for p in (root / folder).glob(pattern) if p.is_file())
     return {p.relative_to(root).as_posix() for p in paths}
 

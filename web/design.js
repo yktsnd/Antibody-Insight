@@ -85,19 +85,27 @@ const DesignUI = (() => {
     document.querySelector('#design-preview-dialog').addEventListener('close',()=>{if(!document.querySelector('#design-preview-dialog').open)previewEpoch++;});
   }
   let hypothesisScope=null,hypothesisDraftKey=null;
-  function openHypothesis() {
+  function hypothesisContext() {
+    const s=state();
+    return JSON.stringify([cfg.bundle().project.id,s.screen,s.selected,s.designParent,s.designMap,s.designReferenceMap,
+      s.residueSelection,s.observedStructures,s.structureChoices,s.structureModels,s.structureMapChoices,s.structureResidues]);
+  }
+  async function openHypothesis() {
     ensureDialogs();
-    hypothesisEpoch++;document.querySelector('#hypothesis-form').inert=false;
+    const request=++hypothesisEpoch,project=cfg.bundle().project.id,ticket=epoch,intent=hypothesisContext();document.querySelector('#hypothesis-form').inert=false;
     const ids=[...state().selected];if(state().screen==='D'&&parent()&&!ids.includes(parent().id))ids.push(parent().id);
     if(!ids.length){cfg.notify('Choose the actual hypothesis candidates first.',true);return;}
-    const residue=state().residueSelection;
-    const structure_refs=Object.entries(state().observedStructures||{}).filter(([id])=>ids.includes(id)).map(([,context])=>({...context}));
+    const residue=structuredClone(state().residueSelection);
+    let structure_refs;
+    try{structure_refs=await StructureUI.hypothesisContexts(ids);}catch(error){if(request===hypothesisEpoch&&intent===hypothesisContext())cfg.notify(error.message,true);return;}
+    if(request!==hypothesisEpoch||ticket!==epoch||project!==cfg.bundle().project.id||intent!==hypothesisContext())return;
     hypothesisScope={project_id:cfg.bundle().project.id,molecule_ids:ids,residue_refs:residue&&ids.includes(residue.molecule_id)?[{molecule_id:residue.molecule_id,chain_id:residue.chain_id,sequence_index:residue.sequence_index}]:[],structure_refs};
     hypothesisDraftKey=JSON.stringify([hypothesisScope.project_id,[...ids].sort(),hypothesisScope.residue_refs,structure_refs]);
     const savedDraft=hypothesisDrafts.get(hypothesisDraftKey)||{};
     for(const key of ['text','question','limitations'])document.querySelector('#hypothesis-'+key).value=savedDraft[key]||'';
     const lineages=records().filter((e)=>e.type==='lineage'&&ids.includes(e.parent_id)&&ids.includes(e.child_id));
     document.querySelector('#hypothesis-targets').innerHTML=`<p>Related candidates: ${ids.map((id)=>esc(find(id)?.external_id)).join(', ')}</p>${hypothesisScope.residue_refs.length?`<p>Observed sequence position: ${esc(find(residue.molecule_id)?.external_id)} / ${esc(residue.chain_id)} / raw ${residue.sequence_index}</p>`:''}${structure_refs.map((r)=>`<p>Observed structure: ${esc(find(r.structure_id)?.name)} / model ${r.model??'unknown'} / ${r.structure_map_id?esc(r.structure_map_id):'correspondence not selected'}</p>`).join('')}${lineages.map((l)=>`<label class="evidence-check"><input type="checkbox" data-hypothesis-lineage="${l.id}" ${l.id===state().designLineage?'checked':''}> Include design ${esc(find(l.parent_id)?.external_id)} → ${esc(find(l.child_id)?.external_id)}</label>`).join('')}`;
+    for(const r of structure_refs)if(r.residue)document.querySelector('#hypothesis-targets').insertAdjacentHTML('beforeend',`<p>Observed source residue: ${esc(StructureUI.sourceLabel(r.residue.source_key))} / alt ${esc(r.residue.altloc??'unknown')}. Coordinate context alone does not establish antibody sequence or measurement attribution.</p>`);
     const evidence=records().filter((e)=>e.type==='evidence'&&cfg.subjectPath(e).some((p)=>p.type==='molecule'&&ids.includes(p.id)));
     document.querySelector('#hypothesis-evidence').innerHTML='<h3>Original evidence to reference</h3>'+evidence.map((e)=>`<label class="evidence-check hypothesis-source"><input type="checkbox" data-hypothesis-evidence="${e.id}"> ${esc(e.kind)} / ${esc(e.metric)} / ${e.value===null?'Value missing':esc(e.value)+' '+esc(e.unit)}<small>${cfg.subjectPath(e).map((p)=>esc(p.type)+': '+esc(p.name)).join(' → ')}<br>${esc(e.source.name)} / ${esc(e.source.version||'version unknown')} / ${esc(e.timestamp)}</small></label>`).join('');
     if(hypothesisScope.residue_refs.length)document.querySelector('#hypothesis-targets').insertAdjacentHTML('beforeend','<label class="evidence-check"><input type="checkbox" id="include-hypothesis-residue" checked> Include the observed sequence position</label>');

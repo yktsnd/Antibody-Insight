@@ -23,3 +23,7 @@ Unmodified production browser bundle vendored from the pinned npm3dmol2.5.5 pack
 - The upstream bundle includes GLmol (MIT or LGPL3; this project selects the MIT option), Three.js (MIT), and jQuery (MIT); all supplied notices are retained.
 
 The asset is served locally. No CDN, remote structure download or upstream network API is invoked by this application.
+
+## Public PDB experimental test data
+
+The unmodified `fixtures/public/1MLC.cif` coordinate file is PDB archive data, available under CC0 per [RCSB's data policy](https://www.rcsb.org/pages/policies). Depositors/authors, source revision, retrieval URL and exact SHA-256 are recorded in [the fixture notice](fixtures/public/README.md). This is experimental coordinate data used only for offline source/scale validation. The application does not fetch it at runtime. Website images and external integrated annotations are not included.

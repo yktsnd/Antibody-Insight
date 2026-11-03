@@ -1,2 +1,5 @@
 # Keep verified upstream assets and notices byte-for-byte across Windows checkouts.
 web/vendor/** -text -whitespace
+
+# Preserve downloaded scientific archive bytes and their pinned digest.
+fixtures/public/*.cif -text -whitespace

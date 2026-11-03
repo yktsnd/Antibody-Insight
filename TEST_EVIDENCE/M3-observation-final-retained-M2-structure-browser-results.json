@@ -1,0 +1,65 @@
+{
+  "scope": "F08 structural observation; full J03/J04/J08 still require later steps",
+  "status": "PASS",
+  "timestamp": "2026-11-03T09:43:49.173Z",
+  "browser": "156.0.8078.79",
+  "results": [
+    {
+      "name": "PDB and mmCIF fixture preview is local and explicit",
+      "status": "PASS",
+      "duration_ms": 2905
+    },
+    {
+      "name": "actual structure click distinguishes author chain and insertion then selects exact sequence",
+      "status": "PASS",
+      "duration_ms": 4021
+    },
+    {
+      "name": "sequence click highlights mapped source; missing coordinate and alternate B never fall back",
+      "status": "PASS",
+      "duration_ms": 6488
+    },
+    {
+      "name": "physical rotation links orientation and zoom while preserving separate centers",
+      "status": "PASS",
+      "duration_ms": 4229
+    },
+    {
+      "name": "model-scoped confidence differs and missing confidence never comes from B values",
+      "status": "PASS",
+      "duration_ms": 7183
+    },
+    {
+      "name": "newly imported model evidence refreshes the structural observation cache",
+      "status": "PASS",
+      "duration_ms": 3721
+    },
+    {
+      "name": "GUI reviews and saves an immutable explicit correspondence revision",
+      "status": "PASS",
+      "duration_ms": 2950
+    },
+    {
+      "name": "raw PDB import and manual chain/residue pairing work without inferred correspondence",
+      "status": "PASS",
+      "duration_ms": 16248
+    },
+    {
+      "name": "missing CIF model identity remains unknown and viewable without invented model one",
+      "status": "PASS",
+      "duration_ms": 6970
+    },
+    {
+      "name": "project switching keeps structural IDs and camera context in their own project",
+      "status": "PASS",
+      "duration_ms": 2138
+    },
+    {
+      "name": "restart and JSON roundtrip preserve original coordinates maps evidence and camera context",
+      "status": "PASS",
+      "duration_ms": 5101
+    }
+  ],
+  "no_outbound": true,
+  "no_javascript_errors": true
+}

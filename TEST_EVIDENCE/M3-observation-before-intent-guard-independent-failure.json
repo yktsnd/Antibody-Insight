@@ -1,0 +1,23 @@
+{
+  "status": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: A stale source load must not open old hypothesis context over the changed selection\n\n1 !== 0\n",
+  "results": [
+    {
+      "name": "geometry bonds exclude incompatible alternates and unknown fields without source mutation",
+      "status": "PASS",
+      "duration_ms": 349
+    },
+    {
+      "name": "C-alpha overview excludes calcium modified residues and absent CA; hidden atom cannot steal physical pick",
+      "status": "PASS",
+      "duration_ms": 1250
+    },
+    {
+      "name": "source-only unknown conformer survives proposal and exact focus; unavailable sequence clears old focus",
+      "status": "PASS",
+      "duration_ms": 4570
+    }
+  ],
+  "errors": [],
+  "outbound": []
+}

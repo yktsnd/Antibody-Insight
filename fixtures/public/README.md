@@ -1,0 +1,9 @@
+# Public experimental coordinate fixture
+
+`1MLC.cif` is the unmodified PDBx/mmCIF data file downloaded on 2026-11-03 from [the RCSB data archive](https://files.rcsb.org/download/1MLC.cif). SHA-256: `5536c79a3d73e09503f6a4d252bbca2dac5fa0e59b5424309f49cd0c34e8606e`. Entry revision 1.3, 2024-10-23. [Entry and primary citation](https://www.rcsb.org/structure/1MLC); authors B. C. Braden, H. Souchon, J.-L. Eisele, G. A. Bentley, T. N. Bhat, J. Navaza and R. J. Poljak.
+
+The archive data file is available under [CC0, per RCSB's data usage policy](https://www.rcsb.org/pages/policies). Website images and external integrated annotations are not included. No coordinates or source fields have been altered.
+
+This is an experimental X-ray structure (2.50 Å), not a prediction or confidence fixture. Its asymmetric unit contains two Fab–lysozyme complex copies: light chains A/C, heavy chains B/D and lysozyme E/F (six protein chain instances, three unique protein entities). These are not merged by sequence equality. The local parser retains 8792 atoms and 1332 source residues, including 210 waters; 1122 are polymer residues. Water label-asym IDs G–L remain distinct from protein A–F and their shared author-chain letters. The test declares primary Fab A/B; C/D remain explicitly described other source copies, E/F declared lysozyme targets, water chains other. The source association does not redefine the entire asymmetric unit as one antibody molecule or biological assembly.
+
+Mappings in `tests/public_structure_fixture.py` use deposited canonical sequences and explicit label sequence IDs, validating standard amino-acid agreement. No numbering, affinity, experimental measurement or confidence is generated. Tests use this checked-in file offline. This fixture verifies source preservation and antibody-scale observation; it does not replace scientific golden validation, two-candidate prediction journeys or researcher evaluation.
