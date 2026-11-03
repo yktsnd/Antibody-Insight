@@ -4,9 +4,9 @@ A local research workspace connecting antibody candidates to sequences, material
 
 [日本語の利用ガイド](README.ja.md) · [Product goal](PRODUCT_GOAL.md) · [Development specification](DEVELOPMENT_PLAN.md) · [Current limitations](KNOWN_LIMITATIONS.md)
 
-**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F11 are independently verified within their recorded scope, including complete synthetic-fixture J01 shortlist and J02 parent/reference → child design → proposed hypothesis journeys. Engineering acceptance is 2/8 journeys and 4/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
+**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F13 are independently verified within their recorded scope, including complete synthetic-fixture J01 shortlist, J02 parent/reference design, J03 structural observation → hypothesis and J04 property evidence → child → next experiment journeys. Engineering acceptance is 4/8 journeys and 8/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
 
-Version0.3.0-dev connects source-numbered child designs and proposed research hypotheses (F10/F11). Fresh independent J01/J02 replay passed; full M3, the other six journeys, scientific validation and researcher evaluation remain pending.
+Version0.4.0-dev connects reported positions and exact structural observations to proposed hypotheses (F12/F13). Fresh independent J01–J04 replay passed; full M3, the other four journeys, scientific validation and researcher evaluation remain pending.
 
 ## Run locally
 
@@ -40,7 +40,7 @@ The viewers can link rotation and zoom while retaining separate centers. This is
 
 **D** creates explicit source-numbered substitutions with a before/after preview and immutable parent/child lineage. Select a mapped residue in W and choose **Design a substitution**, or choose the parent/map in D. An optional reference comparison preserves its source and gaps. The child receives no parent measurements, structures or verified numbering. In R, **Record research hypothesis** retains the proposal, original Evidence, limitations and next experiment. Interactive assembly and final decisions remain pending. The researcher guide in the application switches between English and Japanese. UI labels, code and identifiers use English. Japanese explanations use curated antibody-research terminology.
 
-Source-reported position links in W/R navigate to the original molecule/chain/raw index while retaining the Evidence subject, kind, note and conditions. The association does not establish residue-localized measurement or causality. W offers atom, distance-based ball-and-stick and standard amino-acid C-alpha atom views, plus exact-source focus. Source-only selections remain distinct from antibody sequence correspondence. Reviewed hypotheses can retain the actual source file/model/residue/alternate state. F12/F13 implementation is under independent verification; full J03/J04 acceptance is not yet registered.
+Source-reported position links in W/R navigate to the original molecule/chain/raw index while retaining the Evidence subject, kind, note and conditions. The association does not establish residue-localized measurement or causality. W offers atom, distance-based ball-and-stick and standard amino-acid C-alpha atom views, plus exact-source focus. Source-only selections remain distinct from antibody sequence correspondence. Reviewed hypotheses can retain the actual source file/model/residue/alternate state. F12/F13 and full synthetic J03/J04 passed independent verification. The public experimental 1MLC fixture separately verifies antibody-scale rendering and source preservation; it does not validate a predictor or replace researcher evaluation.
 
 ## Import contracts
 

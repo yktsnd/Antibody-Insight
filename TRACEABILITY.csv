@@ -1,8 +1,8 @@
 scenario_id,persona_id,acceptance_id,main_test,negative_test_1,negative_test_2,release_status,implementation_ticket,commit,reviewer,review_result
-J01,P01,AC-J01,e2e_j01_candidate_shortlist,e2e_j01_invalid_sequence,e2e_j01_missing_measurement,PASS,F01;F02;F03;F07;F09,8b61d7154268217fc3a80c5060bbdcd6c5eb5297,/root/j01_replay_review,PASS
-J02,P02,AC-J02,e2e_j02_humanize_variant,e2e_j02_numbering_unavailable,e2e_j02_insertion_mapping,PASS,F06;F07;F10;F11,8b61d7154268217fc3a80c5060bbdcd6c5eb5297,/root/j01_replay_review,PASS
-J03,P03,AC-J03,e2e_j03_complex_comparison,e2e_j03_unmappable_residue,e2e_j03_missing_confidence,PARTIAL,F08;F11;F12;F13,,,FULL_ACCEPTANCE_PENDING
-J04,P04,AC-J04,e2e_j04_developability_review,e2e_j04_unit_mismatch,e2e_j04_unknown_assay_condition,PARTIAL,F08;F09;F10;F11;F12;F13,,,FULL_ACCEPTANCE_PENDING
+J01,P01,AC-J01,e2e_j01_candidate_shortlist,e2e_j01_invalid_sequence,e2e_j01_missing_measurement,PASS,F01;F02;F03;F07;F09,983342a280b3580a9d8eaaa449034f96f150203c,/root/observation_review,PASS
+J02,P02,AC-J02,e2e_j02_humanize_variant,e2e_j02_numbering_unavailable,e2e_j02_insertion_mapping,PASS,F06;F07;F10;F11,983342a280b3580a9d8eaaa449034f96f150203c,/root/observation_review,PASS
+J03,P03,AC-J03,e2e_j03_complex_comparison,e2e_j03_unmappable_residue,e2e_j03_missing_confidence,PASS,F08;F11;F12;F13,983342a280b3580a9d8eaaa449034f96f150203c,/root/observation_review,PASS
+J04,P04,AC-J04,e2e_j04_developability_review,e2e_j04_unit_mismatch,e2e_j04_unknown_assay_condition,PASS,F08;F09;F10;F11;F12;F13,983342a280b3580a9d8eaaa449034f96f150203c,/root/observation_review,PASS
 J05,P05,AC-J05,e2e_j05_bispecific_composition,e2e_j05_undefined_chain,e2e_j05_unsupported_analysis,PARTIAL,F06,,,FULL_ACCEPTANCE_PENDING
 J06,P06,AC-J06,e2e_j06_construct_sample_lineage,e2e_j06_unknown_sample_id,e2e_j06_incomparable_units,PARTIAL,F04;F09;F11,,,FULL_ACCEPTANCE_PENDING
 J07,P07,AC-J07,e2e_j07_candidate_decision,e2e_j07_missing_required_metric,e2e_j07_immutable_decision,PARTIAL,F03;F09,,,FULL_ACCEPTANCE_PENDING

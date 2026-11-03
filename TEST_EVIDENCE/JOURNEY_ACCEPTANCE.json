@@ -3,27 +3,51 @@
   "journeys": {
     "J01": {
       "status": "PASS",
-      "reviewer": "/root/j01_replay_review",
-      "implementation_commit": "8b61d7154268217fc3a80c5060bbdcd6c5eb5297",
-      "review_report": "TEST_EVIDENCE/M3-numbered-design-independent-review.md",
-      "review_report_sha256": "356003aa67a6038a23922592bae86128cc2d86845c4ec86e9aa2606e11b68072",
-      "test_report": "TEST_EVIDENCE/M3-numbered-design-independent-J01-results.json",
-      "test_report_sha256": "ff088130920f89af647e80995adc05137e9deba7f349ff41b7d0b4b90cc30426",
-      "source_manifest": "TEST_EVIDENCE/M3-numbered-design-independent-source-manifest.json",
-      "source_manifest_sha256": "b86bac136161e42a7bc5ebafd5655032f75cf5dedcdf899d0ceb2e0c0df5e58f",
-      "scope": "Full J01 and two prescribed negatives, labelled synthetic engineering fixtures; scientific/user/final integration gates remain open"
+      "reviewer": "/root/observation_review",
+      "implementation_commit": "983342a280b3580a9d8eaaa449034f96f150203c",
+      "review_report": "TEST_EVIDENCE/M3-observation-implementation-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M3-observation-independent-J01-results.json",
+      "source_manifest": "TEST_EVIDENCE/M3-observation-registration-source-manifest.json",
+      "scope": "Full J01 and two prescribed negatives, labelled synthetic engineering fixtures; scientific/user/final integration gates remain open",
+      "review_report_sha256": "29c3c48ca7e08768e73deafdcf01e1b165ec906cf8b6ec5f093018c45fb3d9e8",
+      "test_report_sha256": "7dda525e141302ae18a5ae26da8382b553ffca15a3b4368092c4ea6a56fb6029",
+      "source_manifest_sha256": "c818145f72d52ce08c3b41bfccd6ae492fd1643f19395b277bdc980f5e1e2bd5"
     },
     "J02": {
       "status": "PASS",
-      "reviewer": "/root/j01_replay_review",
-      "implementation_commit": "8b61d7154268217fc3a80c5060bbdcd6c5eb5297",
-      "review_report": "TEST_EVIDENCE/M3-numbered-design-independent-review.md",
-      "review_report_sha256": "356003aa67a6038a23922592bae86128cc2d86845c4ec86e9aa2606e11b68072",
-      "test_report": "TEST_EVIDENCE/M3-numbered-design-independent-J02-results.json",
-      "test_report_sha256": "c2fc81d6464047bae5314467c5f1625a7443d5e935f341c127f00492e92c537b",
-      "source_manifest": "TEST_EVIDENCE/M3-numbered-design-independent-source-manifest.json",
-      "source_manifest_sha256": "b86bac136161e42a7bc5ebafd5655032f75cf5dedcdf899d0ceb2e0c0df5e58f",
-      "scope": "Full J02 and two prescribed negatives, labelled synthetic engineering fixtures; scientific/user/final integration gates remain open"
+      "reviewer": "/root/observation_review",
+      "implementation_commit": "983342a280b3580a9d8eaaa449034f96f150203c",
+      "review_report": "TEST_EVIDENCE/M3-observation-implementation-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M3-observation-independent-J02-results.json",
+      "source_manifest": "TEST_EVIDENCE/M3-observation-registration-source-manifest.json",
+      "scope": "Full J02 and two prescribed negatives, labelled synthetic engineering fixtures; scientific/user/final integration gates remain open",
+      "review_report_sha256": "29c3c48ca7e08768e73deafdcf01e1b165ec906cf8b6ec5f093018c45fb3d9e8",
+      "test_report_sha256": "ca5f7df3a49de5472bc2e3dc0b1b0e1e9df434c7b1f808effe2227982d72a271",
+      "source_manifest_sha256": "c818145f72d52ce08c3b41bfccd6ae492fd1643f19395b277bdc980f5e1e2bd5"
+    },
+    "J03": {
+      "status": "PASS",
+      "reviewer": "/root/observation_review",
+      "implementation_commit": "983342a280b3580a9d8eaaa449034f96f150203c",
+      "review_report": "TEST_EVIDENCE/M3-observation-implementation-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M3-observation-independent-J03-results.json",
+      "source_manifest": "TEST_EVIDENCE/M3-observation-registration-source-manifest.json",
+      "scope": "Full J03 and two prescribed negatives, labelled synthetic engineering fixtures; scientific/user/final integration gates remain open",
+      "review_report_sha256": "29c3c48ca7e08768e73deafdcf01e1b165ec906cf8b6ec5f093018c45fb3d9e8",
+      "test_report_sha256": "114aa681091a538c82c5f3ed376fd051edd5a71690f14698cb800e6f6e5ab548",
+      "source_manifest_sha256": "c818145f72d52ce08c3b41bfccd6ae492fd1643f19395b277bdc980f5e1e2bd5"
+    },
+    "J04": {
+      "status": "PASS",
+      "reviewer": "/root/observation_review",
+      "implementation_commit": "983342a280b3580a9d8eaaa449034f96f150203c",
+      "review_report": "TEST_EVIDENCE/M3-observation-implementation-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M3-observation-independent-J04-results.json",
+      "source_manifest": "TEST_EVIDENCE/M3-observation-registration-source-manifest.json",
+      "scope": "Full J04 and two prescribed negatives, labelled synthetic engineering fixtures; scientific/user/final integration gates remain open",
+      "review_report_sha256": "29c3c48ca7e08768e73deafdcf01e1b165ec906cf8b6ec5f093018c45fb3d9e8",
+      "test_report_sha256": "bf1055b9b08aa985d24fe847efaa30b9e1e850e69264c79e4af58db173a02082",
+      "source_manifest_sha256": "c818145f72d52ce08c3b41bfccd6ae492fd1643f19395b277bdc980f5e1e2bd5"
     }
   }
 }

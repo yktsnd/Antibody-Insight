@@ -1,5 +1,13 @@
 # Changes
 
+## 0.4.0-dev: source positions and structural reasoning (independently verified scope)
+
+- Source-supplied Evidence notes and position links retain their own subject/kind/conditions; no residue-localized measurement or liability is inferred.
+- Exact source file/model/residue/alternate context can be retained in a proposed hypothesis, including source-only observations without antibody sequence attribution.
+- Native atom, distance-based ball-and-stick and standard-AA C-alpha atom views, exact-source focus and full-source framing reuse the pinned local viewer. No secondary structure or chemical validation is generated.
+- Public experimental 1MLC checks antibody-scale rendering and all-source identity preservation offline; original bytes/digest/license are pinned. It is separate from synthetic prediction/assay journeys and scientific/user acceptance.
+- Independent review verified the corrected stale asynchronous hypothesis-opening context. Frozen replay: 320 Python tests and57 browser checks; current synthetic engineering acceptance J01–J04 is4/8 and8/16. Full M3/J05–J08 and release gates remain open.
+
 ## 0.3.0-dev: connected numbered designs and hypotheses (independently verified scope)
 
 - Explicit parent map/chain/domain/scheme/insertion coordinates, reference comparisons, before/after child preview and substitution lineage.
