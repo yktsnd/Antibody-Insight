@@ -33,4 +33,4 @@ Required main path: real browser operations for the full J02 action, with VH/VL,
 Required negative paths use the original names `e2e_j02_numbering_unavailable` and `e2e_j02_insertion_mapping`.
 Keep the existing J01 and structural paths intact. J03/J04 need their own complete evidence before being counted; engineering fixtures never satisfy human scientific golden validation or researcher evaluation.
 
-Design review PASS: TEST_EVIDENCE/M3-design-independent-review.md. Implementation/full-journey review is pending. UX references and reuse decisions: SCIENTIFIC_UX.md.
+Design review PASS: TEST_EVIDENCE/M3-design-independent-review.md. F10/F11 and the full synthetic J02 path passed independent review in TEST_EVIDENCE/M3-numbered-design-independent-review.md. Other complete journeys and scientific/user validation remain pending. UX references and reuse decisions: SCIENTIFIC_UX.md.

@@ -1,6 +1,6 @@
 # ADR-0006 Numbered substitutions and retained research hypotheses
 
-- Status: design PASS; implementation and full journeys await independent replay.
+- Status: design and F10/F11 implementation PASS; full synthetic J02 PASS. Complete M3 and other journeys remain pending.
 - Date: 2026-11-03. Owner: implementation agent.
 - Trace: F10 (P02/P04, J02/J04, AC-J02/AC-J04), F11 (P02/P03/P04/P06, J02/J03/J04/J06 and their ACs).
 - Original need: let the researcher turn an observed difference or concern into a precise child design and a testable, source-linked hypothesis. This closes the main missing M3 reasoning path rather than adding an analysis tool.
@@ -19,3 +19,5 @@
 - F11 J03/J04: retain confidence/source/limits and explicit structural context in a proposed variant hypothesis; combine F09 ordering, F08 observation and F10 child creation for the complete J04 action. Full J03/J04 acceptance requires their own named browser paths, not an inferred count from J02.
 - Non-goals: model execution, automatic humanization, biological success/affinity claims, indels, interactive assembly (next M3 action), construct/measurement comparison and finalized decisions (M4).
 - Reviewer: `/root/j01_replay_review`, TEST_EVIDENCE/M3-design-independent-review.md. All new saves are append-only; isolate test databases and leave existing records untouched. Escalate any unresolved change to scientific meaning or product scope.
+
+Implementation review: TEST_EVIDENCE/M3-numbered-design-independent-review.md. Implementation commit: `8b61d7154268217fc3a80c5060bbdcd6c5eb5297`. Fresh J01 regression and full J02 named paths passed on the exact source manifest. No scientific/user validation is inferred.

@@ -1,12 +1,12 @@
 # Changes
 
-## 0.3.0-dev: connected numbered designs and hypotheses (independent replay pending)
+## 0.3.0-dev: connected numbered designs and hypotheses (independently verified scope)
 
 - Explicit parent map/chain/domain/scheme/insertion coordinates, reference comparisons, before/after child preview and substitution lineage.
 - Exact component origins are cleared only where changed sequences no longer match; unmodified declarations and all-copy effects remain visible. Parent measurements, structures and verified maps are not inherited.
 - Proposed Hypothesis records preserve original Evidence, molecule/lineage/residue/model contexts, limitations and the next experiment.
 - Scientific UX references compare established tools before the D/R interface; native tables/forms and the existing local viewer/atomic import are reused. Compact candidate counts retain the same research information.
-- Independent review drove strict model/correspondence matching and dialog/request generation guards; full milestone verification remains pending.
+- Independent review drove strict model/correspondence matching, dialog/request generation guards and original-draft ownership during asynchronous saves; F10/F11 and full synthetic J02 passed independent replay; complete M3 remains pending.
 
 ## Contextual observations and J01 (F09, independently verified)
 
@@ -14,7 +14,7 @@
 - Repeated observations require an actual Evidence-ID choice, preserving Material/Construct/Molecule paths and null versus zero.
 - Full synthetic J01 browser path from 800 accepted CSV sequences plus explicit QC exclusions through CDR-H3/binding observation, two-candidate comparison, five-ID shortlist/reason and actual process restart.
 - English implementation with switchable English/Japanese explanations and curated humanness/humanization terminology; language switching preserves scientific records.
-- Source- and report-digest checks replace hardcoded full-journey counts; independent J01 acceptance is 1/8 journeys and 2/16 prescribed negatives.
+- Source- and report-digest checks replace hardcoded full-journey counts; at that milestone independent J01 acceptance was 1/8 journeys and 2/16 prescribed negatives.
 
 - Added the requester-authorized recurring product-alignment checkpoint in AGENTS and bilingual guidance, independently reviewed against the original mission. The next priority is connected variants and hypotheses rather than incidental expansion.
 

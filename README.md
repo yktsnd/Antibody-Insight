@@ -4,9 +4,9 @@ A local research workspace connecting antibody candidates to sequences, material
 
 [日本語の利用ガイド](README.ja.md) · [Product goal](PRODUCT_GOAL.md) · [Development specification](DEVELOPMENT_PLAN.md) · [Current limitations](KNOWN_LIMITATIONS.md)
 
-**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F09 are independently verified, including local structural observation and the complete synthetic-fixture J01 shortlist journey. Engineering acceptance is 1/8 journeys and 2/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
+**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F11 are independently verified within their recorded scope, including complete synthetic-fixture J01 shortlist and J02 parent/reference → child design → proposed hypothesis journeys. Engineering acceptance is 2/8 journeys and 4/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
 
-The current 0.3.0-dev worktree also implements source-numbered child designs and proposed research hypotheses (F10/F11), with independent replay pending. The acceptance counts above describe the retained M2 snapshot until fresh current-source evidence is registered.
+Version0.3.0-dev connects source-numbered child designs and proposed research hypotheses (F10/F11). Fresh independent J01/J02 replay passed; full M3, the other six journeys, scientific validation and researcher evaluation remain pending.
 
 ## Run locally
 
@@ -51,7 +51,7 @@ Contextual numeric ordering (F09) and the synthetic J01 engineering path passed 
 
 See the [scientific UX references and reuse decisions](docs/SCIENTIFIC_UX.md), [design contract](docs/DESIGN_CONTRACT.md) and [the language policy and terminology](docs/LANGUAGE_POLICY.md) and [the observation contract](docs/OBSERVATION_CONTRACT.md).
 
-See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive assembly, criteria-based final decisions, measurement CSV and AIRR adapters remain pending. F10/F11 numbered substitutions and proposed hypotheses are implemented and awaiting independent milestone verification.
+See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive assembly, criteria-based final decisions, measurement CSV and AIRR adapters remain pending. F10/F11 numbered substitutions and proposed hypotheses passed independent verification in the J02 engineering path.
 
 ## Verify
 

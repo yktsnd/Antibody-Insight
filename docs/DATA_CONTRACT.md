@@ -81,4 +81,5 @@ CSV列はexternal_id,name,sequence,chain_role,formatとする。
 [設計と仮説の契約](DESIGN_CONTRACT.md)に従い、番号付き置換のLineageとproposed状態のHypothesisを追加します。
 親と子の構成、実際の置換位置、原根拠、構造モデルの対象を再検証し、既存レコードは書き換えません。
 未知の型を黙って読み飛ばす旧形式への変換は行いません。
-実装の独立再検証は進行中です。
+F10/F11の実装と合成試験データによるJ02全経路は、M3-numbered-design-independent-review.mdの独立再検証に合格しています。
+ほかの全経路と科学的・実利用上の検証は未了です。
