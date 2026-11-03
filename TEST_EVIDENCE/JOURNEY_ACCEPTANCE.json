@@ -1,0 +1,17 @@
+{
+  "schema_version": "journey-acceptance/1",
+  "journeys": {
+    "J01": {
+      "status": "PASS",
+      "reviewer": "/root/j01_replay_review",
+      "implementation_commit": "85518eabc4d9b7203c0c8726b8c16e8187c4e230",
+      "review_report": "TEST_EVIDENCE/M2-observation-independent-review.md",
+      "review_report_sha256": "946a4cf57d20b658070dc3637474edb6b4deebea7eba03c5c042284beeae48c9",
+      "test_report": "TEST_EVIDENCE/M2-observation-independent-J01-results.json",
+      "test_report_sha256": "402830ff22492e597fc26978765efba79cc2542e6a196e8c591c9d9dd3adc4f6",
+      "source_manifest": "TEST_EVIDENCE/M2-observation-independent-source-manifest.json",
+      "source_manifest_sha256": "fd314dedb1896e76b048297b044aa6441faa73ee22f0861735140bcb44b71b3a",
+      "scope": "Full J01 and two prescribed negatives, labelled synthetic engineering fixtures; scientific/user/final integration gates remain open"
+    }
+  }
+}

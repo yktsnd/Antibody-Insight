@@ -1,12 +1,14 @@
 # Changes
 
-## Contextual observations and J01 (F09, independent replay pending)
+## Contextual observations and J01 (F09, independently verified)
 
 - Explicit measured/computed, unit, assay/condition and source/version ordering contexts; no averaging, conversion, imputation or candidate recommendation.
 - Repeated observations require an actual Evidence-ID choice, preserving Material/Construct/Molecule paths and null versus zero.
 - Full synthetic J01 browser path from 800 accepted CSV sequences plus explicit QC exclusions through CDR-H3/binding observation, two-candidate comparison, five-ID shortlist/reason and actual process restart.
 - English implementation with switchable English/Japanese explanations and curated humanness/humanization terminology; language switching preserves scientific records.
-- Source- and report-digest checks replace hardcoded full-journey counts; acceptance remains pending an independent PASS.
+- Source- and report-digest checks replace hardcoded full-journey counts; independent J01 acceptance is 1/8 journeys and 2/16 prescribed negatives.
+
+- Added the requester-authorized recurring product-alignment checkpoint in AGENTS and bilingual guidance, independently reviewed against the original mission. The next priority is connected variants and hypotheses rather than incidental expansion.
 
 ## Local structural observation (F08, independently verified)
 

@@ -1,6 +1,6 @@
 # ADR-0005 Numeric ordering with explicit evidence context
 
-- Status: design PASS; implementation review pending before integration.
+- Status: design and implementation PASS; integrated as an engineering slice, not a Release 1.0 completion.
 - Date: 2026-11-03, Asia/Tokyo. Owner: implementation agent.
 - Related: P01/P04/P06/P07, J01/J04/J06/J07, AC-J01/AC-J04/AC-J06/AC-J07; F09, required M2 observation and J01 completion.
 - User action: choose an actual metric/assay/source context in E, inspect original units/conditions, explicitly choose an observation when a candidate has multiple eligible material results, order candidates ascending/descending, compare two candidates in W, retain five IDs and the reason/evidence in R across restart.
@@ -17,3 +17,5 @@
 - Additional negatives: incompatible units/conditions cannot enter one ordering; ambiguous repeated samples require an explicit evidence choice; malformed/stale choices reject without persistence; independent reviewer adds two boundaries.
 - Non-goals: assay validation, conversion, statistical aggregation, final weighted decision, construct-design editing, variants or full J04/J06/J07. M3/M4 remain required.
 - Reviewer: `/root/independent_review`, TEST_EVIDENCE/M2-observation-design-review.md, 2026-11-03. Rollback: isolate fixture DBs; no persisted fields or existing entities are rewritten. Escalate if review identifies changed scientific semantics or product scope.
+
+Implementation/J01/M2 engineering review: `/root/j01_replay_review`, TEST_EVIDENCE/M2-observation-independent-review.md. Implementation commit: `85518eabc4d9b7203c0c8726b8c16e8187c4e230`.

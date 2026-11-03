@@ -4,7 +4,7 @@ A local research workspace connecting antibody candidates to sequences, material
 
 [日本語の利用ガイド](README.ja.md) · [Product goal](PRODUCT_GOAL.md) · [Development specification](DEVELOPMENT_PLAN.md) · [Current limitations](KNOWN_LIMITATIONS.md)
 
-**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F08 is independently verified, including local structural observation. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
+**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F09 are independently verified, including local structural observation and the complete synthetic-fixture J01 shortlist journey. Engineering acceptance is 1/8 journeys and 2/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
 
 ## Run locally
 
@@ -45,7 +45,7 @@ The viewers can link rotation and zoom while retaining separate centers. This is
 - Workspace JSON: versioned `awx/1` with strict entity/reference validation. Measured evidence requires a Material ID. Missing values/conditions remain null; zero remains zero. Unknown source version stays null.
 - ID collisions reject the entire save. Unknown fields are reported rather than discarded. Entities and draft snapshots are append-only. An existing project can accept new entities only with unchanged project metadata.
 
-Contextual numeric ordering (F09) is implemented and under independent replay. In E choose an observation context and direction; choose an actual Evidence record when several materials have matching context. Original units, conditions, measured/computed types and source versions remain separate. Missing values follow numbers, and zero stays zero. This does not establish scientific comparability or recommend a candidate.
+Contextual numeric ordering (F09) and the synthetic J01 engineering path passed independent replay. In E choose an observation context and direction; choose an actual Evidence record when several materials have matching context. Original units, conditions, measured/computed types and source versions remain separate. Missing values follow numbers, and zero stays zero. This does not establish scientific comparability or recommend a candidate.
 
 See [the language policy and terminology](docs/LANGUAGE_POLICY.md) and [the observation contract](docs/OBSERVATION_CONTRACT.md).
 
@@ -73,6 +73,8 @@ The initial browser suite verifies import preview/QC, 800 records, five selectio
 The numbering suite uses 800 synthetic candidates to verify CDR-H3 grouping, chain-specific insertion coordinates, explicit ambiguous-map selection, unavailable/partial/unverified states, map-choice restart persistence and ID-only group-filter storage. Engineering fixture success is not human scientific validation.
 
 The structural suite performs actual PDB and mmCIF canvas clicks, raw file import/manual correspondence creation, reciprocal sequence selection, unavailable/alternate handling, physical rotation and wheel zoom, model-score scope/cache refresh, unknown source models, project isolation and restart/roundtrip. Its temporary Chrome profile uses software WebGL for deterministic tests; the application uses the browser's available WebGL implementation.
+
+The dedicated J01 suite verifies CSV800/QC → CDR-H3 and binding context → two-candidate observation → five-ID reason/evidence → actual restart. Independent review confirms this engineering path; scientific golden validation and real researcher evaluation remain pending. See the [product alignment checkpoint](docs/PRODUCT_ALIGNMENT.md) ([日本語](docs/PRODUCT_ALIGNMENT.ja.md)).
 
 See [test evidence](TEST_EVIDENCE/README.md), [traceability](TRACEABILITY.csv), [the initial review](docs/INITIAL_REVIEW.md) and [the acceptance plan](docs/ACCEPTANCE.md). Human-validated scientific golden fixtures and researcher evaluations remain outstanding.
 

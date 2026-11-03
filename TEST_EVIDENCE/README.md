@@ -17,3 +17,9 @@ Store the input identity/checksum, target commit or exact source digest, command
 - `M2-structure-screen.png`: actual local WebGL rendering of synthetic coordinates, with source/model/chain roles and internal computed metrics explicitly labeled.
 
 The prescribed eight journeys and sixteen negatives remain separate final acceptance items. An unsupported-structure rejection in the foundation is not a successful complete J08 structure-import journey.
+
+F09 / J01 / M2 engineering: independent PASS in `M2-observation-independent-review.md`, with 252 Python tests and 11/5/11/5 Chrome checks plus three independently added asynchronous-race checks. `M2-observation-independent-J01-results.json` contains the named full J01 main and its two prescribed negatives. `JOURNEY_ACCEPTANCE.json` binds the reviewer, exact artifact hashes, reviewed source manifest and implementation commit; the checker currently validates 1/8 journeys and 2/16 prescribed negatives. The other seven journeys and scientific/user/final-quality gates remain open.
+
+The original full runtime digest is preserved in `M2-observation-independent-runtime-replay-source-manifest.json`. Only the requester-authorized AGENTS documentation changed afterward; the reviewer inspected that delta and verified every runtime/test/script digest unchanged in the final source manifest. The bilingual product-alignment documents were reviewed separately.
+
+`J01-browser-failure.json` preserves the first harness assertion that mistakenly matched the unit substring in the UI key chainMaps; its corrected ID/value assertion and final independent replay pass. `M2-structure-browser-failure.json` preserves the asynchronous saved-viewer/detached-DOM failure; explicit reload disposal/inert content and waiting for the actual saved map revision fixed it, with all physical canvas assertions retained.
