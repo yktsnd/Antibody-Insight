@@ -4,9 +4,9 @@ A local research workspace connecting antibody candidates to sequences, material
 
 [日本語の利用ガイド](README.ja.md) · [Product goal](PRODUCT_GOAL.md) · [Development specification](DEVELOPMENT_PLAN.md) · [Current limitations](KNOWN_LIMITATIONS.md)
 
-**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F13 are independently verified within their recorded scope, including complete synthetic-fixture J01 shortlist, J02 parent/reference design, J03 structural observation → hypothesis and J04 property evidence → child → next experiment journeys. Engineering acceptance is 4/8 journeys and 8/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
+**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F15 are independently verified within their recorded scope, including complete synthetic-fixture J01 shortlist, J02 parent/reference design, J03 structural observation → hypothesis, J04 property evidence → child → next experiment and J05 explicit composition → source inspection → alternative design → unverified question journeys. Engineering acceptance is 5/8 journeys and 10/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
 
-Version0.4.0-dev connects reported positions and exact structural observations to proposed hypotheses (F12/F13). Fresh independent J01–J04 replay passed; full M3, the other four journeys, scientific validation and researcher evaluation remain pending.
+Version0.5.0-dev connects explicit source-part composition, design comparison and retained research reasoning (F14/F15). Fresh independent J01–J05 replay passed and M3 meets its engineering gate. The other three journeys, scientific validation and researcher evaluation remain pending.
 
 ## Run locally
 
@@ -38,9 +38,11 @@ Use **Preview structure fixture** to inspect two synthetic complexes from PDB an
 
 The viewers can link rotation and zoom while retaining separate centers. This is not structural superposition. Supplied model scores retain their source/model scope; missing scores, occupancy and B-fields stay unknown. B-values are not automatically relabeled as confidence. Current limits are24MiB and100,000 atoms per coordinate file; ambiguous reused PDB residue loci across TER and hybrid-36 identifiers report explicit errors rather than partial loading.
 
-**D** creates explicit source-numbered substitutions with a before/after preview and immutable parent/child lineage. Select a mapped residue in W and choose **Design a substitution**, or choose the parent/map in D. An optional reference comparison preserves its source and gaps. The child receives no parent measurements, structures or verified numbering. In R, **Record research hypothesis** retains the proposal, original Evidence, limitations and next experiment. Interactive assembly and final decisions remain pending. The researcher guide in the application switches between English and Japanese. UI labels, code and identifiers use English. Japanese explanations use curated antibody-research terminology.
+**D** creates explicit source-numbered substitutions with a before/after preview and immutable parent/child lineage. Select a mapped residue in W and choose **Design a substitution**, or choose the parent/map in D. An optional reference comparison preserves its source and gaps. The child receives no parent measurements, structures or verified numbering. In R, **Record research hypothesis** retains the proposal, original Evidence, limitations and next experiment. Explicit composition recipes are available in D; final decisions remain pending. The researcher guide in the application switches between English and Japanese. UI labels, code and identifiers use English. Japanese explanations use curated antibody-research terminology.
 
 Source-reported position links in W/R navigate to the original molecule/chain/raw index while retaining the Evidence subject, kind, note and conditions. The association does not establish residue-localized measurement or causality. W offers atom, distance-based ball-and-stick and standard amino-acid C-alpha atom views, plus exact-source focus. Source-only selections remain distinct from antibody sequence correspondence. Reviewed hypotheses can retain the actual source file/model/residue/alternate state. F12/F13 and full synthetic J03/J04 passed independent verification. The public experimental 1MLC fixture separately verifies antibody-scale rendering and source preservation; it does not validate a predictor or replace researcher evaluation.
+
+In E, select BindingUnit source IDs and choose **Design an explicit composition**. In D, specify actual chains/roles/copies, ordered source intervals and literal component/linker sequences. Review missing partner usage, partial intervals, occurrence imbalance and exact source IDs before saving. W inspects saved chains and original sources; D compares two actual saved compositions. An explicit parent recipe preserves component IDs and composition Lineage. R retains unverified questions and the next experiment. Declared source-chain occurrences do not establish functional units, valency or physical assembly.
 
 ## Import contracts
 
@@ -53,7 +55,7 @@ Contextual numeric ordering (F09) and the synthetic J01 engineering path passed 
 
 See the [scientific UX references and reuse decisions](docs/SCIENTIFIC_UX.md), [design contract](docs/DESIGN_CONTRACT.md) and [the language policy and terminology](docs/LANGUAGE_POLICY.md) and [the observation contract](docs/OBSERVATION_CONTRACT.md).
 
-See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive assembly, criteria-based final decisions, measurement CSV and AIRR adapters remain pending. F10/F11 numbered substitutions and proposed hypotheses passed independent verification in the J02 engineering path.
+See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive composition recipes are supported. Criteria-based final decisions, measurement CSV and AIRR adapters remain pending. F10/F11 numbered substitutions and proposed hypotheses passed independent verification in the J02 engineering path.
 
 ## Verify
 
@@ -68,6 +70,8 @@ node tests/numbering-browser.cjs
 node tests/structures-browser.cjs
 node tests/j01-browser.cjs
 node tests/j02-browser.cjs
+node tests/j05-browser.cjs
+node tests/composition-independent-browser.cjs
 node tests/observation-journeys-browser.cjs
 python scripts/check_traceability.py
 ```

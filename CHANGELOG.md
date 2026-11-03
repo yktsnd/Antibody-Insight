@@ -1,5 +1,13 @@
 # Changes
 
+## 0.5.0-dev: explicit composition and retained design questions (independently verified scope)
+
+- E selects actual BindingUnit IDs; D specifies chains/roles/copies, exact source intervals, explicit linkers and relationship kinds. Missing source parts or partners are not filled automatically.
+- Preview shows actual source-chain usage, partial/absent paired usage and declared copy imbalance. Occurrence counts do not imply functional units, valency or chemical validity.
+- W inspects saved chain sequences and original source IDs; D compares actual saved formats/roles/components, retaining exact parent/child composition Lineage. Proposed questions/next experiments persist in R.
+- Independent review fixed recycled component IDs silently reconnecting deleted endpoints, and old save errors affecting newer reviews. Separate D task controls preserve drafts and context.
+- Frozen replay:352 Python tests and67 browser checks, all exit0; complete synthetic J01–J05 engineering acceptance5/8 and10/16. M3 engineering gate PASS; J06–J08, scientific/user/final release gates remain open.
+
 ## 0.4.0-dev: source positions and structural reasoning (independently verified scope)
 
 - Source-supplied Evidence notes and position links retain their own subject/kind/conditions; no residue-localized measurement or liability is inferred.

@@ -46,11 +46,11 @@ Numbered substitution change sets are a later extension with source-verified Res
 
 ## Scope limits
 
-This section records the original M1 stored-composition boundary. Later independently reviewed stages added imported numbering, structural observation and full synthetic J02–J04. F14/F15 interactive composition and full J05 are currently under verification, not yet accepted.
+This section records the original M1 stored-composition boundary. Later independently reviewed stages added imported numbering, structural observation and full synthetic J02–J04. F14/F15 and full synthetic J05 subsequently passed independent review in TEST_EVIDENCE/M3-composition-implementation-independent-review.md. Scientific/user/release gates remain open.
 Both scientific human-validated golden fixtures and the final release gates remain pending.
 
 
-## F14/F15 recipe and source-usage views (verification pending)
+## F14/F15 recipe and source-usage views (independently verified engineering scope)
 
 `composition_preview` accepts explicit name/external ID/declared format, chains (ID/role/copies/ordered components), declared connections, optional actual parent/reason and optional researcher annotation. A component has its own ID/role and a source: either `{kind: binding_unit, binding_unit_id, chain_id, start, end}` or `{kind: sequence, sequence}`. The server resolves only the exact source interval within the project. Empty/missing chains, copies, sequences, source references and endpoints reject instead of being completed. Accumulated chain length is checked before concatenation against the existing100000-residue limit. Connection cycles are permitted declarations; provenance/Lineage cycles remain forbidden.
 
@@ -58,4 +58,4 @@ A new independent composition has no invented parent or lineage reason. An expli
 
 `composition_context` preserves each actual source unit/chain/interval/component instance and declared copy count. Full source-chain occurrences sum only exact full-length source-chain instances times their declared copies. Partial/split/overlapping intervals remain separate usages; they are never unioned into an intact functional BindingUnit or a valency. Missing paired-source chains and differing occurrence counts stay visible; no partner or individual-copy contact is generated. The comparison preserves actual saved design/component/source IDs. Missing chains and renamed/deleted endpoints are not silently matched or retargeted. D separates composition and source-numbered substitution tasks while preserving their respective project-scoped drafts and shared molecular selection.
 
-These views establish declarations and data consistency only. Physical assembly, chemical validity, functional valency and experimental performance require independent evidence. Whole-molecule prediction remains unavailable without a validated adapter; imported source maps/coordinates do not acquire broader format scope. Full J05/current-source regression and independent UI gates remain pending.
+These views establish declarations and data consistency only. Physical assembly, chemical validity, functional valency and experimental performance require independent evidence. Whole-molecule prediction remains unavailable without a validated adapter; imported source maps/coordinates do not acquire broader format scope. Full synthetic J05/current-source regression and independent UI gates passed for the recorded source. Human scientific validation, researcher evaluation and final release gates remain pending.

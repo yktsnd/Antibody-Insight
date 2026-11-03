@@ -1,6 +1,6 @@
 # ADR-0008 Explicit composition design and comparison
 
-- Status: ACCEPTED within independently verified F14/F15 engineering scope. Full synthetic J01–J05 replay PASS; actual source-commit registration follows. Scientific/user/release gates remain open.
+- Status: ACCEPTED within independently verified F14/F15 engineering scope. Full synthetic J01–J05 replay PASS; Engineering acceptance is bound to implementation commit `d4bafb8830b10a08f47b346f0a6f13af315425e7` and fresh named reports. Scientific/user/release gates remain open.
 - Trace: F14/F15, P05, J05, AC-J05. Read PRODUCT_GOAL, DEVELOPMENT_PLAN J05, COMPONENT_CONTRACT, current product alignment and open L03/L11 before implementation. No persona, main transition, scientific identity or sharing policy changes.
 - Research question: how can the researcher assemble two explicitly supplied BindingUnits into a declared multichain design, inspect every ordered sequence part and its source, compare another design and retain what remains unverified?
 - User action/result: E selects actual source BindingUnit IDs → D specifies explicit chain IDs/roles/copies and ordered source intervals/linker sequences → reviewed local save creates a distinct Molecule → W inspects all chains/components/source IDs → D compares two declared compositions → R saves a proposed hypothesis and next test. No arbitrary score, inferred pairing, missing-chain completion or predictive assembly result.
