@@ -1,0 +1,63 @@
+{
+  "scope": "M1 foundation F01-F06; not final 8/8 or 16/16 acceptance",
+  "status": "PASS",
+  "timestamp": "2026-11-03T10:42:46.718Z",
+  "browser": "156.0.8078.79",
+  "dataset_sha256": "854d6c6ea15d40c6ae7c44d82bf5857a10507cd3957aa069483818c329afeabf",
+  "results": [
+    {
+      "name": "empty workspace and explicit fixture preview",
+      "status": "PASS",
+      "duration_ms": 973
+    },
+    {
+      "name": "five IDs persist across E W D R and residue selection",
+      "status": "PASS",
+      "duration_ms": 738
+    },
+    {
+      "name": "measured computed null zero conditions and immutable five-candidate draft",
+      "status": "PASS",
+      "duration_ms": 518
+    },
+    {
+      "name": "fresh JSON export and restart preserve IDs snapshots selection and source versions",
+      "status": "PASS",
+      "duration_ms": 1352
+    },
+    {
+      "name": "English and Japanese researcher explanations use curated terminology",
+      "status": "PASS",
+      "duration_ms": 352
+    },
+    {
+      "name": "duplicate ID rejected atomically; unknown fields and corrupt structures do not change state",
+      "status": "PASS",
+      "duration_ms": 107
+    },
+    {
+      "name": "hostile imported text stays text with no script execution",
+      "status": "PASS",
+      "duration_ms": 318
+    },
+    {
+      "name": "800-candidate FASTA QC preview; valid subset explicitly saved; responsive UI",
+      "status": "PASS",
+      "duration_ms": 9022
+    },
+    {
+      "name": "fresh environment JSON import roundtrip equals exported dataset",
+      "status": "PASS",
+      "duration_ms": 1204
+    },
+    {
+      "name": "F06 declared units component order copy counts and lineage in the workspace",
+      "status": "PASS",
+      "duration_ms": 3912
+    },
+    {
+      "name": "no outbound browser requests or JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}

@@ -21,3 +21,5 @@ The initial code has no validated predictive model and no asserted biological pr
 
 Next: complete J05 interactive composition, then M4 construct/material comparison and finalized decisions. Reuse the validated component graph, source intervals, local persistence and proposed-hypothesis mechanisms. Benchmark relevant scientific tools before each major interface. Do not count shared plumbing as another complete journey or add isolated representations ahead of missing research actions.
 Human-validated scientific fixtures and actual researcher evaluation remain explicit open requirements.
+
+Work in progress after the recorded 0.4.0-dev acceptance: F14/F15 explicit recipe preview/source-usage API passed independent domain/API review (31 focused tests). E/D composition controls and J05's complete browser path are under verification. This is not another accepted journey, and the current working source must receive fresh retained replays before registration. The 4/8 and8/16 above refer to the last independently registered source, not an unreviewed modification.

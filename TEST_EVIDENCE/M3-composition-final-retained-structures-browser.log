@@ -1,0 +1,12 @@
+PASS PDB and mmCIF fixture preview is local and explicit
+PASS actual structure click distinguishes author chain and insertion then selects exact sequence
+PASS sequence click highlights mapped source; missing coordinate and alternate B never fall back
+PASS physical rotation links orientation and zoom while preserving separate centers
+PASS model-scoped confidence differs and missing confidence never comes from B values
+PASS newly imported model evidence refreshes the structural observation cache
+PASS GUI reviews and saves an immutable explicit correspondence revision
+PASS raw PDB import and manual chain/residue pairing work without inferred correspondence
+PASS missing CIF model identity remains unknown and viewable without invented model one
+PASS project switching keeps structural IDs and camera context in their own project
+PASS restart and JSON roundtrip preserve original coordinates maps evidence and camera context
+PASS F08 browser checks 11

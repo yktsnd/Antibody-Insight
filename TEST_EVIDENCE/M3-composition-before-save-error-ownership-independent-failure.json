@@ -1,0 +1,28 @@
+{
+  "status": "FAIL",
+  "timestamp": "2026-11-03T10:36:56.337Z",
+  "error": "AssertionError [ERR_ASSERTION]: An old failure must not enable the shared button owned by a newer in-flight save\n\nfalse !== true\n",
+  "results": [
+    {
+      "name": "deleted component identity is not automatically recycled into a dangling connection",
+      "status": "PASS",
+      "duration_ms": 868
+    },
+    {
+      "name": "late composition review is discarded on task or project change and drafts remain",
+      "status": "PASS",
+      "duration_ms": 912
+    },
+    {
+      "name": "late successful save retains newer same-project recipe and current task",
+      "status": "PASS",
+      "duration_ms": 406
+    },
+    {
+      "name": "late successful save in another project cannot erase its draft or change current project",
+      "status": "PASS",
+      "duration_ms": 407
+    }
+  ],
+  "errors": []
+}

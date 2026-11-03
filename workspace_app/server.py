@@ -22,6 +22,7 @@ from .storage import Store
 from .structures import structure_observation
 from .design import design_context, variant_preview
 from .hypotheses import hypothesis_preview
+from .assembly import composition_context, composition_preview
 
 WEB = Path(__file__).resolve().parent.parent / "web"
 MAX_BODY = 32 * 1024 * 1024
@@ -111,6 +112,9 @@ class Handler(BaseHTTPRequestHandler):
                 elif parsed.path == "/api/numbering":
                     project_id = parse_qs(parsed.query).get("project_id", [""])[0]
                     self.reply(200, observations(self.server.store.bundle(project_id)))
+                elif parsed.path == "/api/composition-context":
+                    query = parse_qs(parsed.query)
+                    self.reply(200, composition_context(self.server.store.bundle(query.get("project_id", [""])[0]), query.get("molecule_id", [""])[0]))
                 elif parsed.path == "/api/example-structures":
                     from .structure_fixtures import structure_bundle
                     self.reply(200, structure_bundle())
@@ -123,7 +127,7 @@ class Handler(BaseHTTPRequestHandler):
             except ValidationError as exc:
                 self.reply(422, {"error": str(exc), "details": exc.details})
             return
-        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js",
+        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js", "/composition.js": "composition.js",
                  "/vendor/3Dmol-2.5.5.min.js": "vendor/3Dmol-2.5.5.min.js"}
         filename = files.get(parsed.path)
         if filename is None:
@@ -176,6 +180,14 @@ class Handler(BaseHTTPRequestHandler):
             elif route == "/api/hypothesis-preview":
                 fields(data, {"project_id", "definition"}, "request")
                 result = hypothesis_preview(self.server.store.bundle(data["project_id"]), data["definition"])
+            elif route == "/api/composition-preview":
+                fields(data, {"project_id", "definition"}, "request")
+                result = composition_preview(self.server.store.bundle(data["project_id"]), data["definition"])
+            elif route == "/api/composition-review":
+                fields(data, {"project_id", "definition"}, "request")
+                original = self.server.store.bundle(data["project_id"])
+                candidate = composition_preview(original, data["definition"])
+                result = {"bundle": candidate, "context": composition_context({**original, "entities": original["entities"] + candidate["entities"]}, candidate["entities"][0]["id"])}
             elif route == "/api/structure-map-preview":
                 fields(data, {"project_id", "definition"}, "request")
                 fields(data["definition"], {"structure_id", "molecule_id", "source", "chain_assignments", "residues"}, "mapping definition")

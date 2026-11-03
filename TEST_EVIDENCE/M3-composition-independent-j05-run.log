@@ -1,0 +1,4 @@
+PASS e2e_j05_bispecific_composition
+PASS e2e_j05_undefined_chain
+PASS e2e_j05_unsupported_analysis
+PASS J05 checks 4
