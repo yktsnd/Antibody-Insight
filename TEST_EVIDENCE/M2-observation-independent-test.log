@@ -1,0 +1,58 @@
+........................................................................ [ 28%]
+........................................................................ [ 57%]
+........................................................................ [ 85%]
+....................................                                     [100%]
+252 passed in 35.48s
+PASS empty workspace and explicit fixture preview
+PASS five IDs persist across E W D R and residue selection
+PASS measured computed null zero conditions and immutable five-candidate draft
+PASS fresh JSON export and restart preserve IDs snapshots selection and source versions
+PASS English and Japanese researcher explanations use curated terminology
+PASS duplicate ID rejected atomically; unknown fields and corrupt structures do not change state
+PASS hostile imported text stays text with no script execution
+PASS 800-candidate FASTA QC preview; valid subset explicitly saved; responsive UI
+PASS fresh environment JSON import roundtrip equals exported dataset
+PASS F06 declared units component order copy counts and lineage in the workspace
+{"status":"PASS","checks":11,"browser":"156.0.8078.79"}
+PASS 800 candidates imported with explicit synthetic numbering metadata
+PASS CDR-H3 grouping retains five selected IDs across raw chain and exact insertion observations
+PASS unavailable partial unverified and ambiguous mappings remain explicit
+PASS bad sequence annotation and malformed map choices reject without overwrite
+PASS server restart preserves map choice chain context and exact map provenance
+PASS F07 browser checks 5
+PASS PDB and mmCIF fixture preview is local and explicit
+PASS actual structure click distinguishes author chain and insertion then selects exact sequence
+PASS sequence click highlights mapped source; missing coordinate and alternate B never fall back
+PASS physical rotation links orientation and zoom while preserving separate centers
+PASS model-scoped confidence differs and missing confidence never comes from B values
+PASS newly imported model evidence refreshes the structural observation cache
+PASS GUI reviews and saves an immutable explicit correspondence revision
+PASS raw PDB import and manual chain/residue pairing work without inferred correspondence
+PASS missing CIF model identity remains unknown and viewable without invented model one
+PASS project switching keeps structural IDs and camera context in their own project
+PASS restart and JSON roundtrip preserve original coordinates maps evidence and camera context
+PASS F08 browser checks 11
+PASS e2e_j01_invalid_sequence
+PASS e2e_j01_missing_measurement
+PASS e2e_j01_candidate_shortlist
+PASS English and Japanese explanations preserve research data and context
+{"status":"PASS","checks":5,"steps":5}
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "pending failed request exposes no stale scalar and disables ordering controls",
+      "status": "PASS"
+    },
+    {
+      "name": "late previous-project fallback cannot overwrite new project context or values",
+      "status": "PASS"
+    },
+    {
+      "name": "independent race replay has no outbound requests or JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}
+PASS: 8 complete journey definitions and 9 traced implementation slices
+Full journey engineering acceptance: 0/8. Prescribed final browser edge cases: 0/16. Release 1.0 scientific, user and integration gates remain separate.

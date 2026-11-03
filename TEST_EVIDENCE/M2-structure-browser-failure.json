@@ -1,0 +1,40 @@
+{
+  "error": "Error: locator.scrollIntoViewIfNeeded: Element is not attached to the DOM\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n",
+  "results": [
+    {
+      "name": "PDB and mmCIF fixture preview is local and explicit",
+      "status": "PASS",
+      "duration_ms": 3039
+    },
+    {
+      "name": "actual structure click distinguishes author chain and insertion then selects exact sequence",
+      "status": "PASS",
+      "duration_ms": 3823
+    },
+    {
+      "name": "sequence click highlights mapped source; missing coordinate and alternate B never fall back",
+      "status": "PASS",
+      "duration_ms": 5867
+    },
+    {
+      "name": "physical rotation links orientation and zoom while preserving separate centers",
+      "status": "PASS",
+      "duration_ms": 3648
+    },
+    {
+      "name": "model-scoped confidence differs and missing confidence never comes from B values",
+      "status": "PASS",
+      "duration_ms": 6552
+    },
+    {
+      "name": "newly imported model evidence refreshes the structural observation cache",
+      "status": "PASS",
+      "duration_ms": 3289
+    },
+    {
+      "name": "GUI reviews and saves an immutable explicit correspondence revision",
+      "status": "PASS",
+      "duration_ms": 1768
+    }
+  ]
+}

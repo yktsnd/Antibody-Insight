@@ -17,6 +17,7 @@ from .adapters import new_project, parse_json, preview
 from .domain import SCHEMA, ValidationError, fields, new_id, now, require, validate_graph
 from .fixtures import composition_bundle, example_bundle, numbering_bundle
 from .numbering import cdr3_groups, observations
+from .observation import observation_order
 from .storage import Store
 from .structures import structure_observation
 
@@ -144,13 +145,13 @@ class Handler(BaseHTTPRequestHandler):
             data = parse_json(raw)
             route = urlsplit(self.path).path
             if route == "/api/preview":
-                fields(data, {"text", "format", "filename", "project_id", "title", "goal"}, "request", {"structure_options"})
+                fields(data, {"text", "format", "filename", "project_id", "title", "goal"}, "request", {"structure_options", "data_class"})
                 if data["format"] == "json":
                     project = None
                 elif data["project_id"]:
                     project = self.server.store.bundle(data["project_id"])["project"]
                 else:
-                    project = new_project(data["title"], data["goal"])
+                    project = new_project(data["title"], data["goal"], data.get("data_class", "research"))
                 result = preview(data["text"], data["format"], data["filename"], project, data.get("structure_options"))
             elif route == "/api/import":
                 result = self.server.store.import_bundle(data)
@@ -161,6 +162,9 @@ class Handler(BaseHTTPRequestHandler):
             elif route == "/api/cdr3-groups":
                 fields(data, {"project_id", "map_choices"}, "request")
                 result = cdr3_groups(self.server.store.bundle(data["project_id"]), data["map_choices"])
+            elif route == "/api/observation-order":
+                fields(data, {"project_id", "cohort_id", "choices", "direction"}, "request")
+                result = observation_order(self.server.store.bundle(data["project_id"]), data["cohort_id"], data["choices"], data["direction"])
             elif route == "/api/structure-map-preview":
                 fields(data, {"project_id", "definition"}, "request")
                 fields(data["definition"], {"structure_id", "molecule_id", "source", "chain_assignments", "residues"}, "mapping definition")

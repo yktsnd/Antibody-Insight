@@ -118,7 +118,12 @@ async function sourceClick(page,id,source){
   await page.locator('#map-pair-index').fill('1');await page.getByRole('button',{name:'Add / replace explicit pair',exact:true}).click();
   // Remove the intentionally wrong index2 pair before saving the corrected index1 mapping.
   await page.locator('[data-map-remove="0"]').click();
-  await page.getByRole('button',{name:'Validate & review new map',exact:true}).click();await page.getByRole('button',{name:'Save correspondence',exact:true}).click();await viewer(page,molecules[0].id);
+  await page.getByRole('button',{name:'Validate & review new map',exact:true}).click();
+  const savedResponse=page.waitForResponse((r)=>r.url().endsWith('/api/import')&&r.request().method()==='POST');
+  await page.getByRole('button',{name:'Save correspondence',exact:true}).click();assert.equal((await savedResponse).status(),200);
+  await page.locator('#structure-map-dialog').waitFor({state:'hidden'});
+  // Wait for this saved revision, not a viewer from before the asynchronous save.
+  await page.waitForFunction(({id,sourceId})=>{const c=StructureUI.contextFor(id);return c?.viewer&&c.data.structure.id===sourceId&&c.data.map?.residues.length===1;},{id:molecules[0].id,sourceId:raw.id});
   await page.getByRole('button',{name:'STR-001 H sequence index 1 A',exact:true}).click();await viewer(page,molecules[0].id);
   await page.waitForFunction((id)=>StructureUI.contextFor(id)?.host.querySelector('.structure-selection').textContent.includes('Mapped H raw index 1'),molecules[0].id);
   await sourceClick(page,molecules[0].id,{chain:'L',number:1});await page.getByText('Structure selection is unmapped:',{exact:false}).waitFor();

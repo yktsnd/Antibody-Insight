@@ -1,63 +1,63 @@
 {
   "scope": "F08 structural observation; full J03/J04/J08 still require later steps",
   "status": "PASS",
-  "timestamp": "2026-11-02T22:18:49.935Z",
+  "timestamp": "2026-11-03T03:29:07.685Z",
   "browser": "156.0.8078.79",
   "results": [
     {
       "name": "PDB and mmCIF fixture preview is local and explicit",
       "status": "PASS",
-      "duration_ms": 2027
+      "duration_ms": 3527
     },
     {
       "name": "actual structure click distinguishes author chain and insertion then selects exact sequence",
       "status": "PASS",
-      "duration_ms": 2526
+      "duration_ms": 3686
     },
     {
       "name": "sequence click highlights mapped source; missing coordinate and alternate B never fall back",
       "status": "PASS",
-      "duration_ms": 3794
+      "duration_ms": 6130
     },
     {
       "name": "physical rotation links orientation and zoom while preserving separate centers",
       "status": "PASS",
-      "duration_ms": 2900
+      "duration_ms": 4380
     },
     {
       "name": "model-scoped confidence differs and missing confidence never comes from B values",
       "status": "PASS",
-      "duration_ms": 5301
+      "duration_ms": 6955
     },
     {
       "name": "newly imported model evidence refreshes the structural observation cache",
       "status": "PASS",
-      "duration_ms": 3019
+      "duration_ms": 3920
     },
     {
       "name": "GUI reviews and saves an immutable explicit correspondence revision",
       "status": "PASS",
-      "duration_ms": 1196
+      "duration_ms": 3235
     },
     {
       "name": "raw PDB import and manual chain/residue pairing work without inferred correspondence",
       "status": "PASS",
-      "duration_ms": 10700
+      "duration_ms": 18028
     },
     {
       "name": "missing CIF model identity remains unknown and viewable without invented model one",
       "status": "PASS",
-      "duration_ms": 5239
+      "duration_ms": 7159
     },
     {
       "name": "project switching keeps structural IDs and camera context in their own project",
       "status": "PASS",
-      "duration_ms": 2040
+      "duration_ms": 2586
     },
     {
       "name": "restart and JSON roundtrip preserve original coordinates maps evidence and camera context",
       "status": "PASS",
-      "duration_ms": 5069
+      "duration_ms": 5893
     }
   ],
   "no_outbound": true,

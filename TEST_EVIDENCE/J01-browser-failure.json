@@ -1,0 +1,23 @@
+{
+  "status": "FAIL",
+  "timestamp": "2026-11-02T22:37:14.193Z",
+  "error": "AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /synthetic binding observation|temperature_C|4\\.5|nM/. Input:\n\n'{\"screen\":\"E\",\"selected\":[\"mol_e46ebb49-419d-4e5b-ba36-16eeae5e2541\",\"mol_9fe4baeb-52be-421e-8518-ab91a1f880e6\",\"mol_7d960d1f-15d9-4826-b944-742f94691ef4\",\"mol_e36e3191-0b6a-4487-ba3a-33215173df19\",\"mol_ce40a815-2ca6-4750-bf3d-83cf02d229ce\"],\"focus\":\"mol_e46ebb49-419d-4e5b-ba36-16eeae5e2541\",\"chains\":{},\"position\":105,\"filter\":\"\",\"mapChoices\":{},\"chainMaps\":{},\"groupBy\":\"none\",\"cdr3Group\":\"\",\"structureChoices\":{},\"structureModels\":{},\"structureMapChoices\":{},\"structureViews\":{},\"structureResidues\":{},\"residueSelection\":{\"molecule_id\":\"mol_e46ebb49-419d-4e5b-ba36-16eeae5e2541\",\"chain_id\":\"chain-1\",\"sequence_index\":105},\"linkStructureViews\":false,\"observationCohort\":\"evd_00fb5ce3-bf6d-52c9-af83-466b20edd825\",\"observationChoices\":{\"mol_7d960d1f-15d9-4826-b944-742f94691ef4\":\"evd_e6244626-2958-565b-b00a-0a7526e00ef8\"},\"observationDirection\":\"ascending\"}'\n",
+  "steps": [
+    "E: 802 CSV rows previewed; 800 accepted, missing/invalid rows excluded explicitly, sequence repeats retained as distinct IDs",
+    "E: exact CDR-H3 groups and binding-context numeric ordering, two directions; explicit multiple-material Evidence choice; no unit/condition pooling",
+    "W: two distinct candidates physically opened and differing CDR3 residues clicked; raw indexes and imported IMGT coordinates inspected",
+    "E → R: five IDs retained; exact reason, actual Material Evidence IDs, type/source/timestamp/conditions frozen in an immutable shortlist draft"
+  ],
+  "results": [
+    {
+      "name": "e2e_j01_invalid_sequence",
+      "status": "PASS",
+      "duration_ms": 690
+    },
+    {
+      "name": "e2e_j01_missing_measurement",
+      "status": "PASS",
+      "duration_ms": 1701
+    }
+  ]
+}

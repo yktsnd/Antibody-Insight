@@ -45,6 +45,10 @@ The viewers can link rotation and zoom while retaining separate centers. This is
 - Workspace JSON: versioned `awx/1` with strict entity/reference validation. Measured evidence requires a Material ID. Missing values/conditions remain null; zero remains zero. Unknown source version stays null.
 - ID collisions reject the entire save. Unknown fields are reported rather than discarded. Entities and draft snapshots are append-only. An existing project can accept new entities only with unchanged project metadata.
 
+Contextual numeric ordering (F09) is implemented and under independent replay. In E choose an observation context and direction; choose an actual Evidence record when several materials have matching context. Original units, conditions, measured/computed types and source versions remain separate. Missing values follow numbers, and zero stays zero. This does not establish scientific comparability or recommend a candidate.
+
+See [the language policy and terminology](docs/LANGUAGE_POLICY.md) and [the observation contract](docs/OBSERVATION_CONTRACT.md).
+
 See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive assembly, numbered variants, hypotheses, criteria-based final decisions, measurement CSV and AIRR adapters remain pending.
 
 ## Verify
@@ -58,6 +62,7 @@ $env:PYTHON = (Resolve-Path .venv/Scripts/python.exe).Path
 node tests/browser.cjs
 node tests/numbering-browser.cjs
 node tests/structures-browser.cjs
+node tests/j01-browser.cjs
 python scripts/check_traceability.py
 ```
 

@@ -35,8 +35,8 @@ def parse_json(raw):
         raise ValidationError("Invalid JSON file") from exc
 
 
-def new_project(title, goal):
-    project = {"id": new_id("project"), "title": title, "goal": goal, "created_at": now(), "data_class": "research"}
+def new_project(title, goal, data_class="research"):
+    project = {"id": new_id("project"), "title": title, "goal": goal, "created_at": now(), "data_class": data_class}
     validate_project(project)
     return project
 

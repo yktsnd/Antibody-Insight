@@ -1,5 +1,13 @@
 # Changes
 
+## Contextual observations and J01 (F09, independent replay pending)
+
+- Explicit measured/computed, unit, assay/condition and source/version ordering contexts; no averaging, conversion, imputation or candidate recommendation.
+- Repeated observations require an actual Evidence-ID choice, preserving Material/Construct/Molecule paths and null versus zero.
+- Full synthetic J01 browser path from 800 accepted CSV sequences plus explicit QC exclusions through CDR-H3/binding observation, two-candidate comparison, five-ID shortlist/reason and actual process restart.
+- English implementation with switchable English/Japanese explanations and curated humanness/humanization terminology; language switching preserves scientific records.
+- Source- and report-digest checks replace hardcoded full-journey counts; acceptance remains pending an independent PASS.
+
 ## Local structural observation (F08, independently verified)
 
 - Pinned local Gemmi parser and vendored 3Dmol viewer, with retained license options/notices and no runtime CDN or remote structure lookup.

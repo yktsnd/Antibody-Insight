@@ -41,3 +41,9 @@ Stop and request a decision if a change affects product mission, personas, prima
 ## Release 1.0 gates
 
 Eight main flows pass (8/8). Sixteen listed negative flows pass (16/16). All evidence has type/source/timestamp/subject. Zero critical or high defects. Independent review complete. See plan for coverage, latency, storage, security, and human-user evaluation criteria.
+
+## Product alignment checkpoint (requester update, 2026-11-03)
+
+At every meaningful milestone, after context compaction and whenever priorities shift, revisit the original charter, the eight researcher needs and their acceptance criteria. Read [the alignment checkpoint](docs/PRODUCT_ALIGNMENT.md) ([日本語](docs/PRODUCT_ALIGNMENT.ja.md)).
+State which research question the work resolves, whether the full research action remains coherent, the largest remaining product gap, and whether a simpler approach would serve researchers better. Correct scope drift, disproportionate engineering effort and incidental polish before continuing.
+Follow-up examples and corrections are contextual constraints unless explicitly made new priorities. Test counts, feature counts and technical sophistication do not establish scientific utility. Independent milestone review must assess mission alignment as well as technical correctness.
