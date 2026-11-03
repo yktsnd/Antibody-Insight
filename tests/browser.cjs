@@ -68,7 +68,7 @@ async function fromPage(page, route, data) {
     await navigate(page,'E');await page.getByRole('button',{name:'Fixture candidate 005',exact:true}).click();
     assert.equal(await page.locator('.panel-head h2').first().textContent(),'Fixture candidate 005');
     assert.match(await page.locator('#breadcrumb').textContent(),/FIX-005/);
-    await navigate(page,'D');await bodyContains(page,'Design operations are not implemented');
+    await navigate(page,'D');await page.getByRole('heading',{name:'Substitution design',exact:true}).waitFor();assert.equal(await page.locator('#selection-count').textContent(),'5 selected');
     await navigate(page,'R');assert.equal(await page.locator('#selection-count').textContent(),'5 selected');
   });
   let draft;

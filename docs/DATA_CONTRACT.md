@@ -75,3 +75,10 @@ CSV列はexternal_id,name,sequence,chain_role,formatとする。
 配列と測定値はlocalStorageへ複製しない。
 選択集合の保存済み下書きはDBに保持する。
 画面は英語、開発文書は日本語とする。
+
+## F10/F11の追加契約
+
+[設計と仮説の契約](DESIGN_CONTRACT.md)に従い、番号付き置換のLineageとproposed状態のHypothesisを追加します。
+親と子の構成、実際の置換位置、原根拠、構造モデルの対象を再検証し、既存レコードは書き換えません。
+未知の型を黙って読み飛ばす旧形式への変換は行いません。
+実装の独立再検証は進行中です。

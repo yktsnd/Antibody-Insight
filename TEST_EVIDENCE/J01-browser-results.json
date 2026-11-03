@@ -1,15 +1,15 @@
 {
   "scope": "Full J01 and two prescribed negatives; synthetic engineering fixtures, not scientific golden validation or full product acceptance",
   "status": "PASS",
-  "timestamp": "2026-11-03T03:30:05.138Z",
+  "timestamp": "2026-11-03T04:31:47.491Z",
   "browser": "156.0.8078.79",
-  "dataset_sha256": "13454d16758464e465eed6e494e78c1ef3507097f268d18717064ab1377e7105",
+  "dataset_sha256": "8afbf430445de345696ff8e9b467a582cc912a5e395ac7146c25f83af67dc9a6",
   "selected_ids": [
-    "mol_428cf259-9307-4dfe-85fd-104e8a250f21",
-    "mol_ea4f095c-bf68-427c-934b-d9476149453a",
-    "mol_dc0bfff6-fcdc-4d7f-b46e-0d16bf2ca019",
-    "mol_5a47004a-558c-41ba-bea1-3f6203bc4c12",
-    "mol_41375498-479e-49bd-b59b-8e7aaf93c9f3"
+    "mol_e8db26e5-ff9f-4441-a8a0-46e5de31529a",
+    "mol_e7bf604b-2cbe-43ec-98ea-0f297a74ee74",
+    "mol_bded3b9e-af0c-4d05-a9ad-94a11cc5d4c1",
+    "mol_13e56095-aea8-4c78-9c42-52fed5e27f4d",
+    "mol_bf860a43-dea3-4c1d-96d7-ab9aeb9c3b44"
   ],
   "steps": [
     "E: 802 CSV rows previewed; 800 accepted, missing/invalid rows excluded explicitly, sequence repeats retained as distinct IDs",
@@ -22,22 +22,22 @@
     {
       "name": "e2e_j01_invalid_sequence",
       "status": "PASS",
-      "duration_ms": 1425
+      "duration_ms": 1021
     },
     {
       "name": "e2e_j01_missing_measurement",
       "status": "PASS",
-      "duration_ms": 2496
+      "duration_ms": 1644
     },
     {
       "name": "e2e_j01_candidate_shortlist",
       "status": "PASS",
-      "duration_ms": 46513
+      "duration_ms": 33596
     },
     {
       "name": "English and Japanese explanations preserve research data and context",
       "status": "PASS",
-      "duration_ms": 6838
+      "duration_ms": 1671
     },
     {
       "name": "no outbound browser requests or JavaScript errors",

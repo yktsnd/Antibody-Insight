@@ -6,6 +6,8 @@ A local research workspace connecting antibody candidates to sequences, material
 
 **Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F09 are independently verified, including local structural observation and the complete synthetic-fixture J01 shortlist journey. Engineering acceptance is 1/8 journeys and 2/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
 
+The current 0.3.0-dev worktree also implements source-numbered child designs and proposed research hypotheses (F10/F11), with independent replay pending. The acceptance counts above describe the retained M2 snapshot until fresh current-source evidence is registered.
+
 ## Run locally
 
 Requires Python 3.12 or later and a local browser. SQLite and the application API use Python's standard library; the structural parser is pinned Gemmi0.7.5. The pinned 3Dmol viewer is already included and served locally. No external analysis service is required.
@@ -36,7 +38,7 @@ Use **Preview structure fixture** to inspect two synthetic complexes from PDB an
 
 The viewers can link rotation and zoom while retaining separate centers. This is not structural superposition. Supplied model scores retain their source/model scope; missing scores, occupancy and B-fields stay unknown. B-values are not automatically relabeled as confidence. Current limits are24MiB and100,000 atoms per coordinate file; ambiguous reused PDB residue loci across TER and hybrid-36 identifiers report explicit errors rather than partial loading.
 
-**D** retains the selection context and explicitly identifies pending design operations. The researcher guide in the application switches between English and Japanese. UI labels, code and identifiers use English. Japanese explanations use curated antibody-research terminology.
+**D** creates explicit source-numbered substitutions with a before/after preview and immutable parent/child lineage. Select a mapped residue in W and choose **Design a substitution**, or choose the parent/map in D. An optional reference comparison preserves its source and gaps. The child receives no parent measurements, structures or verified numbering. In R, **Record research hypothesis** retains the proposal, original Evidence, limitations and next experiment. Interactive assembly and final decisions remain pending. The researcher guide in the application switches between English and Japanese. UI labels, code and identifiers use English. Japanese explanations use curated antibody-research terminology.
 
 ## Import contracts
 
@@ -47,9 +49,9 @@ The viewers can link rotation and zoom while retaining separate centers. This is
 
 Contextual numeric ordering (F09) and the synthetic J01 engineering path passed independent replay. In E choose an observation context and direction; choose an actual Evidence record when several materials have matching context. Original units, conditions, measured/computed types and source versions remain separate. Missing values follow numbers, and zero stays zero. This does not establish scientific comparability or recommend a candidate.
 
-See [the language policy and terminology](docs/LANGUAGE_POLICY.md) and [the observation contract](docs/OBSERVATION_CONTRACT.md).
+See the [scientific UX references and reuse decisions](docs/SCIENTIFIC_UX.md), [design contract](docs/DESIGN_CONTRACT.md) and [the language policy and terminology](docs/LANGUAGE_POLICY.md) and [the observation contract](docs/OBSERVATION_CONTRACT.md).
 
-See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive assembly, numbered variants, hypotheses, criteria-based final decisions, measurement CSV and AIRR adapters remain pending.
+See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive assembly, criteria-based final decisions, measurement CSV and AIRR adapters remain pending. F10/F11 numbered substitutions and proposed hypotheses are implemented and awaiting independent milestone verification.
 
 ## Verify
 
@@ -63,6 +65,7 @@ node tests/browser.cjs
 node tests/numbering-browser.cjs
 node tests/structures-browser.cjs
 node tests/j01-browser.cjs
+node tests/j02-browser.cjs
 python scripts/check_traceability.py
 ```
 

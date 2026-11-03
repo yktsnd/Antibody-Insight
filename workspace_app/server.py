@@ -20,6 +20,8 @@ from .numbering import cdr3_groups, observations
 from .observation import observation_order
 from .storage import Store
 from .structures import structure_observation
+from .design import design_context, variant_preview
+from .hypotheses import hypothesis_preview
 
 WEB = Path(__file__).resolve().parent.parent / "web"
 MAX_BODY = 32 * 1024 * 1024
@@ -121,7 +123,7 @@ class Handler(BaseHTTPRequestHandler):
             except ValidationError as exc:
                 self.reply(422, {"error": str(exc), "details": exc.details})
             return
-        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js",
+        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js",
                  "/vendor/3Dmol-2.5.5.min.js": "vendor/3Dmol-2.5.5.min.js"}
         filename = files.get(parsed.path)
         if filename is None:
@@ -165,6 +167,15 @@ class Handler(BaseHTTPRequestHandler):
             elif route == "/api/observation-order":
                 fields(data, {"project_id", "cohort_id", "choices", "direction"}, "request")
                 result = observation_order(self.server.store.bundle(data["project_id"]), data["cohort_id"], data["choices"], data["direction"])
+            elif route == "/api/design-context":
+                fields(data, {"project_id", "parent_id", "map_id", "reference_map_id"}, "request")
+                result = design_context(self.server.store.bundle(data["project_id"]), data["parent_id"], data["map_id"], data["reference_map_id"])
+            elif route == "/api/variant-preview":
+                fields(data, {"project_id", "parent_id", "name", "external_id", "reason", "substitutions"}, "request")
+                result = variant_preview(self.server.store.bundle(data["project_id"]), data["parent_id"], data["name"], data["external_id"], data["reason"], data["substitutions"])
+            elif route == "/api/hypothesis-preview":
+                fields(data, {"project_id", "definition"}, "request")
+                result = hypothesis_preview(self.server.store.bundle(data["project_id"]), data["definition"])
             elif route == "/api/structure-map-preview":
                 fields(data, {"project_id", "definition"}, "request")
                 fields(data["definition"], {"structure_id", "molecule_id", "source", "chain_assignments", "residues"}, "mapping definition")

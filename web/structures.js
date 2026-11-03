@@ -43,6 +43,7 @@ window.StructureUI = (() => {
       const molecule=cfg.bundle().entities.find((e)=>e.id===host.dataset.structureHost), list=choices(molecule);
       const sid=state().structureChoices[molecule.id] || (list.length===1?list[0].id:null);if(!sid)continue;
       try {
+        delete state().observedStructures[molecule.id];
         let data=await load(sid,null);if(tick!==generation || !host.isConnected)return;
         const modelChoice=state().structureModels[sid] || (data.parsed.models.length===1?(data.parsed.models[0]??'unknown'):null);
         const model=modelChoice==='unknown'?null:modelChoice;
@@ -61,6 +62,7 @@ window.StructureUI = (() => {
           properties:{sourceIndex:a.index,residueUid:a.residue_uid,altloc:a.altloc}}));
         const glModel=viewer.addModel();glModel.addAtoms(atoms);viewer.setStyle({},{sphere:{radius:.55}});
         const context={viewer,glModel,host,molecule,data,model,viewKey,atoms};live.set(molecule.id,context);
+        state().observedStructures[molecule.id]={structure_id:sid,model,structure_map_id:mapId};
         viewer.setClickable({},true,(atom)=>selectAtom(context,atom));viewer.zoomTo();
         const saved=state().structureViews[viewKey];
         if(Array.isArray(saved)&&saved.length===8&&saved.every(Number.isFinite))viewer.setView(saved);

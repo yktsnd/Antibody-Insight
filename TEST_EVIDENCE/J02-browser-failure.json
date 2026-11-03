@@ -1,0 +1,18 @@
+{
+  "status": "FAIL",
+  "timestamp": "2026-11-03T04:07:47.509Z",
+  "error": "AssertionError [ERR_ASSERTION]: <option value=\"rmp_bf231ee1-6c40-5290-a242-0f876e70360c\" disabled=\"\">DES-UNAVAILABLE / H / IMGT / fixture-V / unavailable / engineering_fixture</option>\n\nfalse !== true\n",
+  "steps": [
+    "E/W/D: explicit VH/VL parent and reference; source IMGT 111.1/CDR3 and L10/FR1 observed; source-coordinate comparison and two reviewed substitutions saved with full lineage; original records unchanged",
+    "D/W/R: parent/child differences observed with child numbering explicitly unavailable; proposed hypothesis, next test, limitations, actual parent Evidence ID, child raw residue and lineage retained separately from measurements",
+    "Actual process restart: exact parent, child, mutation identifiers, original evidence, hypothesis text/question/limitations/source contexts and selection restored",
+    "Fresh database JSON reimport: all entity IDs/types, exact source data, full lineage and proposed hypothesis equal the saved bundle"
+  ],
+  "results": [
+    {
+      "name": "e2e_j02_humanize_variant",
+      "status": "PASS",
+      "duration_ms": 6827
+    }
+  ]
+}

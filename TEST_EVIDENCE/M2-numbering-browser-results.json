@@ -1,33 +1,33 @@
 {
   "scope": "F07 source-bearing imported numbering and partial J01/J02/J08; full journeys remain pending",
   "status": "PASS",
-  "timestamp": "2026-11-03T03:27:57.980Z",
+  "timestamp": "2026-11-03T04:30:10.150Z",
   "browser": "156.0.8078.79",
   "results": [
     {
       "name": "800 candidates imported with explicit synthetic numbering metadata",
       "status": "PASS",
-      "duration_ms": 19023
+      "duration_ms": 13973
     },
     {
       "name": "CDR-H3 grouping retains five selected IDs across raw chain and exact insertion observations",
       "status": "PASS",
-      "duration_ms": 4735
+      "duration_ms": 4925
     },
     {
       "name": "unavailable partial unverified and ambiguous mappings remain explicit",
       "status": "PASS",
-      "duration_ms": 12496
+      "duration_ms": 9556
     },
     {
       "name": "bad sequence annotation and malformed map choices reject without overwrite",
       "status": "PASS",
-      "duration_ms": 14404
+      "duration_ms": 8103
     },
     {
       "name": "server restart preserves map choice chain context and exact map provenance",
       "status": "PASS",
-      "duration_ms": 17177
+      "duration_ms": 14135
     }
   ],
   "no_outbound_requests": true,

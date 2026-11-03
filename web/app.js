@@ -8,7 +8,8 @@ const screenNames = {E:"Candidate Explorer", W:"Molecule Workspace", D:"Design &
 let csrf = "", projects = [], bundle = null, pendingImport = null, pendingShortlist = null;
 const emptyState = () => ({screen:"E", selected:[], focus:null, chains:{}, position:null, filter:"", mapChoices:{}, chainMaps:{}, groupBy:"none", cdr3Group:"",
   structureChoices:{},structureModels:{},structureMapChoices:{},structureViews:{},structureResidues:{},residueSelection:null,linkStructureViews:false,
-  observationCohort:null,observationChoices:{},observationDirection:"ascending"});
+  observationCohort:null,observationChoices:{},observationDirection:"ascending",
+  designParent:null,designMap:null,designReferenceMap:null,designLineage:null,observedStructures:{}});
 let state = emptyState();
 let numberingView = {maps:[]}, groupView = {candidates:[], groups:[]};
 let observationView = {cohorts:[],candidates:[],ineligible:[]}, observationRequest = 0, observationLoading = false;
@@ -85,6 +86,7 @@ function render() {
   readyControls(ready);
   $("#content").innerHTML = fixtureBanner() + ({E:renderExplorer, W:renderWorkspace, D:renderDesign, R:renderEvidence}[state.screen])();
   if (state.screen === "W") StructureUI.mount();
+  if (state.screen === "D") DesignUI.mount();
 }
 
 function observationControls() {
@@ -122,7 +124,7 @@ function renderExplorer() {
   for (const e of evidence) {const id=subjectPath(e).find((s)=>s.type==="molecule")?.id;if(id){if(!evidenceByMolecule.has(id))evidenceByMolecule.set(id,[]);evidenceByMolecule.get(id).push(e);}}
   let html = heading("OBSERVE · COMPARE · SELECT", "Candidate Explorer", "Keep candidate identity and the evidence behind your next question in view.");
   if (!bundle) return html + `<div class="panel empty"><p class="eyebrow">START WITH YOUR RESEARCH QUESTION</p><h2>A connected place to inspect candidates</h2><p class="muted">Import sequences or a workspace bundle, inspect their identity and provenance, then save the reason behind a shortlist.</p><button data-action="import">Import local data</button><p class="subtle">FASTA · Sequence CSV · Workspace JSON</p></div>`;
-  html += `<div class="stats"><div class="stat"><span>CANDIDATES</span><div class="number" id="candidate-count">${molecules.length}</div><div class="foot">Distinct persistent IDs</div></div><div class="stat"><span>SELECTED</span><div class="number">${state.selected.length}</div><div class="foot">Context across all four screens</div></div><div class="stat"><span>EVIDENCE RECORDS</span><div class="number">${evidence.length}</div><div class="foot">${evidence.filter((e) => e.kind === "measured").length} measured · ${evidence.filter((e) => e.kind === "computed").length} computed</div></div><div class="stat"><span>SEQUENCE REPEATS</span><div class="number">${duplicateCount}</div><div class="foot">Flagged, never merged</div></div></div>`;
+  html += `<p class="candidate-summary" aria-label="Candidate counts"><strong id="candidate-count">${molecules.length}</strong> candidates · ${state.selected.length} selected · ${evidence.length} evidence records (${evidence.filter((e)=>e.kind==="measured").length} measured, ${evidence.filter((e)=>e.kind==="computed").length} computed) · ${duplicateCount} sequence repeats. IDs remain distinct.</p>`;
   html += `<div class="panel"><div class="panel-head"><h2>Research candidates <span class="subtle">${shown.length} shown</span></h2><input class="search" id="candidate-search" type="search" placeholder="Search name, external ID or format" aria-label="Search candidates" value="${esc(state.filter)}"></div>`;
   html += `<div class="panel-body observation-controls"><label class="field">Group/order<select id="group-by"><option value="none" ${state.groupBy === "none" ? "selected" : ""}>Import order</option><option value="cdr3" ${state.groupBy === "cdr3" ? "selected" : ""}>Imported heavy-chain CDR3</option></select></label><label class="field">CDR-H3 group<select id="cdr3-filter"><option value="">All groups and unavailable maps</option>${groupView.groups.map((g) => `<option value="${g.group_id}" ${state.cdr3Group === g.group_id ? "selected" : ""}>${esc(g.cdr3_sequence)} (${g.candidate_ids.length})</option>`).join("")}</select></label><p class="muted">${groupView.groups.length} complete groups. Truncated, unverified and ambiguous maps remain explicit.</p></div>`;
   html += observationControls();
@@ -176,7 +178,7 @@ function renderWorkspace() {
     html += constructs.length ? constructs.map((c) => `<details><summary>${esc(c.name)} (${c.id})</summary><pre>${pretty(c)}</pre><p class="muted">CDS translation and signal-peptide processing are not validated.</p>${entities("material").filter((s) => s.construct_id === c.id).map((s) => `<p class="muted">${esc(s.name)} / lot ${esc(s.lot)}<br><span class="mono">${s.id}</span></p>`).join("")}</details>`).join("") : '<p class="muted">No construct or material registered.</p>';
     html += '</div></div>';
   }
-  return html + '</div><button data-screen="R">Follow evidence and record a question →</button>';
+  return html + '</div><button data-design-selected>Design a substitution at the selected residue</button> <button data-screen="R">Follow evidence and record a question →</button>';
 }
 
 function renderComposition(molecule) {
@@ -214,12 +216,13 @@ function renderComposition(molecule) {
 
 function renderDesign() {
   return heading("PRESERVE THE DESIGN HISTORY", "Design & Compare", "A shared design context for mutations, molecular composition and expression constructs.") +
-    `<div class="panel"><div class="panel-body"><h2>Design operations are not implemented in this build</h2><p class="muted">${state.selected.length} selected candidate IDs remain in context. No design result or scientific score is generated. Imported declared component graphs and composition lineage can be inspected in W.</p><ul class="scope-list"><li>M2: structure correspondence and observation (numbering import available)</li><li>M3: create numbered mutations, lineage and molecular assemblies interactively</li><li>M4: construct comparisons and experimental questions</li></ul><button data-screen="W" class="secondary">Inspect source sequences</button></div></div>`;
+    DesignUI.panel()+DesignUI.hypothesesPanel();
 }
 
 function renderEvidence() {
   let html = heading("RETAIN THE REASONING", "Evidence & Decision", "Separate observations from calculations, and keep the subject and source attached.");
   if (!state.selected.length) return html + emptySelection();
+  html += '<p><button data-open-hypothesis>Record research hypothesis</button></p>';
   const evidence = selectedEvidence();
   html += `<div class="two-columns"><div><div class="panel"><div class="panel-head"><h2>Evidence for ${state.selected.length} selected candidates</h2><span class="subtle">${evidence.length} records</span></div>`;
   if (!evidence.length) html += '<div class="panel-body"><p class="muted">Not measured / not predicted. No evidence records were registered for this selection.</p></div>';
@@ -234,10 +237,11 @@ function renderEvidence() {
   html += `<div class="panel"><div class="panel-head"><h2>Saved shortlist drafts</h2><span class="subtle">${decisions.length} records</span></div>`;
   if (!decisions.length) html += '<p class="panel-body muted">No saved draft for this selection.</p>';
   for (const d of decisions.toReversed()) html += `<article class="saved-draft"><span class="tag">Draft · immutable record</span><p>${esc(d.reason)}</p><p class="muted">${d.candidate_ids.length} candidate IDs · ${d.evidence_snapshot.length} evidence snapshots<br>${esc(d.timestamp)}</p><button class="text-button" data-restore="${d.id}">Restore this selection</button><details><summary>Saved IDs and frozen evidence</summary><pre>${pretty(d)}</pre></details></article>`;
-  return html + '</div></div></div><p class="muted">Measurements are not averaged or ranked across different units or conditions. Missing values remain unknown.</p>';
+  return html + '</div></div></div><p class="muted">Measurements are not averaged or ranked across different units or conditions. Missing values remain unknown.</p>'+DesignUI.hypothesesPanel();
 }
 
 async function loadProject(id) {
+  DesignUI.invalidate();
   StructureUI.dispose();
   remember();
   readyControls(false);
@@ -316,8 +320,8 @@ function renderPreview(result, synthetic = false) {
 }
 
 const guides = {
-  en:`<h3>Observe, then retain the reasoning</h3><ol class="scope-list"><li>Import a local FASTA, sequence CSV or awx/1 JSON. Inspect the preview and excluded rows before saving.</li><li>Select candidates in E. Open W to inspect chains and compare raw sequence indexes. These are not IMGT positions or an alignment.</li><li>In R, follow each evidence record to its source and subject. Measured values belong to a particular material and construct.</li><li>Write a reason, review the candidate IDs and evidence snapshot, and save a shortlist draft.</li><li>Export JSON for an explicit local backup or import into a fresh database. An existing ID collision rejects the entire import.</li></ol><p>Missing values stay unknown; zero remains zero. Measured, computed, literature and annotation are distinct. Drafts are not finalized decisions. Imported numbering maps, CDR-H3 groups and local PDB/mmCIF observation with explicit correspondence are supported. Automatic numbering, mutations, interactive assembly and final decisions are not implemented yet. Camera linking shares orientation and zoom; it does not superpose structures. B-values are not automatically treated as confidence.</p><h3>Contextual numeric ordering</h3><p>In E, choose an observation context and numeric direction. Units, assay conditions, evidence kind and source/version remain separate. Matching metadata does not prove scientific comparability. If several observations exist, choose the actual material/evidence record explicitly. No averaging, unit conversion or missing-value replacement is performed. The original records remain available in R.</p><h3>Terminology</h3><p>Humanization means engineering a non-human antibody toward a human antibody framework while evaluating effects experimentally. A humanness score has a model-specific definition; no such score is implemented or inferred here.</p>`,
-  ja:`<h3>観察した内容と判断の理由を残す</h3><ol class="scope-list"><li>ローカルのFASTA、配列CSV、awx/1形式のJSONを読み込みます。保存前に取込内容と除外行を確認します。</li><li>Eで候補を選び、Wで鎖と配列を確認します。表示位置は配列先頭からの通し番号で、IMGT番号やアラインメントによる対応位置ではありません。</li><li>Rでは根拠の出典と対象を確認します。実測値は特定の試料とコンストラクトに紐づきます。</li><li>選定理由を書き、候補IDと根拠の保存内容を確認して、ショートリストの下書きを保存します。</li><li>明示的にJSONを書き出し、バックアップや空のデータベースへの再取込に利用できます。同じIDがあれば取込全体を拒否します。</li></ol><p>欠測値と0は区別します。実測、計算結果、文献、注釈も区別します。下書きは確定した意思決定ではありません。出典を持つ番号対応表の取込、CDR-H3群分け、ローカルのPDB/mmCIF表示に対応しています。構造ファイル中の鎖ID、残基番号、挿入コードと配列位置を明示的に対応付けます。視点の同期は構造の重ね合わせではありません。B値を予測信頼度と自動的に同一視しません。番号付けの自動実行、変異体設計、対話的な組立、判断の確定は未実装です。</p><h3>条件を区別した値の並べ替え</h3><p>EでObservation contextと並び順を選びます。単位、測定条件、実測と計算、出典と版を区別します。記録された条件が一致しても、科学的に比較可能であることを保証しません。複数の結果がある場合は、使用する試料と根拠の記録を明示的に選びます。平均、単位換算、欠測値の補完は行いません。原記録はRで確認できます。</p><h3>用語について</h3><p>humanizationは「ヒト化」です。非ヒト抗体の配列をヒト抗体に近づける改変を指し、機能への影響は別途評価します。humanness（ヒト抗体らしさ）は指標ごとに定義が異なるため、必要に応じて英語を併記し、ヒト抗体配列との類似性をどう評価した値かを説明します。この製品では現時点でその指標を計算していません。</p>`
+  en:`<h3>Observe, then retain the reasoning</h3><ol class="scope-list"><li>Import a local FASTA, sequence CSV or awx/1 JSON. Inspect the preview and excluded rows before saving.</li><li>Select candidates in E. Open W to inspect chains and compare raw sequence indexes. These are not IMGT positions or an alignment.</li><li>In R, follow each evidence record to its source and subject. Measured values belong to a particular material and construct.</li><li>Write a reason, review the candidate IDs and evidence snapshot, and save a shortlist draft.</li><li>Export JSON for an explicit local backup or import into a fresh database. An existing ID collision rejects the entire import.</li></ol><p>Missing values stay unknown; zero remains zero. Measured, computed, literature and annotation are distinct. Drafts are not finalized decisions. Imported numbering maps, CDR-H3 groups and local PDB/mmCIF observation with explicit correspondence are supported. D can create an explicit source-numbered substitution design and a proposed research hypothesis. Select a residue in W, choose Design a substitution, inspect a reference if supplied, then review the new child and exact lineage. Child numbering, structures and measurements are not inherited. In R, save the proposed hypothesis, original evidence, limitations and next experiment. Automatic numbering, interactive assembly and final decisions remain pending. Camera linking shares orientation and zoom; it does not superpose structures. B-values are not automatically treated as confidence.</p><h3>Contextual numeric ordering</h3><p>In E, choose an observation context and numeric direction. Units, assay conditions, evidence kind and source/version remain separate. Matching metadata does not prove scientific comparability. If several observations exist, choose the actual material/evidence record explicitly. No averaging, unit conversion or missing-value replacement is performed. The original records remain available in R.</p><h3>Terminology</h3><p>Humanization means engineering a non-human antibody toward a human antibody framework while evaluating effects experimentally. A humanness score has a model-specific definition; no such score is implemented or inferred here.</p>`,
+  ja:`<h3>観察した内容と判断の理由を残す</h3><ol class="scope-list"><li>ローカルのFASTA、配列CSV、awx/1形式のJSONを読み込みます。保存前に取込内容と除外行を確認します。</li><li>Eで候補を選び、Wで鎖と配列を確認します。表示位置は配列先頭からの通し番号で、IMGT番号やアラインメントによる対応位置ではありません。</li><li>Rでは根拠の出典と対象を確認します。実測値は特定の試料とコンストラクトに紐づきます。</li><li>選定理由を書き、候補IDと根拠の保存内容を確認して、ショートリストの下書きを保存します。</li><li>明示的にJSONを書き出し、バックアップや空のデータベースへの再取込に利用できます。同じIDがあれば取込全体を拒否します。</li></ol><p>欠測値と0は区別します。実測、計算結果、文献、注釈も区別します。下書きは確定した意思決定ではありません。出典を持つ番号対応表の取込、CDR-H3群分け、ローカルのPDB/mmCIF表示に対応しています。構造ファイル中の鎖ID、残基番号、挿入コードと配列位置を明示的に対応付けます。視点の同期は構造の重ね合わせではありません。B値を予測信頼度と自動的に同一視しません。Wで残基を選び、Design a substitutionからDへ進むと、出典を持つ番号対応表を使って置換を指定できます。比較配列があれば対応位置を確認し、新しい子候補と変更記録を保存前に確認します。子の番号付け、構造、実測値は親から引き継ぎません。Rでは未検証の仮説、原根拠、限界、次の実験を別の記録として保存します。番号付けの自動実行、対話的な組立、判断の確定は未実装です。</p><h3>条件を区別した値の並べ替え</h3><p>EでObservation contextと並び順を選びます。単位、測定条件、実測と計算、出典と版を区別します。記録された条件が一致しても、科学的に比較可能であることを保証しません。複数の結果がある場合は、使用する試料と根拠の記録を明示的に選びます。平均、単位換算、欠測値の補完は行いません。原記録はRで確認できます。</p><h3>用語について</h3><p>humanizationは「ヒト化」です。非ヒト抗体の配列をヒト抗体に近づける改変を指し、機能への影響は別途評価します。humanness（ヒト抗体らしさ）は指標ごとに定義が異なるため、必要に応じて英語を併記し、ヒト抗体配列との類似性をどう評価した値かを説明します。この製品では現時点でその指標を計算していません。</p>`
 };
 function renderHelp() {
   const language=$("#help-language").value;
@@ -334,6 +338,7 @@ document.addEventListener("click", async (event) => {
     else if (button.dataset.action === "import" || button.id === "import-button") showImport();
     else if (button.dataset.open) { state.focus = button.dataset.open; state.screen = "W"; render(); }
     else if (button.dataset.position) { state.position = Number(button.dataset.position); state.focus=button.dataset.positionMolecule; state.residueSelection={molecule_id:button.dataset.positionMolecule,chain_id:button.dataset.positionChain,sequence_index:state.position}; render(); }
+    else if (button.dataset.designSelected!==undefined) DesignUI.fromSelection();
     else if (button.dataset.restore) { const d = entities("decision").find((e) => e.id === button.dataset.restore); state.selected = [...d.candidate_ids]; state.focus = null; render(); }
     else if (button.id === "back-import") { pendingImport = null; $("#import-preview").hidden = true; $("#import-form").hidden = false; }
     else if (button.id === "commit-import") {
@@ -408,5 +413,8 @@ StructureUI.configure({api,bundle:()=>bundle,state:()=>state,remember,notify,ren
     try{bundle=await api('/api/bundle?project_id='+encodeURIComponent(bundle.project.id));await refreshNumbering();}
     finally{readyControls(true);render();}
   }
+});
+DesignUI.configure({api,bundle:()=>bundle,state:()=>state,maps:()=>numberingView.maps,esc,pretty,subjectPath,notify,render,
+  async reload(){readyControls(false);StructureUI.dispose();try{bundle=await api('/api/bundle?project_id='+encodeURIComponent(bundle.project.id));await refreshNumbering();}finally{readyControls(true);render();}}
 });
 refreshProjects().catch((error) => notify(error.message, true));

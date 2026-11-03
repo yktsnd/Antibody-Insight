@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 SCHEMA = "awx/1"
 PREFIX = {"project": "prj", "molecule": "mol", "construct": "con", "material": "mat",
           "evidence": "evd", "decision": "dec", "binding_unit": "bnd", "lineage": "lin", "residue_map": "rmp",
-          "structure": "stc", "structure_map": "smp"}
+          "structure": "stc", "structure_map": "smp", "hypothesis": "hyp"}
 AA = frozenset("ACDEFGHIKLMNPQRSTVWYBXZJUO")
 MAX_SAFE_INTEGER = 2**53 - 1
 CORE = {"id", "type", "project_id", "created_at"}
@@ -26,6 +26,7 @@ FIELDS = {
     "structure": {"name", "molecule_id", "file_format", "content", "sha256", "origin_kind", "source"},
     "structure_map": {"structure_id", "molecule_id", "source", "chain_assignments", "residues"},
     "evidence": {"subject_id", "kind", "metric", "source", "timestamp", "conditions", "value", "unit"},
+    "hypothesis": {"text", "question", "limitations", "molecule_ids", "related_evidence_ids", "lineage_ids", "residue_refs", "structure_refs", "status", "source"},
     "decision": {"candidate_ids", "criteria", "evidence_snapshot", "reason", "timestamp",
                  "revision", "supersedes", "status"},
 }
@@ -185,6 +186,9 @@ def validate_entity(entity, project_id):
     elif kind in ("structure", "structure_map"):
         from .structures import validate_structure_shape
         validate_structure_shape(entity)
+    elif kind == "hypothesis":
+        from .hypotheses import validate_hypothesis_shape
+        validate_hypothesis_shape(entity)
     elif kind == "construct":
         text(entity["name"], "construct.name")
         identifier(entity["molecule_id"], "molecule")
@@ -271,11 +275,13 @@ def validate_graph(project, entities):
                 require(molecule_id_for(subject, index) in entity["candidate_ids"],
                         "Evidence does not belong to selected candidates")
     from .composition import validate_composition_references
-    validate_composition_references(index)
+    validate_composition_references(index, project)
     from .numbering import validate_numbering_references
     validate_numbering_references(project, index)
     from .structures import validate_structure_references
     validate_structure_references(index)
+    from .hypotheses import validate_hypothesis_references
+    validate_hypothesis_references(index)
     return index
 
 

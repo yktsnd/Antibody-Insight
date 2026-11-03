@@ -29,7 +29,7 @@ record = {
     "python": platform.python_version(), "platform": platform.platform(),
     "source_sha256": hashlib.sha256(json.dumps(checksums, sort_keys=True).encode()).hexdigest(),
     "files": checksums,
-    "commands": [".venv/Scripts/python.exe -m pytest -q --tb=short", "node tests/browser.cjs", "node tests/numbering-browser.cjs", "node tests/structures-browser.cjs", "node tests/j01-browser.cjs", "python scripts/check_traceability.py"],
+    "commands": [".venv/Scripts/python.exe -m pytest -q --tb=short", "node tests/browser.cjs", "node tests/numbering-browser.cjs", "node tests/structures-browser.cjs", "node tests/j01-browser.cjs", "node tests/j02-browser.cjs", "node tests/observation-independent-browser.cjs", "node tests/design-hypotheses-independent-browser.cjs", "node tests/design-save-independent-browser.cjs", "python scripts/check_traceability.py"],
 }
 try:
     record["gemmi_version"] = importlib.metadata.version("gemmi")

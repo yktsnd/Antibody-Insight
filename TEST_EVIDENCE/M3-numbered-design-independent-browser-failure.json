@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "timestamp": "2026-11-03T04:08:17.441Z",
+  "error": "AssertionError [ERR_ASSERTION]: Closed/reopened hypothesis scope must not show the old async preview\n\ntrue !== false\n",
+  "results": []
+}

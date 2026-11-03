@@ -51,6 +51,11 @@ def validate_composition_entity(entity):
         identifier(entity["child_id"], "molecule")
         require(entity["parent_id"] != entity["child_id"], "Lineage cannot reference itself")
         change = entity["change_set"]
+        require(isinstance(change, dict), "Lineage change_set must be an object")
+        if change.get("kind") == "substitution":
+            from .design import validate_substitution_shape
+            validate_substitution_shape(change)
+            return
         fields(change, {"kind", "reason", "before", "after"}, "change_set")
         require(change["kind"] == "composition", "Unsupported lineage change-set kind")
         text(change["reason"], "change_set.reason")
@@ -131,7 +136,7 @@ def acyclic(edges, label):
     require(visited == len(degree), f"{label} cycle rejected")
 
 
-def validate_composition_references(index):
+def validate_composition_references(index, project):
     provenance_edges, lineage_edges = [], set()
 
     def resolve_origin(origin, kind, declared_sequence):
@@ -169,5 +174,8 @@ def validate_composition_references(index):
                     exact_json(change["after"], composition_signature(child)),
                     "Lineage before/after does not match the named molecules")
             require(not exact_json(change["before"], change["after"]), "Lineage must describe an actual composition change")
+            if change["kind"] == "substitution":
+                from .design import validate_substitution_references
+                validate_substitution_references(parent, child, change, index, project)
     acyclic(provenance_edges, "Composition provenance")
     acyclic(lineage_edges, "Lineage")

@@ -1,5 +1,13 @@
 # Changes
 
+## 0.3.0-dev: connected numbered designs and hypotheses (independent replay pending)
+
+- Explicit parent map/chain/domain/scheme/insertion coordinates, reference comparisons, before/after child preview and substitution lineage.
+- Exact component origins are cleared only where changed sequences no longer match; unmodified declarations and all-copy effects remain visible. Parent measurements, structures and verified maps are not inherited.
+- Proposed Hypothesis records preserve original Evidence, molecule/lineage/residue/model contexts, limitations and the next experiment.
+- Scientific UX references compare established tools before the D/R interface; native tables/forms and the existing local viewer/atomic import are reused. Compact candidate counts retain the same research information.
+- Independent review drove strict model/correspondence matching and dialog/request generation guards; full milestone verification remains pending.
+
 ## Contextual observations and J01 (F09, independently verified)
 
 - Explicit measured/computed, unit, assay/condition and source/version ordering contexts; no averaging, conversion, imputation or candidate recommendation.

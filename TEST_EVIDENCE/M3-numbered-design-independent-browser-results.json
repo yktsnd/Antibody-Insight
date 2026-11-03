@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/j01_replay_review",
+  "timestamp": "2026-11-03T04:32:12.422Z",
+  "browser": "156.0.8078.79",
+  "results": [
+    {
+      "name": "late closed-dialog hypothesis preview cannot replace a newly opened candidate scope",
+      "status": "PASS"
+    },
+    {
+      "name": "unsaved hypothesis text remains in its explicit project/candidate scope and outside localStorage",
+      "status": "PASS"
+    },
+    {
+      "name": "edited variant draft rejects its late preview and a fresh preview uses the revised reason without writes",
+      "status": "PASS"
+    },
+    {
+      "name": "independent hypothesis recovery has no outbound requests or JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}

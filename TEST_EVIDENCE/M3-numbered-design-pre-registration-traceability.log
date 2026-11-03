@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\scripts\check_traceability.py", line 95, in <module>
+    main()
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\scripts\check_traceability.py", line 67, in main
+    validate_acceptance(ROOT, r, acceptance["journeys"][j])
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\scripts\check_traceability.py", line 47, in validate_acceptance
+    assert set(source["files"]) == source_files(root), "Source inventory changed; independent replay required"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Source inventory changed; independent replay required
