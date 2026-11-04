@@ -1,0 +1,29 @@
+{
+  "scope": "Bounded independent F19/F20 J07 UI review; no full integration approval",
+  "source_files": {
+    "web/decisions.js": "27bd514e8893a0a1d4cec6293d829c1ce5d591548a3f1407183ca1011d0514e3",
+    "web/app.js": "2814d0eeabdb4d29115d0f82314a2ec12258b900fcdc69dfd9b2b1be38a6ccac",
+    "web/index.html": "bf58eeb28286f42da7cfddeae6ff70a361d73998c66570e15b3a08c817d2f8d2",
+    "workspace_app/server.py": "43cb4923bb0c60e52b581393a5de31d5ca092e8a39dd06f2c8e25b5b4b3d760b",
+    "workspace_app/domain.py": "9649e45f3128688f38a337cc655ca59c51e28e65403793b3bcf1ad293e73c314",
+    "workspace_app/decisions.py": "7d86aa169f85fffd34260f58dde45e462700e51959cb2a7c295893a1e8b07b5c",
+    "workspace_app/__init__.py": "493f2a0ec8264e8d7c7205456257d6072e8656fc7f7cea38bb097c9f37efcf1a",
+    "workspace_app/storage.py": "00b7b47dd98a7c970ca9b0b39635ee71307b3d203bab8e4b3dccbedeb4b9f536",
+    "workspace_app/observation.py": "3189d8d5b633a385dceb77ecc782b5791f3b3a1930adc5d40ec1f75d37687b4c",
+    "tests/j07-browser.cjs": "e6d59f119908f7508fbfd038dfee4bc7029313dc1605be48de34e93f7cb41615",
+    "tests/decisions-independent-browser.cjs": "0c97234eee7f98a640410d8b8ea47e82fa022c8e2962828a6118d1e9e674caa1",
+    "tests/decision_journey_fixture.py": "91a475f9e5bd8af3d708f56b42ebeb365db46a18105fe7c041c1396b0b6dd976",
+    "docs/DECISION_CONTRACT.md": "a4ca15b39fab608b8bc0830750deff388e59dea880cc729b9d59ee2868c23a52",
+    "ADR/ADR-0010-evidence-based-decision-revisions.md": "28b54cc6f8ccf3d218d1a2f20f5c47fa0924e687290b7ffcff1f2f3576199cd3",
+    "docs/SCIENTIFIC_UX.md": "4fb95be24f99cf40bb5705c3fd6ee214dc74129282336817ea60a37b88ce30bd"
+  },
+  "evidence_files": {
+    "TEST_EVIDENCE/M4-decisions-ui-main-independent-results.json": "80350e63924366f7134fb6a470b9190ee4e84c8ac11d8ebda355ab9f0e96b2dd",
+    "TEST_EVIDENCE/M4-decisions-ui-main-independent-run.log": "57d4e81fc0ad3213e7d9f9dd185234b019c4a8f1fc86223cb8978488ef7d51ad",
+    "TEST_EVIDENCE/M4-decisions-ui-main-independent-final-review.png": "2a92f77d6c6594ae5cf29dfdc98d21f87d2484e086935e846e0aa2301bf5eae2",
+    "TEST_EVIDENCE/M4-decisions-independent-browser-results.json": "52de304f4129c39aaf0b763b53b8b399196dfb0f79eb06a97d95b7d5dcdf2ab1",
+    "TEST_EVIDENCE/M4-decisions-independent-browser-run.log": "0e8617f80450419b1d000bc3ec3be1b579e5cdaaf21b3178bd7f0d3157930064",
+    "TEST_EVIDENCE/M4-decisions-independent-frozen-draft.png": "98553ed8980721ffbf5e68b5087ddf3287d1e458d9c6ee780b0396a76a514c69",
+    "TEST_EVIDENCE/M4-decisions-independent-before-gate-fixture-correction.log": "a982c01f6b2e6ad2802e496f6cdc41d2fb52a70a10da63f866d4d5e486f96f23"
+  }
+}

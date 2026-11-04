@@ -1,0 +1,172 @@
+{
+  "source_sha256": "48b183a7c1bb088a86ef94b6777473f530c2aae21d01c55ef0e1a9d5e562921b",
+  "runs": [
+    {
+      "suite": "j01-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 34.98,
+      "log": "M4-decisions-independent-J01-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-J01-results.json",
+          "status": "PASS",
+          "groups": 5
+        }
+      ]
+    },
+    {
+      "suite": "j02-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 11.3,
+      "log": "M4-decisions-independent-J02-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-J02-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "suite": "observation-journeys-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 47.45,
+      "log": "M4-decisions-independent-J03-J04-public-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-J03-results.json",
+          "status": "PASS",
+          "groups": 3
+        },
+        {
+          "result": "M4-decisions-independent-J04-results.json",
+          "status": "PASS",
+          "groups": 3
+        },
+        {
+          "result": "M4-decisions-independent-public-results.json",
+          "status": "PASS",
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "suite": "j05-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 12.22,
+      "log": "M4-decisions-independent-J05-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-J05-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "suite": "j06-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 13.02,
+      "log": "M4-decisions-independent-J06-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-J06-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "suite": "j07-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 12.94,
+      "log": "M4-decisions-independent-J07-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-J07-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "suite": "observation-representation-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 8.79,
+      "log": "M4-decisions-independent-representation-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-representation-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "suite": "composition-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 9.34,
+      "log": "M4-decisions-independent-composition-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-composition-results.json",
+          "status": "PASS",
+          "groups": 6
+        }
+      ]
+    },
+    {
+      "suite": "experiments-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 12.31,
+      "log": "M4-decisions-independent-experiments-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-experiments-results.json",
+          "status": "PASS",
+          "groups": 8
+        }
+      ]
+    },
+    {
+      "suite": "decisions-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 10.15,
+      "log": "M4-decisions-independent-decision-edges-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-decision-edges-results.json",
+          "status": "PASS",
+          "groups": 6
+        }
+      ]
+    },
+    {
+      "suite": "numeric-transport-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 7.16,
+      "log": "M4-decisions-independent-numeric-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-numeric-results.json",
+          "status": "PASS",
+          "groups": 0
+        }
+      ]
+    },
+    {
+      "suite": "numeric-transport-guards-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 5.84,
+      "log": "M4-decisions-independent-numeric-guards-run.log",
+      "results": [
+        {
+          "result": "M4-decisions-independent-numeric-guards-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    }
+  ],
+  "status": "PASS"
+}

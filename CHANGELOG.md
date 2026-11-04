@@ -1,5 +1,12 @@
 # Changes
 
+## 0.7.0-dev: criteria and immutable decision revisions (verification in progress)
+
+- R has a separate criteria/decision task with explicitly chosen original observations, actual subjects/lots, researcher-declared importance/preferences and candidate subset. No composite score, automatic ranking or sole-observation selection is produced.
+- Required numeric observations apply to every compared candidate, including unchosen candidates; importance0 does not waive a requirement. Optional unknowns remain visible. Drafts can retain unresolved comparisons; finalization rejects missing required information.
+- New append-only Decision versions freeze criteria, source observations, proposed Hypothesis dependencies and reasons; legacy shortlists remain unchanged. Predecessors have exactly one successor; concurrent/imported forks reject atomically. Later Evidence cannot replace old snapshots.
+- Independent design/domain/API PASS (40 targeted tests) and implementation J07 main/two negatives/restart/fresh reimport PASS. Independent UI and frozen retained J01–J06 integration are pending; registered acceptance remains6/8+12/16. Full J08, scientific/user/release gates remain open.
+
 ## 0.6.0-dev: constructs and measured observations (independently verified scope)
 
 - D explicitly registers distinct Constructs/Materials and compares recorded CDS/vector/signal metadata against the same actual Molecule. W follows the exact Material/lot paths; R keeps each original observation with its own subject, units, conditions and source. No translation, causal expression effect, averaging or unit conversion is inferred.

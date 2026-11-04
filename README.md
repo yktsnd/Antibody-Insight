@@ -8,6 +8,8 @@ A local research workspace connecting antibody candidates to sequences, material
 
 Version0.6.0-dev adds explicit Construct/Material registration, recorded expression-design comparison and measurement CSV (F16–F18). Independent domain/API/UI review and frozen J01–J06 integration passed, including restart and native fresh export/reimport. J07, full J08, scientific validation and researcher evaluation remain pending.
 
+The current 0.7.0-dev working tree adds J07 criterion-bearing Decision drafts/finalized revisions in R. Design and domain/API independent review passed; actual implementation browser checks passed, while independent UI and frozen retained-workflow verification are still pending. This work in progress does not upgrade the six-journey registered baseline. [Decision data contract](docs/DECISION_CONTRACT.md).
+
 ## Run locally
 
 Requires Python 3.12 or later and a local browser. SQLite and the application API use Python's standard library; the structural parser is pinned Gemmi0.7.5. The pinned 3Dmol viewer is already included and served locally. No external analysis service is required.

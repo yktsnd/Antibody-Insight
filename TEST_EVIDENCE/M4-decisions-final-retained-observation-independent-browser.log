@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "pending failed request exposes no stale scalar and disables ordering controls",
+      "status": "PASS"
+    },
+    {
+      "name": "late previous-project fallback cannot overwrite new project context or values",
+      "status": "PASS"
+    },
+    {
+      "name": "independent race replay has no outbound requests or JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}

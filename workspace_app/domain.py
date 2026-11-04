@@ -157,7 +157,8 @@ def validate_entity(entity, project_id):
     require(isinstance(entity, dict), "entity must be object")
     kind = entity.get("type")
     require(isinstance(kind, str) and kind in FIELDS, "Unsupported entity type")
-    optional = {"component_graph"} if kind == "molecule" else {"residue_refs", "description", "import_origin"} if kind == "evidence" else {"source"} if kind in ("construct", "material") else frozenset()
+    optional = ({"component_graph"} if kind == "molecule" else {"residue_refs", "description", "import_origin"} if kind == "evidence"
+                else {"source"} if kind in ("construct", "material") else {"chosen_candidate_ids", "source", "hypothesis_ids"} if kind == "decision" else frozenset())
     fields(entity, CORE | FIELDS[kind], "entity", optional)
     identifier(entity["id"], kind)
     require(entity["project_id"] == project_id, "Cross-project entity rejected")
@@ -225,10 +226,8 @@ def validate_entity(entity, project_id):
             from .measurements import validate_import_origin
             validate_import_origin(entity["import_origin"])
     elif kind == "decision":
-        require(entity["status"] == "draft", "Finalized decisions are not supported in M1")
-        require(type(entity["revision"]) is int and entity["revision"] == 1 and entity["supersedes"] is None,
-                "Draft revision must be 1 without supersedes")
-        require(entity["criteria"] == [], "Criteria-based finalization is not supported in M1")
+        from .decisions import validate_decision_shape
+        validate_decision_shape(entity)
         text(entity["reason"], "decision.reason")
         timestamp(entity["timestamp"], "decision.timestamp")
         candidates = entity["candidate_ids"]
@@ -297,6 +296,8 @@ def validate_graph(project, entities):
     validate_structure_references(index)
     from .hypotheses import validate_hypothesis_references
     validate_hypothesis_references(index)
+    from .decisions import validate_decision_references
+    validate_decision_references(index)
     return index
 
 

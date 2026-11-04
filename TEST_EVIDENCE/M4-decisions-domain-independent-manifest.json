@@ -1,0 +1,46 @@
+{
+  "recorded_at": "2026-11-04T19:01:01.1222128+09:00",
+  "git_head": "76a9f29e8adec4695d244dceaca58e0180936a8d",
+  "files": [
+    {
+      "path": "workspace_app/decisions.py",
+      "sha256": "7d86aa169f85fffd34260f58dde45e462700e51959cb2a7c295893a1e8b07b5c"
+    },
+    {
+      "path": "workspace_app/domain.py",
+      "sha256": "9649e45f3128688f38a337cc655ca59c51e28e65403793b3bcf1ad293e73c314"
+    },
+    {
+      "path": "workspace_app/server.py",
+      "sha256": "1ffbb11ef746aae7648893577fd406957f07402a58735ba3309816dcc8cc1687"
+    },
+    {
+      "path": "workspace_app/storage.py",
+      "sha256": "00b7b47dd98a7c970ca9b0b39635ee71307b3d203bab8e4b3dccbedeb4b9f536"
+    },
+    {
+      "path": "workspace_app/observation.py",
+      "sha256": "3189d8d5b633a385dceb77ecc782b5791f3b3a1930adc5d40ec1f75d37687b4c"
+    },
+    {
+      "path": "workspace_app/hypotheses.py",
+      "sha256": "a18e16cbb639c2736dc59adb2de38f0e0477ae6970a2ec5f5612d74ea6740560"
+    },
+    {
+      "path": "workspace_app/adapters.py",
+      "sha256": "d5dbfb37dd42d8fa7395663c42ad4886fd8ec9fd2cebb7f65229868f33012531"
+    },
+    {
+      "path": "ADR/ADR-0010-evidence-based-decision-revisions.md",
+      "sha256": "28b54cc6f8ccf3d218d1a2f20f5c47fa0924e687290b7ffcff1f2f3576199cd3"
+    },
+    {
+      "path": "tests/test_decisions.py",
+      "sha256": "0ece869a6257b05d394077c70b52b5b1b563166baea383427e4d43d391b40648"
+    },
+    {
+      "path": "tests/test_decisions_independent.py",
+      "sha256": "30ca7644130b0304d8560b89cda7bf7103d8d3b965c18e51eb4f1ff5c014fa84"
+    }
+  ]
+}

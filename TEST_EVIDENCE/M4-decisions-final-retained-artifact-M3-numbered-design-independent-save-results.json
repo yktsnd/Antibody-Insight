@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-04T10:29:33.247Z",
+  "results": [
+    {
+      "name": "pending save completes only its original parent draft and preserves a new parent draft",
+      "status": "PASS"
+    },
+    {
+      "name": "pending save preserves newer staged mutations on the same parent by draft revision",
+      "status": "PASS"
+    },
+    {
+      "name": "late hypothesis save preserves a newer candidate dialog and its unsaved text",
+      "status": "PASS"
+    }
+  ]
+}

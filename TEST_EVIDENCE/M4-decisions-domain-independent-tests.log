@@ -1,0 +1,44 @@
+........................................                                 [100%]
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/test_decisions.py::test_final_choice_preserves_originals_types_missingness_restart_and_revision
+PASSED tests/test_decisions.py::test_required_missing_blocks_finalization_but_draft_retains_original_missingness[null_choice]
+PASSED tests/test_decisions.py::test_required_missing_blocks_finalization_but_draft_retains_original_missingness[null_scalar]
+PASSED tests/test_decisions.py::test_required_missing_blocks_finalization_but_draft_retains_original_missingness[zero_weight_required]
+PASSED tests/test_decisions.py::test_required_missing_blocks_finalization_but_draft_retains_original_missingness[unchosen_missing]
+PASSED tests/test_decisions.py::test_no_implicit_sole_observation_choice_and_all_optional_final_retains_unknowns
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[unit]
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[kind]
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[typed_condition]
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[source_version]
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[unknown_assay]
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[foreign_candidate]
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[out_of_project]
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[missing_key]
+PASSED tests/test_decisions.py::test_incompatible_or_partial_choice_mapping_rejects_even_a_draft[extra_key]
+PASSED tests/test_decisions.py::test_invalid_or_underflow_weight_never_becomes_zero[True]
+PASSED tests/test_decisions.py::test_invalid_or_underflow_weight_never_becomes_zero[-1]
+PASSED tests/test_decisions.py::test_invalid_or_underflow_weight_never_becomes_zero[inf]
+PASSED tests/test_decisions.py::test_invalid_or_underflow_weight_never_becomes_zero[nan]
+PASSED tests/test_decisions.py::test_invalid_or_underflow_weight_never_becomes_zero[]
+PASSED tests/test_decisions.py::test_invalid_or_underflow_weight_never_becomes_zero[1e-999]
+PASSED tests/test_decisions.py::test_invalid_or_underflow_weight_never_becomes_zero[1e999]
+PASSED tests/test_decisions.py::test_invalid_or_underflow_weight_never_becomes_zero[9007199254740992]
+PASSED tests/test_decisions.py::test_explicit_decimal_weight_text_stores_number_and_missing_criteria_remain_draft
+PASSED tests/test_decisions.py::test_anchor_must_establish_real_exact_context_even_in_saved_draft[unknown_source_version]
+PASSED tests/test_decisions.py::test_anchor_must_establish_real_exact_context_even_in_saved_draft[unknown_conditions]
+PASSED tests/test_decisions.py::test_anchor_must_establish_real_exact_context_even_in_saved_draft[literature]
+PASSED tests/test_decisions.py::test_hypothesis_sources_close_snapshot_union_and_out_of_scope_rejects
+PASSED tests/test_decisions.py::test_legacy_shortlist_is_preserved_and_can_have_one_new_contract_successor
+PASSED tests/test_decisions.py::test_reverse_order_imported_fork_and_racing_successors_reject_atomically
+PASSED tests/test_decisions.py::test_context_options_are_scoped_without_ranking_or_reassigning_materials
+PASSED tests/test_decisions.py::test_live_decision_routes_preview_without_writes_then_revalidate_direct_import
+PASSED tests/test_decisions_independent.py::test_bad_predecessor_rolls_back_otherwise_valid_evidence_in_same_import[unknown_decision]
+PASSED tests/test_decisions_independent.py::test_bad_predecessor_rolls_back_otherwise_valid_evidence_in_same_import[evidence]
+PASSED tests/test_decisions_independent.py::test_bad_predecessor_rolls_back_otherwise_valid_evidence_in_same_import[self]
+PASSED tests/test_decisions_independent.py::test_null_anchor_and_explicit_alternate_lot_negative_zero_remain_separate
+PASSED tests/test_decisions_independent.py::test_boolean_or_float_condition_does_not_match_integer_context[True]
+PASSED tests/test_decisions_independent.py::test_boolean_or_float_condition_does_not_match_integer_context[1.0]
+PASSED tests/test_decisions_independent.py::test_adding_new_fields_to_legacy_cannot_bypass_required_snapshot_closure
+PASSED tests/test_decisions_independent.py::test_http_rejects_duplicate_choices_underflow_and_wrong_kind_predecessor_without_writes
+40 passed in 3.03s

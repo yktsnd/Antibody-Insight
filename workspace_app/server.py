@@ -25,6 +25,7 @@ from .hypotheses import hypothesis_preview
 from .assembly import composition_context, composition_preview
 from .experiments import construct_context, metadata_preview
 from .measurements import measurement_preview
+from .decisions import decision_context, decision_review
 
 WEB = Path(__file__).resolve().parent.parent / "web"
 MAX_BODY = 32 * 1024 * 1024
@@ -142,7 +143,7 @@ class Handler(BaseHTTPRequestHandler):
             except ValidationError as exc:
                 self.reply(422, {"error": str(exc), "details": exc.details})
             return
-        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js", "/composition.js": "composition.js", "/experiments.js": "experiments.js",
+        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js", "/composition.js": "composition.js", "/experiments.js": "experiments.js", "/decisions.js": "decisions.js",
                  "/vendor/3Dmol-2.5.5.min.js": "vendor/3Dmol-2.5.5.min.js"}
         filename = files.get(parsed.path)
         if filename is None:
@@ -183,6 +184,12 @@ class Handler(BaseHTTPRequestHandler):
             elif route == "/api/metadata-preview":
                 fields(data, {'project_id', 'definition'}, 'request')
                 result = metadata_preview(self.server.store.bundle(data['project_id']), data['definition'])
+            elif route == "/api/decision-context":
+                fields(data, {'project_id', 'candidate_ids'}, 'request')
+                result = decision_context(self.server.store.bundle(data['project_id']), data['candidate_ids'])
+            elif route == "/api/decision-review":
+                fields(data, {'project_id', 'definition'}, 'request')
+                result = decision_review(self.server.store.bundle(data['project_id']), data['definition'])
             elif route == "/api/shortlist":
                 fields(data, {"project_id", "candidate_ids", "evidence_ids", "reason"}, "request")
                 result = self.server.store.save_shortlist(data["project_id"], data["candidate_ids"],

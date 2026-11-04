@@ -1,0 +1,12 @@
+[
+  {
+    "original": "TEST_EVIDENCE/M4-decisions-independent-browser-results.json",
+    "backup": "TEST_EVIDENCE/M4-decisions-pre-final-bounded-independent-browser-results.json",
+    "sha256": "52de304f4129c39aaf0b763b53b8b399196dfb0f79eb06a97d95b7d5dcdf2ab1"
+  },
+  {
+    "original": "TEST_EVIDENCE/M4-decisions-independent-frozen-draft.png",
+    "backup": "TEST_EVIDENCE/M4-decisions-pre-final-bounded-independent-frozen-draft.png",
+    "sha256": "98553ed8980721ffbf5e68b5087ddf3287d1e458d9c6ee780b0396a76a514c69"
+  }
+]
