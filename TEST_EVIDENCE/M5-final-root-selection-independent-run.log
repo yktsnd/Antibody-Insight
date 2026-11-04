@@ -1,0 +1,2 @@
+PASS filtered hidden selection retains exact IDs, native focus/table identity and explicit source observation
+PASS project/reload preserves choices; unselecting last clears links without changing records or table focus

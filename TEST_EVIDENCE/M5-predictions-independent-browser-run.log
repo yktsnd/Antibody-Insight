@@ -1,0 +1,6 @@
+PASS exact opaque tokens map to four distinct subject types; reserved typed references cannot become aliases
+PASS changed file and late edited/project preview never reuse bindings or reopen a stale review
+Native target disabled states [{"id":"","disabled":false,"attribute":false},{"id":"stc_551b283e-b6db-50e2-83bf-48b978064ec3","disabled":false,"attribute":false},{"id":"stc_4b925135-e5d2-50dc-b230-0b167ca2ab2e","disabled":false,"attribute":false},{"id":"stc_b6c9e287-a38b-4d28-b2c0-b1de637de1e2","disabled":false,"attribute":false},{"id":"stc_8ab3bb00-7fa4-4473-bf23-9536fbf5a373","disabled":true,"attribute":true},{"id":"stc_270f1572-99d3-4086-b12d-33f5dfe83d74","disabled":true,"attribute":true}]
+PASS late native target lookup preserves source input; sole model1 is never selected and unusable targets stay disabled
+PASS changed native model rejects late preview; unknown version and typed parameters are preserved without sample inference
+PASS lazy hostile raw JSON stays text and clears on close; native original download is byte-exact

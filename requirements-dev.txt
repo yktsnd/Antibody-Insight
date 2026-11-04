@@ -1,2 +1,4 @@
 # Development-only test runner; MIT. Product runtime requirements are separate.
 pytest==8.4.2
+# Development-only branch measurement; unmodified Apache-2.0 package.
+coverage==7.11.3

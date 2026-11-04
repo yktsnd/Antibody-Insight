@@ -1,0 +1,6 @@
+PASS delayed exact contexts retain new reason and chosen subset without automatic source or weight
+PASS late preview cannot replace an edited reason or a different project decision draft
+PASS old rejected save cannot unlock or report its error in a newer pending review
+PASS submitted save retains a newer project and its unsaved criteria decision
+PASS actual legacy continuation remains draft and a concurrently advanced head rejects stale UI save
+PASS late three-candidate preview preserves a newer two-candidate draft and both original scopes

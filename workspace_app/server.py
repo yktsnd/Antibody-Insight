@@ -14,7 +14,7 @@ from urllib.parse import parse_qs, urlsplit
 
 from . import __version__
 from .adapters import new_project, parse_json, preview
-from .domain import SCHEMA, ValidationError, fields, new_id, now, require, validate_graph
+from .domain import MAX_BUNDLE_BYTES, SCHEMA, ValidationError, fields, new_id, now, require, validate_graph
 from .fixtures import composition_bundle, example_bundle, numbering_bundle
 from .numbering import cdr3_groups, observations
 from .observation import observation_order
@@ -26,9 +26,10 @@ from .assembly import composition_context, composition_preview
 from .experiments import construct_context, metadata_preview
 from .measurements import measurement_preview
 from .decisions import decision_context, decision_review
+from .predictions import prediction_preview, prediction_targets
 
 WEB = Path(__file__).resolve().parent.parent / "web"
-MAX_BODY = 32 * 1024 * 1024
+MAX_BODY = MAX_BUNDLE_BYTES
 
 
 def default_database():
@@ -67,7 +68,10 @@ class Handler(BaseHTTPRequestHandler):
                     # Keep approved number representations across the JavaScript UI.
                     # This is envelope metadata, never an extra awx/1 entity field.
                     payload = {**payload, "serialized_bundle": json.dumps(reviewed, ensure_ascii=False, allow_nan=False)}
-            payload = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode("utf-8")
+            # Rejected input can contain escaped lone surrogate code points in
+            # diagnostic keys. Escape error JSON so a validation failure cannot
+            # itself break UTF-8 transport; successful source bundles stay exact.
+            payload = json.dumps(payload, ensure_ascii=status >= 400, allow_nan=False).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(payload)))
@@ -143,7 +147,7 @@ class Handler(BaseHTTPRequestHandler):
             except ValidationError as exc:
                 self.reply(422, {"error": str(exc), "details": exc.details})
             return
-        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js", "/composition.js": "composition.js", "/experiments.js": "experiments.js", "/decisions.js": "decisions.js",
+        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js", "/composition.js": "composition.js", "/experiments.js": "experiments.js", "/decisions.js": "decisions.js", "/predictions.js": "predictions.js",
                  "/vendor/3Dmol-2.5.5.min.js": "vendor/3Dmol-2.5.5.min.js"}
         filename = files.get(parsed.path)
         if filename is None:
@@ -190,6 +194,13 @@ class Handler(BaseHTTPRequestHandler):
             elif route == "/api/decision-review":
                 fields(data, {'project_id', 'definition'}, 'request')
                 result = decision_review(self.server.store.bundle(data['project_id']), data['definition'])
+            elif route == "/api/prediction-targets":
+                fields(data, {'project_id'}, 'request')
+                result = prediction_targets(self.server.store.bundle(data['project_id']))
+            elif route == "/api/prediction-preview":
+                fields(data, {'project_id', 'text', 'filename', 'file_format', 'bindings', 'options', 'bindings_text_sha256'}, 'request')
+                result = prediction_preview(self.server.store.bundle(data['project_id']), data['text'], data['filename'],
+                                            data['file_format'], data['bindings'], data['options'], data['bindings_text_sha256'])
             elif route == "/api/shortlist":
                 fields(data, {"project_id", "candidate_ids", "evidence_ids", "reason"}, "request")
                 result = self.server.store.save_shortlist(data["project_id"], data["candidate_ids"],
@@ -247,7 +258,7 @@ def main():
     with make_server(args.database, args.port) as server:
         print(f"Antibody Insight {__version__}: {server.origin}", flush=True)
         print(f"Database: {args.database.resolve()}", flush=True)
-        print("Local development build. Full researcher workflows are not yet complete. Ctrl+C to stop.", flush=True)
+        print("Local development build. Release 1.0 validation remains incomplete. Ctrl+C to stop.", flush=True)
         try:
             server.serve_forever()
         except KeyboardInterrupt:

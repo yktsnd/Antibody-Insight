@@ -1,0 +1,14 @@
+{
+  "status": "POST_FIX_INITIAL_MARKUP_MEASUREMENT",
+  "scope": "Actual domain-validated1000scalar canonical import under32MiB, then actual UI origin on read-only NodeVM with production-equivalent escaping; no Chrome or product mutation",
+  "project_utf8_bytes": 1099343,
+  "source_utf8_bytes": 333054,
+  "allocated_evidence_count": 1000,
+  "one_origin_html_characters": 1120,
+  "total_origin_markup_characters": 1121890,
+  "source_content_embedded_initially": false,
+  "origin_source_sha256": "791838f29a5d50f4c0cc2a42e5df4638e664be9f0a18ef6080ebe380d684e1be",
+  "runner_note": "First valid-fixture probe hit Node spawnSync default output buffer; increased review-runner maxBuffer, no product changes.",
+  "timestamp": "2026-11-04T18:23:50.213Z",
+  "timing_note": "The implementation applied the lazy-metadata fix while the valid-fixture probe was being prepared. This file therefore measures post-fix markup, not pre-fix amplification. Exact reviewed-before/current-after reproduction is recorded in M5-source-details-independent-results.json."
+}

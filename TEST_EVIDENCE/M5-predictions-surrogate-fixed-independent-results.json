@@ -1,0 +1,132 @@
+{
+  "reviewer": "/root/prediction_design_review",
+  "synthetic_only": true,
+  "files": {
+    "workspace_app/server.py": "1cdb3175ea28c680239c733255ff94aeb23029b224a27e4df602e76e92a277d3",
+    "workspace_app/predictions.py": "37f2b0f545c484b272a92e6385b2f5694b5916c343d4e104127e6d7e3c5037db",
+    "workspace_app/adapters.py": "d5dbfb37dd42d8fa7395663c42ad4886fd8ec9fd2cebb7f65229868f33012531"
+  },
+  "results": [
+    {
+      "case": "unknown_root_high",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Unsupported computed JSON fields; entire file rejected",
+        "details": [
+          "/\ud800"
+        ]
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "duplicate_root_high",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Duplicate JSON key: \ud800",
+        "details": []
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "unknown_root_low",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Unsupported computed JSON fields; entire file rejected",
+        "details": [
+          "/\udc00"
+        ]
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "duplicate_root_low",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Duplicate JSON key: \udc00",
+        "details": []
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "known_row_subject_ref",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Malformed request; no data saved"
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "known_row_metric",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Project must be valid finite UTF-8 JSON for export/reimport",
+        "details": []
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "known_row_description",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Project must be valid finite UTF-8 JSON for export/reimport",
+        "details": []
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "known_row_context_key",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Project must be valid finite UTF-8 JSON for export/reimport",
+        "details": []
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "known_row_context_value",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 422,
+      "status": 422,
+      "payload": {
+        "error": "Project must be valid finite UTF-8 JSON for export/reimport",
+        "details": []
+      },
+      "database_unchanged": true,
+      "pass": true
+    },
+    {
+      "case": "valid_surrogate_pair_control",
+      "request_is_ascii_valid_utf8": true,
+      "expected_status": 200,
+      "status": 200,
+      "database_unchanged": true,
+      "pass": true,
+      "valid_rows": 1
+    }
+  ],
+  "all_pass": true
+}

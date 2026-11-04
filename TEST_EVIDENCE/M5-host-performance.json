@@ -1,0 +1,394 @@
+{
+  "status": "MEASURED_NONSTANDARD_HOST",
+  "diagnostic": false,
+  "hardware": {
+    "logical_cpus": 8,
+    "ram_bytes": 8155983872,
+    "os": "10.0.26200",
+    "cpu_model": "Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz",
+    "disk_media": "not independently verified",
+    "standard_hardware_gate": "NOT_QUALIFIED:16GB RAM and SSD verification required",
+    "browser_version": "156.0.8078.79"
+  },
+  "trials": [
+    {
+      "run": 1,
+      "initial_1000_ms": 1045.1296000480652,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 107.1674998998642,
+          "event_to_two_frames_ms": 38.39999997615814
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 327.29069995880127,
+          "event_to_two_frames_ms": 255.29999995231628
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 89.47230005264282,
+          "event_to_two_frames_ms": 25
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 203.92820000648499,
+          "event_to_two_frames_ms": 109.10000002384186
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 215.0829999446869,
+          "event_to_two_frames_ms": 158
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 90.56780004501343,
+          "event_to_two_frames_ms": 32.10000002384186
+        }
+      ],
+      "simple_operation_p95_ms": 327.29069995880127
+    },
+    {
+      "run": 2,
+      "initial_1000_ms": 616.6664999723434,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 69.5670999288559,
+          "event_to_two_frames_ms": 27.799999952316284
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 220.09299993515015,
+          "event_to_two_frames_ms": 170.70000004768372
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 649.2201999425888,
+          "event_to_two_frames_ms": 29.199999928474426
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 131.03550004959106,
+          "event_to_two_frames_ms": 46.300000071525574
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 213.30540001392365,
+          "event_to_two_frames_ms": 155.30000007152557
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 116.77880001068115,
+          "event_to_two_frames_ms": 31.299999952316284
+        }
+      ],
+      "simple_operation_p95_ms": 649.2201999425888
+    },
+    {
+      "run": 3,
+      "initial_1000_ms": 553.6054999828339,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 68.96420001983643,
+          "event_to_two_frames_ms": 28
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 197.09049999713898,
+          "event_to_two_frames_ms": 157.70000004768372
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 130.56040000915527,
+          "event_to_two_frames_ms": 29.199999928474426
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 134.66949999332428,
+          "event_to_two_frames_ms": 43.5
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 249.80309998989105,
+          "event_to_two_frames_ms": 158.89999997615814
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 77.0217000246048,
+          "event_to_two_frames_ms": 30.700000047683716
+        }
+      ],
+      "simple_operation_p95_ms": 249.80309998989105
+    },
+    {
+      "run": 4,
+      "initial_1000_ms": 600.019700050354,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 66.08730006217957,
+          "event_to_two_frames_ms": 28.200000047683716
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 311.27210009098053,
+          "event_to_two_frames_ms": 280.8000000715256
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 130.03450000286102,
+          "event_to_two_frames_ms": 27.200000047683716
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 113.51250004768372,
+          "event_to_two_frames_ms": 55.799999952316284
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 277.7434000968933,
+          "event_to_two_frames_ms": 210
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 83.91620004177094,
+          "event_to_two_frames_ms": 27.899999976158142
+        }
+      ],
+      "simple_operation_p95_ms": 311.27210009098053
+    },
+    {
+      "run": 5,
+      "initial_1000_ms": 683.6973999738693,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 87.5925999879837,
+          "event_to_two_frames_ms": 34.199999928474426
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 272.8977999687195,
+          "event_to_two_frames_ms": 257.5
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 141.21189999580383,
+          "event_to_two_frames_ms": 36.60000002384186
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 151.81000006198883,
+          "event_to_two_frames_ms": 59.800000071525574
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 343.7883999347687,
+          "event_to_two_frames_ms": 245.60000002384186
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 119.78320002555847,
+          "event_to_two_frames_ms": 37.89999997615814
+        }
+      ],
+      "simple_operation_p95_ms": 343.7883999347687
+    },
+    {
+      "run": 6,
+      "initial_1000_ms": 861.8751999139786,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 92.00989997386932,
+          "event_to_two_frames_ms": 30.600000023841858
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 237.4825999736786,
+          "event_to_two_frames_ms": 194
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 123.61410009860992,
+          "event_to_two_frames_ms": 35.10000002384186
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 111.46630001068115,
+          "event_to_two_frames_ms": 42.200000047683716
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 288.96459996700287,
+          "event_to_two_frames_ms": 197.80000007152557
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 90.78020000457764,
+          "event_to_two_frames_ms": 28.800000071525574
+        }
+      ],
+      "simple_operation_p95_ms": 288.96459996700287
+    },
+    {
+      "run": 7,
+      "initial_1000_ms": 738.3540999889374,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 89.18410003185272,
+          "event_to_two_frames_ms": 35.10000002384186
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 255.98099994659424,
+          "event_to_two_frames_ms": 211.89999997615814
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 93.52930009365082,
+          "event_to_two_frames_ms": 24.399999976158142
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 142.9035999774933,
+          "event_to_two_frames_ms": 55.39999997615814
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 306.25820004940033,
+          "event_to_two_frames_ms": 238.39999997615814
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 116.66019999980927,
+          "event_to_two_frames_ms": 36.700000047683716
+        }
+      ],
+      "simple_operation_p95_ms": 306.25820004940033
+    },
+    {
+      "run": 8,
+      "initial_1000_ms": 539.6667000055313,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 76.53109991550446,
+          "event_to_two_frames_ms": 28.299999952316284
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 403.82920002937317,
+          "event_to_two_frames_ms": 378.39999997615814
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 111.39859998226166,
+          "event_to_two_frames_ms": 28.200000047683716
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 86.21380007266998,
+          "event_to_two_frames_ms": 37.90000009536743
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 251.88789999485016,
+          "event_to_two_frames_ms": 163.89999997615814
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 72.8173999786377,
+          "event_to_two_frames_ms": 28.800000071525574
+        }
+      ],
+      "simple_operation_p95_ms": 403.82920002937317
+    },
+    {
+      "run": 9,
+      "initial_1000_ms": 593.3925000429153,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 75.1712999343872,
+          "event_to_two_frames_ms": 22.399999976158142
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 202.30619990825653,
+          "event_to_two_frames_ms": 156.10000002384186
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 125.76979994773865,
+          "event_to_two_frames_ms": 29.600000023841858
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 131.25880002975464,
+          "event_to_two_frames_ms": 55.299999952316284
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 252.0899999141693,
+          "event_to_two_frames_ms": 167
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 95.15710008144379,
+          "event_to_two_frames_ms": 28.399999976158142
+        }
+      ],
+      "simple_operation_p95_ms": 252.0899999141693
+    },
+    {
+      "run": 10,
+      "initial_1000_ms": 455.9829000234604,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 72.12089991569519,
+          "event_to_two_frames_ms": 26.40000009536743
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 186.35140001773834,
+          "event_to_two_frames_ms": 147.30000007152557
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 243.24119997024536,
+          "event_to_two_frames_ms": 25.399999976158142
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 131.79869997501373,
+          "event_to_two_frames_ms": 56.700000047683716
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 274.0098999738693,
+          "event_to_two_frames_ms": 181.40000009536743
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 93.83029997348785,
+          "event_to_two_frames_ms": 34.39999997615814
+        }
+      ],
+      "simple_operation_p95_ms": 274.0098999738693
+    }
+  ],
+  "overall_simple_operation_p95_ms": 327.29069995880127,
+  "observed_initial_le_5000ms": true,
+  "observed_operation_p95_le_300ms": false,
+  "standard_release_gate": "PENDING:repeat ten runs on verified8logicalCPU/16GB/SSD",
+  "event_diagnostic": "Native input/click capture to two animation frames; recorded separately, does not replace full operation latency or qualify standard hardware.",
+  "method": "Fresh browser context per run, warm local server/browser; end-to-end Playwright action/assertion plus two animation frames. Includes automation/actionability overhead; six explicit simple operations per run. All1000 rows must exist before initial timer stops. Synthetic data only; no biological performance claim.",
+  "errors": [],
+  "outbound": [],
+  "timestamp": "2026-11-04T18:28:33.982Z"
+}

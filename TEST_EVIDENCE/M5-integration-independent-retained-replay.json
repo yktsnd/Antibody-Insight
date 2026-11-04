@@ -1,0 +1,242 @@
+{
+  "status": "PASS",
+  "source_sha256": "4ef0aa2a1e84db1fb5b7364409190ae4737a3dc5d5f92531586d8be89cf4b8fb",
+  "runs": [
+    {
+      "suite": "browser.cjs",
+      "exit_code": 0,
+      "duration_s": 19.12,
+      "log": "M5-integration-independent-browser-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-foundation-results.json",
+          "status": "PASS",
+          "result_groups": 11
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M1-browser-results.json",
+          "copy": "M5-integration-independent-foundation-results.json",
+          "sha256": "db3147d0ab612247d8b3092e062ad4a8d9eaef1177b34889fd889bee404b3e60"
+        },
+        {
+          "original": "M1-composition-screen.png",
+          "copy": "M5-integration-independent-browser-M1-composition-screen.png",
+          "sha256": "d4a7179b238de92fffb04d99e3cb0df681206e3ff5c79a0cae5e45b627c9839a"
+        },
+        {
+          "original": "M1-evidence-screen.png",
+          "copy": "M5-integration-independent-browser-M1-evidence-screen.png",
+          "sha256": "76f39d39e1560f24b854b735e63ecd350dbe0ffaee7589562a23912d31f737aa"
+        },
+        {
+          "original": "M1-explorer-800.png",
+          "copy": "M5-integration-independent-browser-M1-explorer-800.png",
+          "sha256": "e35a41eb57b61a1d1c1b009073272ab30672bc5544bec25cc3ba110be89b2825"
+        },
+        {
+          "original": "M1-mobile.png",
+          "copy": "M5-integration-independent-browser-M1-mobile.png",
+          "sha256": "614b401ffd17f3be26b89ff499469003d8345a2f2057417fc169a6d795b7619a"
+        }
+      ]
+    },
+    {
+      "suite": "numbering-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 56.28,
+      "log": "M5-integration-independent-numbering-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-numbering-results.json",
+          "status": "PASS",
+          "result_groups": 5
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M2-numbering-browser-results.json",
+          "copy": "M5-integration-independent-numbering-results.json",
+          "sha256": "80502266a09551a9d8c5bd664038e0f2893c452d6f281982ad59a7efe0e6a364"
+        },
+        {
+          "original": "M2-numbering-explorer.png",
+          "copy": "M5-integration-independent-numbering-M2-numbering-explorer.png",
+          "sha256": "a2a67b498a338f4d3d84487643754fadde22636f4090fec9413aa28222ed79e3"
+        },
+        {
+          "original": "M2-numbering-screen.png",
+          "copy": "M5-integration-independent-numbering-M2-numbering-screen.png",
+          "sha256": "a8bbda43f77d25f8f6046967cb8d46154f368fdbccc08f426cabebd6018beaa0"
+        }
+      ]
+    },
+    {
+      "suite": "structures-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 66.64,
+      "log": "M5-integration-independent-structures-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-structures-results.json",
+          "status": "PASS",
+          "result_groups": 11
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M2-structure-browser-results.json",
+          "copy": "M5-integration-independent-structures-results.json",
+          "sha256": "b7e03f1e7bb47f5707fa2bf9c624457da1e894b39b266d2e02f3f72616444fc8"
+        },
+        {
+          "original": "M2-structure-screen.png",
+          "copy": "M5-integration-independent-structures-M2-structure-screen.png",
+          "sha256": "87d00b7585b3679bc8af30f8fd2261c57e9516df6821d22f951e79a8161dcccf"
+        }
+      ]
+    },
+    {
+      "suite": "observation-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 4.28,
+      "log": "M5-integration-independent-observation-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-observation-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M2-observation-independent-browser-results.json",
+          "copy": "M5-integration-independent-observation-results.json",
+          "sha256": "7d709f02f13deda93c1de016d5388e2e7a4593846639edbdd75339f7f4c38109"
+        }
+      ]
+    },
+    {
+      "suite": "design-hypotheses-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 8.34,
+      "log": "M5-integration-independent-design-hypotheses-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-design-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M3-numbered-design-independent-browser-results.json",
+          "copy": "M5-integration-independent-design-results.json",
+          "sha256": "b584feb499630256afee672fe35dfb167eb52d61d5959c6ca259de153bad676c"
+        }
+      ]
+    },
+    {
+      "suite": "design-save-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 9.89,
+      "log": "M5-integration-independent-design-save-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-design-save-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M3-numbered-design-independent-save-results.json",
+          "copy": "M5-integration-independent-design-save-results.json",
+          "sha256": "1e0790df93f842be9dbe9c5913c238c46347af9b770e2a7b0f1345554bc2829b"
+        }
+      ]
+    }
+  ],
+  "preservation": [
+    {
+      "path": "M1-browser-results.json",
+      "before_after_sha256": "dc8ca50230cda6a914333d9fd9b63f2d636ce79b1b379615aea7944be22794c5",
+      "copied_current_sha256": "db3147d0ab612247d8b3092e062ad4a8d9eaef1177b34889fd889bee404b3e60",
+      "suite": "browser.cjs"
+    },
+    {
+      "path": "M1-evidence-screen.png",
+      "before_after_sha256": "f1dd29fb30ec16a9f2b3bb26258744551df42dcef09e647e60da4a482627f4e4",
+      "copied_current_sha256": "76f39d39e1560f24b854b735e63ecd350dbe0ffaee7589562a23912d31f737aa",
+      "suite": "browser.cjs"
+    },
+    {
+      "path": "M1-mobile.png",
+      "before_after_sha256": "01145efa5d1f5db99df25abf049d3875a983fa0557f3b9073dae76fa0aee086a",
+      "copied_current_sha256": "614b401ffd17f3be26b89ff499469003d8345a2f2057417fc169a6d795b7619a",
+      "suite": "browser.cjs"
+    },
+    {
+      "path": "M1-explorer-800.png",
+      "before_after_sha256": "1ad81c37c7dde0a4bf80c2fe9d5a9d176baf241dbff0b626ff37b119dff3eddf",
+      "copied_current_sha256": "e35a41eb57b61a1d1c1b009073272ab30672bc5544bec25cc3ba110be89b2825",
+      "suite": "browser.cjs"
+    },
+    {
+      "path": "M1-composition-screen.png",
+      "before_after_sha256": "efcc91466957ee7a50c6b6e587c03c320acccf57c30c0d3ddb170eda776d8754",
+      "copied_current_sha256": "d4a7179b238de92fffb04d99e3cb0df681206e3ff5c79a0cae5e45b627c9839a",
+      "suite": "browser.cjs"
+    },
+    {
+      "path": "M2-numbering-browser-results.json",
+      "before_after_sha256": "c9f85b09195bd125d5744fba11891c8ee7f32ce9923f62cf472558762c10e2ae",
+      "copied_current_sha256": "80502266a09551a9d8c5bd664038e0f2893c452d6f281982ad59a7efe0e6a364",
+      "suite": "numbering-browser.cjs"
+    },
+    {
+      "path": "M2-numbering-screen.png",
+      "before_after_sha256": "32fde4859ef98861b6f085cd62e678a604eec8b05d6bfb9ca44e0bb7763066e1",
+      "copied_current_sha256": "a8bbda43f77d25f8f6046967cb8d46154f368fdbccc08f426cabebd6018beaa0",
+      "suite": "numbering-browser.cjs"
+    },
+    {
+      "path": "M2-numbering-explorer.png",
+      "before_after_sha256": "5c6f07e78bdcef4bb6467187aa6201d548316bb03aded83efba761cb9675f7b1",
+      "copied_current_sha256": "a2a67b498a338f4d3d84487643754fadde22636f4090fec9413aa28222ed79e3",
+      "suite": "numbering-browser.cjs"
+    },
+    {
+      "path": "M2-structure-screen.png",
+      "before_after_sha256": "63d613c6b49096bd5dbb081d37b0c2530df7ce4fc9306fc1802d6221832166bd",
+      "copied_current_sha256": "87d00b7585b3679bc8af30f8fd2261c57e9516df6821d22f951e79a8161dcccf",
+      "suite": "structures-browser.cjs"
+    },
+    {
+      "path": "M2-structure-browser-results.json",
+      "before_after_sha256": "e34fe2c32386695c629255dbf96d98ffa0089a4d05cab4458fd35699ef7b1a31",
+      "copied_current_sha256": "b7e03f1e7bb47f5707fa2bf9c624457da1e894b39b266d2e02f3f72616444fc8",
+      "suite": "structures-browser.cjs"
+    },
+    {
+      "path": "M2-observation-independent-browser-results.json",
+      "before_after_sha256": "5493dcd2284a403ba501e567ebe9f2ae7ac7f0e14559459a555382c203fbe1c5",
+      "copied_current_sha256": "7d709f02f13deda93c1de016d5388e2e7a4593846639edbdd75339f7f4c38109",
+      "suite": "observation-independent-browser.cjs"
+    },
+    {
+      "path": "M3-numbered-design-independent-browser-results.json",
+      "before_after_sha256": "b07900e35d73c2e4963dc21e9adb8dc773032ae634d220ac426462acef56d306",
+      "copied_current_sha256": "b584feb499630256afee672fe35dfb167eb52d61d5959c6ca259de153bad676c",
+      "suite": "design-hypotheses-independent-browser.cjs"
+    },
+    {
+      "path": "M3-numbered-design-independent-save-results.json",
+      "before_after_sha256": "a8bb6e556f5922a6b6c2b9f6b5f0c9c0894f64ebe938757cf48387dc96b01300",
+      "copied_current_sha256": "1e0790df93f842be9dbe9c5913c238c46347af9b770e2a7b0f1345554bc2829b",
+      "suite": "design-save-independent-browser.cjs"
+    }
+  ],
+  "timestamp": "2026-11-04T18:48:47.775876+00:00"
+}

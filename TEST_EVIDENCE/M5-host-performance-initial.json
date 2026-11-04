@@ -1,0 +1,332 @@
+{
+  "status": "MEASURED_NONSTANDARD_HOST",
+  "hardware": {
+    "logical_cpus": 8,
+    "ram_bytes": 8155983872,
+    "os": "10.0.26200",
+    "cpu_model": "Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz",
+    "disk_media": "not independently verified",
+    "standard_hardware_gate": "NOT_QUALIFIED:16GB RAM and SSD verification required",
+    "browser_version": "156.0.8078.79"
+  },
+  "trials": [
+    {
+      "run": 1,
+      "initial_1000_ms": 1122.9460999965668,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 112.35830003023148
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 249.87330001592636
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 477.8010999560356
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 158.9994000196457
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 319.68389999866486
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 323.67079997062683
+        }
+      ],
+      "simple_operation_p95_ms": 477.8010999560356
+    },
+    {
+      "run": 2,
+      "initial_1000_ms": 670.1982000470161,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 121.54050004482269
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 230.14329999685287
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 819.7978000044823
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 144.9134999513626
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 232.5794000029564
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 286.0493000149727
+        }
+      ],
+      "simple_operation_p95_ms": 819.7978000044823
+    },
+    {
+      "run": 3,
+      "initial_1000_ms": 582.7390000224113,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 89.03200000524521
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 193.1197999715805
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 337.1545999646187
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 125.19179999828339
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 227.91540002822876
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 278.2160999774933
+        }
+      ],
+      "simple_operation_p95_ms": 337.1545999646187
+    },
+    {
+      "run": 4,
+      "initial_1000_ms": 595.3520999550819,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 88.28420001268387
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 213.43600004911423
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 588.852999985218
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 125.01039999723434
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 285.4636999964714
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 293.36740005016327
+        }
+      ],
+      "simple_operation_p95_ms": 588.852999985218
+    },
+    {
+      "run": 5,
+      "initial_1000_ms": 564.2415000200272,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 103.48240000009537
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 210.3536999821663
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 339.7325999736786
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 124.59180003404617
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 230.00799995660782
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 290.67610001564026
+        }
+      ],
+      "simple_operation_p95_ms": 339.7325999736786
+    },
+    {
+      "run": 6,
+      "initial_1000_ms": 543.0012999773026,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 89.69599997997284
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 343.85530000925064
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 329.3245000243187
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 142.58600002527237
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 210.21419996023178
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 320.63830000162125
+        }
+      ],
+      "simple_operation_p95_ms": 343.85530000925064
+    },
+    {
+      "run": 7,
+      "initial_1000_ms": 572.2120000123978,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 87.13170003890991
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 215.7282999753952
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 574.5300000309944
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 125.71490001678467
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 284.99589997529984
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 301.83219999074936
+        }
+      ],
+      "simple_operation_p95_ms": 574.5300000309944
+    },
+    {
+      "run": 8,
+      "initial_1000_ms": 623.7552000284195,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 87.96850001811981
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 193.26190000772476
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 325.1711999773979
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 125.64200001955032
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 228.74859994649887
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 316.2796999812126
+        }
+      ],
+      "simple_operation_p95_ms": 325.1711999773979
+    },
+    {
+      "run": 9,
+      "initial_1000_ms": 584.486899971962,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 87.8765999674797
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 211.90729999542236
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 722.444100022316
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 141.44740003347397
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 249.37099999189377
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 314.71699994802475
+        }
+      ],
+      "simple_operation_p95_ms": 722.444100022316
+    },
+    {
+      "run": 10,
+      "initial_1000_ms": 568.5277000069618,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 86.56080001592636
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 213.1244000196457
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 729.4491999745369
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 107.04230004549026
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 300.6593999862671
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 314.4607999920845
+        }
+      ],
+      "simple_operation_p95_ms": 729.4491999745369
+    }
+  ],
+  "overall_simple_operation_p95_ms": 588.852999985218,
+  "observed_initial_le_5000ms": true,
+  "observed_operation_p95_le_300ms": false,
+  "standard_release_gate": "PENDING:repeat ten runs on verified8logicalCPU/16GB/SSD",
+  "method": "Fresh browser context per run, warm local server/browser; end-to-end Playwright action/assertion plus two animation frames. Includes automation/actionability overhead; six explicit simple operations per run. All1000 rows must exist before initial timer stops. Synthetic data only; no biological performance claim.",
+  "errors": [],
+  "outbound": [],
+  "timestamp": "2026-11-04T13:16:39.027Z"
+}

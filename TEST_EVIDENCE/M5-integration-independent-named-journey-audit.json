@@ -1,0 +1,123 @@
+{
+  "status": "PASS_FOR_PERSONAL_NAMED_SYNTHETIC_WORKFLOWS",
+  "main_flows": 8,
+  "specified_negative_flows": 16,
+  "source_sha256": "4ef0aa2a1e84db1fb5b7364409190ae4737a3dc5d5f92531586d8be89cf4b8fb",
+  "journeys": [
+    {
+      "journey": "J01",
+      "persona": "P01",
+      "acceptance": "AC-J01",
+      "required_tests": [
+        "e2e_j01_candidate_shortlist",
+        "e2e_j01_invalid_sequence",
+        "e2e_j01_missing_measurement"
+      ],
+      "status": "PASS",
+      "report": "TEST_EVIDENCE/M5-integration-independent-J01-results.json",
+      "report_sha256": "9c656e51490bb34dc5d871c54e68225bc8e2601b6ffb60e1e62c37fec6656de3",
+      "result_groups": 5
+    },
+    {
+      "journey": "J02",
+      "persona": "P02",
+      "acceptance": "AC-J02",
+      "required_tests": [
+        "e2e_j02_humanize_variant",
+        "e2e_j02_numbering_unavailable",
+        "e2e_j02_insertion_mapping"
+      ],
+      "status": "PASS",
+      "report": "TEST_EVIDENCE/M5-integration-independent-J02-results.json",
+      "report_sha256": "e0f73002a8f684093f49274e7b1f2661049feeb82f66cd4e1692a8e9286fe3c9",
+      "result_groups": 4
+    },
+    {
+      "journey": "J03",
+      "persona": "P03",
+      "acceptance": "AC-J03",
+      "required_tests": [
+        "e2e_j03_complex_comparison",
+        "e2e_j03_unmappable_residue",
+        "e2e_j03_missing_confidence"
+      ],
+      "status": "PASS",
+      "report": "TEST_EVIDENCE/M5-integration-independent-J03-results.json",
+      "report_sha256": "234286ac945fd96515497a9d7fbbb026f31b0bb0157c1c5cf1aa199a672e60c4",
+      "result_groups": 3
+    },
+    {
+      "journey": "J04",
+      "persona": "P04",
+      "acceptance": "AC-J04",
+      "required_tests": [
+        "e2e_j04_developability_review",
+        "e2e_j04_unit_mismatch",
+        "e2e_j04_unknown_assay_condition"
+      ],
+      "status": "PASS",
+      "report": "TEST_EVIDENCE/M5-integration-independent-J04-results.json",
+      "report_sha256": "f1472cb33d6d834fc526c9af71ea4d2bd238ae1ebfddba1acc206ea3672cf866",
+      "result_groups": 3
+    },
+    {
+      "journey": "J05",
+      "persona": "P05",
+      "acceptance": "AC-J05",
+      "required_tests": [
+        "e2e_j05_bispecific_composition",
+        "e2e_j05_undefined_chain",
+        "e2e_j05_unsupported_analysis"
+      ],
+      "status": "PASS",
+      "report": "TEST_EVIDENCE/M5-integration-independent-J05-results.json",
+      "report_sha256": "2e88114c4280c48ed87dbaf553cba5e7f5fc49ff339d4df66aa434c9a41a7509",
+      "result_groups": 4
+    },
+    {
+      "journey": "J06",
+      "persona": "P06",
+      "acceptance": "AC-J06",
+      "required_tests": [
+        "e2e_j06_construct_sample_lineage",
+        "e2e_j06_unknown_sample_id",
+        "e2e_j06_incomparable_units"
+      ],
+      "status": "PASS",
+      "report": "TEST_EVIDENCE/M5-integration-independent-J06-results.json",
+      "report_sha256": "2bd688cf6dd0fbd39b952b51d92a7349a9f92cc3e9c2030fcfe834d5f4cdcfdd",
+      "result_groups": 4
+    },
+    {
+      "journey": "J07",
+      "persona": "P07",
+      "acceptance": "AC-J07",
+      "required_tests": [
+        "e2e_j07_candidate_decision",
+        "e2e_j07_missing_required_metric",
+        "e2e_j07_immutable_decision"
+      ],
+      "status": "PASS",
+      "report": "TEST_EVIDENCE/M5-integration-independent-J07-results.json",
+      "report_sha256": "fbfb7628fb41c02a6d7dac25f9a3165704932674c3097345fa3fb72819dbbc4f",
+      "result_groups": 4
+    },
+    {
+      "journey": "J08",
+      "persona": "P08",
+      "acceptance": "AC-J08",
+      "required_tests": [
+        "e2e_j08_export_reimport",
+        "e2e_j08_duplicate_id",
+        "e2e_j08_corrupted_structure"
+      ],
+      "status": "PASS",
+      "report": "TEST_EVIDENCE/M5-integration-independent-J08-results.json",
+      "report_sha256": "e100c237b96c472e388d82c4c87fbf4fb59e09eeca70b3b40cea74e74830156d",
+      "result_groups": 3
+    }
+  ],
+  "scope": "All exact named prescribed tests personally replayed against frozen103-file source. Retained/extra browser and release review remain separate. This does not edit registration or imply scientific/user/standard-hardware acceptance.",
+  "reviewer": "/root/m5_integration_review",
+  "timestamp": "2026-11-04T18:46:36.211984+00:00"
+}

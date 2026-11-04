@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "exact opaque tokens map to four distinct subject types; reserved typed references cannot become aliases",
+      "status": "PASS",
+      "duration_ms": 1429
+    },
+    {
+      "name": "changed file and late edited/project preview never reuse bindings or reopen a stale review",
+      "status": "PASS",
+      "duration_ms": 1332
+    },
+    {
+      "name": "late native target lookup preserves source input; sole model1 is never selected and unusable targets stay disabled",
+      "status": "PASS",
+      "duration_ms": 362
+    },
+    {
+      "name": "changed native model rejects late preview; unknown version and typed parameters are preserved without sample inference",
+      "status": "PASS",
+      "duration_ms": 1395
+    },
+    {
+      "name": "lazy hostile raw JSON stays text and clears on close; native original download is byte-exact",
+      "status": "PASS",
+      "duration_ms": 1204
+    }
+  ],
+  "error": null,
+  "errors": [],
+  "outbound": [],
+  "fixture": "Synthetic engineering fixtures; no external model run or biological validation",
+  "timestamp": "2026-11-04T13:15:32.088Z"
+}

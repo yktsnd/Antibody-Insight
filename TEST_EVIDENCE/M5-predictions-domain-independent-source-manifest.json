@@ -1,0 +1,84 @@
+{
+  "reviewer": "/root/prediction_design_review",
+  "phase": "before_final_targeted_replay",
+  "timestamp": "2026-11-04T12:50:04.087743+00:00",
+  "python": "C:\\Users\\yukis\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Antibody Insight\\.venv\\Scripts\\python.exe",
+  "head": "14c365c3e12221c4fbb941131253676ed0ff0845",
+  "files": [
+    {
+      "path": "workspace_app/__init__.py",
+      "sha256": "493f2a0ec8264e8d7c7205456257d6072e8656fc7f7cea38bb097c9f37efcf1a",
+      "bytes": 93
+    },
+    {
+      "path": "workspace_app/domain.py",
+      "sha256": "ae624e70cc04edcdcf05cdc12a32d9c4d3c3fe5111056076996aa50a298c7df6",
+      "bytes": 16287
+    },
+    {
+      "path": "workspace_app/adapters.py",
+      "sha256": "d5dbfb37dd42d8fa7395663c42ad4886fd8ec9fd2cebb7f65229868f33012531",
+      "bytes": 7816
+    },
+    {
+      "path": "workspace_app/predictions.py",
+      "sha256": "6eb0d8c8e97d28b0c19e9298f857148c767c5ca01054af4e5522e4ffee712716",
+      "bytes": 16960
+    },
+    {
+      "path": "workspace_app/structures.py",
+      "sha256": "864e93f87fb610f75ef6679c1c4f42c7a3208e6636aa18c3c67de274373681e9",
+      "bytes": 19924
+    },
+    {
+      "path": "workspace_app/storage.py",
+      "sha256": "baf15ff5ad928e19ee6a7157ef1a82683bb5102ee517596aece1e5219841e116",
+      "bytes": 5649
+    },
+    {
+      "path": "workspace_app/server.py",
+      "sha256": "aa634dba9b719b99852c0ee5346801b9a11c4d6abfee8797823910f6c1504c24",
+      "bytes": 15759
+    },
+    {
+      "path": "tests/test_predictions.py",
+      "sha256": "3e7b42b37fc15696018c8c4e6622e305086f4de01ad4bc8803d4c902725b5233",
+      "bytes": 16106
+    },
+    {
+      "path": "tests/test_predictions_independent.py",
+      "sha256": "8b01b2853a1ba852cae59a4d004db2f0e6711c95fc21903e33107b88c715daff",
+      "bytes": 10773
+    },
+    {
+      "path": "tests/test_foundation.py",
+      "sha256": "89fd36476b3677d9a05bfa80e32288dccf0eb18ea861df9b61a72ed2c9a1f3e8",
+      "bytes": 13238
+    },
+    {
+      "path": "tests/test_structures.py",
+      "sha256": "8c404096c331bc967e87a909802c85d5ca91d6c64b4d78737ea64b051349a87e",
+      "bytes": 5712
+    },
+    {
+      "path": "tests/test_structures_independent.py",
+      "sha256": "02448c627d5e4519b5064a594789844c4f0b7adbc6026cd2c4e720e5da3fdeef",
+      "bytes": 8951
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "1391b8a163e537fd77740e3d90dd573270ed850a4ad927e03b8594710bceadc7",
+      "bytes": 73
+    },
+    {
+      "path": "requirements-dev.txt",
+      "sha256": "430d486f0b5cd14e1c8d74aa39e4048918bd8613a65c49ba7f5ab6a22c44de2e",
+      "bytes": 94
+    },
+    {
+      "path": "ADR/ADR-0011-prediction-source-import-and-reproducibility.md",
+      "sha256": "16d261e0f58b434ce5ea1e3d84f18eac25007b0b0df48d3cf72eba0b6dd21f5d",
+      "bytes": 12914
+    }
+  ]
+}

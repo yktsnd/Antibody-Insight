@@ -2,6 +2,10 @@
 
 Application source is Apache-2.0 as in LICENSE. The following components retain their own licenses and notices; no upstream source has been relicensed.
 
+## Development-only Coverage.py7.11.3
+
+Unmodified external test-measurement package, pinned in requirements-dev.txt; Apache-2.0, as declared in the [versioned distribution metadata](https://pypi.org/project/coverage/7.11.3/). It is not imported or served by the product runtime. Its installed distribution retains upstream LICENSE.txt and NOTICE.txt. No upstream code is copied into application files and the application's license is unchanged. Measurement uses the documented [branch option and JSON reports](https://coverage.readthedocs.io/en/7.11.3/commands/cmd_run.html).
+
 ## Gemmi0.7.5
 
 Installed unmodified as an external Python package, pinned in requirements.txt. License: MPL-2.0 (the project also offers an LGPL option, which this project does not select).

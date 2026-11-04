@@ -11,9 +11,10 @@ from datetime import datetime, timezone
 SCHEMA = "awx/1"
 PREFIX = {"project": "prj", "molecule": "mol", "construct": "con", "material": "mat",
           "evidence": "evd", "decision": "dec", "binding_unit": "bnd", "lineage": "lin", "residue_map": "rmp",
-          "structure": "stc", "structure_map": "smp", "hypothesis": "hyp"}
+          "structure": "stc", "structure_map": "smp", "hypothesis": "hyp", "prediction_file": "prf"}
 AA = frozenset("ACDEFGHIKLMNPQRSTVWYBXZJUO")
 MAX_SAFE_INTEGER = 2**53 - 1
+MAX_BUNDLE_BYTES = 32 * 1024 * 1024
 CORE = {"id", "type", "project_id", "created_at"}
 FIELDS = {
     "molecule": {"name", "external_id", "format", "chains", "source"},
@@ -25,6 +26,7 @@ FIELDS = {
                     "sequence_start", "sequence_end", "source", "verification", "entries"},
     "structure": {"name", "molecule_id", "file_format", "content", "sha256", "origin_kind", "source"},
     "structure_map": {"structure_id", "molecule_id", "source", "chain_assignments", "residues"},
+    "prediction_file": {"name", "file_format", "content", "sha256", "bindings", "options", "allocations", "source"},
     "evidence": {"subject_id", "kind", "metric", "source", "timestamp", "conditions", "value", "unit"},
     "hypothesis": {"text", "question", "limitations", "molecule_ids", "related_evidence_ids", "lineage_ids", "residue_refs", "structure_refs", "status", "source"},
     "decision": {"candidate_ids", "criteria", "evidence_snapshot", "reason", "timestamp",
@@ -112,6 +114,18 @@ def number(value, path):
                 f"{path}: integer exceeds interoperable JSON range")
 
 
+def validate_transport_size(project, entities):
+    """Every accepted project must fit its actual complete UTF-8 import wrapper."""
+    try:
+        size = len(json.dumps({'schema_version': SCHEMA, 'project': project, 'entities': entities},
+                              ensure_ascii=False, allow_nan=False).encode('utf-8'))
+    except (UnicodeError, ValueError, TypeError) as exc:
+        raise ValidationError('Project must be valid finite UTF-8 JSON for export/reimport') from exc
+    require(size <= MAX_BUNDLE_BYTES,
+            'Complete JSON-escaped project exceeds the 32 MiB export/reimport request limit; no data saved or truncated')
+    return size
+
+
 def json_value(value, path):
     if value is None or isinstance(value, (str, bool)):
         return
@@ -157,7 +171,7 @@ def validate_entity(entity, project_id):
     require(isinstance(entity, dict), "entity must be object")
     kind = entity.get("type")
     require(isinstance(kind, str) and kind in FIELDS, "Unsupported entity type")
-    optional = ({"component_graph"} if kind == "molecule" else {"residue_refs", "description", "import_origin"} if kind == "evidence"
+    optional = ({"component_graph"} if kind == "molecule" else {"residue_refs", "description", "import_origin", "prediction_origin"} if kind == "evidence"
                 else {"source"} if kind in ("construct", "material") else {"chosen_candidate_ids", "source", "hypothesis_ids"} if kind == "decision" else frozenset())
     fields(entity, CORE | FIELDS[kind], "entity", optional)
     identifier(entity["id"], kind)
@@ -206,6 +220,9 @@ def validate_entity(entity, project_id):
         text(entity["lot"], "material.lot")
         if "source" in entity:
             source(entity["source"], "material.source")
+    elif kind == "prediction_file":
+        from .predictions import validate_prediction_file_shape
+        validate_prediction_file_shape(entity)
     elif kind == "evidence":
         text(entity["subject_id"], "evidence.subject_id")
         require(entity["kind"] in ("measured", "computed", "literature", "annotation"), "Invalid evidence kind")
@@ -225,6 +242,11 @@ def validate_entity(entity, project_id):
         if "import_origin" in entity:
             from .measurements import validate_import_origin
             validate_import_origin(entity["import_origin"])
+        if "prediction_origin" in entity:
+            from .predictions import validate_prediction_origin
+            validate_prediction_origin(entity)
+        from .structures import validate_model_metric
+        validate_model_metric(entity)
     elif kind == "decision":
         from .decisions import validate_decision_shape
         validate_decision_shape(entity)
@@ -298,6 +320,8 @@ def validate_graph(project, entities):
     validate_hypothesis_references(index)
     from .decisions import validate_decision_references
     validate_decision_references(index)
+    from .predictions import validate_prediction_references
+    validate_prediction_references(index)
     return index
 
 

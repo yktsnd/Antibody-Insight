@@ -98,3 +98,5 @@ See [test evidence](TEST_EVIDENCE/README.md), [traceability](TRACEABILITY.csv), 
 The application contains no outbound HTTP client, analytics, external font or model integration. Only IDs and view context are kept in localStorage; research data is stored in the local database. OS-level backups and user-selected export destinations remain subject to the user's environment.
 
 Application source license: [Apache-2.0](LICENSE). Unmodified third-party components retain their own licenses, selected license options and source availability in [third-party notices](THIRD_PARTY_NOTICES.md).
+
+Computed-source import (0.8.0-dev, browser/integration verification pending): explicitly choose Computed evidence JSON or AlphaFold 3 summary JSON in E. Review actual subjects/model IDs and unmapped fields; inspect/download the original submitted JSON in W/R. No model is executed. See the [computed JSON contract](docs/PREDICTION_IMPORT_CONTRACT.md). Current independently registered journey acceptance remains the recorded0.7 baseline until frozen replay.

@@ -1,0 +1,15 @@
+{
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "exact opaque tokens map to four distinct subject types; reserved typed references cannot become aliases",
+      "status": "PASS",
+      "duration_ms": 1647
+    }
+  ],
+  "error": "TimeoutError: locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#import-format')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"import-format\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "errors": [],
+  "outbound": [],
+  "fixture": "Synthetic engineering fixtures; no external model run or biological validation",
+  "timestamp": "2026-11-04T13:11:59.762Z"
+}

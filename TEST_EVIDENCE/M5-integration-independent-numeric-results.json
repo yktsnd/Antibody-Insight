@@ -1,0 +1,208 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-04T18:50:37.245Z",
+  "scope": "Synthetic typed-context browser transport, not physical quantity validation",
+  "phases": {
+    "ui_expected": {
+      "canonical_sha256": "46fea609a7e375e47a61396fd7fbaf64334792dfa4dd02ee9d10f5650ddd539b",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "seed_expected": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "seed_before_export": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "raw_import_preview": {
+      "canonical_sha256": "46fea609a7e375e47a61396fd7fbaf64334792dfa4dd02ee9d10f5650ddd539b",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "ui_after_save": {
+      "canonical_sha256": "46fea609a7e375e47a61396fd7fbaf64334792dfa4dd02ee9d10f5650ddd539b",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "ui_cohort_options": 2,
+    "seed_before_download": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "browser_export": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "fresh_reimport_preview": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "fresh_reimport_saved": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    }
+  },
+  "error": null,
+  "errors": []
+}

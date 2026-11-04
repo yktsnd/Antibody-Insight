@@ -1,0 +1,16 @@
+{
+  "scope": "Bounded native selection behavior only; no timing/global prediction/final integration approval",
+  "current_observed_sources": {
+    "web/app.js": "d66e6faf5ea0deb055e0a7816696870dedaed9ca8866d1834b96b8af17dc2d57",
+    "tests/selection-independent-browser.cjs": "afd31d6b483333b3968be9b7313f1433c195932042ad38c5c39d894be7181665",
+    "docs/SELECTION_LATENCY_REVIEW.md": "95f9d66c22e170777553d70fec9b255f608dffb324a8579b3d6f86be89dc8230"
+  },
+  "selection_helper_utf8_sha256": "68d4e59936ea8bd61b7b56fbcbcae1340793ad040768f2c6106c1f7982430fc7",
+  "checkbox_handler_line_utf8_sha256": "e7afdd3efe76ce3bf6c80d30d3289f5443b48eea7a1ab810d76e90b0ba989cc3",
+  "prediction_lookup_delta": "Separate independent review; selection behavior helper unchanged",
+  "evidence_files": {
+    "TEST_EVIDENCE/M5-selection-independent-browser-results.json": "832580b3b93b943e70ec93bf2d23c6732cd5bb7d75124e618f0982d24b6939ab",
+    "TEST_EVIDENCE/M5-selection-independent-browser-run.log": "2c0bbfaae55bf122ba659d0d5264b0a92666f2be853af86ffb399e467f9c14b7",
+    "TEST_EVIDENCE/M5-selection-independent-state.png": "371e7f020b40b632414939e693957bf6c5bc953357a5c74133d8ba925515c7d6"
+  }
+}

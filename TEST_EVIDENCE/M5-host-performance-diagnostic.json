@@ -1,0 +1,135 @@
+{
+  "status": "MEASURED_NONSTANDARD_HOST",
+  "diagnostic": true,
+  "hardware": {
+    "logical_cpus": 8,
+    "ram_bytes": 8155983872,
+    "os": "10.0.26200",
+    "cpu_model": "Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz",
+    "disk_media": "not independently verified",
+    "standard_hardware_gate": "NOT_QUALIFIED:16GB RAM and SSD verification required",
+    "browser_version": "156.0.8078.79"
+  },
+  "trials": [
+    {
+      "run": 1,
+      "initial_1000_ms": 1091.3983000516891,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 117.13350009918213,
+          "event_to_two_frames_ms": 31.5
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 301.0609999895096,
+          "event_to_two_frames_ms": 260.10000002384186
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 423.23800003528595,
+          "event_to_two_frames_ms": 290.1999999284744
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 122.42750000953674,
+          "event_to_two_frames_ms": 70.20000004768372
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 282.6758999824524,
+          "event_to_two_frames_ms": 226.80000007152557
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 327.2213000059128,
+          "event_to_two_frames_ms": 215.10000002384186
+        }
+      ],
+      "simple_operation_p95_ms": 423.23800003528595
+    },
+    {
+      "run": 2,
+      "initial_1000_ms": 589.2188999652863,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 86.59020006656647,
+          "event_to_two_frames_ms": 27.5
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 312.1651999950409,
+          "event_to_two_frames_ms": 286.2999999523163
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 319.26870000362396,
+          "event_to_two_frames_ms": 187.39999997615814
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 87.47940003871918,
+          "event_to_two_frames_ms": 39.799999952316284
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 202.2263000011444,
+          "event_to_two_frames_ms": 148.20000004768372
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 272.78080010414124,
+          "event_to_two_frames_ms": 161.70000004768372
+        }
+      ],
+      "simple_operation_p95_ms": 319.26870000362396
+    },
+    {
+      "run": 3,
+      "initial_1000_ms": 546.1663999557495,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 78.18659996986389,
+          "event_to_two_frames_ms": 26.5
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 201.6877999305725,
+          "event_to_two_frames_ms": 150.90000009536743
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 314.46630001068115,
+          "event_to_two_frames_ms": 212.29999995231628
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 124.28589999675751,
+          "event_to_two_frames_ms": 67.89999997615814
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 203.97619998455048,
+          "event_to_two_frames_ms": 145.89999997615814
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 263.55449998378754,
+          "event_to_two_frames_ms": 158
+        }
+      ],
+      "simple_operation_p95_ms": 314.46630001068115
+    }
+  ],
+  "overall_simple_operation_p95_ms": 423.23800003528595,
+  "observed_initial_le_5000ms": true,
+  "observed_operation_p95_le_300ms": false,
+  "standard_release_gate": "PENDING:repeat ten runs on verified8logicalCPU/16GB/SSD",
+  "event_diagnostic": "Native input/click capture to two animation frames; recorded separately, does not replace full operation latency or qualify standard hardware.",
+  "method": "Fresh browser context per run, warm local server/browser; end-to-end Playwright action/assertion plus two animation frames. Includes automation/actionability overhead; six explicit simple operations per run. All1000 rows must exist before initial timer stops. Synthetic data only; no biological performance claim.",
+  "errors": [],
+  "outbound": [],
+  "timestamp": "2026-11-04T18:19:17.197Z"
+}

@@ -1,0 +1,56 @@
+{
+  "scope": "Bounded prediction UI; exact preselection-helper browser snapshot plus observed later dependencies, no frozen-source acceptance",
+  "finalized": "2026-11-05 Asia/Tokyo",
+  "post_replay_delta": [
+    {
+      "file": "workspace_app/server.py",
+      "description": "Error JSON ensure_ascii=status>=400 fix independently replayed by prediction_design_review; this current hash was not personally main-UI replayed here"
+    },
+    {
+      "file": "web/app.js",
+      "description": "Explorer selection latency helper added after personal prediction UI replay; explicitly excluded pending separate independent review"
+    }
+  ],
+  "source_files": {
+    "web/predictions.js": "b987785e0ffcad6d6a37f97e140ab57273590b4b03e1fc7aef6603501a1d7cde",
+    "web/app.js": "ff903b9836146e646541f1563462265f5b610a059e05cf91f8eeb2d10ce4012e",
+    "web/index.html": "b7e492dc209ec10b327a59c35767d746e8e3e7b5d763efd6ed307c4b77403027",
+    "web/structures.js": "9f7506d877c14473cf888eeb757ffadab970bf9fe9c305663c89ff003657b1a7",
+    "workspace_app/server.py": "1cdb3175ea28c680239c733255ff94aeb23029b224a27e4df602e76e92a277d3",
+    "workspace_app/predictions.py": "37f2b0f545c484b272a92e6385b2f5694b5916c343d4e104127e6d7e3c5037db",
+    "workspace_app/domain.py": "ae624e70cc04edcdcf05cdc12a32d9c4d3c3fe5111056076996aa50a298c7df6",
+    "workspace_app/structures.py": "864e93f87fb610f75ef6679c1c4f42c7a3208e6636aa18c3c67de274373681e9",
+    "workspace_app/storage.py": "baf15ff5ad928e19ee6a7157ef1a82683bb5102ee517596aece1e5219841e116",
+    "workspace_app/adapters.py": "d5dbfb37dd42d8fa7395663c42ad4886fd8ec9fd2cebb7f65229868f33012531",
+    "workspace_app/__init__.py": "b31e32320b29cd65962628083b18ef1ca316ae4ad3bddc02f4f1a704a82a73da",
+    "tests/j08-browser.cjs": "6b254d16ff8b41bb8acd7f05e5d341bf17ab8da47bae5cd204c2b1bf883a0820",
+    "tests/j08_transfer_fixture.py": "fc27033333cb42ac29c8b7d9f04532e97d11281e29da6185ea16c9e4e2c47b37",
+    "tests/predictions-independent-browser.cjs": "64a3f34b2369b37788352aa476eccd2ffbf69e2816ae12274242130132d4874c",
+    "docs/PREDICTION_IMPORT_CONTRACT.md": "e14491a6174e3191604de419b03bd9f3874b0844e90633405ec4ebaae5d28f28",
+    "ADR/ADR-0011-prediction-source-import-and-reproducibility.md": "16d261e0f58b434ce5ea1e3d84f18eac25007b0b0df48d3cf72eba0b6dd21f5d",
+    "docs/SCIENTIFIC_UX.md": "97dccd1eedcce865244a78811337d7fc7faa23e2f16da5b661c97e662e43068c"
+  },
+  "evidence_files": {
+    "TEST_EVIDENCE/M5-predictions-ui-main-independent-results.json": "350a3fb17df1c3297b3163e2b65619358521f53df00ececaab8c62b332b3c67d",
+    "TEST_EVIDENCE/M5-predictions-ui-main-independent-run.log": "b88e19aad89a370aed8cb4281e13b75742cd182bc1bda8984f37caa3a5f001e9",
+    "TEST_EVIDENCE/M5-predictions-ui-main-independent-restored-project.png": "bb595fa405a0ff95fbbf75f0d458e3f25fd40267d920603d392241b417121a7d",
+    "TEST_EVIDENCE/M5-predictions-independent-browser-results.json": "4c21727745a73f2c1843c9006531997599df235a70fe35ccffcacb4545cb159a",
+    "TEST_EVIDENCE/M5-predictions-independent-browser-run.log": "cc467a6f469e6aa4847f2df2d0c2f840d8c36836e30aa0046c48cb789de19b58",
+    "TEST_EVIDENCE/M5-predictions-independent-source-inspection.png": "59ac0c25723620114d1e8c0cc2f40765fdbc32b6638ccaf7ef97d140881e2e40",
+    "TEST_EVIDENCE/M5-predictions-independent-before-source-fixture-correction.log": "cc6dd66f88510a3d19bce669dc6dd8c91c92adc9b26ed6406da8400d0a6934e6",
+    "TEST_EVIDENCE/M5-predictions-independent-before-busy-guard-fixture-correction.log": "6ec4c324479808cf126fb17f8d38bca7c087fdc5f7251c45575d12eef747d2b7",
+    "TEST_EVIDENCE/M5-predictions-independent-before-busy-guard-fixture-correction.json": "17ba81f3bc93929d915ab491e3fb81e079f82843f919c1c522b08bd9aa25f65a",
+    "TEST_EVIDENCE/M5-predictions-independent-before-native-option-state-check.log": "40bb45bf30df30b83f92c3202d4601cab260a62cffc56192a3aec3ec3201fdb1",
+    "TEST_EVIDENCE/M5-predictions-independent-before-native-option-state-check.json": "c6ec8f0b79cb3690216bcb4ccf594278400cc141db4ba504fc1da571555e3f1c",
+    "TEST_EVIDENCE/M5-predictions-surrogate-fixed-independent-results.json": "f5feeeaa8774f98260dcc3468532a0e61bfe005bc7bad1493c7241ebfe471607",
+    "TEST_EVIDENCE/M5-predictions-surrogate-fixed-independent-tests.log": "ce2e4b6b73c85ca6ac02bb80a42eab8176189bbe5f6b0b5fa9e28be725e4d187"
+  },
+  "browser_tested_ui_files": {
+    "web/predictions.js": "b987785e0ffcad6d6a37f97e140ab57273590b4b03e1fc7aef6603501a1d7cde",
+    "web/app.js": "b5cdbee735a589054e62e8214377cabdaabcd81a90eaca38f8cf33df0ee63b2f",
+    "web/index.html": "b7e492dc209ec10b327a59c35767d746e8e3e7b5d763efd6ed307c4b77403027",
+    "tests/j08-browser.cjs": "6b254d16ff8b41bb8acd7f05e5d341bf17ab8da47bae5cd204c2b1bf883a0820",
+    "tests/predictions-independent-browser.cjs": "64a3f34b2369b37788352aa476eccd2ffbf69e2816ae12274242130132d4874c"
+  },
+  "source_files_meaning": "Current observed dependencies; browser-tested subset is separately recorded and two later deltas are excluded/qualified."
+}

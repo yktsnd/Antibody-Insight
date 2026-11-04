@@ -1,0 +1,55 @@
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: Traceback (most recent call last):
+
+  File "<string>", line 21, in <module>
+
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\workspace_app\storage.py", line 81, in import_bundle
+
+    validate_graph(project, previous + incoming)
+
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\workspace_app\domain.py", line 269, in validate_graph
+
+    validate_entity(entity, project["id"])
+
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\workspace_app\domain.py", line 204, in validate_entity
+
+    validate_structure_shape(entity)
+
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\workspace_app\structures.py", line 205, in validate_structure_shape
+
+    parse_structure(entity["content"], entity["file_format"])
+
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\workspace_app\structures.py", line 167, in parse_structure
+
+    require(aid not in atom_ids and site not in atom_sites, "Duplicate/ambiguous source atom identifier or alternate site")
+
+  File "C:\Users\yukis\OneDrive\�h�L�������g\ChatGPT\Antibody Insight\workspace_app\domain.py", line 53, in require
+
+    raise ValidationError(message)
+
+workspace_app.domain.ValidationError: Duplicate/ambiguous source atom identifier or alternate site
+
+
+
+1 !== 0
+
+    at Object.<anonymous> (C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\predictions-independent-browser.cjs:29:8)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

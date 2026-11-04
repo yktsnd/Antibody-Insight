@@ -1,0 +1,11 @@
+PASS empty workspace and explicit fixture preview
+PASS five IDs persist across E W D R and residue selection
+PASS measured computed null zero conditions and immutable five-candidate draft
+PASS fresh JSON export and restart preserve IDs snapshots selection and source versions
+PASS English and Japanese researcher explanations use curated terminology
+PASS duplicate ID rejected atomically; unknown fields and corrupt structures do not change state
+PASS hostile imported text stays text with no script execution
+PASS 800-candidate FASTA QC preview; valid subset explicitly saved; responsive UI
+PASS fresh environment JSON import roundtrip equals exported dataset
+PASS F06 declared units component order copy counts and lineage in the workspace
+{"status":"PASS","checks":11,"browser":"156.0.8078.79"}

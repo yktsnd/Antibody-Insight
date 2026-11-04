@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "persisted source-last1000-value project enters R with empty native source details",
+      "status": "PASS"
+    },
+    {
+      "name": "genuine metadata toggle preserves every actual allocation and hostile token as text then clears on close",
+      "status": "PASS"
+    },
+    {
+      "name": "genuine raw toggle and native download preserve exact original BOM CRLF UTF8 and source hash",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "outbound": [],
+  "error": null,
+  "fixture": "Actual saved synthetic1000-value canonical source, SourceFile insertedlast; no model run/biological validation",
+  "test_sha256": "d252cfde841816084d1d9c3ae7c69f46de27dcd899259a1f4399fa3eff396c6d",
+  "timestamp": "2026-11-04T18:51:46.620Z"
+}

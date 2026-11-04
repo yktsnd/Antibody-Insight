@@ -1,0 +1,47 @@
+{
+  "scope": "Full J01 and two prescribed negatives; synthetic engineering fixtures, not scientific golden validation or full product acceptance",
+  "status": "PASS",
+  "timestamp": "2026-11-04T18:43:20.621Z",
+  "browser": "156.0.8078.79",
+  "dataset_sha256": "11b3a27ec6029e20541b2c7acbbe7c34a6b07d5f9ece5738be79fed4eaa1d91b",
+  "selected_ids": [
+    "mol_1f4c9b22-613f-4f4e-9e2a-eede5ae286c1",
+    "mol_b59a3716-9421-4312-a201-3bfa6937c09e",
+    "mol_9b38694c-8e04-4809-9239-9fb306d8ba22",
+    "mol_b385ef4e-e1df-4bba-98aa-ac45ba1ada81",
+    "mol_51710dda-dcce-441e-88a2-105b18cb6771"
+  ],
+  "steps": [
+    "E: 802 CSV rows previewed; 800 accepted, missing/invalid rows excluded explicitly, sequence repeats retained as distinct IDs",
+    "E: exact CDR-H3 groups and binding-context numeric ordering, two directions; explicit multiple-material Evidence choice; no unit/condition pooling",
+    "W: two distinct candidates physically opened and differing CDR3 residues clicked; raw indexes and imported IMGT coordinates inspected",
+    "E → R: five IDs retained; exact reason, actual Material Evidence IDs, type/source/timestamp/conditions frozen in an immutable shortlist draft",
+    "Actual server process stopped/restarted at the same origin: exact bundle, five candidate IDs, reason, evidence snapshots and ID-only context choices restored"
+  ],
+  "results": [
+    {
+      "name": "e2e_j01_invalid_sequence",
+      "status": "PASS",
+      "duration_ms": 933
+    },
+    {
+      "name": "e2e_j01_missing_measurement",
+      "status": "PASS",
+      "duration_ms": 876
+    },
+    {
+      "name": "e2e_j01_candidate_shortlist",
+      "status": "PASS",
+      "duration_ms": 27967
+    },
+    {
+      "name": "English and Japanese explanations preserve research data and context",
+      "status": "PASS",
+      "duration_ms": 1940
+    },
+    {
+      "name": "no outbound browser requests or JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}

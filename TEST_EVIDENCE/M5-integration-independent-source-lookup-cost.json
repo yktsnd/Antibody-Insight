@@ -1,0 +1,20 @@
+{
+  "status": "MEASURED_REVIEW_SYNTHETIC_ORDER_PROBE",
+  "scope": "Actual fixed lazy-metadata origin function, structurally synthetic source-last order; no Chrome/product edits, not a standard performance gate",
+  "rows": [
+    {
+      "n": 1000,
+      "elapsed_ms": 44.06120000000001,
+      "origin_characters": 1066890,
+      "source_entity_order": "last",
+      "structure_id": "absent canonical options"
+    },
+    {
+      "n": 10000,
+      "elapsed_ms": 5242.8265,
+      "origin_characters": 10678890,
+      "source_entity_order": "last",
+      "structure_id": "absent canonical options"
+    }
+  ]
+}

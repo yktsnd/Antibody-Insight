@@ -1,0 +1,589 @@
+{
+  "status": "PASS_FOR_FROZEN_ENGINEERING_REPLAY",
+  "source_sha256": "4ef0aa2a1e84db1fb5b7364409190ae4737a3dc5d5f92531586d8be89cf4b8fb",
+  "source_files": 103,
+  "python_tests": 538,
+  "node_commands": 22,
+  "genuine_browser_commands_among_22": 21,
+  "actual_source_details_supplemental_browser_commands": 1,
+  "node_vm_commands_among_22": 1,
+  "main_flows": 8,
+  "prescribed_negative_flows": 16,
+  "groups": {
+    "journeys": 7,
+    "retained": 6,
+    "edges": 9
+  },
+  "runs": [
+    {
+      "suite": "j01-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 32.77,
+      "log": "M5-integration-independent-j01-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J01-results.json",
+          "status": "PASS",
+          "result_groups": 5
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J01-browser-results.json",
+          "copy": "M5-integration-independent-J01-results.json",
+          "sha256": "9c656e51490bb34dc5d871c54e68225bc8e2601b6ffb60e1e62c37fec6656de3"
+        },
+        {
+          "original": "J01-saved-shortlist.png",
+          "copy": "M5-integration-independent-j01-J01-saved-shortlist.png",
+          "sha256": "f1a8c36bf8ec83f864416502f8cec9d9b7ffce76f027a5d1f605b0d82d54eb79"
+        },
+        {
+          "original": "J01-two-candidate-observation.png",
+          "copy": "M5-integration-independent-j01-J01-two-candidate-observation.png",
+          "sha256": "64800798a6fa35e89158e9d96485769f04ed6a41294363a77c33d3b7072a7b53"
+        }
+      ]
+    },
+    {
+      "suite": "j02-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 13.22,
+      "log": "M5-integration-independent-j02-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J02-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J02-browser-results.json",
+          "copy": "M5-integration-independent-J02-results.json",
+          "sha256": "e0f73002a8f684093f49274e7b1f2661049feeb82f66cd4e1692a8e9286fe3c9"
+        },
+        {
+          "original": "J02-coordinate-design.png",
+          "copy": "M5-integration-independent-j02-J02-coordinate-design.png",
+          "sha256": "91212c934a8a6f19b128e4c958f85fb6d0a571cf6dca351ad63a7444a49cc605"
+        },
+        {
+          "original": "J02-saved-hypothesis.png",
+          "copy": "M5-integration-independent-j02-J02-saved-hypothesis.png",
+          "sha256": "dfcc6e71a735dfde6b35c0f24a8cd2d1a9e7c7c06fbf2c2086209ce66afdc013"
+        }
+      ]
+    },
+    {
+      "suite": "observation-journeys-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 55.58,
+      "log": "M5-integration-independent-observation-journeys-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J03-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        },
+        {
+          "report": "M5-integration-independent-J04-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        },
+        {
+          "report": "M5-integration-independent-public-results.json",
+          "status": "PASS",
+          "result_groups": 1
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J03-browser-results.json",
+          "copy": "M5-integration-independent-J03-results.json",
+          "sha256": "234286ac945fd96515497a9d7fbbb026f31b0bb0157c1c5cf1aa199a672e60c4"
+        },
+        {
+          "original": "J03-saved-hypothesis.png",
+          "copy": "M5-integration-independent-observation-journeys-J03-saved-hypothesis.png",
+          "sha256": "0cc47a268eefb05da7e84245cf3176d4e92239f5085cf11872d3dba0a59f370b"
+        },
+        {
+          "original": "J04-browser-results.json",
+          "copy": "M5-integration-independent-J04-results.json",
+          "sha256": "f1472cb33d6d834fc526c9af71ea4d2bd238ae1ebfddba1acc206ea3672cf866"
+        },
+        {
+          "original": "J04-saved-property-hypothesis.png",
+          "copy": "M5-integration-independent-observation-journeys-J04-saved-property-hypothesis.png",
+          "sha256": "2dcfc0d9352ed006bcbcc09943d585d054864528be9aa2054b2337af5172ee27"
+        },
+        {
+          "original": "public-structure-browser-results.json",
+          "copy": "M5-integration-independent-public-results.json",
+          "sha256": "b33df94968217af8010021ec6f66ff14b485643183334decb72f40da90d56aed"
+        }
+      ]
+    },
+    {
+      "suite": "j05-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 13.83,
+      "log": "M5-integration-independent-j05-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J05-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J05-browser-results.json",
+          "copy": "M5-integration-independent-J05-results.json",
+          "sha256": "2e88114c4280c48ed87dbaf553cba5e7f5fc49ff339d4df66aa434c9a41a7509"
+        },
+        {
+          "original": "J05-composition-comparison.png",
+          "copy": "M5-integration-independent-j05-J05-composition-comparison.png",
+          "sha256": "826e74ad3a3527fee4817e2c074a79412494cbdc46ad533ee82daac3483ccce2"
+        }
+      ]
+    },
+    {
+      "suite": "j06-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 15.28,
+      "log": "M5-integration-independent-j06-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J06-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-J06-browser-results.json",
+          "copy": "M5-integration-independent-J06-results.json",
+          "sha256": "2bd688cf6dd0fbd39b952b51d92a7349a9f92cc3e9c2030fcfe834d5f4cdcfdd"
+        },
+        {
+          "original": "M4-J06-construct-comparison.png",
+          "copy": "M5-integration-independent-j06-M4-J06-construct-comparison.png",
+          "sha256": "a96fa5999fbac34bcefb56c19243987738b58872536053c69c22c08d5892fc27"
+        },
+        {
+          "original": "M4-J06-material-observations.png",
+          "copy": "M5-integration-independent-j06-M4-J06-material-observations.png",
+          "sha256": "442fba77fd55f27cd1559eeffcd28b5ced9ce631bb66f5cc48e6c26b81fcfbc7"
+        }
+      ]
+    },
+    {
+      "suite": "j07-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 14.88,
+      "log": "M5-integration-independent-j07-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J07-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-J07-browser-results.json",
+          "copy": "M5-integration-independent-J07-results.json",
+          "sha256": "fbfb7628fb41c02a6d7dac25f9a3165704932674c3097345fa3fb72819dbbc4f"
+        },
+        {
+          "original": "M4-J07-final-review.png",
+          "copy": "M5-integration-independent-j07-M4-J07-final-review.png",
+          "sha256": "b87f39a2ad48fac0cc0bf46558e31890d0c3a8eac953463e8a88fc287b98bc2d"
+        }
+      ]
+    },
+    {
+      "suite": "j08-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 24.44,
+      "log": "M5-integration-independent-j08-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J08-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M5-J08-browser-results.json",
+          "copy": "M5-integration-independent-J08-results.json",
+          "sha256": "e100c237b96c472e388d82c4c87fbf4fb59e09eeca70b3b40cea74e74830156d"
+        },
+        {
+          "original": "M5-J08-restored-project.png",
+          "copy": "M5-integration-independent-j08-M5-J08-restored-project.png",
+          "sha256": "78947227408dc2be13fc71ed7a97197984c9ee0d5a43a650dcc341a1f0b21520"
+        }
+      ]
+    },
+    {
+      "suite": "browser.cjs",
+      "exit_code": 0,
+      "duration_s": 19.12,
+      "log": "M5-integration-independent-browser-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-foundation-results.json",
+          "status": "PASS",
+          "result_groups": 11
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M1-browser-results.json",
+          "copy": "M5-integration-independent-foundation-results.json",
+          "sha256": "db3147d0ab612247d8b3092e062ad4a8d9eaef1177b34889fd889bee404b3e60"
+        },
+        {
+          "original": "M1-composition-screen.png",
+          "copy": "M5-integration-independent-browser-M1-composition-screen.png",
+          "sha256": "d4a7179b238de92fffb04d99e3cb0df681206e3ff5c79a0cae5e45b627c9839a"
+        },
+        {
+          "original": "M1-evidence-screen.png",
+          "copy": "M5-integration-independent-browser-M1-evidence-screen.png",
+          "sha256": "76f39d39e1560f24b854b735e63ecd350dbe0ffaee7589562a23912d31f737aa"
+        },
+        {
+          "original": "M1-explorer-800.png",
+          "copy": "M5-integration-independent-browser-M1-explorer-800.png",
+          "sha256": "e35a41eb57b61a1d1c1b009073272ab30672bc5544bec25cc3ba110be89b2825"
+        },
+        {
+          "original": "M1-mobile.png",
+          "copy": "M5-integration-independent-browser-M1-mobile.png",
+          "sha256": "614b401ffd17f3be26b89ff499469003d8345a2f2057417fc169a6d795b7619a"
+        }
+      ]
+    },
+    {
+      "suite": "numbering-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 56.28,
+      "log": "M5-integration-independent-numbering-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-numbering-results.json",
+          "status": "PASS",
+          "result_groups": 5
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M2-numbering-browser-results.json",
+          "copy": "M5-integration-independent-numbering-results.json",
+          "sha256": "80502266a09551a9d8c5bd664038e0f2893c452d6f281982ad59a7efe0e6a364"
+        },
+        {
+          "original": "M2-numbering-explorer.png",
+          "copy": "M5-integration-independent-numbering-M2-numbering-explorer.png",
+          "sha256": "a2a67b498a338f4d3d84487643754fadde22636f4090fec9413aa28222ed79e3"
+        },
+        {
+          "original": "M2-numbering-screen.png",
+          "copy": "M5-integration-independent-numbering-M2-numbering-screen.png",
+          "sha256": "a8bbda43f77d25f8f6046967cb8d46154f368fdbccc08f426cabebd6018beaa0"
+        }
+      ]
+    },
+    {
+      "suite": "structures-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 66.64,
+      "log": "M5-integration-independent-structures-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-structures-results.json",
+          "status": "PASS",
+          "result_groups": 11
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M2-structure-browser-results.json",
+          "copy": "M5-integration-independent-structures-results.json",
+          "sha256": "b7e03f1e7bb47f5707fa2bf9c624457da1e894b39b266d2e02f3f72616444fc8"
+        },
+        {
+          "original": "M2-structure-screen.png",
+          "copy": "M5-integration-independent-structures-M2-structure-screen.png",
+          "sha256": "87d00b7585b3679bc8af30f8fd2261c57e9516df6821d22f951e79a8161dcccf"
+        }
+      ]
+    },
+    {
+      "suite": "observation-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 4.28,
+      "log": "M5-integration-independent-observation-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-observation-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M2-observation-independent-browser-results.json",
+          "copy": "M5-integration-independent-observation-results.json",
+          "sha256": "7d709f02f13deda93c1de016d5388e2e7a4593846639edbdd75339f7f4c38109"
+        }
+      ]
+    },
+    {
+      "suite": "design-hypotheses-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 8.34,
+      "log": "M5-integration-independent-design-hypotheses-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-design-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M3-numbered-design-independent-browser-results.json",
+          "copy": "M5-integration-independent-design-results.json",
+          "sha256": "b584feb499630256afee672fe35dfb167eb52d61d5959c6ca259de153bad676c"
+        }
+      ]
+    },
+    {
+      "suite": "design-save-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 9.89,
+      "log": "M5-integration-independent-design-save-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-design-save-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M3-numbered-design-independent-save-results.json",
+          "copy": "M5-integration-independent-design-save-results.json",
+          "sha256": "1e0790df93f842be9dbe9c5913c238c46347af9b770e2a7b0f1345554bc2829b"
+        }
+      ]
+    },
+    {
+      "suite": "composition-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 8.38,
+      "log": "M5-integration-independent-composition-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-composition-edges-results.json",
+          "status": "PASS",
+          "result_groups": 6
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M3-composition-independent-browser-results.json",
+          "copy": "M5-integration-independent-composition-edges-results.json",
+          "sha256": "9c7cf7c1e542c689a23212f60456c96c25c84b5bc13184bcfa543ca23755e433"
+        }
+      ]
+    },
+    {
+      "suite": "observation-representation-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 10.03,
+      "log": "M5-integration-independent-observation-representation-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-representation-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M3-observation-representation-independent-results.json",
+          "copy": "M5-integration-independent-representation-results.json",
+          "sha256": "f5a7cab4de144b482bdde60a7d5f9700819325773bcd721d6ec61de937c3fba3"
+        }
+      ]
+    },
+    {
+      "suite": "experiments-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 10.84,
+      "log": "M5-integration-independent-experiments-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-experiments-edges-results.json",
+          "status": "PASS",
+          "result_groups": 8
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-experiments-independent-browser-results.json",
+          "copy": "M5-integration-independent-experiments-edges-results.json",
+          "sha256": "08b816a3555e21ebc6db61dde10f7c10af03914fa18490cde12472acdcf90a4d"
+        }
+      ]
+    },
+    {
+      "suite": "decisions-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 12.73,
+      "log": "M5-integration-independent-decisions-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-decisions-edges-results.json",
+          "status": "PASS",
+          "result_groups": 6
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-decisions-independent-browser-results.json",
+          "copy": "M5-integration-independent-decisions-edges-results.json",
+          "sha256": "5f4d36576fc4bc401b09aa27992e429be9b0c2397d7f41ea5864cae10f62ef6f"
+        },
+        {
+          "original": "M4-decisions-independent-frozen-draft.png",
+          "copy": "M5-integration-independent-decisions-independent-M4-decisions-independent-frozen-draft.png",
+          "sha256": "b5bd0b3391f5768d82a2c292612d6cd5cfc7f221ad4c2a6b1b4ec0a58e754a91"
+        }
+      ]
+    },
+    {
+      "suite": "numeric-transport-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 10.25,
+      "log": "M5-integration-independent-numeric-transport-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-numeric-results.json",
+          "status": "PASS",
+          "result_groups": null
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-numeric-transport-browser-results.json",
+          "copy": "M5-integration-independent-numeric-results.json",
+          "sha256": "cb7e6ea7f09c2c83dea59a2d4be22fad9cf9a22f7dec020e304afcfeede7a43c"
+        }
+      ]
+    },
+    {
+      "suite": "numeric-transport-guards-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 9.34,
+      "log": "M5-integration-independent-numeric-transport-guards-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-numeric-guards-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-numeric-transport-guards-results.json",
+          "copy": "M5-integration-independent-numeric-guards-results.json",
+          "sha256": "5e3ad2a7f0af529045c9f657ff7943c049926e73e42899323109d133ae0d2be6"
+        }
+      ]
+    },
+    {
+      "suite": "predictions-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 13.12,
+      "log": "M5-integration-independent-predictions-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-predictions-edges-results.json",
+          "status": "PASS",
+          "result_groups": 5
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M5-predictions-independent-browser-results.json",
+          "copy": "M5-integration-independent-predictions-edges-results.json",
+          "sha256": "7d36b2e12152def8a4b26069555a56896ebe13cace75de26baddbf2fac98c839"
+        },
+        {
+          "original": "M5-predictions-independent-source-inspection.png",
+          "copy": "M5-integration-independent-predictions-independent-M5-predictions-independent-source-inspection.png",
+          "sha256": "561882ce02cc23bc898fe0f0a4e1fda4f772e3d7b4b16a65136d30e2c929a478"
+        }
+      ]
+    },
+    {
+      "suite": "prediction-source-details-independent.cjs",
+      "exit_code": 0,
+      "duration_s": 3.73,
+      "log": "M5-integration-independent-prediction-source-details-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-source-details-results.json",
+          "status": "PASS",
+          "result_groups": 7
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M5-source-details-independent-results.json",
+          "copy": "M5-integration-independent-source-details-results.json",
+          "sha256": "15a0582fadd57f0d0234caa397277a8aa74c01310ed140836e4a660e45656a42"
+        }
+      ]
+    },
+    {
+      "suite": "selection-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 12.5,
+      "log": "M5-integration-independent-selection-independent-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-selection-results.json",
+          "status": "PASS",
+          "result_groups": 2
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M5-selection-independent-browser-results.json",
+          "copy": "M5-integration-independent-selection-results.json",
+          "sha256": "ce14c2c9a6c9a0b260ce6bedf231619e4ddc15be31830f4df41fb9fe363dfdc5"
+        },
+        {
+          "original": "M5-selection-independent-state.png",
+          "copy": "M5-integration-independent-selection-independent-M5-selection-independent-state.png",
+          "sha256": "6518d53e303120dae25e306560c9bec21e19c2a0ca3b8c72f3a59a5478b58717"
+        }
+      ]
+    }
+  ],
+  "standard_hardware_performance": "PENDING; measurednonstandardhostoperationp95327.29msabove300ms",
+  "human_scientific_goldens_reviewed": 0,
+  "researcher_role_reviews_completed": 0,
+  "reviewer": "/root/m5_integration_review",
+  "timestamp": "2026-11-04T18:52:56.529038+00:00"
+}

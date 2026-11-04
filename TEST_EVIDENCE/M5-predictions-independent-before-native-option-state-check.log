@@ -1,0 +1,16 @@
+PASS exact opaque tokens map to four distinct subject types; reserved typed references cannot become aliases
+PASS changed file and late edited/project preview never reuse bindings or reopen a stale review
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+false !== true
+
+    at C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\predictions-independent-browser.cjs:56:640
+    at async check (C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\predictions-independent-browser.cjs:34:56)
+    at async C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\predictions-independent-browser.cjs:55:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

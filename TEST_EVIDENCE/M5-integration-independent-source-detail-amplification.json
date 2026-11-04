@@ -1,0 +1,25 @@
+{
+  "status": "FINDING",
+  "scope": "Read-only Node VM call of actual PredictionUI.origin with synthetic same-source allocations; no Chrome, no product edits",
+  "samples": [
+    {
+      "evidence_count": 10,
+      "one_origin_html_characters": 2261,
+      "projected_same_source_origins_html_characters": 22610,
+      "original_content_length": 21
+    },
+    {
+      "evidence_count": 100,
+      "one_origin_html_characters": 13061,
+      "projected_same_source_origins_html_characters": 1306100,
+      "original_content_length": 21
+    },
+    {
+      "evidence_count": 1000,
+      "one_origin_html_characters": 121961,
+      "projected_same_source_origins_html_characters": 121961000,
+      "original_content_length": 21
+    }
+  ],
+  "explanation": "Each origin embeds the entire source allocation list. W/R render an origin for each Evidence, causing quadratic allocation-metadata expansion even though raw content is lazy."
+}

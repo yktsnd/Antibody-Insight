@@ -1,0 +1,344 @@
+{
+  "status": "PASS",
+  "source_sha256": "4ef0aa2a1e84db1fb5b7364409190ae4737a3dc5d5f92531586d8be89cf4b8fb",
+  "runs": [
+    {
+      "suite": "j01-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 32.77,
+      "log": "M5-integration-independent-j01-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J01-results.json",
+          "status": "PASS",
+          "result_groups": 5
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J01-browser-results.json",
+          "copy": "M5-integration-independent-J01-results.json",
+          "sha256": "9c656e51490bb34dc5d871c54e68225bc8e2601b6ffb60e1e62c37fec6656de3"
+        },
+        {
+          "original": "J01-saved-shortlist.png",
+          "copy": "M5-integration-independent-j01-J01-saved-shortlist.png",
+          "sha256": "f1a8c36bf8ec83f864416502f8cec9d9b7ffce76f027a5d1f605b0d82d54eb79"
+        },
+        {
+          "original": "J01-two-candidate-observation.png",
+          "copy": "M5-integration-independent-j01-J01-two-candidate-observation.png",
+          "sha256": "64800798a6fa35e89158e9d96485769f04ed6a41294363a77c33d3b7072a7b53"
+        }
+      ]
+    },
+    {
+      "suite": "j02-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 13.22,
+      "log": "M5-integration-independent-j02-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J02-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J02-browser-results.json",
+          "copy": "M5-integration-independent-J02-results.json",
+          "sha256": "e0f73002a8f684093f49274e7b1f2661049feeb82f66cd4e1692a8e9286fe3c9"
+        },
+        {
+          "original": "J02-coordinate-design.png",
+          "copy": "M5-integration-independent-j02-J02-coordinate-design.png",
+          "sha256": "91212c934a8a6f19b128e4c958f85fb6d0a571cf6dca351ad63a7444a49cc605"
+        },
+        {
+          "original": "J02-saved-hypothesis.png",
+          "copy": "M5-integration-independent-j02-J02-saved-hypothesis.png",
+          "sha256": "dfcc6e71a735dfde6b35c0f24a8cd2d1a9e7c7c06fbf2c2086209ce66afdc013"
+        }
+      ]
+    },
+    {
+      "suite": "observation-journeys-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 55.58,
+      "log": "M5-integration-independent-observation-journeys-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J03-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        },
+        {
+          "report": "M5-integration-independent-J04-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        },
+        {
+          "report": "M5-integration-independent-public-results.json",
+          "status": "PASS",
+          "result_groups": 1
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J03-browser-results.json",
+          "copy": "M5-integration-independent-J03-results.json",
+          "sha256": "234286ac945fd96515497a9d7fbbb026f31b0bb0157c1c5cf1aa199a672e60c4"
+        },
+        {
+          "original": "J03-saved-hypothesis.png",
+          "copy": "M5-integration-independent-observation-journeys-J03-saved-hypothesis.png",
+          "sha256": "0cc47a268eefb05da7e84245cf3176d4e92239f5085cf11872d3dba0a59f370b"
+        },
+        {
+          "original": "J04-browser-results.json",
+          "copy": "M5-integration-independent-J04-results.json",
+          "sha256": "f1472cb33d6d834fc526c9af71ea4d2bd238ae1ebfddba1acc206ea3672cf866"
+        },
+        {
+          "original": "J04-saved-property-hypothesis.png",
+          "copy": "M5-integration-independent-observation-journeys-J04-saved-property-hypothesis.png",
+          "sha256": "2dcfc0d9352ed006bcbcc09943d585d054864528be9aa2054b2337af5172ee27"
+        },
+        {
+          "original": "public-structure-browser-results.json",
+          "copy": "M5-integration-independent-public-results.json",
+          "sha256": "b33df94968217af8010021ec6f66ff14b485643183334decb72f40da90d56aed"
+        }
+      ]
+    },
+    {
+      "suite": "j05-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 13.83,
+      "log": "M5-integration-independent-j05-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J05-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J05-browser-results.json",
+          "copy": "M5-integration-independent-J05-results.json",
+          "sha256": "2e88114c4280c48ed87dbaf553cba5e7f5fc49ff339d4df66aa434c9a41a7509"
+        },
+        {
+          "original": "J05-composition-comparison.png",
+          "copy": "M5-integration-independent-j05-J05-composition-comparison.png",
+          "sha256": "826e74ad3a3527fee4817e2c074a79412494cbdc46ad533ee82daac3483ccce2"
+        }
+      ]
+    },
+    {
+      "suite": "j06-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 15.28,
+      "log": "M5-integration-independent-j06-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J06-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-J06-browser-results.json",
+          "copy": "M5-integration-independent-J06-results.json",
+          "sha256": "2bd688cf6dd0fbd39b952b51d92a7349a9f92cc3e9c2030fcfe834d5f4cdcfdd"
+        },
+        {
+          "original": "M4-J06-construct-comparison.png",
+          "copy": "M5-integration-independent-j06-M4-J06-construct-comparison.png",
+          "sha256": "a96fa5999fbac34bcefb56c19243987738b58872536053c69c22c08d5892fc27"
+        },
+        {
+          "original": "M4-J06-material-observations.png",
+          "copy": "M5-integration-independent-j06-M4-J06-material-observations.png",
+          "sha256": "442fba77fd55f27cd1559eeffcd28b5ced9ce631bb66f5cc48e6c26b81fcfbc7"
+        }
+      ]
+    },
+    {
+      "suite": "j07-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 14.88,
+      "log": "M5-integration-independent-j07-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J07-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-J07-browser-results.json",
+          "copy": "M5-integration-independent-J07-results.json",
+          "sha256": "fbfb7628fb41c02a6d7dac25f9a3165704932674c3097345fa3fb72819dbbc4f"
+        },
+        {
+          "original": "M4-J07-final-review.png",
+          "copy": "M5-integration-independent-j07-M4-J07-final-review.png",
+          "sha256": "b87f39a2ad48fac0cc0bf46558e31890d0c3a8eac953463e8a88fc287b98bc2d"
+        }
+      ]
+    },
+    {
+      "suite": "j08-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 24.44,
+      "log": "M5-integration-independent-j08-run.log",
+      "results": [
+        {
+          "report": "M5-integration-independent-J08-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M5-J08-browser-results.json",
+          "copy": "M5-integration-independent-J08-results.json",
+          "sha256": "e100c237b96c472e388d82c4c87fbf4fb59e09eeca70b3b40cea74e74830156d"
+        },
+        {
+          "original": "M5-J08-restored-project.png",
+          "copy": "M5-integration-independent-j08-M5-J08-restored-project.png",
+          "sha256": "78947227408dc2be13fc71ed7a97197984c9ee0d5a43a650dcc341a1f0b21520"
+        }
+      ]
+    }
+  ],
+  "preservation": [
+    {
+      "path": "J01-two-candidate-observation.png",
+      "before_after_sha256": "e77c54bfe99b1ae953efc8f22a39fd628db0ee164cdac700d0eb6635eb91b673",
+      "copied_current_sha256": "64800798a6fa35e89158e9d96485769f04ed6a41294363a77c33d3b7072a7b53",
+      "suite": "j01-browser.cjs"
+    },
+    {
+      "path": "J01-browser-results.json",
+      "before_after_sha256": "5e5d8c0418c44d6a96b2ecc581966a897a38ecdcd82e36ae12aec2342a1945b9",
+      "copied_current_sha256": "9c656e51490bb34dc5d871c54e68225bc8e2601b6ffb60e1e62c37fec6656de3",
+      "suite": "j01-browser.cjs"
+    },
+    {
+      "path": "J01-saved-shortlist.png",
+      "before_after_sha256": "607ca48c6591bcd7209b94abaa70cb055d730635660438c591297592c403e0af",
+      "copied_current_sha256": "f1a8c36bf8ec83f864416502f8cec9d9b7ffce76f027a5d1f605b0d82d54eb79",
+      "suite": "j01-browser.cjs"
+    },
+    {
+      "path": "J02-coordinate-design.png",
+      "before_after_sha256": "88ee3e85be4820789d003a13a498e0b4dba87a0c32e11aa3ecf4943c175e7e83",
+      "copied_current_sha256": "91212c934a8a6f19b128e4c958f85fb6d0a571cf6dca351ad63a7444a49cc605",
+      "suite": "j02-browser.cjs"
+    },
+    {
+      "path": "J02-browser-results.json",
+      "before_after_sha256": "fa641fee9ba2d99c59cb705c1047d1f6a0f1c144a6f720eff76f15e8cbaf94da",
+      "copied_current_sha256": "e0f73002a8f684093f49274e7b1f2661049feeb82f66cd4e1692a8e9286fe3c9",
+      "suite": "j02-browser.cjs"
+    },
+    {
+      "path": "J02-saved-hypothesis.png",
+      "before_after_sha256": "19daffb374fbdf9de4bcc045858a8e81ee7b6a61edb71eff7cf68ff4e1a0fbe6",
+      "copied_current_sha256": "dfcc6e71a735dfde6b35c0f24a8cd2d1a9e7c7c06fbf2c2086209ce66afdc013",
+      "suite": "j02-browser.cjs"
+    },
+    {
+      "path": "J03-browser-results.json",
+      "before_after_sha256": "114aa681091a538c82c5f3ed376fd051edd5a71690f14698cb800e6f6e5ab548",
+      "copied_current_sha256": "234286ac945fd96515497a9d7fbbb026f31b0bb0157c1c5cf1aa199a672e60c4",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "J04-saved-property-hypothesis.png",
+      "before_after_sha256": "193996658660a65c7c86efb600c28c83187f4a809b658ecda5c5311420805699",
+      "copied_current_sha256": "2dcfc0d9352ed006bcbcc09943d585d054864528be9aa2054b2337af5172ee27",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "public-structure-browser-results.json",
+      "before_after_sha256": "e012e15412cb63fe327695cc7c3094d602e5fd8bf5a4144574c06dc4190d8e53",
+      "copied_current_sha256": "b33df94968217af8010021ec6f66ff14b485643183334decb72f40da90d56aed",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "J04-browser-results.json",
+      "before_after_sha256": "bf1055b9b08aa985d24fe847efaa30b9e1e850e69264c79e4af58db173a02082",
+      "copied_current_sha256": "f1472cb33d6d834fc526c9af71ea4d2bd238ae1ebfddba1acc206ea3672cf866",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "J03-saved-hypothesis.png",
+      "before_after_sha256": "e4365596c6edc84a7f934b8f2a7f801551248b021a1ba1c5c5f790274687dbbd",
+      "copied_current_sha256": "0cc47a268eefb05da7e84245cf3176d4e92239f5085cf11872d3dba0a59f370b",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "J05-browser-results.json",
+      "before_after_sha256": "2c64292843d6421645df07690a9ab0076f1798199c1ae880a6a77640cc4614e2",
+      "copied_current_sha256": "2e88114c4280c48ed87dbaf553cba5e7f5fc49ff339d4df66aa434c9a41a7509",
+      "suite": "j05-browser.cjs"
+    },
+    {
+      "path": "J05-composition-comparison.png",
+      "before_after_sha256": "d76eebae02f30a7337b58e1a8bac20baed11cf50a383264cd29750f46da68362",
+      "copied_current_sha256": "826e74ad3a3527fee4817e2c074a79412494cbdc46ad533ee82daac3483ccce2",
+      "suite": "j05-browser.cjs"
+    },
+    {
+      "path": "M4-J06-construct-comparison.png",
+      "before_after_sha256": "6e50eecf442901301dec6738e8863362dde19f4f73b81934c0647bef7164fffb",
+      "copied_current_sha256": "a96fa5999fbac34bcefb56c19243987738b58872536053c69c22c08d5892fc27",
+      "suite": "j06-browser.cjs"
+    },
+    {
+      "path": "M4-J06-browser-results.json",
+      "before_after_sha256": "5ef37a9468fdfa11b062653ee1dfe93fe5b5334d3b6e18b60a2a8f89966f5a20",
+      "copied_current_sha256": "2bd688cf6dd0fbd39b952b51d92a7349a9f92cc3e9c2030fcfe834d5f4cdcfdd",
+      "suite": "j06-browser.cjs"
+    },
+    {
+      "path": "M4-J06-material-observations.png",
+      "before_after_sha256": "99737704aeb67807b9ae401c89e594dff24ea9721180380c0253fe07876993df",
+      "copied_current_sha256": "442fba77fd55f27cd1559eeffcd28b5ced9ce631bb66f5cc48e6c26b81fcfbc7",
+      "suite": "j06-browser.cjs"
+    },
+    {
+      "path": "M4-J07-browser-results.json",
+      "before_after_sha256": "9b7d37c3c2df06484e1b874c3349fecd7ebd75e9dcae73f02c60ff14cbc73c61",
+      "copied_current_sha256": "fbfb7628fb41c02a6d7dac25f9a3165704932674c3097345fa3fb72819dbbc4f",
+      "suite": "j07-browser.cjs"
+    },
+    {
+      "path": "M4-J07-final-review.png",
+      "before_after_sha256": "907deba2ad4e92d9de72879617cb3e151ef07956145d9d2e50a79b4d4e6b5268",
+      "copied_current_sha256": "b87f39a2ad48fac0cc0bf46558e31890d0c3a8eac953463e8a88fc287b98bc2d",
+      "suite": "j07-browser.cjs"
+    },
+    {
+      "path": "M5-J08-restored-project.png",
+      "before_after_sha256": "bb595fa405a0ff95fbbf75f0d458e3f25fd40267d920603d392241b417121a7d",
+      "copied_current_sha256": "78947227408dc2be13fc71ed7a97197984c9ee0d5a43a650dcc341a1f0b21520",
+      "suite": "j08-browser.cjs"
+    },
+    {
+      "path": "M5-J08-browser-results.json",
+      "before_after_sha256": "350a3fb17df1c3297b3163e2b65619358521f53df00ececaab8c62b332b3c67d",
+      "copied_current_sha256": "e100c237b96c472e388d82c4c87fbf4fb59e09eeca70b3b40cea74e74830156d",
+      "suite": "j08-browser.cjs"
+    }
+  ],
+  "timestamp": "2026-11-04T18:45:38.704613+00:00"
+}

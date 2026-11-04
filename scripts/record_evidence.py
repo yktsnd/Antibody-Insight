@@ -35,6 +35,7 @@ try:
     record["gemmi_version"] = importlib.metadata.version("gemmi")
 except importlib.metadata.PackageNotFoundError:
     record["gemmi_version"] = None
+record["commands"].extend(["node tests/j08-browser.cjs", "node tests/predictions-independent-browser.cjs", "node tests/prediction-source-details-independent.cjs", "node tests/selection-independent-browser.cjs", "node tests/performance-browser.cjs", ".venv/Scripts/python.exe -m coverage run --branch --source=workspace_app -m pytest -q --tb=short"])
 target = ROOT / "TEST_EVIDENCE" / f"{args.stage}-source-manifest.json"
 pending = target.with_name(target.name + ".pending-" + uuid.uuid4().hex)
 pending.write_text(json.dumps(record, indent=2), encoding="utf-8")

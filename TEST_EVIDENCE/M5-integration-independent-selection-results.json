@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "filtered hidden selection retains exact IDs, native focus/table identity and explicit source observation",
+      "status": "PASS"
+    },
+    {
+      "name": "project/reload preserves choices; unselecting last clears links without changing records or table focus",
+      "status": "PASS"
+    }
+  ],
+  "error": null,
+  "errors": [],
+  "outbound": [],
+  "scope": "Native1000-candidate selection behavior only; no timing/standard-hardware/release claim",
+  "timestamp": "2026-11-04T18:51:16.175Z"
+}

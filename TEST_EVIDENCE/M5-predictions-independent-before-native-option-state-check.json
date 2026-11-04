@@ -1,0 +1,20 @@
+{
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "exact opaque tokens map to four distinct subject types; reserved typed references cannot become aliases",
+      "status": "PASS",
+      "duration_ms": 1379
+    },
+    {
+      "name": "changed file and late edited/project preview never reuse bindings or reopen a stale review",
+      "status": "PASS",
+      "duration_ms": 1497
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n",
+  "errors": [],
+  "outbound": [],
+  "fixture": "Synthetic engineering fixtures; no external model run or biological validation",
+  "timestamp": "2026-11-04T13:13:07.285Z"
+}

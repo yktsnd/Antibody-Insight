@@ -1,5 +1,14 @@
 # Changes
 
+## 0.8.0-dev: retained computed sources and project transfer (verification pending)
+
+- E explicitly imports canonical computed-evidence/1 and AlphaFold 3 summary scalar JSON, retaining the complete submitted UTF-8 source, hash, actual subject bindings, value pointers and unique source allocations. Native summary associations require an actual computed Structure and known coordinate-model ID; no run, model, version or time is inferred.
+- Original JSON inspection/download in W/R separates source computation from importer metadata. Arrays and other unsupported native fields remain intact with an unmapped-path report. Missing values remain null; no model is executed, scalar inferred or measurement copied.
+- Complete JSON-escaped projects must fit the existing32MiB reimport limit before append; existing over-limit records remain readable/exportable. Typed numeric and signed-zero source parameters survive browser transport.
+- Corrected rejection responses for escaped lone-surrogate diagnostic keys. Independent replay confirms complete422 responses with unchanged stored data; successful source serialization is unchanged. Original defect evidence is retained.
+- Explorer checkbox selection now updates actual row/count/context links without rebuilding all candidate rows. Exact selection/scientific data semantics are unchanged; independent review and post-change latency measurement remain pending.
+- Independent domain/API and bounded parameter-transport PASS; root full J08 and its two prescribed negatives PASS. Independent UI/frozen integration and final release gates remain pending. Previously registered J01–J07 acceptance refers to its recorded0.7 source; current changes require fresh replay before acceptance.
+
 ## 0.7.0-dev: criteria and immutable decision revisions (independently verified scope)
 
 - R has a separate criteria/decision task with explicitly chosen original observations, actual subjects/lots, researcher-declared importance/preferences and candidate subset. No composite score, automatic ranking or sole-observation selection is produced.

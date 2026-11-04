@@ -1,0 +1,10 @@
+RUN 1 initial_ms 1441 p95_ms 410
+RUN 2 initial_ms 612 p95_ms 291
+RUN 3 initial_ms 706 p95_ms 485
+RUN 4 initial_ms 951 p95_ms 430
+RUN 5 initial_ms 861 p95_ms 329
+RUN 6 initial_ms 737 p95_ms 795
+RUN 7 initial_ms 613 p95_ms 332
+RUN 8 initial_ms 566 p95_ms 254
+RUN 9 initial_ms 639 p95_ms 574
+RUN 10 initial_ms 588 p95_ms 269

@@ -1,0 +1,11 @@
+unknown_root_high 422 unchanged=True
+duplicate_root_high 422 unchanged=True
+unknown_root_low 422 unchanged=True
+duplicate_root_low 422 unchanged=True
+known_row_subject_ref 422 unchanged=True
+known_row_metric 422 unchanged=True
+known_row_description 422 unchanged=True
+known_row_context_key 422 unchanged=True
+known_row_context_value 422 unchanged=True
+valid_surrogate_pair_control 200 unchanged=True
+Overall expected-rejection result: True

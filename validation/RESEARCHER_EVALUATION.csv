@@ -1,0 +1,9 @@
+persona_id,journey_id,acceptance_id,research_question,task,status,reviewer,application_commit,input_paths,review_date,completed,errors,hesitation_points,unresolved_decisions,scientific_usefulness,follow_up
+P01,J01,AC-J01,Which candidates should be retained?,Import and QC candidates then compare and save a sourced five-candidate shortlist,AWAITING_RESEARCHER,,,,,,,,,,
+P02,J02,AC-J02,Which residue should be changed?,Inspect source numbering and reference then create a separate child with exact changes and a testable rationale,AWAITING_RESEARCHER,,,,,,,,,,
+P03,J03,AC-J03,Which parts of a predicted complex can be trusted?,Inspect actual chain correspondence and source-model metrics then retain limitations and a structural hypothesis,AWAITING_RESEARCHER,,,,,,,,,,
+P04,J04,AC-J04,How can a property concern be investigated?,Inspect original property observations and reported positions then design a separate variant and the next experiment,AWAITING_RESEARCHER,,,,,,,,,,
+P05,J05,AC-J05,Is the declared molecular composition appropriate?,Build and inspect explicit source-chain compositions then compare saved forms and retain unverified assembly questions,AWAITING_RESEARCHER,,,,,,,,,,
+P06,J06,AC-J06,What might influence expression or quality?,Compare two actual Constructs and three Materials with original observations then retain limitations and a controlled next experiment,AWAITING_RESEARCHER,,,,,,,,,,
+P07,J07,AC-J07,Why should this candidate be selected?,Compare original observations and requirements for three candidates then save a reasoned final decision and an immutable revision,AWAITING_RESEARCHER,,,,,,,,,,
+P08,J08,AC-J08,Can the recorded result and reasoning be reconstructed?,Import four source formats then inspect provenance and correspondence and export/reimport in a fresh store with exact identity comparison,AWAITING_RESEARCHER,,,,,,,,,,

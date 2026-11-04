@@ -233,6 +233,13 @@ def validate_structure_shape(entity):
             text(entry["reason"], "Unavailable mapping reason")
 
 
+def validate_model_metric(entity):
+    """Existing ipTM/pTM semantics, also used before source-row QC succeeds."""
+    if entity['metric'].lower() in ('iptm', 'ptm'):
+        require(entity['kind'] == 'computed' and entity['unit'] == '1', 'ipTM/pTM are dimensionless model-internal computed metrics')
+        require(entity['value'] is None or 0 <= entity['value'] <= 1, 'ipTM/pTM value is outside its source-defined range')
+
+
 def validate_structure_references(index):
     for entity in index.values():
         if entity["type"] == "structure":
@@ -273,9 +280,7 @@ def validate_structure_references(index):
                 require(target not in seen_residues, "One structural residue locus cannot map to two sequence positions or alternatives")
                 seen_residues.add(target)
         elif entity["type"] == "evidence":
-            if entity["metric"].lower() in ("iptm", "ptm"):
-                require(entity["kind"] == "computed" and entity["unit"] == "1", "ipTM/pTM are dimensionless model-internal computed metrics")
-                require(entity["value"] is None or 0 <= entity["value"] <= 1, "ipTM/pTM value is outside its source-defined range")
+            validate_model_metric(entity)
             subject = index.get(entity["subject_id"])
             if subject and subject["type"] == "structure" and entity["conditions"] is not None and "structure_model" in entity["conditions"]:
                 model = entity["conditions"]["structure_model"]

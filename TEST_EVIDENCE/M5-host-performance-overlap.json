@@ -1,0 +1,395 @@
+{
+  "status": "MEASURED_CONTAMINATED_OVERLAP",
+  "diagnostic": false,
+  "hardware": {
+    "logical_cpus": 8,
+    "ram_bytes": 8155983872,
+    "os": "10.0.26200",
+    "cpu_model": "Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz",
+    "disk_media": "not independently verified",
+    "standard_hardware_gate": "NOT_QUALIFIED:16GB RAM and SSD verification required",
+    "browser_version": "156.0.8078.79"
+  },
+  "trials": [
+    {
+      "run": 1,
+      "initial_1000_ms": 1441.123899936676,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 110.73400008678436,
+          "event_to_two_frames_ms": 28.200000047683716
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 409.66770005226135,
+          "event_to_two_frames_ms": 251.20000004768372
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 112.15050005912781,
+          "event_to_two_frames_ms": 31.100000023841858
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 125.13040006160736,
+          "event_to_two_frames_ms": 62.5
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 341.27710008621216,
+          "event_to_two_frames_ms": 251.60000002384186
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 127.94359993934631,
+          "event_to_two_frames_ms": 32.700000047683716
+        }
+      ],
+      "simple_operation_p95_ms": 409.66770005226135
+    },
+    {
+      "run": 2,
+      "initial_1000_ms": 612.4394999742508,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 82.41449999809265,
+          "event_to_two_frames_ms": 28
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 280.9864000082016,
+          "event_to_two_frames_ms": 185.90000009536743
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 111.72289991378784,
+          "event_to_two_frames_ms": 24.699999928474426
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 129.61439990997314,
+          "event_to_two_frames_ms": 71.20000004768372
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 291.2509000301361,
+          "event_to_two_frames_ms": 197.29999995231628
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 120.54149997234344,
+          "event_to_two_frames_ms": 34
+        }
+      ],
+      "simple_operation_p95_ms": 291.2509000301361
+    },
+    {
+      "run": 3,
+      "initial_1000_ms": 705.5618000030518,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 90.77859997749329,
+          "event_to_two_frames_ms": 30.200000047683716
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 293.88410007953644,
+          "event_to_two_frames_ms": 219.70000004768372
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 124.34850001335144,
+          "event_to_two_frames_ms": 25.09999990463257
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 128.96940004825592,
+          "event_to_two_frames_ms": 52.60000002384186
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 485.3037999868393,
+          "event_to_two_frames_ms": 373.5
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 117.30030000209808,
+          "event_to_two_frames_ms": 36.700000047683716
+        }
+      ],
+      "simple_operation_p95_ms": 485.3037999868393
+    },
+    {
+      "run": 4,
+      "initial_1000_ms": 950.5155999660492,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 95.33050000667572,
+          "event_to_two_frames_ms": 36
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 430.28260004520416,
+          "event_to_two_frames_ms": 385.2999999523163
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 131.19780004024506,
+          "event_to_two_frames_ms": 33
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 170.14339995384216,
+          "event_to_two_frames_ms": 82.10000002384186
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 346.3022999763489,
+          "event_to_two_frames_ms": 254.29999995231628
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 99.54120004177094,
+          "event_to_two_frames_ms": 37
+        }
+      ],
+      "simple_operation_p95_ms": 430.28260004520416
+    },
+    {
+      "run": 5,
+      "initial_1000_ms": 861.3859000205994,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 89.60950005054474,
+          "event_to_two_frames_ms": 33.39999997615814
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 321.6898000240326,
+          "event_to_two_frames_ms": 274
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 146.4317001104355,
+          "event_to_two_frames_ms": 42.60000002384186
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 170.8726999759674,
+          "event_to_two_frames_ms": 76.89999997615814
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 328.87449991703033,
+          "event_to_two_frames_ms": 232.29999995231628
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 123.26789999008179,
+          "event_to_two_frames_ms": 29.5
+        }
+      ],
+      "simple_operation_p95_ms": 328.87449991703033
+    },
+    {
+      "run": 6,
+      "initial_1000_ms": 737.3887000083923,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 82.71689999103546,
+          "event_to_two_frames_ms": 31.600000023841858
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 794.684700012207,
+          "event_to_two_frames_ms": 224.60000002384186
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 104.25029993057251,
+          "event_to_two_frames_ms": 36.39999997615814
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 91.93740010261536,
+          "event_to_two_frames_ms": 42.89999997615814
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 309.14079999923706,
+          "event_to_two_frames_ms": 199.30000007152557
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 90.55920004844666,
+          "event_to_two_frames_ms": 29
+        }
+      ],
+      "simple_operation_p95_ms": 794.684700012207
+    },
+    {
+      "run": 7,
+      "initial_1000_ms": 612.7208000421524,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 72.26929998397827,
+          "event_to_two_frames_ms": 32.800000071525574
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 331.61710000038147,
+          "event_to_two_frames_ms": 191.89999997615814
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 83.82480001449585,
+          "event_to_two_frames_ms": 23.09999990463257
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 154.4409999847412,
+          "event_to_two_frames_ms": 63.5
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 251.9936000108719,
+          "event_to_two_frames_ms": 165.60000002384186
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 118.59369993209839,
+          "event_to_two_frames_ms": 34.90000009536743
+        }
+      ],
+      "simple_operation_p95_ms": 331.61710000038147
+    },
+    {
+      "run": 8,
+      "initial_1000_ms": 566.0254000425339,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 80.83280003070831,
+          "event_to_two_frames_ms": 27.800000071525574
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 195.8503999710083,
+          "event_to_two_frames_ms": 158.79999995231628
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 92.67659997940063,
+          "event_to_two_frames_ms": 21.700000047683716
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 142.65439999103546,
+          "event_to_two_frames_ms": 75.29999995231628
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 254.39390003681183,
+          "event_to_two_frames_ms": 160.39999997615814
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 91.4699000120163,
+          "event_to_two_frames_ms": 31.100000023841858
+        }
+      ],
+      "simple_operation_p95_ms": 254.39390003681183
+    },
+    {
+      "run": 9,
+      "initial_1000_ms": 639.0539000034332,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 77.82570004463196,
+          "event_to_two_frames_ms": 27.399999976158142
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 194.80229997634888,
+          "event_to_two_frames_ms": 148.90000009536743
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 573.702399969101,
+          "event_to_two_frames_ms": 26.59999990463257
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 128.15069997310638,
+          "event_to_two_frames_ms": 52.10000002384186
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 251.40989995002747,
+          "event_to_two_frames_ms": 160.30000007152557
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 120.12819993495941,
+          "event_to_two_frames_ms": 35.10000002384186
+        }
+      ],
+      "simple_operation_p95_ms": 573.702399969101
+    },
+    {
+      "run": 10,
+      "initial_1000_ms": 587.8825999498367,
+      "operations": [
+        {
+          "name": "search_one",
+          "duration_ms": 63.55420005321503,
+          "event_to_two_frames_ms": 27.100000023841858
+        },
+        {
+          "name": "clear_search",
+          "duration_ms": 213.23830008506775,
+          "event_to_two_frames_ms": 168
+        },
+        {
+          "name": "select_candidate",
+          "duration_ms": 89.4264999628067,
+          "event_to_two_frames_ms": 21.100000023841858
+        },
+        {
+          "name": "open_workspace",
+          "duration_ms": 110.08770000934601,
+          "event_to_two_frames_ms": 48
+        },
+        {
+          "name": "return_explorer",
+          "duration_ms": 268.91310000419617,
+          "event_to_two_frames_ms": 171.29999995231628
+        },
+        {
+          "name": "clear_selection",
+          "duration_ms": 118.75049996376038,
+          "event_to_two_frames_ms": 35.300000071525574
+        }
+      ],
+      "simple_operation_p95_ms": 268.91310000419617
+    }
+  ],
+  "overall_simple_operation_p95_ms": 430.28260004520416,
+  "observed_initial_le_5000ms": true,
+  "observed_operation_p95_le_300ms": false,
+  "standard_release_gate": "PENDING:repeat ten runs on verified8logicalCPU/16GB/SSD",
+  "event_diagnostic": "Native input/click capture to two animation frames; recorded separately, does not replace full operation latency or qualify standard hardware.",
+  "method": "Fresh browser context per run, warm local server/browser; end-to-end Playwright action/assertion plus two animation frames. Includes automation/actionability overhead; six explicit simple operations per run. All1000 rows must exist before initial timer stops. Synthetic data only; no biological performance claim.",
+  "errors": [],
+  "outbound": [],
+  "timestamp": "2026-11-04T18:27:20.441Z",
+  "measurement_limitations": "Independent selection functional Chrome overlapped this run before close notification. All ten iterations retained but excluded from latency comparison; repeat uses exclusive Chrome."
+}

@@ -1,0 +1,7 @@
+PASS domain-valid thousand-value project fits the original transport ceiling
+PASS previously reviewed renderer reproduces allocation-metadata amplification on the same valid source
+PASS initial fixed metadata/raw details are empty and markup scales with evidence rather than allocations squared
+PASS raw and metadata open separately through textContent with all actual allocations and hostile tokens retained
+PASS closing each native detail releases only its text and reopening preserves the exact original source
+PASS source-last imports use the existing identity index and never scan the entity list per detail
+PASS a changed project cannot disclose the previous source through stale detail nodes

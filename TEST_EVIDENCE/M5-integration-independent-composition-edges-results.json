@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-04T18:49:52.910Z",
+  "browser": "156.0.8078.79",
+  "scope": "Independent source endpoint and asynchronous ownership edges, not full-J05/scientific validity",
+  "results": [
+    {
+      "name": "deleted component identity is not automatically recycled into a dangling connection",
+      "status": "PASS",
+      "duration_ms": 809
+    },
+    {
+      "name": "late composition review is discarded on task or project change and drafts remain",
+      "status": "PASS",
+      "duration_ms": 1146
+    },
+    {
+      "name": "late successful save retains newer same-project recipe and current task",
+      "status": "PASS",
+      "duration_ms": 484
+    },
+    {
+      "name": "late successful save in another project cannot erase its draft or change current project",
+      "status": "PASS",
+      "duration_ms": 559
+    },
+    {
+      "name": "late rejected save cannot enable a newer pending save or inject its old error into the new review",
+      "status": "PASS",
+      "duration_ms": 684
+    },
+    {
+      "name": "undefined and declared compositions compare by actual identity format and role without inferred graph",
+      "status": "PASS",
+      "duration_ms": 297
+    }
+  ]
+}

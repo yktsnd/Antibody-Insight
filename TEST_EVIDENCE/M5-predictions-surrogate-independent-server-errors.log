@@ -1,0 +1,178 @@
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 54713)
+Traceback (most recent call last):
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 199, in do_POST
+    result = prediction_preview(self.server.store.bundle(data['project_id']), data['text'], data['filename'],
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 260, in prediction_preview
+    expected, excluded, unmapped, _ = _expected(record, index, unresolved)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 158, in _expected
+    data, _ = _parse_file(record['content'], record['file_format'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 130, in _parse_file
+    raise ValidationError('Unsupported computed JSON fields; entire file rejected', sorted(unknown))
+workspace_app.domain.ValidationError: Unsupported computed JSON fields; entire file rejected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 240, in do_POST
+    self.reply(422, {"error": str(exc), "details": exc.details})
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 71, in reply
+    payload = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode("utf-8")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud800' in position 82: surrogates not allowed
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 54714)
+Traceback (most recent call last):
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 199, in do_POST
+    result = prediction_preview(self.server.store.bundle(data['project_id']), data['text'], data['filename'],
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 260, in prediction_preview
+    expected, excluded, unmapped, _ = _expected(record, index, unresolved)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 158, in _expected
+    data, _ = _parse_file(record['content'], record['file_format'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 102, in _parse_file
+    data = parse_json(raw.removeprefix('\ufeff'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\adapters.py", line 33, in parse_json
+    return json.loads(raw, parse_constant=reject_constant, parse_float=finite_float, object_pairs_hook=unique_keys)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\adapters.py", line 28, in unique_keys
+    require(key not in obj, f"Duplicate JSON key: {key}")
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\domain.py", line 53, in require
+    raise ValidationError(message)
+workspace_app.domain.ValidationError: Duplicate JSON key: \ud800
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 240, in do_POST
+    self.reply(422, {"error": str(exc), "details": exc.details})
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 71, in reply
+    payload = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode("utf-8")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud800' in position 31: surrogates not allowed
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 54715)
+Traceback (most recent call last):
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 199, in do_POST
+    result = prediction_preview(self.server.store.bundle(data['project_id']), data['text'], data['filename'],
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 260, in prediction_preview
+    expected, excluded, unmapped, _ = _expected(record, index, unresolved)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 158, in _expected
+    data, _ = _parse_file(record['content'], record['file_format'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 130, in _parse_file
+    raise ValidationError('Unsupported computed JSON fields; entire file rejected', sorted(unknown))
+workspace_app.domain.ValidationError: Unsupported computed JSON fields; entire file rejected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 240, in do_POST
+    self.reply(422, {"error": str(exc), "details": exc.details})
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 71, in reply
+    payload = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode("utf-8")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\udc00' in position 82: surrogates not allowed
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 54716)
+Traceback (most recent call last):
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 199, in do_POST
+    result = prediction_preview(self.server.store.bundle(data['project_id']), data['text'], data['filename'],
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 260, in prediction_preview
+    expected, excluded, unmapped, _ = _expected(record, index, unresolved)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 158, in _expected
+    data, _ = _parse_file(record['content'], record['file_format'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\predictions.py", line 102, in _parse_file
+    data = parse_json(raw.removeprefix('\ufeff'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\adapters.py", line 33, in parse_json
+    return json.loads(raw, parse_constant=reject_constant, parse_float=finite_float, object_pairs_hook=unique_keys)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\adapters.py", line 28, in unique_keys
+    require(key not in obj, f"Duplicate JSON key: {key}")
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\domain.py", line 53, in require
+    raise ValidationError(message)
+workspace_app.domain.ValidationError: Duplicate JSON key: \udc00
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\yukis\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 240, in do_POST
+    self.reply(422, {"error": str(exc), "details": exc.details})
+  File "C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\workspace_app\server.py", line 71, in reply
+    payload = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode("utf-8")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\udc00' in position 31: surrogates not allowed
+----------------------------------------

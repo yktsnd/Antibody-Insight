@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "scope": "Independent release-validation gate semantics, not frozen journey acceptance",
+  "results": [
+    {
+      "name": "all_actual_core_modules_counted",
+      "status": "PASS",
+      "process_exit_code": 0,
+      "output_status": "PASS",
+      "stdout": "PASS: core branches 548/566 (96.82%)",
+      "rejection": null
+    },
+    {
+      "name": "statement_only_cannot_pass_branch_gate",
+      "status": "PASS",
+      "process_exit_code": 1,
+      "output_status": null,
+      "stdout": "",
+      "rejection": "AssertionError: A statement-only run cannot establish the branch gate"
+    },
+    {
+      "name": "missing_prediction_core_module_rejects",
+      "status": "PASS",
+      "process_exit_code": 1,
+      "output_status": null,
+      "stdout": "",
+      "rejection": "AssertionError: Every core module must appear in measurement"
+    },
+    {
+      "name": "zero_core_coverage_cannot_be_hidden_by_high_all_module_totals",
+      "status": "PASS",
+      "process_exit_code": 1,
+      "output_status": "FAIL",
+      "stdout": "FAIL: core branches 0/566 (0.00%)",
+      "rejection": null
+    },
+    {
+      "name": "new_unclassified_production_module_rejects",
+      "status": "PASS",
+      "process_exit_code": 1,
+      "output_status": null,
+      "stdout": "",
+      "rejection": "AssertionError: Unclassified production module: unclassified_production"
+    }
+  ],
+  "core_modules": [
+    "adapters",
+    "assembly",
+    "composition",
+    "decisions",
+    "design",
+    "domain",
+    "experiments",
+    "hypotheses",
+    "measurements",
+    "numbering",
+    "observation",
+    "predictions",
+    "residue_evidence",
+    "storage",
+    "structures"
+  ],
+  "independent_actual_core_branches": {
+    "covered": 548,
+    "total": 566,
+    "percent": 96.81978798586573
+  },
+  "script_sha256": {
+    "scripts\\report_core_coverage.py": "7276f48c968647c464c8b0c01c5b40d77dc76755b8eafe22a19308432c272034",
+    "tests\\performance-browser.cjs": "5b43ba44352c9578103091b9078a06ad21295a8b06e519d9dea2bc8da8862f08"
+  },
+  "runner_note": "First probe runner decoded child traceback as UTF-8 without setting child PYTHONUTF8; corrected the runner environment, not product/tool source. All five gate cases then replayed once.",
+  "timestamp": "2026-11-04T13:12:16.552732+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS_FOR_UNCOMPLETED_EVALUATION_PACKET_ONLY",
+  "scope": "The complete required18categories/8roles and honest absent human inputs/results; not scientific/user acceptance",
+  "golden_categories": 18,
+  "researcher_roles": 8,
+  "human_scientific_reviews_completed": 0,
+  "researcher_roles_reviewed": 0,
+  "source_files": {
+    "validation/README.md": "a139072d103bd0b277aa10f46ad4c627355e1f05e6a707ebeaaff0c08346c7d8",
+    "validation/README.ja.md": "fc4f7ff991e1c190da0b3b4ffc64e9b6fd42807818a039d58bcd743497156b64",
+    "validation/SCIENTIFIC_GOLDENS.csv": "9f9a0a824932a1f8426c296d8aa191fcc1551c71327d9d4ae8842da86d4d09c4",
+    "validation/RESEARCHER_EVALUATION.csv": "e2a4863c1645b13001fff83e9d3b0c683c19c890762f705b8b299c35a1358064"
+  },
+  "reviewer": "/root/m5_integration_review",
+  "timestamp": "2026-11-04T18:36:14.366561+00:00"
+}
