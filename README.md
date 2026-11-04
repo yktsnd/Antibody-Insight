@@ -4,9 +4,9 @@ A local research workspace connecting antibody candidates to sequences, material
 
 [日本語の利用ガイド](README.ja.md) · [Product goal](PRODUCT_GOAL.md) · [Development specification](DEVELOPMENT_PLAN.md) · [Current limitations](KNOWN_LIMITATIONS.md)
 
-**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F15 are independently verified within their recorded scope, including complete synthetic-fixture J01 shortlist, J02 parent/reference design, J03 structural observation → hypothesis, J04 property evidence → child → next experiment and J05 explicit composition → source inspection → alternative design → unverified question journeys. Engineering acceptance is 5/8 journeys and 10/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
+**Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F18 and complete synthetic-fixture J01–J06 journeys are independently verified within the recorded scope: exploration, numbered design, structural reasoning, property-driven variants, explicit composition and original construct/material observations. Engineering acceptance is 6/8 journeys and 12/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
 
-Version0.6.0-dev adds explicit Construct/Material registration, recorded expression-design comparison and measurement CSV (F16–F18). Domain/API independent review passed; independent UI and frozen regression verification are in progress. Last registered acceptance remains J01–J05; the remaining journeys, scientific validation and researcher evaluation remain pending.
+Version0.6.0-dev adds explicit Construct/Material registration, recorded expression-design comparison and measurement CSV (F16–F18). Independent domain/API/UI review and frozen J01–J06 integration passed, including restart and native fresh export/reimport. J07, full J08, scientific validation and researcher evaluation remain pending.
 
 ## Run locally
 
@@ -56,7 +56,7 @@ Contextual numeric ordering (F09) and the synthetic J01 engineering path passed 
 
 See the [scientific UX references and reuse decisions](docs/SCIENTIFIC_UX.md), [design contract](docs/DESIGN_CONTRACT.md) and [the language policy and terminology](docs/LANGUAGE_POLICY.md) and [the observation contract](docs/OBSERVATION_CONTRACT.md).
 
-See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive composition recipes are supported. Criteria-based final decisions, measurement CSV and AIRR adapters remain pending. F10/F11 numbered substitutions and proposed hypotheses passed independent verification in the J02 engineering path.
+See [the data contract](docs/DATA_CONTRACT.md), [composition contract](docs/COMPONENT_CONTRACT.md), [numbering contract](docs/NUMBERING_CONTRACT.md) and [structure contract](docs/STRUCTURE_CONTRACT.md). Stored component graphs, composition lineage, source-bearing IMGT maps and explicit structure correspondence are supported. The initial IMGT insertion subset is111/112 decimal extensions; other legitimate additions are explicitly unsupported. Interactive composition recipes are supported. Criteria-based final decisions and AIRR/prediction adapters remain pending; measurement CSV is available under the [measurement contract](docs/MEASUREMENT_CONTRACT.md). F10/F11 numbered substitutions and proposed hypotheses passed independent verification in the J02 engineering path.
 
 ## Verify
 

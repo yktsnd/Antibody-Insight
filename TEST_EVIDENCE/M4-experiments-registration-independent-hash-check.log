@@ -1,0 +1,7 @@
+PASS84 actual-commit source inventory: 66 literal, 18 only CRLF/LF differences, no content delta
+Line endings only: ['.gitattributes', 'scripts/check_traceability.py', 'scripts/record_evidence.py', 'tests/browser.cjs', 'tests/j02-browser.cjs', 'tests/j05-browser.cjs', 'tests/j06-browser.cjs', 'tests/observation-journeys-browser.cjs', 'tests/observation-representation-independent-browser.cjs', 'web/app.js', 'web/composition.js', 'web/design.js', 'web/experiments.js', 'web/index.html', 'web/structures.js', 'web/style.css', 'web/vendor/manifest.json', 'workspace_app/__init__.py']
+PASS6 actual-commit acceptance records,18 named main/negative cases; J07/J08 PARTIAL
+PASS 49 raw evidence hashes match actual commit and working files
+PASS26 overwritten historical runtime outputs restored byte-exact and new copies retained
+PASS all 175 preexisting historical evidence blobs unchanged in implementation commit
+PASS pending changes outside frozen source: 12 metadata/document files
