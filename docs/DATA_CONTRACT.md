@@ -34,7 +34,7 @@ project内容の不一致、内部ID衝突、同じproject内の外部ID衝突�
 | construct | name, molecule_id, cds, vector, signal_peptide | cds/vector/signal_peptideはnull可。同一配列でも別ID。CDSの翻訳一致は現段階では未検証 |
 | material | name, construct_id, lot | lot必須。実測の直接対象 |
 | evidence | subject_id, kind, metric, source, timestamp, conditions, value, unit | kind=measured/computed/literature/annotation。measuredの対象はMaterial。source.nameとversionキーは必須で、実際に版が不明ならversion=null。value=nullならunit=null可。数値なら単位必須（無次元は1）。conditionsはオブジェクトまたはnull |
-| decision | candidate_ids, criteria, evidence_snapshot, reason, timestamp, revision, supersedes, status | M1はstatus=draft、criteria=[]、revision=1、supersedes=nullのみ。スナップショットは対象候補に関係する既存Evidenceの完全コピー。候補/根拠IDの重複禁止。確定判定は未実装 |
+| decision | candidate_ids, criteria, evidence_snapshot, reason, timestamp, revision, supersedes, status | M1はstatus=draft、criteria=[]、revision=1、supersedes=nullのみ。スナップショットは対象候補に関係する既存Evidenceの完全コピー。候補/根拠IDの重複禁止。M1時点で確定は未実装。現在のF19/F20は下記の追加契約に従う |
 
 初期のmolecule.chainsは配列観察の最小モデルである。
 追加のF06では、BindingUnit、明示されたcomponent_graph、構成変更のLineageを[追加契約](COMPONENT_CONTRACT.md)に従って保存、検証する。
@@ -82,7 +82,7 @@ CSV列はexternal_id,name,sequence,chain_role,formatとする。
 親と子の構成、実際の置換位置、原根拠、構造モデルの対象を再検証し、既存レコードは書き換えません。
 未知の型を黙って読み飛ばす旧形式への変換は行いません。
 F10/F11の実装と合成試験データによるJ02全経路は、M3-numbered-design-independent-review.mdの独立再検証に合格しました。
-現在はJ01〜J06が工学的な受入条件に合格しています。科学的な正解データの人手照合と実研究者の評価は未了です。
+現在はJ01〜J07が工学的な受入条件に合格しています。科学的な正解データの人手照合と実研究者の評価は未了です。
 
 ## F16–F18の追加契約
 
@@ -97,3 +97,15 @@ Evidenceの任意項目import_originには、実際に解析したUTF-8テキス
 元の試料の観測結果を別々に表示し、CDSの位置比較から翻訳の一致や発現の因果関係を主張しません。
 J06の全操作・2負例と既存J01〜J05を含む統合検証の独立レビューに合格しました。
 J07・完全なJ08と、科学的検証・研究者評価・最終リリース条件は別途追跡します。
+
+## F19/F20の追加契約
+
+[判断記録の契約（英語）](DECISION_CONTRACT.md)と[ADR-0010](../ADR/ADR-0010-evidence-based-decision-revisions.md)に従います。
+旧形式の選定メモは従来の下書きのまま保持し、新しい判断記録では比較対象・採用対象・評価項目・重み・根拠の選択・関連仮説を区別します。
+必須項目は、採用しない候補も含む比較対象全件について、数値を持つ元の根拠の選択を求めます。
+重み0でも必須条件を解除せず、総合点・自動推奨・単位換算を計算しません。
+確定済みの記録と元の根拠は変更せず、新しいIDの改訂を保存します。
+改訂元は実際の同一プロジェクトの記録で、版番号を1つ増やし、同じ改訂元からの競合する後続版を一括保存時にも拒否します。
+関連する提案段階の仮説の根拠も保存内容に含め、後日の結果追加で過去の判断内容を変えません。
+J07全経路・2負例・保存後の再起動と再取込を含め、J01〜J07の独立統合検証に合格しました。
+完全なJ08・科学的検証・実研究者評価・最終リリース条件は未達です。

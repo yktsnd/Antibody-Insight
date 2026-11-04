@@ -1,6 +1,6 @@
 # Explicit research decisions and saved versions
 
-F19/F20 · P07/P08 · J07/J08 · AC-J07/AC-J08. [ADR-0010](../ADR/ADR-0010-evidence-based-decision-revisions.md) and its independent design review define the boundary. Domain/API review is PASS; browser and final integration acceptance remain separately pending.
+F19/F20 · P07/P08 · J07/J08 · AC-J07/AC-J08. [ADR-0010](../ADR/ADR-0010-evidence-based-decision-revisions.md) and its independent design review define the boundary. Independent design/domain/API/UI and final J01–J07 integration are PASS at source commit `b7eabac029024546a25429abfeb262e1a0ba2662`; full J08, scientific/user and release acceptance remain separately open.
 
 The researcher's choice is recorded with original observations and trade-offs. Importance and preferences are declarations, not a biological model, composite score, ranking or recommendation. Finalized means the record is fixed; it does not validate a scientific conclusion or authenticate the researcher.
 

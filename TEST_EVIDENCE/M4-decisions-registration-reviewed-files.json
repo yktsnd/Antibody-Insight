@@ -1,0 +1,26 @@
+{
+  "implementation_commit": "b7eabac029024546a25429abfeb262e1a0ba2662",
+  "metadata_state": "Reviewed pending separate registration commit",
+  "reviewed_files": {
+    "ADR/ADR-0010-evidence-based-decision-revisions.md": "23e6d4455ae38d9a55964de97aba9a69b3251c2aed0ed51dff83d0ab8b47b590",
+    "CHANGELOG.md": "97d394d3ffd52a863434514cf7a7fa7877a3b09698f298e66608d895d7bd82d0",
+    "IMPLEMENTATION_TRACEABILITY.csv": "b4a4ab9839502b7066bcc5acf2ecfbf67b7ba409d0fa8c53f554dc8df89f6a5d",
+    "KNOWN_LIMITATIONS.md": "01d934c281dc4bf52c1246ccf861f7a238b4194efdd39e09e3123ae3d40a3a1b",
+    "README.ja.md": "38e257e23442e80fe89964c1e3240762774387d2c7beb371746744dc82a82a87",
+    "README.md": "79fdc53b79a987e9f71bfea0dcc19c71ffa8ee3b81dbb445f6d76355c5fc90f4",
+    "TEST_EVIDENCE/JOURNEY_ACCEPTANCE.json": "e54972d78a596a4e8b90a1edbd0fdd8e2a6c1200cc4b3417500aeac9429de42c",
+    "TEST_EVIDENCE/M4-decisions-final-independent-review.md": "9566f494f93b2ad84cc81586d7418b98b3c67cee09cd28942a7c833f5bb96dde",
+    "TEST_EVIDENCE/M4-decisions-ui-reviewed-files.json": "b457fdcabfcd2b48d8d5563d1ce4b610c766d769259105d172df09cc80de1901",
+    "TRACEABILITY.csv": "4e6feac1d869bfbfa7eb703a97e5add44971cbd2696d85ee1c92882d0044ea4d",
+    "docs/DATA_CONTRACT.md": "d544fa04bb49d7a9330142dcf0d995c3a7ff8aaaf63cae734f341f9324d7d83c",
+    "docs/DECISION_CONTRACT.md": "f21e4bee26a2650685de5b2686f17d31f369b984b17e96b09bdb8f3db92cb85b",
+    "docs/LANGUAGE_POLICY.md": "4eeedb6496463f20273e44e94bd4129a9cdb366b27ad5ce0a5ecae5cdfeaf21c",
+    "docs/MEASUREMENT_CONTRACT.md": "34de5f3a23fdae82f0f230711f8db8d4b354f5e73c9a245c2accd2fff480833b",
+    "docs/PRODUCT_ALIGNMENT.ja.md": "57d87f6b533dddcfac933f53e6c2515c732c8943ffaca4cfb75eb024c9c1f681",
+    "docs/PRODUCT_ALIGNMENT.md": "f4363a7521ec652177efeea3786178df433cec7d28ecc5b4ea3e36edac869480",
+    "docs/PROGRESS.md": "842421d1e8446adc183f956f6392799986c73e651202dbe28228cc1ff19eb38f",
+    "docs/SCIENTIFIC_UX.md": "4fb95be24f99cf40bb5705c3fd6ee214dc74129282336817ea60a37b88ce30bd",
+    "web/app.js": "2814d0eeabdb4d29115d0f82314a2ec12258b900fcdc69dfd9b2b1be38a6ccac",
+    "web/decisions.js": "27bd514e8893a0a1d4cec6293d829c1ce5d591548a3f1407183ca1011d0514e3"
+  }
+}

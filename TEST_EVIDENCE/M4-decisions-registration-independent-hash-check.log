@@ -1,0 +1,8 @@
+PASS91 committed/current source inventory; 71 literal; 20 CRLF/LF only; no content delta
+PASS7 actual-commit acceptance records and21 named main/negative results; J08 PARTIAL
+PASS 97 raw evidence SHA256s match current bytes and literal committed blobs
+PASS all 290 preexisting TEST_EVIDENCE raw blobs unchanged (JOURNEY metadata excluded)
+PASS bounded snapshot preserved; current status-document updates only: ['docs/DECISION_CONTRACT.md', 'ADR/ADR-0010-evidence-based-decision-revisions.md']
+PASS pending changes limited to 13 metadata/documentation files
+PASS ADR/ADR-0010-evidence-based-decision-revisions.md literal committed snapshot status-line3-only content update
+PASS docs/DECISION_CONTRACT.md exact CRLF reconstruction from Git LF snapshot status-line3-only content update
