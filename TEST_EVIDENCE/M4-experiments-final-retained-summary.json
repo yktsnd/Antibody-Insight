@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "scope": "37 retained browser checks; independently inspected before integration",
+  "results": [
+    {
+      "script": "tests/browser.cjs",
+      "log": "TEST_EVIDENCE/M4-experiments-final-retained-browser.log",
+      "checks": 11,
+      "status": "PASS"
+    },
+    {
+      "script": "tests/numbering-browser.cjs",
+      "log": "TEST_EVIDENCE/M4-experiments-final-retained-numbering-browser.log",
+      "checks": 5,
+      "status": "PASS"
+    },
+    {
+      "script": "tests/structures-browser.cjs",
+      "log": "TEST_EVIDENCE/M4-experiments-final-retained-structures-browser.log",
+      "checks": 11,
+      "status": "PASS"
+    },
+    {
+      "script": "tests/observation-independent-browser.cjs",
+      "log": "TEST_EVIDENCE/M4-experiments-final-retained-observation-independent-browser.log",
+      "checks": 3,
+      "status": "PASS"
+    },
+    {
+      "script": "tests/design-hypotheses-independent-browser.cjs",
+      "log": "TEST_EVIDENCE/M4-experiments-final-retained-design-hypotheses-independent-browser.log",
+      "checks": 4,
+      "status": "PASS"
+    },
+    {
+      "script": "tests/design-save-independent-browser.cjs",
+      "log": "TEST_EVIDENCE/M4-experiments-final-retained-design-save-independent-browser.log",
+      "checks": 3,
+      "status": "PASS"
+    }
+  ]
+}

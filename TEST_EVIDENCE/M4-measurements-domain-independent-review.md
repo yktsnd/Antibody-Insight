@@ -1,0 +1,44 @@
+# M4 constructs and measured evidence: independent domain/API review
+
+Verdict: **PASS for the bounded F16/F17/F18 domain and API implementation tested here.** Full J06/J08, M4 integration and the eventual frozen-source regression remain **NEEDS-EVIDENCE**.
+
+Reviewer: `/root/j06_design_review`, separate from the implementation agent. Date: 2026-11-04, Asia/Tokyo. This reviewer edited tests/evidence only. Trace: F16/F17/F18; P06/P08; J06/J08; AC-J06/AC-J08. The earlier independent design review is `M4-constructs-design-independent-review.md`; this report adds implementation evidence rather than replacing that design boundary.
+
+## Research action and scope
+
+The researcher explicitly registers a Construct against an actual Molecule, registers a Material/lot against an actual Construct, previews measurement CSV, resolves external sample tokens to actual same-project Materials, and saves a reviewed valid subset. The visible API output preserves original observations, source/time/unit/conditions and import origin. Comparing two selected Constructs returns their recorded CDS/vector/signal differences and the original Material observations; no translation, expression causality, signal processing or inferred chain association is produced.
+
+Inputs are explicit metadata, canonical UTF-8 CSV text, exact Material mappings and recorded experimental source metadata. Outputs are validated awx/1 preview records, a QC report and persisted append-only entities. Affected entities are Construct, Material and Evidence, with existing Molecule/Project references. New optional source/import-origin fields leave legacy records unchanged. Existing Hypothesis and Decision behavior, browser interface ownership and complete E/W/D/R journeys are outside this bounded runtime verdict. No product-purpose, identity-policy, sharing or licensing change was introduced by this review.
+
+## Replay and evidence
+
+Command: `.venv/Scripts/python.exe -m pytest -q tests/test_measurements_independent.py tests/test_measurements.py tests/test_experiments.py`
+
+Recorded result: **60 passed in 2.47s**, exit 0. This is 53 implementation tests plus seven independently added cases. Evidence: `M4-measurements-domain-independent-run.log`. Exact SHA-256 values for the reviewed domain/API dependencies and three test files are recorded in `M4-measurements-domain-reviewed-files.json`. This is a bounded file manifest, not a declaration that the whole working tree was frozen.
+
+Happy-path replay includes the actual loopback HTTP preview/import/context routes, synthetic two-Construct/three-Material fixtures, explicit mapping, preview without writes, reviewed subset save, Store restart, JSON export and fresh-database import. Checks retain actual IDs, exact original subjects, null versus zero, typed conditions and signed zero, source/version, logical record index versus multiline physical end-line, and legacy optional-field absence. New metadata creates neither measurements nor inherited biological provenance.
+
+The first run of the independently added HTTP fixture failed during setup because the fixture generator deliberately reuses stable IDs. The test now creates a genuinely separate synthetic project by explicitly rekeying all fixture IDs/references. No product edit or weakened assertion was required. Both corrected runs passed; the recorded run above is the final replay.
+
+## Independently added edges
+
+1. **Opaque sample identity and file ownership.** `sample`, `Sample`, ` sample `, an uppercase noncanonical application-ID spelling and `__proto__` remain separate tokens. An explicit mapping binds only its exact token and preserves that original token in import origin; no case/whitespace/UUID normalization establishes identity. Replacing values in the same filename with the same token set rejects the earlier mapping digest. Existing tests separately reject remapping canonical known/wrong-type/unavailable application IDs. This Python test does not certify JavaScript prototype handling or browser stale callbacks.
+2. **Import origin versus assay context and evidence kind.** Two original Material rows with different row provenance but matching declared assay/source context share one context without pooling values. A different source version is separate; unknown version stays null and ineligible, without borrowing file-level version. Computed, literature and annotation records survive persistence and fresh import with their original kinds; computed has a separate context and literature/annotation remain visible but ineligible. Recorded equality is a filtering policy, not proof of biological comparability or replicate independence.
+3. **Atomic revalidation after a valid first record** (four cases). A reviewed subset retains original record indices 1 and 3 while excluding unknown sample record 2. Tampering its second record with a floating-point row index, unsupported provenance authentication field, unknown Material ID or duplicate Evidence ID rejects the entire save. A reopened Store is unchanged; the unmodified reviewed subset subsequently saves exactly. This demonstrates actual Store transaction behavior rather than preview-only rejection.
+4. **Actual HTTP encoding and cross-project boundary.** An imported second project has its own real Material, rather than merely an invented unavailable ID. Mapping to it rejects. Malformed UTF-8 bytes, a JSON-escaped unpaired surrogate and a stale mapping digest return 422 without any write. The same session then previews and saves a valid same-project mapping, showing that rejection does not corrupt subsequent use.
+
+## Scientific, provenance and privacy findings
+
+Identity gate: **PASS in this scope.** Measured observations resolve only through actual Material IDs; identical sequences or labels do not authorize identity. Selecting foreign Constructs or the same Construct twice rejects. Two unknown CDS values remain unavailable, and raw DNA differences do not imply amino-acid consequences. Original observations are returned only for their actual selected Materials; Molecule/Construct evidence is not duplicated onto them.
+
+Provenance gate: **PASS in this scope.** Experiment source/version remains distinct from the importer/application and original file/ref/record/line metadata. Row headers are paired; missing source versions are not invented. Optional JSON provenance is recorded attestation, not authentication of an absent original file. The UTF-8 text hash binds the submitted text used by CSV parsing and mappings; it makes no claim about an arbitrary original file encoding. Censored values and unsafe/underflowed numbers are rejected rather than replaced by point estimates or zero. Repeated records retain different IDs with an explicit warning that independence is unestablished.
+
+Security gate: **PASS for the exercised API boundary and inspected implementation.** Tests use only synthetic data and local temporary databases. Actual routes retain local session/Origin/CSRF enforcement and strict request schemas; missing authorization rejects in the existing live test. Malformed encoding and cross-project mappings reject without writes. The reviewed modules introduce no runtime external data transmission. Browser storage/draft ownership and hostile-text rendering still need their own UI checks.
+
+Regression gate: **PASS for these 60 affected-domain/API cases.** Existing tests were retained. This does not stand in for retained J01-J05 browser flows, full source checks, latency/storage/coverage gates, or scientist evaluation. No unresolved P0/P1 defect was identified within this bounded review; that is not a project-wide defect claim.
+
+## Mission alignment and remaining work
+
+This work supports P06's question, "What affected expression and quality?", by keeping declared construct changes and actual experimental samples/results connected without claiming a causal explanation. It supports P08's reproducibility question by preserving IDs, evidence kinds and recorded provenance through persistence and fresh import. The full research action still needs independently replayed E import → D two-Construct comparison → W exact subject paths → R original units/conditions → saved proposed next experiment, including restart and browser export/reimport.
+
+The implementation reuses graph validation, append-only storage and exact observation-context predicates. This is proportionate to the requested identity/source problem; a new alignment engine, assay normalization, inferred translation or statistical pooling would not resolve the current acceptance gap. The largest immediate gap is the unverified integrated J06 operation. Full J08 prediction-adapter handling, J07 finalized decisions/revisions and the remaining scientific/user/release gates also remain open. Integration requires those separately scoped reviews and the final retained-flow replay; this PASS does not change the last accepted whole-journey count by itself.

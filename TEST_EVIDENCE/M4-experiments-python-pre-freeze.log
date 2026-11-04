@@ -1,0 +1,18 @@
+..........................................F............................. [ 17%]
+........................................................................ [ 34%]
+........................................................................ [ 52%]
+........................................................................ [ 69%]
+........................................................................ [ 87%]
+....................................................                     [100%]
+================================== FAILURES ===================================
+_ test_combined_http_review_derives_partial_usage_readonly_and_rejects_supplied_context _
+tests\test_assembly_independent.py:153: in test_combined_http_review_derives_partial_usage_readonly_and_rejects_supplied_context
+    assert status==200 and set(review)=={'bundle','context'}
+E   AssertionError: assert (200 == 200 and {'bundle', 'c...lized_bundle'} == {'bundle', 'context'}
+E     
+E     Extra items in the left set:
+E     'serialized_bundle'
+E     Use -v to get more diff)
+=========================== short test summary info ===========================
+FAILED tests/test_assembly_independent.py::test_combined_http_review_derives_partial_usage_readonly_and_rejects_supplied_context
+1 failed, 411 passed in 42.60s

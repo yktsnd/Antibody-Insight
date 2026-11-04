@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-04T09:29:52.053Z",
+  "scope": "Full J05 and two prescribed negatives, clearly synthetic engineering fixture; independent/scientific/user gates remain separate",
+  "browser": "156.0.8078.79",
+  "steps": [
+    "E→D: exact distinct BindingUnit IDs, paired/single declarations, explicit ordered interval/linker parts, moved stable component IDs, no partner completion and visible copy imbalance reviewed before atomic save",
+    "W: all saved chain sequences, copy declarations, ordered components, exact BindingUnit IDs and original source molecule inspected without equal-sequence identity collapse",
+    "D: explicit parent recipe preserves component IDs/connections; second linker design saved with exact composition Lineage and both actual saved designs compared, including source coverage and unsupported whole-analysis scope",
+    "R: researcher annotation is distinct from measured/computed evidence; proposed hypothesis, controlled next test, original annotation/Lineage references and unverified pairing/valency retained",
+    "Actual process restart and fresh-database JSON reimport preserve all original/source/design/Lineage/hypothesis identities and graph/order/copies; saved comparison IDs persist, scientific draft data stays out of localStorage"
+  ],
+  "results": [
+    {
+      "name": "e2e_j05_bispecific_composition",
+      "status": "PASS",
+      "duration_ms": 7391
+    },
+    {
+      "name": "e2e_j05_undefined_chain",
+      "status": "PASS",
+      "duration_ms": 188
+    },
+    {
+      "name": "e2e_j05_unsupported_analysis",
+      "status": "PASS",
+      "duration_ms": 95
+    },
+    {
+      "name": "No outbound requests or JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}

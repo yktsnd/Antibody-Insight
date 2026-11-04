@@ -73,7 +73,7 @@ async function fromPage(page, route, data) {
   });
   let draft;
   await check('measured computed null zero conditions and immutable five-candidate draft',async () => {
-    assert.equal(await page.locator('.tag.measured').count(),5);assert.equal(await page.locator('.tag.computed').count(),1);
+    assert.equal(await page.locator('.evidence-row .tag.measured').count(),5);assert.equal(await page.locator('.evidence-row .tag.computed').count(),1);
     await bodyContains(page,'Value missing');await bodyContains(page,'Conditions unknown');
     assert.match(await page.locator('.value').first().textContent(),/^0 /);
     await page.locator('#shortlist-reason').fill('Retain five candidates; compare specificity in the next experiment. Synthetic engineering check.');

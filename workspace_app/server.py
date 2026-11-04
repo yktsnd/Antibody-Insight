@@ -23,6 +23,8 @@ from .structures import structure_observation
 from .design import design_context, variant_preview
 from .hypotheses import hypothesis_preview
 from .assembly import composition_context, composition_preview
+from .experiments import construct_context, metadata_preview
+from .measurements import measurement_preview
 
 WEB = Path(__file__).resolve().parent.parent / "web"
 MAX_BODY = 32 * 1024 * 1024
@@ -58,6 +60,12 @@ class Handler(BaseHTTPRequestHandler):
 
     def reply(self, status, payload, content_type="application/json; charset=utf-8", session=False):
         if not isinstance(payload, bytes):
+            if isinstance(payload, dict):
+                reviewed = payload.get("bundle")
+                if isinstance(reviewed, dict) and reviewed.get("schema_version") == SCHEMA and isinstance(reviewed.get("entities"), list):
+                    # Keep approved number representations across the JavaScript UI.
+                    # This is envelope metadata, never an extra awx/1 entity field.
+                    payload = {**payload, "serialized_bundle": json.dumps(reviewed, ensure_ascii=False, allow_nan=False)}
             payload = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", content_type)
@@ -115,6 +123,13 @@ class Handler(BaseHTTPRequestHandler):
                 elif parsed.path == "/api/composition-context":
                     query = parse_qs(parsed.query)
                     self.reply(200, composition_context(self.server.store.bundle(query.get("project_id", [""])[0]), query.get("molecule_id", [""])[0]))
+                elif parsed.path == "/api/construct-context":
+                    query = parse_qs(parsed.query, keep_blank_values=True)
+                    require(set(query) <= {'project_id', 'molecule_id', 'left_id', 'right_id', 'cohort_id'}
+                            and all(len(values) == 1 for values in query.values()), 'Unsupported or repeated construct context query')
+                    self.reply(200, construct_context(self.server.store.bundle(query.get('project_id', [''])[0]),
+                        query.get('molecule_id', [''])[0], query.get('left_id', [None])[0],
+                        query.get('right_id', [None])[0], query.get('cohort_id', [None])[0]))
                 elif parsed.path == "/api/example-structures":
                     from .structure_fixtures import structure_bundle
                     self.reply(200, structure_bundle())
@@ -127,7 +142,7 @@ class Handler(BaseHTTPRequestHandler):
             except ValidationError as exc:
                 self.reply(422, {"error": str(exc), "details": exc.details})
             return
-        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js", "/composition.js": "composition.js",
+        files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js", "/composition.js": "composition.js", "/experiments.js": "experiments.js",
                  "/vendor/3Dmol-2.5.5.min.js": "vendor/3Dmol-2.5.5.min.js"}
         filename = files.get(parsed.path)
         if filename is None:
@@ -161,6 +176,13 @@ class Handler(BaseHTTPRequestHandler):
                 result = preview(data["text"], data["format"], data["filename"], project, data.get("structure_options"))
             elif route == "/api/import":
                 result = self.server.store.import_bundle(data)
+            elif route == "/api/measurement-preview":
+                fields(data, {'project_id', 'text', 'filename', 'mappings', 'file_source', 'mapping_text_sha256'}, 'request')
+                result = measurement_preview(self.server.store.bundle(data['project_id']), data['text'], data['filename'],
+                                             data['mappings'], data['file_source'], data['mapping_text_sha256'])
+            elif route == "/api/metadata-preview":
+                fields(data, {'project_id', 'definition'}, 'request')
+                result = metadata_preview(self.server.store.bundle(data['project_id']), data['definition'])
             elif route == "/api/shortlist":
                 fields(data, {"project_id", "candidate_ids", "evidence_ids", "reason"}, "request")
                 result = self.server.store.save_shortlist(data["project_id"], data["candidate_ids"],

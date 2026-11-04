@@ -1,5 +1,13 @@
 # Changes
 
+## 0.6.0-dev: constructs and measured observations (integration verification in progress)
+
+- D explicitly registers distinct Constructs/Materials and compares recorded CDS/vector/signal metadata against the same actual Molecule. W follows the exact Material/lot paths; R keeps each original observation with its own subject, units, conditions and source. No translation, causal expression effect, averaging or unit conversion is inferred.
+- Measurement CSV previews actual source rows, excludes invalid/qualified point values and requires explicit file-scoped external sample mapping. Reserved application IDs cannot be redirected. Import origin retains submitted UTF-8 text hash, logical record/end-line and importer separately from the assay source/version.
+- Corrected browser import/export numeric normalization. Independently verified raw snapshot transport preserves numeric types/signed zero and existing exact comparison contexts; edited approved snapshots require a new preview.
+- Earlier browser imports/exports could normalize integral floats or signed zero. The correction preserves future reviewed transfers; it cannot reconstruct representations already absent from older records/files. Inspect original sources when those distinctions matter to recorded contexts. No historical research database is silently rewritten.
+- Domain/API independent PASS and implementation J06 browser/restart/fresh roundtrip checks PASS. Full independent UI/frozen retained regression and acceptance registration remain pending. Last registered baseline remains five journeys/ten prescribed negatives; J07/J08 and scientific/user/release gates remain open.
+
 ## 0.5.0-dev: explicit composition and retained design questions (independently verified scope)
 
 - E selects actual BindingUnit IDs; D specifies chains/roles/copies, exact source intervals, explicit linkers and relationship kinds. Missing source parts or partners are not filled automatically.

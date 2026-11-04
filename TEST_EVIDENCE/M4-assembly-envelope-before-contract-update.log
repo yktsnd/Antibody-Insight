@@ -1,0 +1,26 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ test_combined_http_review_derives_partial_usage_readonly_and_rejects_supplied_context _
+
+assembly_http = <workspace_app.server.WorkspaceServer object at 0x000001EB2698F8F0>
+
+    def test_combined_http_review_derives_partial_usage_readonly_and_rejects_supplied_context(assembly_http):
+        server=assembly_http;bundle,unit,_=paired_sources();server.store.import_bundle(bundle);opener,headers=client(server);d=recipe(unit)
+        d['chains'][0]['components'][0]['source']['end']=2
+        request={'project_id':bundle['project']['id'],'definition':d}
+        with pytest.raises(urllib.error.HTTPError) as error:post(server,opener,{**headers,'X-CSRF-Token':'wrong'},'/api/composition-review',request)
+        assert error.value.code==403
+        with pytest.raises(urllib.error.HTTPError) as error:post(server,opener,headers,'/api/composition-review',{**request,'context':{'complete_units':100}})
+        assert error.value.code==422
+        status,review=post(server,opener,headers,'/api/composition-review',request)
+>       assert status==200 and set(review)=={'bundle','context'}
+E       AssertionError: assert (200 == 200 and {'bundle', 'c...lized_bundle'} == {'bundle', 'context'}
+E         
+E         Extra items in the left set:
+E         'serialized_bundle'
+E         Use -v to get more diff)
+
+tests\test_assembly_independent.py:153: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_assembly_independent.py::test_combined_http_review_derives_partial_usage_readonly_and_rejects_supplied_context
+1 failed in 1.06s

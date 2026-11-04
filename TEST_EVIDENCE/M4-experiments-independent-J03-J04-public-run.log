@@ -1,0 +1,43 @@
+PASS e2e_j03_complex_comparison
+PASS e2e_j03_unmappable_residue
+locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Import data', exact: true })
+    - locator resolved to <button disabled id="import-button">Import data</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is not enabled
+     - retrying click action
+       - waiting 500ms
+
+    at importBundle (C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\observation-journeys-browser.cjs:15:95)
+    at C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\observation-journeys-browser.cjs:40:239
+    at async check (C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\observation-journeys-browser.cjs:21:58)
+    at async C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\observation-journeys-browser.cjs:40:2 {
+  log: [
+    "  - waiting for getByRole('button', { name: 'Import data', exact: true })",
+    '    - locator resolved to <button disabled id="import-button">Import data</button>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not enabled',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not enabled',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    57 × waiting for element to be visible, enabled and stable',
+    '       - element is not enabled',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}

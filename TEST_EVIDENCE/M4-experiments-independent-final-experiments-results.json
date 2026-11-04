@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "delayed context readouts preserve metadata and shortlist text without rerender",
+      "status": "PASS",
+      "duration_ms": 858
+    },
+    {
+      "name": "late metadata preview cannot replace a changed task, input or project",
+      "status": "PASS",
+      "duration_ms": 1301
+    },
+    {
+      "name": "late rejected metadata save cannot unlock or annotate a newer pending save",
+      "status": "PASS",
+      "duration_ms": 1008
+    },
+    {
+      "name": "late metadata save retains another project and its unsaved metadata",
+      "status": "PASS",
+      "duration_ms": 989
+    },
+    {
+      "name": "opaque prototype tokens map exactly, changed text loses mappings, invalid UTF-8 clears prior text",
+      "status": "PASS",
+      "duration_ms": 676
+    },
+    {
+      "name": "late measurement preview cannot replace newer text or a changed project",
+      "status": "PASS",
+      "duration_ms": 874
+    },
+    {
+      "name": "adding a lower-ID exact-context member retains the chosen cohort and original subjects",
+      "status": "PASS",
+      "duration_ms": 828
+    },
+    {
+      "name": "late failed file decode cannot report its obsolete error in a newer valid preview",
+      "status": "PASS",
+      "duration_ms": 320
+    }
+  ],
+  "errors": [],
+  "outbound": [],
+  "fixture": "Clearly labelled synthetic observations; no real expression experiment",
+  "timestamp": "2026-11-04T09:30:34.812Z"
+}

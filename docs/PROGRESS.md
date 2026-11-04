@@ -11,7 +11,7 @@ The complete release goal remains active. Revisit the [product alignment checkpo
 | M1 complete foundation | Engineering gate PASS | 104 tests and 11 Chrome checks independently replayed; F06 adds BindingUnits, ordered component graphs, copy counts, origins and composition Lineage; human scientific golden fixtures remain pending |
 | M2 exploration/observation | Engineering gate PASS | Independent F09 replay: 252 Python tests; retained11/numbering5/structure11/J01five/independent-race3 Chrome checks, all exit0. Full synthetic J01 and original J03 observation foundation are verified; full J03 hypothesis/design remains M3. See TEST_EVIDENCE/M2-observation-independent-review.md |
 | M3 design/evidence | Engineering gate PASS | F10–F15 and full synthetic J01–J05 independently verified on frozen source:352 Python tests and67 browser checks, all exit0. Explicit source-part composition, source-usage review, design comparison, exact Lineage and proposed questions work through restart/export/reimport. Scientific/user/release gates remain open |
-| M4 experiments/decisions | Not started | Measurement CSV, construct comparison, criteria, weights, finalized decision revisions and J06/J07 |
+| M4 experiments/decisions | In progress | F16/F17/F18 domain/API independent PASS; actual J06 UI/restart/fresh import implementation checks PASS. Independent UI and frozen retained-journey review pending. J07 criteria/weights/finalized decision revisions remain unimplemented |
 | M5 quality integration | Not started | Full J08 formats, 8/8 + 16/16, branch coverage, security/performance, independent full replay |
 
 Current independent workflow engineering acceptance: **5/8** (J01–J05, labelled synthetic fixtures; commit `d4bafb8`).

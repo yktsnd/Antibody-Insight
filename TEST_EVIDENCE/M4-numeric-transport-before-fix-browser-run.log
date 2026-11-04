@@ -1,0 +1,230 @@
+{
+  "phases": {
+    "ui_expected": {
+      "canonical_sha256": "46fea609a7e375e47a61396fd7fbaf64334792dfa4dd02ee9d10f5650ddd539b",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "seed_expected": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "seed_before_export": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "raw_import_preview": {
+      "canonical_sha256": "46fea609a7e375e47a61396fd7fbaf64334792dfa4dd02ee9d10f5650ddd539b",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "ui_after_save": {
+      "canonical_sha256": "7b988e50c2d86e22e981377c55d57ce3073b1bc7e480ee6d7298c77f86f20213",
+      "cohort_count": 1,
+      "dose_types": [
+        "int",
+        "int"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        [
+          "int",
+          "int",
+          "int",
+          "int"
+        ]
+      ]
+    },
+    "ui_cohort_options": 1,
+    "seed_before_download": {
+      "canonical_sha256": "92ba189b337a1983d1ec66812499f717ead62a8ad4de483d69d586564e419ceb",
+      "cohort_count": 2,
+      "dose_types": [
+        "int",
+        "float"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ],
+        [
+          "int",
+          "float",
+          "negative_float_zero",
+          "float_zero"
+        ]
+      ]
+    },
+    "browser_export": {
+      "canonical_sha256": "23b1d3a80b9d129e30f2d5c4793736889122ded299d6c51bc3fbb29442887928",
+      "cohort_count": 1,
+      "dose_types": [
+        "int",
+        "int"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        [
+          "int",
+          "int",
+          "int",
+          "int"
+        ]
+      ]
+    },
+    "fresh_reimport_preview": {
+      "canonical_sha256": "23b1d3a80b9d129e30f2d5c4793736889122ded299d6c51bc3fbb29442887928",
+      "cohort_count": 1,
+      "dose_types": [
+        "int",
+        "int"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        [
+          "int",
+          "int",
+          "int",
+          "int"
+        ]
+      ]
+    },
+    "fresh_reimport_saved": {
+      "canonical_sha256": "23b1d3a80b9d129e30f2d5c4793736889122ded299d6c51bc3fbb29442887928",
+      "cohort_count": 1,
+      "dose_types": [
+        "int",
+        "int"
+      ],
+      "nested_types": [
+        [
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        [
+          "int",
+          "int",
+          "int",
+          "int"
+        ]
+      ]
+    }
+  },
+  "failures": [
+    "ui_after_save changed typed records",
+    "browser_export changed typed records",
+    "fresh_reimport_preview changed typed records",
+    "fresh_reimport_saved changed typed records",
+    "UI imported observation cohorts merged: expected2, actual1"
+  ]
+}
+AssertionError [ERR_ASSERTION]: Raw scientific record/context types must survive actual browser import/export
++ actual - expected
+
++ [
++   'ui_after_save changed typed records',
++   'browser_export changed typed records',
++   'fresh_reimport_preview changed typed records',
++   'fresh_reimport_saved changed typed records',
++   'UI imported observation cohorts merged: expected2, actual1'
++ ]
+- []
+
+    at C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\numeric-transport-browser.cjs:29:170 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [Array],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

@@ -1,0 +1,11 @@
+{
+  "web/app.js": "685ff474800a0acdfaf030279f7ec55645d97896ae0867677bd3a74848976dfb",
+  "web/experiments.js": "b1c963d66202e6a4694821ebee6995536f4d3e125766182cd1afac83036b0ff4",
+  "web/index.html": "14a0adeff9fb8d26928bd1031b6e410bd1a60b4781e98a2c753506c160d427c8",
+  "workspace_app/server.py": "0ca8ad73577d3b4cf9240d469312725e8df16b9312ef27a96a5b669df6b133d1",
+  "workspace_app/experiments.py": "d1d675133906854d584a1d6d5e43f3994e207e4e32790825d9f283ae348188ee",
+  "workspace_app/measurements.py": "5333fc3913896340d345be14a990d274e5a33fe2d3176801d0a2ecc0e075530c",
+  "workspace_app/domain.py": "a2eb0e02cfd685c593b7a4cd028182d3a70db8916c9dc371a01478cfd92e0d32",
+  "tests/j06-browser.cjs": "285f90bf2fd46bf703b61c45d8116f8298a16f3692fd4038690344a2aaf7f0ae",
+  "tests/experiments-independent-browser.cjs": "846b23bdc184fd34f0276f11429f1d1d1ae59bc71a2ec90d91bdac7a6cee74e9"
+}

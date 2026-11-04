@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "e2e_j06_construct_sample_lineage",
+      "status": "PASS",
+      "duration_ms": 6324
+    },
+    {
+      "name": "e2e_j06_unknown_sample_id",
+      "status": "PASS",
+      "duration_ms": 322
+    },
+    {
+      "name": "e2e_j06_incomparable_units",
+      "status": "PASS",
+      "duration_ms": 634
+    },
+    {
+      "name": "e2e_j06_fresh_export_reimport",
+      "status": "PASS",
+      "duration_ms": 2361
+    }
+  ],
+  "steps": [
+    "E→D: one actual declared protein/Molecule; two distinct Constructs and three explicitly registered Materials/lot IDs, identical labels retain separate identity; no measurements invented",
+    "E: UTF-8 measurement CSV, explicit external sample mapping (including __proto__), source/tool version and valid-subset QC reviewed before append-only save; null and zero distinct",
+    "D→W→R: exact raw CDS index3 and recorded signals compared without translation claim; actual three Material paths inspected; original expression and quality rows retain units, source, conditions and missingness",
+    "R: proposed explanation/limitations/controlled next experiment and actual Evidence IDs saved; actual process restart retains all IDs, observations, sources, hypotheses and selection",
+    "Native fresh export/file reimport into a second actual database preserves typed canonical Python JSON, exact metadata IDs, import origins, original evidence types, null/zero and next-experiment hypothesis"
+  ],
+  "errors": [],
+  "outbound": [],
+  "fixture": "Clearly labelled synthetic engineering data, no real expression experiment",
+  "timestamp": "2026-11-04T09:30:04.395Z"
+}

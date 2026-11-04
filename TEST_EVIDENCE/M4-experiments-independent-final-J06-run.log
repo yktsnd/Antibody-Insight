@@ -1,0 +1,4 @@
+PASS e2e_j06_construct_sample_lineage
+PASS e2e_j06_unknown_sample_id
+PASS e2e_j06_incomparable_units
+PASS e2e_j06_fresh_export_reimport

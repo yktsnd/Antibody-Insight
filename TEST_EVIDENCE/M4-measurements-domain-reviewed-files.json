@@ -1,0 +1,42 @@
+[
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\workspace_app\\measurements.py",
+    "Hash": "5333FC3913896340D345BE14A990D274E5A33FE2D3176801D0A2ECC0E075530C"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\workspace_app\\experiments.py",
+    "Hash": "D1D675133906854D584A1D6D5E43F3994E207E4E32790825D9F283AE348188EE"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\workspace_app\\domain.py",
+    "Hash": "A2EB0E02CFD685C593B7A4CD028182D3A70DB8916C9DC371A01478CFD92E0D32"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\workspace_app\\server.py",
+    "Hash": "0CA8AD73577D3B4CF9240D469312725E8DF16B9312EF27A96A5B669DF6B133D1"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\workspace_app\\storage.py",
+    "Hash": "00B7B47DD98A7C970CA9B0B39635EE71307B3D203BAB8E4B3DCCBEDEB4B9F536"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\workspace_app\\observation.py",
+    "Hash": "3189D8D5B633A385DCEB77ECC782B5791F3B3A1930ADC5D40EC1F75D37687B4C"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\workspace_app\\adapters.py",
+    "Hash": "D5DBFB37DD42D8FA7395663C42AD4886FD8EC9FD2CEBB7F65229868F33012531"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\test_measurements_independent.py",
+    "Hash": "D877D66272BB7745927B4D44DE48D718CC8BADBDEF8B92DC9D63ABC4242E247C"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\test_measurements.py",
+    "Hash": "E9F28ACC7051C5337559C3937E655BEE6CCE24A5792009DCC3DA99C6B7B1189A"
+  },
+  {
+    "Path": "C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\test_experiments.py",
+    "Hash": "4A2E49E4891FB4329D1C052C80ACD5B19977785CEAEBFE79FA631A1BF2D3B610"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-11-03T22:50:19.837Z",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n6 !== 5\n",
+  "results": [
+    {
+      "name": "empty workspace and explicit fixture preview",
+      "status": "PASS",
+      "duration_ms": 1348
+    },
+    {
+      "name": "five IDs persist across E W D R and residue selection",
+      "status": "PASS",
+      "duration_ms": 933
+    }
+  ]
+}

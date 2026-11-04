@@ -157,7 +157,7 @@ def validate_entity(entity, project_id):
     require(isinstance(entity, dict), "entity must be object")
     kind = entity.get("type")
     require(isinstance(kind, str) and kind in FIELDS, "Unsupported entity type")
-    optional = {"component_graph"} if kind == "molecule" else {"residue_refs", "description"} if kind == "evidence" else frozenset()
+    optional = {"component_graph"} if kind == "molecule" else {"residue_refs", "description", "import_origin"} if kind == "evidence" else {"source"} if kind in ("construct", "material") else frozenset()
     fields(entity, CORE | FIELDS[kind], "entity", optional)
     identifier(entity["id"], kind)
     require(entity["project_id"] == project_id, "Cross-project entity rejected")
@@ -197,10 +197,14 @@ def validate_entity(entity, project_id):
             nullable_text(entity[key], key)
         if entity["cds"] is not None:
             require(set(entity["cds"]) <= set("ACGTN"), "CDS must use uppercase ACGTN; translation not validated")
+        if "source" in entity:
+            source(entity["source"], "construct.source")
     elif kind == "material":
         text(entity["name"], "material.name")
         identifier(entity["construct_id"], "construct")
         text(entity["lot"], "material.lot")
+        if "source" in entity:
+            source(entity["source"], "material.source")
     elif kind == "evidence":
         text(entity["subject_id"], "evidence.subject_id")
         require(entity["kind"] in ("measured", "computed", "literature", "annotation"), "Invalid evidence kind")
@@ -217,6 +221,9 @@ def validate_entity(entity, project_id):
         nullable_text(entity.get("description"), "Evidence description")
         from .residue_evidence import validate_evidence_position_shape
         validate_evidence_position_shape(entity.get("residue_refs", []))
+        if "import_origin" in entity:
+            from .measurements import validate_import_origin
+            validate_import_origin(entity["import_origin"])
     elif kind == "decision":
         require(entity["status"] == "draft", "Finalized decisions are not supported in M1")
         require(type(entity["revision"]) is int and entity["revision"] == 1 and entity["supersedes"] is None,

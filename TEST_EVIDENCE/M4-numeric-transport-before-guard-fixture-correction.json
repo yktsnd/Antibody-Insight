@@ -1,0 +1,18 @@
+{
+  "status": "FAIL",
+  "timestamp": "2026-11-03T22:32:57.387Z",
+  "error": "AssertionError [ERR_ASSERTION]: Traceback (most recent call last):\r\n  File \"<string>\", line 1, in <module>\r\n  File \"C:\\Users\\yukis\\OneDrive\\�h�L�������g\\ChatGPT\\Antibody Insight\\tests\\numeric_transport_fixture.py\", line 42, in inspect_transport\r\n    'nested_types':[[number_tag(v) for v in e['conditions']['nested']['values']] for e in measured]}\r\n                                            ~~~~~~~~~~~~~~~^^^^^^^^^^\r\nKeyError: 'nested'\r\n\n\n1 !== 0\n",
+  "results": [
+    {
+      "name": "edited approved root and nested snapshots fail closed before any import request",
+      "status": "PASS",
+      "duration_ms": 434
+    },
+    {
+      "name": "mismatched top-level nested raw companion is rejected before use",
+      "status": "PASS",
+      "duration_ms": 73
+    }
+  ],
+  "errors": []
+}

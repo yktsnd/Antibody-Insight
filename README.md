@@ -6,7 +6,7 @@ A local research workspace connecting antibody candidates to sequences, material
 
 **Development build: the eight researcher workflows and sixteen prescribed edge cases are not yet complete.** F01–F15 are independently verified within their recorded scope, including complete synthetic-fixture J01 shortlist, J02 parent/reference design, J03 structural observation → hypothesis, J04 property evidence → child → next experiment and J05 explicit composition → source inspection → alternative design → unverified question journeys. Engineering acceptance is 5/8 journeys and 10/16 prescribed negatives. This is not Release 1.0. It does not run predictive models or assign antibody numbering automatically.
 
-Version0.5.0-dev connects explicit source-part composition, design comparison and retained research reasoning (F14/F15). Fresh independent J01–J05 replay passed and M3 meets its engineering gate. The other three journeys, scientific validation and researcher evaluation remain pending.
+Version0.6.0-dev adds explicit Construct/Material registration, recorded expression-design comparison and measurement CSV (F16–F18). Domain/API independent review passed; independent UI and frozen regression verification are in progress. Last registered acceptance remains J01–J05; the remaining journeys, scientific validation and researcher evaluation remain pending.
 
 ## Run locally
 
@@ -48,6 +48,7 @@ In E, select BindingUnit source IDs and choose **Design an explicit composition*
 
 - FASTA: one header/sequence record creates one unpaired molecule with `format=unspecified` and `role=unknown`. Pairing, molecular format and biological function are not inferred.
 - Sequence CSV: `external_id,name,sequence` are required. Optional columns are `chain_role,format`. This is not the measurement CSV importer.
+- Measurement CSV: `material_ref,metric,value,unit,timestamp` are required. Optional `conditions_json,description` and paired `source_name,source_version`. Use actual Material IDs or explicitly map external tokens after preview; no candidate/lot-name fallback. Keep original units, conditions and timezone-bearing event times. [Full contract](docs/MEASUREMENT_CONTRACT.md).
 - Workspace JSON: versioned `awx/1` with strict entity/reference validation. Measured evidence requires a Material ID. Missing values/conditions remain null; zero remains zero. Unknown source version stays null.
 - ID collisions reject the entire save. Unknown fields are reported rather than discarded. Entities and draft snapshots are append-only. An existing project can accept new entities only with unchanged project metadata.
 

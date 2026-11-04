@@ -150,7 +150,13 @@ def test_combined_http_review_derives_partial_usage_readonly_and_rejects_supplie
     with pytest.raises(urllib.error.HTTPError) as error:post(server,opener,headers,'/api/composition-review',{**request,'context':{'complete_units':100}})
     assert error.value.code==422
     status,review=post(server,opener,headers,'/api/composition-review',request)
-    assert status==200 and set(review)=={'bundle','context'}
+    assert status==200 and set(review)=={'bundle','context','serialized_bundle'}
+    assert isinstance(review['serialized_bundle'],str)
+    serialized=json.loads(review['serialized_bundle'])
+    assert isinstance(serialized,dict) and serialized==review['bundle']
+    # Python canonical JSON also distinguishes int/float and signed zero,
+    # which ordinary dictionary equality would consider equal.
+    assert json.dumps(serialized,sort_keys=True,allow_nan=False)==json.dumps(review['bundle'],sort_keys=True,allow_nan=False)
     candidate=review['bundle']['entities'][0];assert candidate['chains'][0]['sequence']=='AC'
     assert review['context']==composition_context({**bundle,'entities':[*bundle['entities'],*review['bundle']['entities']]},candidate['id'])
     heavy,light=review['context']['source_units'][0]['chains']

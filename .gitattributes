@@ -7,3 +7,4 @@ fixtures/public/*.cif -text -whitespace
 # Preserve exact hashes of this reviewed milestone evidence across checkouts.
 TEST_EVIDENCE/M3-observation-* -text -whitespace
 TEST_EVIDENCE/M3-composition-* -text -whitespace
+TEST_EVIDENCE/M4-* -text -whitespace

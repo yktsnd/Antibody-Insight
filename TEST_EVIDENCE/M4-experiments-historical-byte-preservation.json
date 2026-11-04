@@ -1,0 +1,162 @@
+{
+  "status": "PASS",
+  "method": "Literal HEAD git blobs restored after current-run raw copies; no line-ending conversion",
+  "files": [
+    {
+      "historical_path": "TEST_EVIDENCE/J01-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J01-browser-results.json",
+      "restored_head_sha256": "5e5d8c0418c44d6a96b2ecc581966a897a38ecdcd82e36ae12aec2342a1945b9",
+      "current_run_sha256": "e992973656f7c7e86dd97afc1dda076534502dece78289ff620a4aeeb02f141c"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J01-saved-shortlist.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J01-saved-shortlist.png",
+      "restored_head_sha256": "607ca48c6591bcd7209b94abaa70cb055d730635660438c591297592c403e0af",
+      "current_run_sha256": "538071446050a4d9524e0a3c32c5481869b8db257adf41c322caccc2c19a7a6f"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J01-two-candidate-observation.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J01-two-candidate-observation.png",
+      "restored_head_sha256": "e77c54bfe99b1ae953efc8f22a39fd628db0ee164cdac700d0eb6635eb91b673",
+      "current_run_sha256": "96d14f7ceab0d723dbc51b96b0c80b02db640c78fb6c5b1cca60f9fd3530d951"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J02-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J02-browser-results.json",
+      "restored_head_sha256": "fa641fee9ba2d99c59cb705c1047d1f6a0f1c144a6f720eff76f15e8cbaf94da",
+      "current_run_sha256": "457f48d76291c316ef603ba43919f29c6d831b2572037c02a6b76f0a505b88f1"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J02-coordinate-design.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J02-coordinate-design.png",
+      "restored_head_sha256": "88ee3e85be4820789d003a13a498e0b4dba87a0c32e11aa3ecf4943c175e7e83",
+      "current_run_sha256": "02b514fdc8381bd8e4a37d9d9eac32c8f737c589ef29e2e2178d25012fb4043a"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J02-saved-hypothesis.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J02-saved-hypothesis.png",
+      "restored_head_sha256": "19daffb374fbdf9de4bcc045858a8e81ee7b6a61edb71eff7cf68ff4e1a0fbe6",
+      "current_run_sha256": "ce93ffd342335b387fb46a4bf6215f12c2e9499b96008ec85baffe63db9b70ae"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J03-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J03-browser-results.json",
+      "restored_head_sha256": "114aa681091a538c82c5f3ed376fd051edd5a71690f14698cb800e6f6e5ab548",
+      "current_run_sha256": "45110e7b4852154be7bd53e8293e69676e6a2464fd2667d5acd3733470981687"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J03-saved-hypothesis.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J03-saved-hypothesis.png",
+      "restored_head_sha256": "e4365596c6edc84a7f934b8f2a7f801551248b021a1ba1c5c5f790274687dbbd",
+      "current_run_sha256": "6078f29eb6b0d8e2a4917fbd599cb5a9b21991ce7a8d43a87cacc3386f80adfd"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J04-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J04-browser-results.json",
+      "restored_head_sha256": "bf1055b9b08aa985d24fe847efaa30b9e1e850e69264c79e4af58db173a02082",
+      "current_run_sha256": "e690666980903f59cb18d0b3e727f1dcf4b8221d5e9e39aafc79c2c9f8fb5191"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J04-saved-property-hypothesis.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J04-saved-property-hypothesis.png",
+      "restored_head_sha256": "193996658660a65c7c86efb600c28c83187f4a809b658ecda5c5311420805699",
+      "current_run_sha256": "4d4cac5b9de2d20530d71a916e59d71fd2737f0bba23f726154edbe633371f4a"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J05-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J05-browser-results.json",
+      "restored_head_sha256": "2c64292843d6421645df07690a9ab0076f1798199c1ae880a6a77640cc4614e2",
+      "current_run_sha256": "3de134881f130baf799032f2b6263fb3d64fb84b92ddd363b277534a51128355"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/J05-composition-comparison.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J05-composition-comparison.png",
+      "restored_head_sha256": "d76eebae02f30a7337b58e1a8bac20baed11cf50a383264cd29750f46da68362",
+      "current_run_sha256": "37ff579809f434fbf45e0e8405b960cda84752ff3b87ced98755efd8e84defaf"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M1-browser-failure.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M1-browser-failure.json",
+      "restored_head_sha256": "7b0ae93bce22f28cf0e7ebc80eff2f019c05b91e656003cbe7e94e360b17880e",
+      "current_run_sha256": "94590c50097babba196d49a1596fdc8b171941486c1ae3399cf6d2b5f13b0e4d"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M1-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M1-browser-results.json",
+      "restored_head_sha256": "dc8ca50230cda6a914333d9fd9b63f2d636ce79b1b379615aea7944be22794c5",
+      "current_run_sha256": "2aa14eba4b3e8b9096c9873f303604c057f33054fbd3f20078bc573b79c0ab2b"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M1-composition-screen.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M1-composition-screen.png",
+      "restored_head_sha256": "efcc91466957ee7a50c6b6e587c03c320acccf57c30c0d3ddb170eda776d8754",
+      "current_run_sha256": "9f4a6ce50563016812812c404ca605f014453e28da104bed146ef0855fa36533"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M1-evidence-screen.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M1-evidence-screen.png",
+      "restored_head_sha256": "f1dd29fb30ec16a9f2b3bb26258744551df42dcef09e647e60da4a482627f4e4",
+      "current_run_sha256": "74852fc44064a96fe8cbb989313357edc4982674e01f0a650da2b48e1e4e22f5"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M2-numbering-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-numbering-browser-results.json",
+      "restored_head_sha256": "c9f85b09195bd125d5744fba11891c8ee7f32ce9923f62cf472558762c10e2ae",
+      "current_run_sha256": "978a04cd46ffa0a0c9be165c3e24aeeeb420a737be4e046f9f76e149dd99209c"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M2-numbering-screen.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-numbering-screen.png",
+      "restored_head_sha256": "32fde4859ef98861b6f085cd62e678a604eec8b05d6bfb9ca44e0bb7763066e1",
+      "current_run_sha256": "de34826c96f77e10ed5124fe85389aa206cc5d70e05ef6a0a6f8b8f0c2341802"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M2-observation-independent-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-observation-independent-browser-results.json",
+      "restored_head_sha256": "5493dcd2284a403ba501e567ebe9f2ae7ac7f0e14559459a555382c203fbe1c5",
+      "current_run_sha256": "986ec42124b9c2f1daacc7c838ee46ee4fec1282f603c501c4f81bdecf4adec5"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M2-structure-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-structure-browser-results.json",
+      "restored_head_sha256": "e34fe2c32386695c629255dbf96d98ffa0089a4d05cab4458fd35699ef7b1a31",
+      "current_run_sha256": "f94cfac8bc8217a81d42f8bed85a6237bf2e7dfaf516b5b034ccdcc70e688fd3"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M2-structure-screen.png",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-structure-screen.png",
+      "restored_head_sha256": "63d613c6b49096bd5dbb081d37b0c2530df7ce4fc9306fc1802d6221832166bd",
+      "current_run_sha256": "c5ce41735bab91814670f6e836075c4b0b4dcc55dc2ff7021e90771b6ca30e81"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M3-composition-independent-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M3-composition-independent-browser-results.json",
+      "restored_head_sha256": "3df0e4899eb45fff5a622518525cbcb4990c83583275073d0c63c59c5d0e975f",
+      "current_run_sha256": "f626ff6486de6572f5b8010ceabb3eb2560864fb2e6de6c07211079654699f33"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M3-numbered-design-independent-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M3-numbered-design-independent-browser-results.json",
+      "restored_head_sha256": "b07900e35d73c2e4963dc21e9adb8dc773032ae634d220ac426462acef56d306",
+      "current_run_sha256": "36fa394da2086c4dfd722dc07124379fa5d0d6eb4ca9a62f04b9175a1f88e6ed"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M3-numbered-design-independent-save-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M3-numbered-design-independent-save-results.json",
+      "restored_head_sha256": "a8bb6e556f5922a6b6c2b9f6b5f0c9c0894f64ebe938757cf48387dc96b01300",
+      "current_run_sha256": "4d86d8a8fc5fbdfd6661bf74001660d6f37ce266713760b2316e5fced271813c"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/M3-observation-representation-independent-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M3-observation-representation-independent-results.json",
+      "restored_head_sha256": "d221bc816ec0ce4bbc2c91abae3fa6a0bbcedf81edf368bed030b0a17674126d",
+      "current_run_sha256": "76e1e89511354ded725ff845ab3e72769f92db96fe953218cbe195630fa78cf3"
+    },
+    {
+      "historical_path": "TEST_EVIDENCE/public-structure-browser-results.json",
+      "retained_current_run": "TEST_EVIDENCE/M4-experiments-final-retained-artifact-public-structure-browser-results.json",
+      "restored_head_sha256": "e012e15412cb63fe327695cc7c3094d602e5fd8bf5a4144574c06dc4190d8e53",
+      "current_run_sha256": "156ed015ef64cac771cd5c893c0da962512330ce37a5337f9c79115e07b9295e"
+    }
+  ]
+}

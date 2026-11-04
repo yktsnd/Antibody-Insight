@@ -1,0 +1,120 @@
+{
+  "source_sha256": "cac62fd78d9bf39761945599468e21f47d8295d0e423100d8ca57320e351ade0",
+  "runs": [
+    {
+      "suite": "observation-journeys-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 41.91,
+      "log": "M4-experiments-independent-final-J03-J04-public-run.log",
+      "results": [
+        {
+          "result": "M4-experiments-independent-final-J03-results.json",
+          "status": "PASS",
+          "groups": 3
+        },
+        {
+          "result": "M4-experiments-independent-final-J04-results.json",
+          "status": "PASS",
+          "groups": 3
+        },
+        {
+          "result": "M4-experiments-independent-final-public-results.json",
+          "status": "PASS",
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "suite": "j05-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 10.75,
+      "log": "M4-experiments-independent-final-J05-run.log",
+      "results": [
+        {
+          "result": "M4-experiments-independent-final-J05-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "suite": "j06-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 12.3,
+      "log": "M4-experiments-independent-final-J06-run.log",
+      "results": [
+        {
+          "result": "M4-experiments-independent-final-J06-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "suite": "observation-representation-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 10.17,
+      "log": "M4-experiments-independent-final-representation-run.log",
+      "results": [
+        {
+          "result": "M4-experiments-independent-final-representation-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "suite": "composition-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 8.8,
+      "log": "M4-experiments-independent-final-composition-run.log",
+      "results": [
+        {
+          "result": "M4-experiments-independent-final-composition-results.json",
+          "status": "PASS",
+          "groups": 6
+        }
+      ]
+    },
+    {
+      "suite": "experiments-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 11.48,
+      "log": "M4-experiments-independent-final-experiments-run.log",
+      "results": [
+        {
+          "result": "M4-experiments-independent-final-experiments-results.json",
+          "status": "PASS",
+          "groups": 8
+        }
+      ]
+    },
+    {
+      "suite": "numeric-transport-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 7.99,
+      "log": "M4-experiments-independent-final-numeric-run.log",
+      "results": [
+        {
+          "result": "M4-experiments-independent-final-numeric-results.json",
+          "status": "PASS",
+          "groups": 0
+        }
+      ]
+    },
+    {
+      "suite": "numeric-transport-guards-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 5.64,
+      "log": "M4-experiments-independent-final-numeric-guards-run.log",
+      "results": [
+        {
+          "result": "M4-experiments-independent-final-numeric-guards-results.json",
+          "status": "PASS",
+          "groups": 4
+        }
+      ]
+    }
+  ],
+  "status": "PASS"
+}
