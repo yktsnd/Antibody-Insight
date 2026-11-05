@@ -1,0 +1,73 @@
+{
+  "schema_version": "release-gates/1",
+  "version": "0.8.0-dev",
+  "implementation_commit": "a82cc0f3861bd24e89b2634ee2fe32826043be97",
+  "source_sha256": "4ef0aa2a1e84db1fb5b7364409190ae4737a3dc5d5f92531586d8be89cf4b8fb",
+  "review_report": "TEST_EVIDENCE/M5-final-independent-review.md",
+  "review_report_sha256": "adc3f7cdb4c844a051f805ba0c7888d7c48811b6fced4e4ee0018498ca5418b4",
+  "timestamp": "2026-11-04T18:58:34.192334+00:00",
+  "overall_release_status": "INCOMPLETE",
+  "m5_quality_exit_status": "INCOMPLETE",
+  "engineering_workflows": {
+    "status": "PASS",
+    "main_flows": 8,
+    "required_main_flows": 8,
+    "prescribed_negative_flows": 16,
+    "required_negative_flows": 16,
+    "scope": "Named synthetic engineering journeys with persisted records; not biological validation or actual researcher acceptance"
+  },
+  "regression": {
+    "status": "PASS",
+    "python_tests": 538,
+    "node_suites": 22,
+    "additional_native_source_detail_browser_groups": 3
+  },
+  "core_branch_coverage": {
+    "status": "PASS",
+    "covered": 548,
+    "total": 566,
+    "percent": 96.81978798586573,
+    "threshold_percent": 85
+  },
+  "identity_and_provenance": {
+    "status": "PASS_FOR_REVIEWED_ENGINEERING_SCOPE",
+    "note": "Strict types/direct subjects/source/timestamps, immutable source allocations/snapshots and exact native project transfer; external source attestation is not authenticated computation"
+  },
+  "local_security": {
+    "status": "PASS_FOR_REVIEWED_SCOPE",
+    "note": "Retained session/Host/Origin/CSRF/CSP, malformed-input tests and zero observed unexpected outbound requests; enterprise multiuser/authentication remains out of scope"
+  },
+  "critical_high_defects": {
+    "status": "NONE_FOUND_IN_FROZEN_REVIEWED_SCOPE",
+    "open_p0_p1": 0
+  },
+  "standard_hardware_performance": {
+    "status": "PENDING",
+    "required": "8 logical CPUs /16GB RAM /SSD; ten runs; initial<=5000ms; simple-operation p95<=300ms",
+    "measured_host": {
+      "logical_cpus": 8,
+      "ram_bytes": 8155983872,
+      "os": "10.0.26200",
+      "cpu_model": "Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz",
+      "disk_media": "not independently verified",
+      "standard_hardware_gate": "NOT_QUALIFIED:16GB RAM and SSD verification required",
+      "browser_version": "156.0.8078.79"
+    },
+    "observed_initial_max_ms": 1045.1296000480652,
+    "observed_operation_p95_ms": 327.29069995880127,
+    "observed_operation_gate": "FAIL_ABOVE_300MS_ON_NONSTANDARD_HOST",
+    "report": "TEST_EVIDENCE/M5-host-performance.json"
+  },
+  "human_scientific_goldens": {
+    "status": "PENDING",
+    "reviewed": 0,
+    "required_categories": 18,
+    "registry": "validation/SCIENTIFIC_GOLDENS.csv"
+  },
+  "researcher_role_evaluation": {
+    "status": "PENDING",
+    "completed_role_reviews": 0,
+    "target_roles": 8,
+    "registry": "validation/RESEARCHER_EVALUATION.csv"
+  }
+}

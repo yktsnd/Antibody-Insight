@@ -1,6 +1,6 @@
 # Computed JSON import and transfer contract
 
-F21: P03/P08, J03/J08, AC-J03/AC-J08. F22: P08, J08, AC-J08. See ADR-0011 and the independently reviewed domain/API reports under TEST_EVIDENCE/M5-predictions-domain*. Browser/final integration acceptance remains separate.
+F21: P03/P08, J03/J08, AC-J03/AC-J08. F22: P08, J08, AC-J08. See ADR-0011 and the independently reviewed domain/API reports under TEST_EVIDENCE/M5-predictions-domain*. Full frozen synthetic engineering replay and8/8+16/16 acceptance are independently verified at source commit a82cc0f3861bd24e89b2634ee2fe32826043be97; see TEST_EVIDENCE/M5-final-independent-review.md. M5 overall quality, standard performance and human scientific/researcher acceptance remain incomplete.
 
 The researcher imports an original local JSON file in E, explicitly identifies its direct subject (Molecule, Construct, Material or Structure), reviews valid/excluded records, then saves new immutable records. W/R expose the actual source, value pointer and coordinate association. A full native project export reconstructs those records in a fresh store. No model is executed and no external run is authenticated. This fills a mandatory J08 gap; no discretionary feature score is used.
 

@@ -14,7 +14,7 @@ At each meaningful milestone, after context compaction and when priorities chang
 
 This checkpoint supplements the original specification. It changes no persona, journey, scientific definition, sharing policy or completion condition.
 
-## Current assessment: F19/F20 / J07
+## Prior M4 checkpoint: F19/F20 / J07
 
 P07's complete synthetic engineering action is independently verified: select three actual candidates, define original observation contexts and explicit source choices, retain declared importance/preferences and missingness, inspect an actual subject in W and return without losing the draft, choose candidates and record trade-offs, then review/save a fixed Decision and a distinct revision. Null and zero remain different; importance0 does not waive a required observation. Earlier snapshots, direct Material subjects, proposed Hypothesis dependencies and typed source metadata survive later result additions, actual restart and native fresh-store export/reimport. Finalized means a fixed record, not scientific validation or authenticated authorship.
 
@@ -24,6 +24,14 @@ JMP's explicit goal/importance table and Galaxy's progressive source/history nav
 
 The largest remaining engineering gap is J08: accept supported actual prediction-result JSON with explicit source/model/subject scope, report unsupported content, and reproduce the full FASTA/structure/measurement/prediction/decision project in a fresh store. Reuse E's reviewed import, W correspondence/source inspection, R provenance and exact complete-project export. Future preparation is separate and has no implemented/approved adapter yet. Complete this research action and final release measurements before adding unrelated prediction/design capabilities or incidental polish. The eight-persona mission is unchanged.
 
-## Active M5 alignment checkpoint: F21/F22 / J08
+## M5 implementation checkpoint before final replay: F21/F22 / J08
 
 P08 asks whether the recorded result and reasoning can be reconstructed with the same subjects and sources. The mandatory missing computed-source adapter is implemented; independent domain/API and bounded parameter transport PASS, root and independent main J08 replay PASS, further independent browser edges/frozen eight-journey acceptance pending. Reusing E import/W correspondence/R provenance and native export keeps the complete research action coherent. A strict canonical scalar format plus bounded native scalar summary is simpler than model execution or arbitrary array interpretation. The largest remaining product gap is independently accepted whole-project integration and final scientific/user/standard-host evaluation, not another model or design feature. Original eight-persona scope and release conditions remain unchanged. Current work must not use preliminary test counts as scientific utility evidence.
+
+## Current checkpoint: all-eight engineering workflow acceptance
+
+P08 can now reconstruct the same recorded subjects, sources and reasoning: actual FASTA/structure/measured-CSV/computed-JSON import, W/R correspondence and provenance inspection, native full export, actual restart and fresh-store file reimport independently preserve typed values/signed zero, model IDs, maps, Lineage, proposed Hypotheses and fixed Decision revisions. File attestation, observations, computations, proposals and decisions remain distinct. Reconstruction does not rerun or authenticate an external model or establish scientific validity.
+
+The same103-file source independently passes J01–J08 main8/8 and prescribed negatives16/16, source commit a82cc0f3861bd24e89b2634ee2fe32826043be97. See TEST_EVIDENCE/M5-final-independent-review.md and M5-release-gates.json. This is labelled synthetic engineering acceptance. M5 overall quality and Release1.0 remain incomplete; the largest remaining product gap is eighteen human-verified scientific categories, actual eight-role researcher evaluation and standard-host latency. Current8GB-host operation p95≈327ms exceeds300ms.
+
+Reusing E import, native tables/details, W mapping, R source history and exact export is simpler than another screen, ETL framework or model engine. Only demonstrated selection/full-source-detail costs were corrected, preserving scientific meaning and actual IDs. Next prioritize genuine research-action evaluation and observed shortcomings. No feature/test count substitutes for scientific usefulness.

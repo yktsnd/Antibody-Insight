@@ -1,13 +1,13 @@
 # Changes
 
-## 0.8.0-dev: retained computed sources and project transfer (verification pending)
+## 0.8.0-dev: retained computed sources and project transfer (independently verified engineering scope)
 
 - E explicitly imports canonical computed-evidence/1 and AlphaFold 3 summary scalar JSON, retaining the complete submitted UTF-8 source, hash, actual subject bindings, value pointers and unique source allocations. Native summary associations require an actual computed Structure and known coordinate-model ID; no run, model, version or time is inferred.
 - Original JSON inspection/download in W/R separates source computation from importer metadata. Arrays and other unsupported native fields remain intact with an unmapped-path report. Missing values remain null; no model is executed, scalar inferred or measurement copied.
 - Complete JSON-escaped projects must fit the existing32MiB reimport limit before append; existing over-limit records remain readable/exportable. Typed numeric and signed-zero source parameters survive browser transport.
 - Corrected rejection responses for escaped lone-surrogate diagnostic keys. Independent replay confirms complete422 responses with unchanged stored data; successful source serialization is unchanged. Original defect evidence is retained.
-- Explorer checkbox selection now updates actual row/count/context links without rebuilding all candidate rows. Exact selection/scientific data semantics are unchanged; independent review and post-change latency measurement remain pending.
-- Independent domain/API and bounded parameter-transport PASS; root full J08 and its two prescribed negatives PASS. Independent UI/frozen integration and final release gates remain pending. Previously registered J01–J07 acceptance refers to its recorded0.7 source; current changes require fresh replay before acceptance.
+- Explorer checkbox selection updates actual row/count/context links without rebuilding all rows; source details load raw/metadata text on demand and reuse the existing ID index. Independent functional edges pass. Selection median improved on this host, but overall operation p95≈327ms remains above300ms and the specified16GB/SSD performance gate is unaccepted.
+- Independent design/domain/API/UI and final103-file frozen replay PASS at `a82cc0f3861bd24e89b2634ee2fe32826043be97`:538 Python tests,22 Node suites, additional actual1000-value source-detail browser checks,8/8 synthetic main journeys and16/16 prescribed negatives. Core branch coverage96.82%. M5 overall quality and Release1.0 remain incomplete pending standard-host performance, eighteen human-verified scientific categories and actual researcher evaluation. Original failure evidence and400 prior committed evidence files are retained.
 
 ## 0.7.0-dev: criteria and immutable decision revisions (independently verified scope)
 

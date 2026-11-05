@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Two independently proposed negative registration probes on in-memory copies only; source/metadata/artifact files unchanged",
+  "results": [
+    {
+      "name": "tampered acceptance artifact hash rejects",
+      "status": "PASS",
+      "rejection": "Changed acceptance artifact: test_report"
+    },
+    {
+      "name": "another genuine passing journey cannot replace required J01 names",
+      "status": "PASS",
+      "rejection": ""
+    }
+  ],
+  "reviewer": "/root/m5_integration_review",
+  "timestamp": "2026-11-04T19:04:28.945034+00:00"
+}

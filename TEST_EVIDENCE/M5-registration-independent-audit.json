@@ -1,0 +1,2644 @@
+{
+  "status": "PASS_FOR_BOUNDED_REGISTRATION_AUDIT",
+  "implementation_commit": "a82cc0f3861bd24e89b2634ee2fe32826043be97",
+  "source_sha256": "4ef0aa2a1e84db1fb5b7364409190ae4737a3dc5d5f92531586d8be89cf4b8fb",
+  "source_files": 103,
+  "source_commit_comparison_counts": {
+    "EXACT_TESTED_BYTES": 86,
+    "CRLF_ONLY": 17
+  },
+  "source_commit_comparison": {
+    ".gitattributes": {
+      "commit_blob_sha256": "f35266ece212e8aed5d4396c2a594fcbc6e70ebd4e6895e06de2756af1f19132",
+      "tested_worktree_sha256": "5e5f3292f88026d454187559f7d5fc2c30d9d1a0eee33c9b035976afe6b65c92",
+      "classification": "CRLF_ONLY"
+    },
+    "AGENTS.md": {
+      "commit_blob_sha256": "b0953f92ae7cb7b06354be3918be170b7eba28fc765c5f35595974d32e1fa2d3",
+      "tested_worktree_sha256": "b0953f92ae7cb7b06354be3918be170b7eba28fc765c5f35595974d32e1fa2d3",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "DEVELOPMENT_PLAN.md": {
+      "commit_blob_sha256": "9138c7e502394336584fde184b5a25e70cf04b6cab01111de1e7e5810e7840dd",
+      "tested_worktree_sha256": "9138c7e502394336584fde184b5a25e70cf04b6cab01111de1e7e5810e7840dd",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "fixtures/public/1MLC.cif": {
+      "commit_blob_sha256": "5536c79a3d73e09503f6a4d252bbca2dac5fa0e59b5424309f49cd0c34e8606e",
+      "tested_worktree_sha256": "5536c79a3d73e09503f6a4d252bbca2dac5fa0e59b5424309f49cd0c34e8606e",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "fixtures/public/README.md": {
+      "commit_blob_sha256": "7ff73b3be1e088802ba0e45576d407e357ea2b987b750d688acb91f29036af95",
+      "tested_worktree_sha256": "7ff73b3be1e088802ba0e45576d407e357ea2b987b750d688acb91f29036af95",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "PRODUCT_GOAL.md": {
+      "commit_blob_sha256": "67deb593ba3dd45a4ff7cd3b62a0516d62615e68cdc5c8bd40deeffbec9158f2",
+      "tested_worktree_sha256": "67deb593ba3dd45a4ff7cd3b62a0516d62615e68cdc5c8bd40deeffbec9158f2",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "requirements-dev.txt": {
+      "commit_blob_sha256": "ebd2d67cb6ca6a8e59d8bccf0a557ddb60fc6b3a7e33d86a0b97f2ead7f29219",
+      "tested_worktree_sha256": "ebd2d67cb6ca6a8e59d8bccf0a557ddb60fc6b3a7e33d86a0b97f2ead7f29219",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "requirements.txt": {
+      "commit_blob_sha256": "1391b8a163e537fd77740e3d90dd573270ed850a4ad927e03b8594710bceadc7",
+      "tested_worktree_sha256": "1391b8a163e537fd77740e3d90dd573270ed850a4ad927e03b8594710bceadc7",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "scripts/check_traceability.py": {
+      "commit_blob_sha256": "6d3e7b515f5ad179bad6aa2e2acc3b87d99232625913058bb78be41a0d85cc73",
+      "tested_worktree_sha256": "c6147914c32091fff699fd4d9e97e9684c831dc2a05959af4ea5059625568845",
+      "classification": "CRLF_ONLY"
+    },
+    "scripts/record_evidence.py": {
+      "commit_blob_sha256": "928ac3545ac33f24092c0adfa1c2710e6299161f0d8d52c1ad0ce70827fdf397",
+      "tested_worktree_sha256": "928ac3545ac33f24092c0adfa1c2710e6299161f0d8d52c1ad0ce70827fdf397",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "scripts/report_core_coverage.py": {
+      "commit_blob_sha256": "7276f48c968647c464c8b0c01c5b40d77dc76755b8eafe22a19308432c272034",
+      "tested_worktree_sha256": "7276f48c968647c464c8b0c01c5b40d77dc76755b8eafe22a19308432c272034",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "start.ps1": {
+      "commit_blob_sha256": "c32f1c08ab435c1557e35183fb023da4afb2e6c93a9201d12653efd935ed6555",
+      "tested_worktree_sha256": "c32f1c08ab435c1557e35183fb023da4afb2e6c93a9201d12653efd935ed6555",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/browser.cjs": {
+      "commit_blob_sha256": "7ce4c51335a04b28a66cfaebd9c0b77708ce72dedf619a82a8ecc62728088c65",
+      "tested_worktree_sha256": "26165326a81a800de0591dd06acf221296f43d139e79df6bc6188fc9d7764202",
+      "classification": "CRLF_ONLY"
+    },
+    "tests/composition-independent-browser.cjs": {
+      "commit_blob_sha256": "9d016667323e8cc5b5a05d25481deef0db0db16b8afc67b6716d0669bb6cc7c5",
+      "tested_worktree_sha256": "9d016667323e8cc5b5a05d25481deef0db0db16b8afc67b6716d0669bb6cc7c5",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/composition_journey_fixture.py": {
+      "commit_blob_sha256": "ce3bbc900a5c1e80728092682d698e72b681a8758f60e0b382b9661086cba481",
+      "tested_worktree_sha256": "ce3bbc900a5c1e80728092682d698e72b681a8758f60e0b382b9661086cba481",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/decision_journey_fixture.py": {
+      "commit_blob_sha256": "91a475f9e5bd8af3d708f56b42ebeb365db46a18105fe7c041c1396b0b6dd976",
+      "tested_worktree_sha256": "91a475f9e5bd8af3d708f56b42ebeb365db46a18105fe7c041c1396b0b6dd976",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/decisions-independent-browser.cjs": {
+      "commit_blob_sha256": "0c97234eee7f98a640410d8b8ea47e82fa022c8e2962828a6118d1e9e674caa1",
+      "tested_worktree_sha256": "0c97234eee7f98a640410d8b8ea47e82fa022c8e2962828a6118d1e9e674caa1",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/design-hypotheses-independent-browser.cjs": {
+      "commit_blob_sha256": "0a9eb0fa46751898064676242930f5e25e7fbb84f037d5f13fb894f650e83c28",
+      "tested_worktree_sha256": "0a9eb0fa46751898064676242930f5e25e7fbb84f037d5f13fb894f650e83c28",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/design-save-independent-browser.cjs": {
+      "commit_blob_sha256": "7dbb8b0cf23b755c5b0a1fcf30acc315ef5e037456b465e404aca442e08c6452",
+      "tested_worktree_sha256": "7dbb8b0cf23b755c5b0a1fcf30acc315ef5e037456b465e404aca442e08c6452",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/experiments-independent-browser.cjs": {
+      "commit_blob_sha256": "846b23bdc184fd34f0276f11429f1d1d1ae59bc71a2ec90d91bdac7a6cee74e9",
+      "tested_worktree_sha256": "846b23bdc184fd34f0276f11429f1d1d1ae59bc71a2ec90d91bdac7a6cee74e9",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/j01-browser.cjs": {
+      "commit_blob_sha256": "f4e14cabbef838099043aa2e80f042f2299f9a21551e14991bac57d34e149a70",
+      "tested_worktree_sha256": "f4e14cabbef838099043aa2e80f042f2299f9a21551e14991bac57d34e149a70",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/j02-browser.cjs": {
+      "commit_blob_sha256": "c3613fca7332755ecf740e970414fca1df6f8438d866e2c843f10b4862291fa8",
+      "tested_worktree_sha256": "79b1c46eaa2b3f7a5a4aac970dada2214effc65341fce76de559f5943e8ceb50",
+      "classification": "CRLF_ONLY"
+    },
+    "tests/j05-browser.cjs": {
+      "commit_blob_sha256": "16c4133a24799819fb11048d01da19f5c11293b89cd613d43e756acfbc1b32fc",
+      "tested_worktree_sha256": "40b6e613a16643cc83c9ee81487bf420c5608d0860436c22b4ad6bfa51f8108c",
+      "classification": "CRLF_ONLY"
+    },
+    "tests/j06-browser.cjs": {
+      "commit_blob_sha256": "7e211dbcb85980421436981524bb5b841406afee5fdfb56606682830878c6ace",
+      "tested_worktree_sha256": "285f90bf2fd46bf703b61c45d8116f8298a16f3692fd4038690344a2aaf7f0ae",
+      "classification": "CRLF_ONLY"
+    },
+    "tests/j07-browser.cjs": {
+      "commit_blob_sha256": "2426df38c2cf9cd1d57bee124a36d18d018ff720f3d19235d099496ea1979146",
+      "tested_worktree_sha256": "e6d59f119908f7508fbfd038dfee4bc7029313dc1605be48de34e93f7cb41615",
+      "classification": "CRLF_ONLY"
+    },
+    "tests/j08-browser.cjs": {
+      "commit_blob_sha256": "6b254d16ff8b41bb8acd7f05e5d341bf17ab8da47bae5cd204c2b1bf883a0820",
+      "tested_worktree_sha256": "6b254d16ff8b41bb8acd7f05e5d341bf17ab8da47bae5cd204c2b1bf883a0820",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/j08_transfer_fixture.py": {
+      "commit_blob_sha256": "fc27033333cb42ac29c8b7d9f04532e97d11281e29da6185ea16c9e4e2c47b37",
+      "tested_worktree_sha256": "fc27033333cb42ac29c8b7d9f04532e97d11281e29da6185ea16c9e4e2c47b37",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/numbering-browser.cjs": {
+      "commit_blob_sha256": "b3ca63b83aa799eb59cc300d84d4d1225adb6bcb70855e0c3d233d9843ed2322",
+      "tested_worktree_sha256": "b3ca63b83aa799eb59cc300d84d4d1225adb6bcb70855e0c3d233d9843ed2322",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/numeric-transport-browser.cjs": {
+      "commit_blob_sha256": "a08fe49358359565ff7303f74d4229060a2770f60c4fd49433ad03d61101a811",
+      "tested_worktree_sha256": "a08fe49358359565ff7303f74d4229060a2770f60c4fd49433ad03d61101a811",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/numeric-transport-guards-browser.cjs": {
+      "commit_blob_sha256": "6c48176c72eed98988af2fe5d15548171eb7e7995f84b8dbd142eb2290237bb3",
+      "tested_worktree_sha256": "6c48176c72eed98988af2fe5d15548171eb7e7995f84b8dbd142eb2290237bb3",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/numeric_transport_fixture.py": {
+      "commit_blob_sha256": "aaa205b0ce05c238e6f23a13e9ed89a9883822824bb66932f1820508b5233764",
+      "tested_worktree_sha256": "aaa205b0ce05c238e6f23a13e9ed89a9883822824bb66932f1820508b5233764",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/observation-independent-browser.cjs": {
+      "commit_blob_sha256": "ff7e011636168c765d8bdad60936e0c3b6573cccbc76a1b72f3074e781d5d041",
+      "tested_worktree_sha256": "ff7e011636168c765d8bdad60936e0c3b6573cccbc76a1b72f3074e781d5d041",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/observation-journeys-browser.cjs": {
+      "commit_blob_sha256": "b99b67dec86334880391ab150cf50b5a1cd8a7afc3aa34083895f4dc8f812ff8",
+      "tested_worktree_sha256": "cfee983077a328c7d94bec6072abb5136d9db4d814f1eb11f954c821032f14de",
+      "classification": "CRLF_ONLY"
+    },
+    "tests/observation-representation-independent-browser.cjs": {
+      "commit_blob_sha256": "08c10c41aff5cdc3be156f10bc388269942011e8182ee2a38c2fd54e994a469b",
+      "tested_worktree_sha256": "f744a5e0a87b9e70204fe341770d3214b7168fe49098479f70ea2667816f5d73",
+      "classification": "CRLF_ONLY"
+    },
+    "tests/observation_journey_fixture.py": {
+      "commit_blob_sha256": "8cfa97cebe7ce03b2161f9acc7293a353947d7d05e62b6764ddd459a1f84eec5",
+      "tested_worktree_sha256": "8cfa97cebe7ce03b2161f9acc7293a353947d7d05e62b6764ddd459a1f84eec5",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/observation_review_fixture.py": {
+      "commit_blob_sha256": "bc959f10b95bd554fa56169595a676d87b2b949c84c769aab1e48c69c4173ba5",
+      "tested_worktree_sha256": "bc959f10b95bd554fa56169595a676d87b2b949c84c769aab1e48c69c4173ba5",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/performance-browser.cjs": {
+      "commit_blob_sha256": "79496c55c0c714e3d6353ce9cef997551dfccfcf72c91439b2a1cc04d923882f",
+      "tested_worktree_sha256": "79496c55c0c714e3d6353ce9cef997551dfccfcf72c91439b2a1cc04d923882f",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/prediction-source-details-independent.cjs": {
+      "commit_blob_sha256": "99dcc1615efbfa6971c7cac7217bd4996f45eafb32bc2aa9e9ea7c8776137700",
+      "tested_worktree_sha256": "99dcc1615efbfa6971c7cac7217bd4996f45eafb32bc2aa9e9ea7c8776137700",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/predictions-independent-browser.cjs": {
+      "commit_blob_sha256": "64a3f34b2369b37788352aa476eccd2ffbf69e2816ae12274242130132d4874c",
+      "tested_worktree_sha256": "64a3f34b2369b37788352aa476eccd2ffbf69e2816ae12274242130132d4874c",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/public_structure_fixture.py": {
+      "commit_blob_sha256": "06f73c66a92da7fc97c82d34919a382eb47e6239c06360dcc4320840033528ba",
+      "tested_worktree_sha256": "06f73c66a92da7fc97c82d34919a382eb47e6239c06360dcc4320840033528ba",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/selection-independent-browser.cjs": {
+      "commit_blob_sha256": "afd31d6b483333b3968be9b7313f1433c195932042ad38c5c39d894be7181665",
+      "tested_worktree_sha256": "afd31d6b483333b3968be9b7313f1433c195932042ad38c5c39d894be7181665",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/structures-browser.cjs": {
+      "commit_blob_sha256": "3ed918e6fb98d2c082da20ff71df14499a8f4c2b9f197361e200d69371ae23e6",
+      "tested_worktree_sha256": "3ed918e6fb98d2c082da20ff71df14499a8f4c2b9f197361e200d69371ae23e6",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_acceptance_verifier.py": {
+      "commit_blob_sha256": "a50689e487d6a99e5f10bcafd679d5aabce80a2f3008fa505ed0626240874fba",
+      "tested_worktree_sha256": "a50689e487d6a99e5f10bcafd679d5aabce80a2f3008fa505ed0626240874fba",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_assembly.py": {
+      "commit_blob_sha256": "b6d826b182727570ef5bd4abc511b7f714e0fba56735ed2e58151cac54a8443a",
+      "tested_worktree_sha256": "b6d826b182727570ef5bd4abc511b7f714e0fba56735ed2e58151cac54a8443a",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_assembly_independent.py": {
+      "commit_blob_sha256": "1ad25afcf2405f7048435a68e9de194a9a52885cbadd972202e63338128f8073",
+      "tested_worktree_sha256": "1ad25afcf2405f7048435a68e9de194a9a52885cbadd972202e63338128f8073",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_composition.py": {
+      "commit_blob_sha256": "62001ef49fe62e401fa79b870b8c5de071fa1ce4f954ab8c1539776b940e4a45",
+      "tested_worktree_sha256": "62001ef49fe62e401fa79b870b8c5de071fa1ce4f954ab8c1539776b940e4a45",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_composition_independent.py": {
+      "commit_blob_sha256": "dfe7150ebb6c87e38b6f3170cbd29ee9574e1a5352ca3000e6ab7abed9a03993",
+      "tested_worktree_sha256": "dfe7150ebb6c87e38b6f3170cbd29ee9574e1a5352ca3000e6ab7abed9a03993",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_decisions.py": {
+      "commit_blob_sha256": "0ece869a6257b05d394077c70b52b5b1b563166baea383427e4d43d391b40648",
+      "tested_worktree_sha256": "0ece869a6257b05d394077c70b52b5b1b563166baea383427e4d43d391b40648",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_decisions_independent.py": {
+      "commit_blob_sha256": "30ca7644130b0304d8560b89cda7bf7103d8d3b965c18e51eb4f1ff5c014fa84",
+      "tested_worktree_sha256": "30ca7644130b0304d8560b89cda7bf7103d8d3b965c18e51eb4f1ff5c014fa84",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_design.py": {
+      "commit_blob_sha256": "09c3c8499bf8b80f76b3083346de21d559e6fba6d29df9337fa1a76340c2bcfe",
+      "tested_worktree_sha256": "09c3c8499bf8b80f76b3083346de21d559e6fba6d29df9337fa1a76340c2bcfe",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_design_hypotheses_independent.py": {
+      "commit_blob_sha256": "58528d226bd7c7d947dabe4c167794e344e821114bb0055db7baa8553447e86a",
+      "tested_worktree_sha256": "58528d226bd7c7d947dabe4c167794e344e821114bb0055db7baa8553447e86a",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_experiments.py": {
+      "commit_blob_sha256": "4a2e49e4891fb4329d1c052c80acd5b19977785ceaebfe79fa631a1bf2d3b610",
+      "tested_worktree_sha256": "4a2e49e4891fb4329d1c052c80acd5b19977785ceaebfe79fa631a1bf2d3b610",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_foundation.py": {
+      "commit_blob_sha256": "89fd36476b3677d9a05bfa80e32288dccf0eb18ea861df9b61a72ed2c9a1f3e8",
+      "tested_worktree_sha256": "89fd36476b3677d9a05bfa80e32288dccf0eb18ea861df9b61a72ed2c9a1f3e8",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_hypotheses.py": {
+      "commit_blob_sha256": "2fdf731c928d73125727308f4964c441d75b998c43d19f04359f3062a80dbb0a",
+      "tested_worktree_sha256": "2fdf731c928d73125727308f4964c441d75b998c43d19f04359f3062a80dbb0a",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_independent_review.py": {
+      "commit_blob_sha256": "6418fc3d9c03e41c08f794cafdc115e059b3aab03fc11e02ef053785b07030fd",
+      "tested_worktree_sha256": "6418fc3d9c03e41c08f794cafdc115e059b3aab03fc11e02ef053785b07030fd",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_measurements.py": {
+      "commit_blob_sha256": "e9f28acc7051c5337559c3937e655bee6cce24a5792009dcc3da99c6b7b1189a",
+      "tested_worktree_sha256": "e9f28acc7051c5337559c3937e655bee6cce24a5792009dcc3da99c6b7b1189a",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_measurements_independent.py": {
+      "commit_blob_sha256": "d877d66272bb7745927b4d44de48d718cc8badbdef8b92dc9d63abc4242e247c",
+      "tested_worktree_sha256": "d877d66272bb7745927b4d44de48d718cc8badbdef8b92dc9d63abc4242e247c",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_numbering.py": {
+      "commit_blob_sha256": "7ac355d20579a1c881c504d3c6bb3c4060302095cc4bb8dce4bbe984f8994be2",
+      "tested_worktree_sha256": "7ac355d20579a1c881c504d3c6bb3c4060302095cc4bb8dce4bbe984f8994be2",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_numbering_independent.py": {
+      "commit_blob_sha256": "b22fce30e3857bedd556923b468a6117e6e30381b237cb6acef89e37ce05f934",
+      "tested_worktree_sha256": "b22fce30e3857bedd556923b468a6117e6e30381b237cb6acef89e37ce05f934",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_observation.py": {
+      "commit_blob_sha256": "0fa33ccea0b46939c4a66533213a6d3e2b07a1b5153954fc63a5c41b05892461",
+      "tested_worktree_sha256": "0fa33ccea0b46939c4a66533213a6d3e2b07a1b5153954fc63a5c41b05892461",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_observation_independent.py": {
+      "commit_blob_sha256": "6120a4a708453d3565a680c9bdca989ab0865d0165ca8f58b9516a6ca0412be8",
+      "tested_worktree_sha256": "6120a4a708453d3565a680c9bdca989ab0865d0165ca8f58b9516a6ca0412be8",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_observation_source_independent.py": {
+      "commit_blob_sha256": "49089992074f745dd2b83246e0f423e1848d401854ecd180bf21d278bc34fadd",
+      "tested_worktree_sha256": "49089992074f745dd2b83246e0f423e1848d401854ecd180bf21d278bc34fadd",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_predictions.py": {
+      "commit_blob_sha256": "aa990a5d9d3266c7e6275d0116af1aa6a6ccf6c6ee88226a4c012e654d6f23c1",
+      "tested_worktree_sha256": "aa990a5d9d3266c7e6275d0116af1aa6a6ccf6c6ee88226a4c012e654d6f23c1",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_predictions_dto_independent.py": {
+      "commit_blob_sha256": "7ae637448baaa201800f92b70fc6e74d989f6e3a937eaddb1fe26ea65411d3b5",
+      "tested_worktree_sha256": "7ae637448baaa201800f92b70fc6e74d989f6e3a937eaddb1fe26ea65411d3b5",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_predictions_independent.py": {
+      "commit_blob_sha256": "8b01b2853a1ba852cae59a4d004db2f0e6711c95fc21903e33107b88c715daff",
+      "tested_worktree_sha256": "8b01b2853a1ba852cae59a4d004db2f0e6711c95fc21903e33107b88c715daff",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_residue_evidence.py": {
+      "commit_blob_sha256": "9acce9fdfe77c23d7195a4c02944b063e4835662f895cd881e627385852b3ac7",
+      "tested_worktree_sha256": "9acce9fdfe77c23d7195a4c02944b063e4835662f895cd881e627385852b3ac7",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_structures.py": {
+      "commit_blob_sha256": "8c404096c331bc967e87a909802c85d5ca91d6c64b4d78737ea64b051349a87e",
+      "tested_worktree_sha256": "8c404096c331bc967e87a909802c85d5ca91d6c64b4d78737ea64b051349a87e",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "tests/test_structures_independent.py": {
+      "commit_blob_sha256": "02448c627d5e4519b5064a594789844c4f0b7adbc6026cd2c4e720e5da3fdeef",
+      "tested_worktree_sha256": "02448c627d5e4519b5064a594789844c4f0b7adbc6026cd2c4e720e5da3fdeef",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "commit_blob_sha256": "097ea4d9f80ced2d9f0c21ab3066fe14cd1fdefa228aa21805fe0426dbb0dd02",
+      "tested_worktree_sha256": "097ea4d9f80ced2d9f0c21ab3066fe14cd1fdefa228aa21805fe0426dbb0dd02",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "web/app.js": {
+      "commit_blob_sha256": "d66e6faf5ea0deb055e0a7816696870dedaed9ca8866d1834b96b8af17dc2d57",
+      "tested_worktree_sha256": "d66e6faf5ea0deb055e0a7816696870dedaed9ca8866d1834b96b8af17dc2d57",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "web/composition.js": {
+      "commit_blob_sha256": "36d9dc4d0b4190f19542287eba57d24d7fd3904263c9a7de9934832222e32d25",
+      "tested_worktree_sha256": "d113bc63590897e022c8aaeb27333f07359f9895d23f09bfe37792387a93f2d7",
+      "classification": "CRLF_ONLY"
+    },
+    "web/decisions.js": {
+      "commit_blob_sha256": "fe0a3abf7ec05bc68c1ed435e0410c6386d8e44d60423e64b1c49f74c8cc73a4",
+      "tested_worktree_sha256": "27bd514e8893a0a1d4cec6293d829c1ce5d591548a3f1407183ca1011d0514e3",
+      "classification": "CRLF_ONLY"
+    },
+    "web/design.js": {
+      "commit_blob_sha256": "117f3c71c820d254308c8f80c3c03d087f13c37810f8dc10648f46cd87b68e13",
+      "tested_worktree_sha256": "d48a4b258c878ec5e1ed4f21fc698431262fc83d60ae8401f6ba9104c4d19f0e",
+      "classification": "CRLF_ONLY"
+    },
+    "web/experiments.js": {
+      "commit_blob_sha256": "eca48ddb951b610c695aa19369ae85c739e254d1bb263074da3eebaaf10804d5",
+      "tested_worktree_sha256": "b1c963d66202e6a4694821ebee6995536f4d3e125766182cd1afac83036b0ff4",
+      "classification": "CRLF_ONLY"
+    },
+    "web/index.html": {
+      "commit_blob_sha256": "be55c8af9e8071019cc5e4ed2142c36a08d978841b48a0216b0b8b2ac6679bc7",
+      "tested_worktree_sha256": "be55c8af9e8071019cc5e4ed2142c36a08d978841b48a0216b0b8b2ac6679bc7",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "web/predictions.js": {
+      "commit_blob_sha256": "1c344752905b786efa1c2d1cc4df57ccad0ecd63e3731ead44715766f566bf0b",
+      "tested_worktree_sha256": "1c344752905b786efa1c2d1cc4df57ccad0ecd63e3731ead44715766f566bf0b",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "web/structures.js": {
+      "commit_blob_sha256": "bf851367cb3c373bba5cec2d06d1e8cddd49ea2c6df197ed5d2f3f68152ccb9e",
+      "tested_worktree_sha256": "9f7506d877c14473cf888eeb757ffadab970bf9fe9c305663c89ff003657b1a7",
+      "classification": "CRLF_ONLY"
+    },
+    "web/style.css": {
+      "commit_blob_sha256": "e367bc230bbd64b025c313d20c1963a66c5c96c0e33933b24907fa7b08fedde0",
+      "tested_worktree_sha256": "7ef8feb170ea6f8734b049bd6b6e8cfd06f8986670ff7050ee96c672d044690d",
+      "classification": "CRLF_ONLY"
+    },
+    "web/vendor/3Dmol-2.5.5.min.js": {
+      "commit_blob_sha256": "f7cc78921ae72e7623e89cdd111434f58c2efddd2ffda1cd212644b406fb8016",
+      "tested_worktree_sha256": "f7cc78921ae72e7623e89cdd111434f58c2efddd2ffda1cd212644b406fb8016",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "web/vendor/3Dmol-LICENSE.txt": {
+      "commit_blob_sha256": "4c6eaaed856f3f28a3b1a98e74f4a8a71618de7d51ea4155c29f6f793bcef861",
+      "tested_worktree_sha256": "4c6eaaed856f3f28a3b1a98e74f4a8a71618de7d51ea4155c29f6f793bcef861",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "web/vendor/Gemmi-MPL-2.0.txt": {
+      "commit_blob_sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "tested_worktree_sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "web/vendor/manifest.json": {
+      "commit_blob_sha256": "7e877ebe0daa0c889b8ab9ce498b46cb6e2923e1da29625ae8d7695ecaeb536d",
+      "tested_worktree_sha256": "d4ab309882103a1aee6fdadd3b99c47cba10311a10a5bea693aa6ca1eef05392",
+      "classification": "CRLF_ONLY"
+    },
+    "workspace_app/__init__.py": {
+      "commit_blob_sha256": "82efaba43b3690b59f35b20940b86dd61a0672f6e7be3b33853120b94c0e62b4",
+      "tested_worktree_sha256": "b31e32320b29cd65962628083b18ef1ca316ae4ad3bddc02f4f1a704a82a73da",
+      "classification": "CRLF_ONLY"
+    },
+    "workspace_app/adapters.py": {
+      "commit_blob_sha256": "d5dbfb37dd42d8fa7395663c42ad4886fd8ec9fd2cebb7f65229868f33012531",
+      "tested_worktree_sha256": "d5dbfb37dd42d8fa7395663c42ad4886fd8ec9fd2cebb7f65229868f33012531",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/assembly.py": {
+      "commit_blob_sha256": "330c46ae6c8488896ee2bf8090ad9bd59ffd1a4a664638bfb528357c1d1e55cc",
+      "tested_worktree_sha256": "330c46ae6c8488896ee2bf8090ad9bd59ffd1a4a664638bfb528357c1d1e55cc",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/composition.py": {
+      "commit_blob_sha256": "566ea2567103a2f1e4a5c8d90a0da3f230b15ef7a4df14deeb41c7444dec5d96",
+      "tested_worktree_sha256": "566ea2567103a2f1e4a5c8d90a0da3f230b15ef7a4df14deeb41c7444dec5d96",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/decisions.py": {
+      "commit_blob_sha256": "7d86aa169f85fffd34260f58dde45e462700e51959cb2a7c295893a1e8b07b5c",
+      "tested_worktree_sha256": "7d86aa169f85fffd34260f58dde45e462700e51959cb2a7c295893a1e8b07b5c",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/design.py": {
+      "commit_blob_sha256": "334e82fab2d8d36c2fef88828fbeb4dab47f8656f3f16898f07cdfe21a2c8544",
+      "tested_worktree_sha256": "334e82fab2d8d36c2fef88828fbeb4dab47f8656f3f16898f07cdfe21a2c8544",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/design_fixtures.py": {
+      "commit_blob_sha256": "bba4668ca720c9ae880966353333fe1e145a4611bdb4e339f00c8aaec40d065a",
+      "tested_worktree_sha256": "bba4668ca720c9ae880966353333fe1e145a4611bdb4e339f00c8aaec40d065a",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/discovery_fixtures.py": {
+      "commit_blob_sha256": "57ce0f51a2dd80beb772bf8071e7a8506b43ae6ca36b20b5046fdba3a960182d",
+      "tested_worktree_sha256": "57ce0f51a2dd80beb772bf8071e7a8506b43ae6ca36b20b5046fdba3a960182d",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/domain.py": {
+      "commit_blob_sha256": "ae624e70cc04edcdcf05cdc12a32d9c4d3c3fe5111056076996aa50a298c7df6",
+      "tested_worktree_sha256": "ae624e70cc04edcdcf05cdc12a32d9c4d3c3fe5111056076996aa50a298c7df6",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/experiments.py": {
+      "commit_blob_sha256": "d1d675133906854d584a1d6d5e43f3994e207e4e32790825d9f283ae348188ee",
+      "tested_worktree_sha256": "d1d675133906854d584a1d6d5e43f3994e207e4e32790825d9f283ae348188ee",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/fixtures.py": {
+      "commit_blob_sha256": "f70f5d8f7659fb2259ac9d347e2462802b180fa4ab5871d6711de0221be9cbc7",
+      "tested_worktree_sha256": "f70f5d8f7659fb2259ac9d347e2462802b180fa4ab5871d6711de0221be9cbc7",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/hypotheses.py": {
+      "commit_blob_sha256": "a18e16cbb639c2736dc59adb2de38f0e0477ae6970a2ec5f5612d74ea6740560",
+      "tested_worktree_sha256": "a18e16cbb639c2736dc59adb2de38f0e0477ae6970a2ec5f5612d74ea6740560",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/measurements.py": {
+      "commit_blob_sha256": "5333fc3913896340d345be14a990d274e5a33fe2d3176801d0a2ecc0e075530c",
+      "tested_worktree_sha256": "5333fc3913896340d345be14a990d274e5a33fe2d3176801d0a2ecc0e075530c",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/numbering.py": {
+      "commit_blob_sha256": "d6973ffcd0cc0de1225ee40fc2bd329963ceaa521018f2b29dc48d98cf3bdf4d",
+      "tested_worktree_sha256": "d6973ffcd0cc0de1225ee40fc2bd329963ceaa521018f2b29dc48d98cf3bdf4d",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/observation.py": {
+      "commit_blob_sha256": "3189d8d5b633a385dceb77ecc782b5791f3b3a1930adc5d40ec1f75d37687b4c",
+      "tested_worktree_sha256": "3189d8d5b633a385dceb77ecc782b5791f3b3a1930adc5d40ec1f75d37687b4c",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/predictions.py": {
+      "commit_blob_sha256": "37f2b0f545c484b272a92e6385b2f5694b5916c343d4e104127e6d7e3c5037db",
+      "tested_worktree_sha256": "37f2b0f545c484b272a92e6385b2f5694b5916c343d4e104127e6d7e3c5037db",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/residue_evidence.py": {
+      "commit_blob_sha256": "00507de650bbc47b1fce8eda46770ec484bcfd4ff3c4118a978a962287b4d0b8",
+      "tested_worktree_sha256": "00507de650bbc47b1fce8eda46770ec484bcfd4ff3c4118a978a962287b4d0b8",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/server.py": {
+      "commit_blob_sha256": "99beff8660df129d3975428198ffeb8b4a1d77d5874fa84a3ba49069c1fcc161",
+      "tested_worktree_sha256": "99beff8660df129d3975428198ffeb8b4a1d77d5874fa84a3ba49069c1fcc161",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/storage.py": {
+      "commit_blob_sha256": "baf15ff5ad928e19ee6a7157ef1a82683bb5102ee517596aece1e5219841e116",
+      "tested_worktree_sha256": "baf15ff5ad928e19ee6a7157ef1a82683bb5102ee517596aece1e5219841e116",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/structure_fixtures.py": {
+      "commit_blob_sha256": "5764d762feab311eb8dd294d977ee429f116ea92e8bb5d2aa627f9d1596976e9",
+      "tested_worktree_sha256": "5764d762feab311eb8dd294d977ee429f116ea92e8bb5d2aa627f9d1596976e9",
+      "classification": "EXACT_TESTED_BYTES"
+    },
+    "workspace_app/structures.py": {
+      "commit_blob_sha256": "864e93f87fb610f75ef6679c1c4f42c7a3208e6636aa18c3c67de274373681e9",
+      "tested_worktree_sha256": "864e93f87fb610f75ef6679c1c4f42c7a3208e6636aa18c3c67de274373681e9",
+      "classification": "EXACT_TESTED_BYTES"
+    }
+  },
+  "accepted_journeys": [
+    {
+      "journey": "J01",
+      "required_test_names": [
+        "e2e_j01_candidate_shortlist",
+        "e2e_j01_invalid_sequence",
+        "e2e_j01_missing_measurement"
+      ],
+      "artifacts_match_committed_blobs": true,
+      "status": "PASS"
+    },
+    {
+      "journey": "J02",
+      "required_test_names": [
+        "e2e_j02_humanize_variant",
+        "e2e_j02_numbering_unavailable",
+        "e2e_j02_insertion_mapping"
+      ],
+      "artifacts_match_committed_blobs": true,
+      "status": "PASS"
+    },
+    {
+      "journey": "J03",
+      "required_test_names": [
+        "e2e_j03_complex_comparison",
+        "e2e_j03_unmappable_residue",
+        "e2e_j03_missing_confidence"
+      ],
+      "artifacts_match_committed_blobs": true,
+      "status": "PASS"
+    },
+    {
+      "journey": "J04",
+      "required_test_names": [
+        "e2e_j04_developability_review",
+        "e2e_j04_unit_mismatch",
+        "e2e_j04_unknown_assay_condition"
+      ],
+      "artifacts_match_committed_blobs": true,
+      "status": "PASS"
+    },
+    {
+      "journey": "J05",
+      "required_test_names": [
+        "e2e_j05_bispecific_composition",
+        "e2e_j05_undefined_chain",
+        "e2e_j05_unsupported_analysis"
+      ],
+      "artifacts_match_committed_blobs": true,
+      "status": "PASS"
+    },
+    {
+      "journey": "J06",
+      "required_test_names": [
+        "e2e_j06_construct_sample_lineage",
+        "e2e_j06_unknown_sample_id",
+        "e2e_j06_incomparable_units"
+      ],
+      "artifacts_match_committed_blobs": true,
+      "status": "PASS"
+    },
+    {
+      "journey": "J07",
+      "required_test_names": [
+        "e2e_j07_candidate_decision",
+        "e2e_j07_missing_required_metric",
+        "e2e_j07_immutable_decision"
+      ],
+      "artifacts_match_committed_blobs": true,
+      "status": "PASS"
+    },
+    {
+      "journey": "J08",
+      "required_test_names": [
+        "e2e_j08_export_reimport",
+        "e2e_j08_duplicate_id",
+        "e2e_j08_corrupted_structure"
+      ],
+      "artifacts_match_committed_blobs": true,
+      "status": "PASS"
+    }
+  ],
+  "required_named_tests": 24,
+  "original_artifacts_exact_in_commit_and_worktree": 223,
+  "previous_evidence_files_preserved_in_implementation_commit": 400,
+  "previous_current_worktree_files_preserved": 399,
+  "active_registry_only_intended_update": "TEST_EVIDENCE/JOURNEY_ACCEPTANCE.json",
+  "historical_files": {
+    "TEST_EVIDENCE/J01-browser-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J01-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J01-saved-shortlist.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J01-two-candidate-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J02-browser-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J02-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J02-coordinate-design.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J02-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J03-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J03-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J04-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J04-saved-property-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J05-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/J05-composition-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/JOURNEY_ACCEPTANCE.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": false,
+      "intended_active_registry_update": true
+    },
+    "TEST_EVIDENCE/M0-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M0-screen-prototype.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-F06-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-browser-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-composition-design-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-composition-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-composition-independent-test-log.txt": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-composition-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-composition-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-evidence-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-explorer-800.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-independent-test-log.txt": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-initial-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-mobile.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M1-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-F07-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-F08-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-numbering-browser-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-numbering-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-numbering-design-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-numbering-explorer.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-numbering-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-numbering-independent-test-log.txt": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-numbering-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-numbering-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-observation-design-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-observation-independent-J01-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-observation-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-observation-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-observation-independent-runtime-replay-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-observation-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-observation-independent-test.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-retained-foundation-browser-review.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-structure-browser-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-structure-design-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-structure-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-structure-independent-test-log.txt": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-structure-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M2-structure-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-J02-harness-investigation.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-before-save-error-ownership-independent-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-design-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-domain-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-domain-independent-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J01-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J01-saved-shortlist.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J01-two-candidate-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J02-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J02-coordinate-design.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J02-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J03-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J03-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J04-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-J04-saved-property-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M1-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M1-evidence-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M2-numbering-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M2-observation-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M2-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M2-structure-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M3-numbered-design-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M3-numbered-design-independent-save-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-M3-observation-representation-independent-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-design-hypotheses-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-design-save-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-numbering-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-observation-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-public-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-final-retained-structures-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-implementation-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-J01-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-J02-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-J03-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-J04-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-J05-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-browser-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-composition-independent-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-composition-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-j01-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-j02-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-j05-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-observation-journeys-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-observation-representation-independent-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-observation-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-public-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-python-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-python-current.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-registration-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-composition-source-freeze-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-design-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-before-save-fix-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-before-save-fix-test.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-J01-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-J02-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-browser-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-save-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-save-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-independent-test.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-pre-registration-traceability.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-numbered-design-registration-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-before-intent-guard-independent-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-before-preview-wait-browser-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-design-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-J01-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-J01-saved-shortlist.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-J01-two-candidate-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-J02-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-J02-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-M1-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-M1-evidence-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-M2-numbering-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-M2-observation-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-M2-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-M2-structure-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-M3-numbered-design-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-M3-numbered-design-independent-save-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-design-hypotheses-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-design-save-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-numbering-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-observation-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-final-retained-structures-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-implementation-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-J01-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-J02-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-J03-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-J04-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-j01-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-j02-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-journeys-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-public-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-python-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-representation-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-representation-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-initial-retained-structure-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-python-current.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-registration-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-registration-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-representation-independent-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-representation-independent-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-retained-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-retained-design-hypotheses-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-retained-design-save-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-retained-j01-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-retained-j02-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-retained-numbering-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-retained-observation-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-retained-structures-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M3-observation-source-freeze-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J06-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J06-browser-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J06-construct-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J06-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J06-independent-construct-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J06-independent-material-observations.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J06-independent-replay-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J06-material-observations.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J07-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J07-browser-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-J07-final-review.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-assembly-envelope-before-contract-update.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-assembly-envelope-contract-independent-note.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-assembly-envelope-contract-reviewed-files.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-assembly-envelope-contract-targeted-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-constructs-design-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-design-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-domain-independent-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-domain-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-domain-independent-tests.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-independent-evidence-sha256.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-python.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J01-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J01-saved-shortlist.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J01-two-candidate-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J02-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J02-coordinate-design.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J02-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J03-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J03-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J04-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J04-saved-property-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J05-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-J05-composition-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M1-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M1-composition-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M1-evidence-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M2-numbering-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M2-numbering-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M2-observation-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M2-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M2-structure-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M3-composition-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M3-numbered-design-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M3-numbered-design-independent-save-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M3-observation-representation-independent-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M4-J06-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M4-J06-construct-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M4-J06-material-observations.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M4-experiments-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M4-numeric-transport-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-M4-numeric-transport-guards-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-artifact-public-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-design-hypotheses-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-design-save-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-numbering-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-observation-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-structures-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-uncommitted-M4-decisions-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-final-retained-uncommitted-M4-decisions-independent-frozen-draft.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-freeze-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-historical-byte-preservation.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J01-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J01-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J01-saved-shortlist.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J01-two-candidate-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J02-coordinate-design.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J02-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J02-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J02-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J03-J04-public-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J03-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J03-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J04-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J04-saved-property-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J05-composition-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J05-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J05-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J06-construct-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J06-material-observations.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J06-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J06-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J07-final-review.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J07-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-J07-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-before-gate-fixture-correction.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-browser-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-composition-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-composition-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-decision-edges-frozen-draft.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-decision-edges-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-decision-edges-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-experiments-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-experiments-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-frozen-draft.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-numeric-guards-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-numeric-guards-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-numeric-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-numeric-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-public-1MLC-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-public-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-python.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-replay-summary.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-representation-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-representation-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-pre-final-bounded-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-pre-final-bounded-independent-frozen-draft.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-pre-final-bounded-preservation.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-registration-independent-hash-check.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-registration-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-registration-independent-source-comparison.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-registration-independent-traceability.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-registration-reviewed-files.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-ui-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-ui-main-independent-final-review.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-ui-main-independent-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-ui-main-independent-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-decisions-ui-reviewed-files.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-freeze-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-independent-evidence-sha256.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-python.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J01-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J01-saved-shortlist.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J01-two-candidate-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J02-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J02-coordinate-design.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J02-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J03-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J03-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J04-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J04-saved-property-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J05-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-J05-composition-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M1-browser-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M1-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M1-composition-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M1-evidence-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-numbering-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-numbering-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-observation-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M2-structure-screen.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M3-composition-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M3-numbered-design-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M3-numbered-design-independent-save-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-M3-observation-representation-independent-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-artifact-public-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-design-hypotheses-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-design-save-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-numbering-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-observation-independent-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-structures-browser.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-final-retained-summary.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-freeze-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-historical-byte-preservation.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-J01-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-J01-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-J02-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-J02-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-J03-J04-public-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-before-file-ownership-fix-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-before-file-ownership-fix-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-browser-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J03-J04-public-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J03-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J03-saved-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J04-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J04-saved-property-hypothesis.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J05-composition-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J05-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J05-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J06-construct-comparison.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J06-material-observations.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J06-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-J06-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-composition-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-composition-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-experiments-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-experiments-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-harness-dependency-setup.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-numeric-guards-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-numeric-guards-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-numeric-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-numeric-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-public-1MLC-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-public-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-replay-summary.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-representation-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-representation-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-final-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-initial-startup-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-python.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-source-manifest.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-independent-startup-before-diagnostic-failure.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-python-pre-freeze.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-registration-independent-hash-check.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-registration-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-registration-independent-source-comparison.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-registration-independent-traceability.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-registration-reviewed-files.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-startup-diagnostic.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-ui-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-experiments-ui-reviewed-files.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-measurements-domain-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-measurements-domain-independent-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-measurements-domain-reviewed-files.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-before-fix-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-before-fix-browser-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-before-guard-fixture-correction.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-browser-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-guards-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-guards-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-independent-review.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-independent-run.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-numeric-transport-investigation.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/M4-retained-foundation-pre-freeze.log": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/README.md": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/public-1MLC-observation.png": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    },
+    "TEST_EVIDENCE/public-structure-browser-results.json": {
+      "implementation_commit_matches_old_git_blob": true,
+      "current_worktree_matches_initial": true,
+      "intended_active_registry_update": false
+    }
+  },
+  "metadata_files": {
+    "ADR/ADR-0011-prediction-source-import-and-reproducibility.md": "db8ef7c640e0801b907f6cb6b9d5e5e2396ff8c5ae6a6af32a02717222ed6539",
+    "CHANGELOG.md": "31a2f1071a77589997ba2aaf77481cf2fd45ce30dcbd090ecc988100caa0b18f",
+    "IMPLEMENTATION_TRACEABILITY.csv": "e238f3ce2b4a9e170c9331c759f50c3fa5d9c27b0e62094f5cbe870ad7d59e24",
+    "KNOWN_LIMITATIONS.md": "53c43a279f0991d5b46419bf42330f2ad12fe411d2f042f96244beea47720db1",
+    "README.ja.md": "3b211459e778814945b4110c34712be5647994bba586a50e870d2af4de701d82",
+    "README.md": "a3325cf0d6543c781547e7dc482e576ece089dde416bcef0fb39fa3891d27f1d",
+    "TEST_EVIDENCE/JOURNEY_ACCEPTANCE.json": "8c2f7261cc6d57dbbdd6f8f28b91aa86766f7341e21fe3beb1a4cfc2333918fd",
+    "TRACEABILITY.csv": "cc93874c346a19d4a9092b1fae63badff89c17b1571a1386ecccc0a45ba5bf0f",
+    "docs/ACCEPTANCE.md": "23d7ac755e69bdc4c93fa187e74991266ec85ce76dc0f2b848a441144553296a",
+    "docs/DATA_CONTRACT.md": "75f667c5e6ccd39b13b357acdb1665578ac9ff1fe5674823407791b712f42a62",
+    "docs/PREDICTION_IMPORT_CONTRACT.md": "5e158aa0fbe1a107827e04b74cd00f7689b83574357bf352aa7d5fb94ff4965a",
+    "docs/PRODUCT_ALIGNMENT.ja.md": "d6f8adac99287543689a698b71f80e0a0c7b0cf02d5cda71fc66a7ad87b4488e",
+    "docs/PRODUCT_ALIGNMENT.md": "afe21759c2275667ab17c8fdb8163134b305bcb7429bbb576aac2f0d7f3324db",
+    "docs/PROGRESS.md": "19700bfcdeed6af60beeef8ea5e2af8eb97de5697fc025042c8cf893bc236deb",
+    "docs/SCIENTIFIC_UX.md": "2530094c435fcab267000d00484b1be98da02f2639c84e9ba8553afa19f5661a",
+    "TEST_EVIDENCE/M5-release-gates.json": "9106bafcfb9f0f8d4e5e7001eeeab66ce108943e8fcede7445df384a391f5a0b"
+  },
+  "traceability_check_exit_code": 0,
+  "overall_release_status": "INCOMPLETE",
+  "m5_quality_exit_status": "INCOMPLETE",
+  "human_review_counts": {
+    "goldens": 0,
+    "roles": 0
+  },
+  "runtime_or_browser_retests_performed": false,
+  "reviewer": "/root/m5_integration_review",
+  "timestamp": "2026-11-04T19:03:42.703762+00:00"
+}
