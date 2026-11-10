@@ -23,7 +23,7 @@ async function sourceClick(page,id,source){
  page.on('pageerror',(e)=>errors.push(e.message));await context.route('**/*',async(r)=>{if(!r.request().url().startsWith(origin+'/')){outbound.push(r.request().url());await r.abort();}else await r.continue();});
  await page.goto(origin);let bundle,molecules,structures;
  await check('PDB and mmCIF fixture preview is local and explicit',async()=>{
-  await page.getByRole('button',{name:'Import data',exact:true}).click();await page.getByRole('button',{name:'Preview structure fixture',exact:true}).click();
+  await page.getByRole('button',{name:'Import data',exact:true}).click();await page.locator('#engineering-fixtures').evaluate((el)=>el.open=true);await page.getByRole('button',{name:'Preview structure fixture',exact:true}).click();
   await page.getByRole('button',{name:/Save \d+ valid rows/}).click();await page.locator('#candidate-count').filter({hasText:'2'}).waitFor();
   bundle=await page.evaluate(async()=>{const p=(await(await fetch('/api/bootstrap')).json()).projects[0];return await(await fetch('/api/bundle?project_id='+p.id)).json();});
   molecules=bundle.entities.filter((e)=>e.type==='molecule');structures=bundle.entities.filter((e)=>e.type==='structure');
@@ -143,7 +143,7 @@ async function sourceClick(page,id,source){
   await page.getByRole('combobox',{name:'Structure for STR-002',exact:true}).selectOption(structures[1].id);await viewer(page,molecules[1].id);
  });
  await check('project switching keeps structural IDs and camera context in their own project',async()=>{
-  await page.getByRole('button',{name:'Import data',exact:true}).click();await page.getByRole('button',{name:'Preview synthetic example',exact:true}).click();await page.getByRole('button',{name:/Save \d+ valid rows/}).click();await page.locator('#candidate-count').filter({hasText:'8'}).waitFor();
+  await page.getByRole('button',{name:'Import data',exact:true}).click();await page.locator('#engineering-fixtures').evaluate((el)=>el.open=true);await page.getByRole('button',{name:'Preview synthetic example',exact:true}).click();await page.getByRole('button',{name:/Save \d+ valid rows/}).click();await page.locator('#candidate-count').filter({hasText:'8'}).waitFor();
   const stored=await page.evaluate(()=>{const id=localStorage.getItem('awx-project');return JSON.parse(localStorage.getItem('awx-state-'+id));});
   assert.deepEqual(stored.structureViews,{});assert.deepEqual(stored.structureResidues,{});
   await page.getByRole('combobox',{name:'Project',exact:true}).selectOption(bundle.project.id);await viewer(page,molecules[0].id);

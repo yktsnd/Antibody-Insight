@@ -141,3 +141,30 @@ def numbering_bundle(count=8):
         molecule["chains"] = chains
     bundle["entities"].extend(maps)
     return bundle
+
+
+def research_example_bundle():
+    """One paired, explicitly invented research task; never real assay evidence."""
+    bundle = numbering_bundle(2)
+    bundle['project']['title'] = '[SYNTHETIC EXAMPLE] Which paired candidate should we investigate next?'
+    bundle['project']['goal'] = 'Compare H/L sequences, inspect each original material and assay condition, then retain a reason and next experiment. Invented data only.'
+    bundle['entities'] = [e for e in bundle['entities'] if not (e['type'] == 'evidence' and e['kind'] == 'computed')]
+    molecules = [e for e in bundle['entities'] if e['type'] == 'molecule']
+    for i, molecule in enumerate(molecules):
+        molecule['name'] = f'Paired synthetic candidate {i + 1}'
+        molecule['external_id'] = f'EXAMPLE-{i + 1}'
+        molecule['format'] = 'declared paired variable-domain example; no validated assembly'
+    for i, evidence in enumerate(e for e in bundle['entities'] if e['type'] == 'evidence'):
+        evidence.update(metric='illustrative_binding_response', value=[120., 90.][i], unit='RU',
+                        conditions={'assay': 'INVENTED binding-response example', 'temperature_C': 25})
+    materials = [e for e in bundle['entities'] if e['type'] == 'material']
+    for i, material in enumerate(materials):
+        alternate = material['name'] == 'Fixture alternate lot'
+        bundle['entities'].append({'id': fixture_id('evidence', f'paired-example-property-{i}'), 'type': 'evidence',
+            'project_id': bundle['project']['id'], 'created_at': STAMP, 'timestamp': STAMP,
+            'subject_id': material['id'], 'kind': 'measured',
+            'metric': 'illustrative_binding_response' if alternate else 'illustrative_transition_temperature',
+            'value': 80. if alternate else None if i == 0 else 62., 'unit': 'RU' if alternate else '°C',
+            'conditions': {'assay': 'INVENTED binding-response example' if alternate else 'INVENTED thermal example', 'temperature_C': 37} if alternate else {'assay': 'INVENTED thermal example', 'buffer': 'example buffer'},
+            'source': {'name': 'SYNTHETIC EXAMPLE, not an actual experiment', 'version': '1'}})
+    return bundle

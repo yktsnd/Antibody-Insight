@@ -8,7 +8,7 @@ from __future__ import annotations
 import copy
 
 from . import __version__
-from .domain import SCHEMA, fields, identifier, json_value, molecule_id_for, new_id, now, nullable_text, require, source, text, validate_graph
+from .domain import SCHEMA, fields, identifier, json_value, molecule_id_for, new_id, now, nullable_text, require, source, text, validate_extension
 
 
 def id_list(value, kind, label, nonempty=False):
@@ -53,7 +53,7 @@ def validate_hypothesis_shape(record):
             require(alt is None or isinstance(alt, str) and len(alt) <= 1, "Retain the actual alternate-location identifier or unknown null")
 
 
-def validate_hypothesis_references(index):
+def validate_hypothesis_references(index, existing_entity_ids=frozenset()):
     for record in index.values():
         if record["type"] != "hypothesis":
             continue
@@ -94,11 +94,15 @@ def validate_hypothesis_references(index):
                 require(mapping["structure_id"] == structure["id"], "Hypothesis correspondence belongs to another coordinate source")
                 require(any(assignment["model"] == ref["model"] for assignment in mapping["chain_assignments"]),
                         "Hypothesis correspondence does not cover the selected source model")
+                if record['id'] not in existing_entity_ids:
+                    from .structures import correspondence_order
+                    status, warning = correspondence_order(mapping, parse_structure(structure['content'], structure['file_format']))
+                    require(status == 'verified', warning)
 
 
 def hypothesis_preview(bundle, definition):
     fields(definition, {"text", "question", "limitations", "molecule_ids", "related_evidence_ids", "lineage_ids", "residue_refs", "structure_refs"}, "hypothesis definition")
     record = {**copy.deepcopy(definition), "id": new_id("hypothesis"), "type": "hypothesis", "project_id": bundle["project"]["id"],
               "created_at": now(), "status": "proposed", "source": {"name": "Antibody Insight local researcher entry", "version": __version__}}
-    validate_graph(bundle["project"], [*bundle["entities"], record])
+    validate_extension(bundle["project"], bundle["entities"], [record])
     return {"schema_version": SCHEMA, "project": copy.deepcopy(bundle["project"]), "entities": [record]}

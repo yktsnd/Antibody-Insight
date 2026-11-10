@@ -260,7 +260,16 @@ def validate_entity(entity, project_id):
         require(isinstance(entity["evidence_snapshot"], list), "Evidence snapshot must be list")
 
 
-def validate_graph(project, entities):
+def validate_extension(project, previous, incoming):
+    """Validate an append against trusted stored records, never caller exemptions.
+
+    Legacy maps retain all identity/reference checks. Their source-order status
+    is checked when observed; newly supplied maps and hypotheses are checked now.
+    """
+    return validate_graph(project, [*previous, *incoming], existing_entity_ids={e['id'] for e in previous})
+
+
+def validate_graph(project, entities, *, existing_entity_ids=frozenset()):
     validate_project(project)
     require(isinstance(entities, list) and len(entities) <= 50000, "Entity list too large or invalid")
     index = {}
@@ -315,9 +324,9 @@ def validate_graph(project, entities):
     from .numbering import validate_numbering_references
     validate_numbering_references(project, index)
     from .structures import validate_structure_references
-    validate_structure_references(index)
+    validate_structure_references(index, existing_entity_ids)
     from .hypotheses import validate_hypothesis_references
-    validate_hypothesis_references(index)
+    validate_hypothesis_references(index, existing_entity_ids)
     from .decisions import validate_decision_references
     validate_decision_references(index)
     from .predictions import validate_prediction_references
@@ -327,7 +336,7 @@ def validate_graph(project, entities):
 
 def shortlist(project, entities, candidate_ids, evidence_ids, reason):
     """Immutable draft, not an acceptance of incomplete scientific criteria."""
-    index = validate_graph(project, entities)
+    index = validate_extension(project, entities, [])
     require(isinstance(evidence_ids, list) and all(isinstance(x, str) for x in evidence_ids), "Evidence IDs must be list of text")
     require(len(set(evidence_ids)) == len(evidence_ids), "Duplicate evidence IDs")
     require(all(x in index and index[x]["type"] == "evidence" for x in evidence_ids), "Unknown evidence ID")
@@ -336,5 +345,5 @@ def shortlist(project, entities, candidate_ids, evidence_ids, reason):
                 "created_at": created, "timestamp": created, "candidate_ids": candidate_ids,
                 "criteria": [], "evidence_snapshot": [copy.deepcopy(index[x]) for x in evidence_ids],
                 "reason": reason, "revision": 1, "supersedes": None, "status": "draft"}
-    validate_graph(project, [*entities, decision])
+    validate_extension(project, entities, [decision])
     return decision

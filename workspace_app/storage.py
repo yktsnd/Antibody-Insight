@@ -7,7 +7,7 @@ import sqlite3
 from contextlib import closing
 from pathlib import Path
 
-from .domain import SCHEMA, ValidationError, fields, require, shortlist, validate_graph, validate_transport_size
+from .domain import SCHEMA, ValidationError, fields, require, shortlist, validate_extension, validate_transport_size
 
 
 class Store:
@@ -78,7 +78,7 @@ class Store:
                     old = self._bundle(db, project["id"])
                     require(old["project"] == project, "Project ID collision: contents differ")
                     previous = old["entities"]
-                validate_graph(project, previous + incoming)
+                validate_extension(project, previous, incoming)
                 validate_transport_size(project, previous + incoming)
                 existing_ids = {r[0] for r in db.execute("SELECT id FROM entities")}
                 collisions = [e["id"] for e in incoming if e["id"] in existing_ids]

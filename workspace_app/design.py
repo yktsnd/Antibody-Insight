@@ -9,7 +9,7 @@ import copy
 
 from . import __version__
 from .composition import composition_signature, exact_json
-from .domain import SCHEMA, fields, identifier, json_value, new_id, now, require, text, validate_graph
+from .domain import SCHEMA, fields, identifier, json_value, new_id, now, require, text, validate_extension
 from .numbering import coordinate_key, observe_map, region_for
 
 TARGETS = frozenset("ACDEFGHIKLMNPQRSTVWY")
@@ -142,5 +142,5 @@ def variant_preview(bundle, parent_id, name, external_id, reason, substitutions)
     lineage = {"id": new_id("lineage"), "type": "lineage", "project_id": bundle["project"]["id"], "created_at": stamp,
                "parent_id": parent_id, "child_id": child["id"], "change_set": {"kind": "substitution", "reason": reason,
                "before": composition_signature(parent), "after": composition_signature(child), "mutations": mutations}}
-    validate_graph(bundle["project"], [*bundle["entities"], child, lineage])
+    validate_extension(bundle["project"], bundle["entities"], [child, lineage])
     return {"schema_version": SCHEMA, "project": copy.deepcopy(bundle["project"]), "entities": [child, lineage]}

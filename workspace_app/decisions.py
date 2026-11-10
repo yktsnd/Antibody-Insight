@@ -10,7 +10,7 @@ import json
 from . import __version__
 from .adapters import parse_json
 from .domain import (MAX_SAFE_INTEGER, SCHEMA, ValidationError, fields, identifier, molecule_id_for,
-                     new_id, now, number, require, source, text, validate_graph)
+                     new_id, now, number, require, source, text, validate_extension)
 from .hypotheses import id_list
 from .observation import context_issue, context_key
 
@@ -186,7 +186,7 @@ def decision_context(bundle, candidate_ids):
 def decision_review(bundle, definition):
     fields(definition, {'candidate_ids', 'chosen_candidate_ids', 'criteria', 'hypothesis_ids', 'supporting_evidence_ids',
                         'reason', 'status', 'supersedes'}, 'Decision definition')
-    index = validate_graph(bundle['project'], bundle['entities'])
+    index = validate_extension(bundle['project'], bundle['entities'], [])
     data = copy.deepcopy(definition)
     id_list(data['supporting_evidence_ids'], 'evidence', 'Supporting Evidence')
     require(isinstance(data['criteria'], list) and len(data['criteria']) <= 20, 'Decision supports up to 20 explicit criteria')
@@ -211,6 +211,6 @@ def decision_review(bundle, definition):
     for key in needed:
         _scoped_evidence(index, key, record['candidate_ids'])
     record['evidence_snapshot'] = [copy.deepcopy(index[key]) for key in sorted(needed)]
-    validate_graph(bundle['project'], [*bundle['entities'], record])
+    validate_extension(bundle['project'], bundle['entities'], [record])
     return {'bundle': {'schema_version': SCHEMA, 'project': copy.deepcopy(bundle['project']), 'entities': [record]},
             'review': _review_record(record, index)}

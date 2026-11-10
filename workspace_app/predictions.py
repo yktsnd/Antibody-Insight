@@ -12,7 +12,7 @@ from . import __version__
 from .adapters import parse_json
 from .domain import (MAX_SAFE_INTEGER, PREFIX, SCHEMA, ValidationError, fields, identifier, json_value,
                      new_id, now, number, require, source, text, timestamp, validate_entity,
-                     validate_graph, validate_transport_size)
+                     validate_extension, validate_transport_size)
 from .structures import parse_structure
 
 CANONICAL = 'computed-evidence/1'
@@ -263,7 +263,7 @@ def prediction_preview(bundle, raw, filename, file_format, bindings, options, bi
         entity['id'] = new_id('evidence'); evidence.append(entity)
         record['allocations'].append({'json_pointer': pointer, 'evidence_id': entity['id']})
     incoming = [record, *evidence] if evidence else []
-    validate_graph(bundle['project'], [*bundle['entities'], *incoming])
+    validate_extension(bundle['project'], bundle['entities'], incoming)
     validate_transport_size(bundle['project'], [*bundle['entities'], *incoming])
     repeats = [e['id'] for e in bundle['entities'] if e['type'] == 'prediction_file' and e['sha256'] == digest]
     report = {'kind': 'computed_json', 'total_rows': len(expected)+len(excluded), 'valid_rows': len(evidence), 'excluded': excluded,

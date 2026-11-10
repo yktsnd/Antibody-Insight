@@ -9,3 +9,4 @@ TEST_EVIDENCE/M3-observation-* -text -whitespace
 TEST_EVIDENCE/M3-composition-* -text -whitespace
 TEST_EVIDENCE/M4-* -text -whitespace
 TEST_EVIDENCE/M5-* -text -whitespace
+TEST_EVIDENCE/M6-* -text -whitespace

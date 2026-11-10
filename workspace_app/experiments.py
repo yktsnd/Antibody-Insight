@@ -3,7 +3,7 @@
 import copy
 
 from . import __version__
-from .domain import SCHEMA, fields, identifier, new_id, now, require, validate_graph
+from .domain import SCHEMA, fields, identifier, new_id, now, require, validate_extension
 from .observation import context_issue, context_key
 
 
@@ -15,7 +15,7 @@ def metadata_preview(bundle, definition):
     fields(definition, expected, 'metadata definition')
     record = {**copy.deepcopy(definition), 'id': new_id(kind), 'project_id': bundle['project']['id'], 'created_at': now(),
               'source': {'name': 'Antibody Insight local researcher metadata entry', 'version': __version__}}
-    validate_graph(bundle['project'], [*bundle['entities'], record])
+    validate_extension(bundle['project'], bundle['entities'], [record])
     return {'schema_version': SCHEMA, 'project': copy.deepcopy(bundle['project']), 'entities': [record]}
 
 

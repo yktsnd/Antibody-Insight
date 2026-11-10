@@ -4,7 +4,7 @@ import copy
 
 from . import __version__
 from .composition import composition_signature
-from .domain import SCHEMA, fields, identifier, new_id, now, nullable_text, require, sequence, text, validate_graph
+from .domain import SCHEMA, fields, identifier, new_id, now, nullable_text, require, sequence, text, validate_extension
 
 
 def _source_component(part, index):
@@ -75,7 +75,7 @@ def composition_preview(bundle, definition):
         records.append({**common, 'id': new_id('evidence'), 'type': 'evidence', 'subject_id': molecule['id'], 'kind': 'annotation',
                         'metric': 'composition_design_note', 'description': definition['note'], 'source': copy.deepcopy(source),
                         'timestamp': stamp, 'conditions': None, 'value': None, 'unit': None})
-    validate_graph(bundle['project'], [*bundle['entities'], *records])
+    validate_extension(bundle['project'], bundle['entities'], records)
     return {'schema_version': SCHEMA, 'project': copy.deepcopy(bundle['project']), 'entities': records}
 
 

@@ -53,7 +53,7 @@ async function fromPage(page, route, data) {
   await check('empty workspace and explicit fixture preview', async () => {
     await page.goto(server.origin);await page.getByRole('heading',{name:'Candidate Explorer',exact:true}).waitFor();
     await page.getByRole('button',{name:'Import data',exact:true}).click();
-    await page.getByRole('button',{name:'Preview synthetic example'}).click();
+    await page.locator('#engineering-fixtures').evaluate((el)=>el.open=true);await page.getByRole('button',{name:'Preview synthetic example'}).click();
     await bodyContains(page,'Synthetic fixture. These are invented engineering values');
     assert.equal(await page.evaluate(async () => (await (await fetch('/api/bootstrap')).json()).projects.length),0);
     await page.getByRole('button',{name:/Save \d+ valid rows/}).click();
@@ -99,9 +99,9 @@ async function fromPage(page, route, data) {
   });
   await check('English and Japanese researcher explanations use curated terminology',async () => {
     await page.getByRole('button',{name:'Researcher guide / 利用ガイド'}).click();
-    await page.locator('#help-language').selectOption('ja');await bodyContains(page,'humanizationは「ヒト化」です');
+    await page.locator('#help-language').selectOption('ja');await page.getByText('専門用語：ヒト化とヒト抗体らしさ',{exact:true}).click();await bodyContains(page,'humanizationは「ヒト化」です');
     assert.equal((await page.locator('#help-content').textContent()).includes('人源化'),false);
-    await page.locator('#help-language').selectOption('en');await bodyContains(page,'Humanization means engineering');
+    await page.locator('#help-language').selectOption('en');await page.getByText('Domain terminology: humanization and humanness',{exact:true}).click();await bodyContains(page,'Humanization means engineering');
     await page.getByRole('button',{name:'Close guide',exact:true}).click();
   });
   await check('duplicate ID rejected atomically; unknown fields and corrupt structures do not change state',async () => {
@@ -144,7 +144,7 @@ async function fromPage(page, route, data) {
   await check('F06 declared units component order copy counts and lineage in the workspace',async () => {
     // Keep the existing fixture project to verify real same-workspace coexistence.
     await page.goto(server.origin);await page.getByRole('button',{name:'Import data',exact:true}).click();
-    await page.getByRole('button',{name:'Preview composition fixture',exact:true}).click();
+    await page.locator('#engineering-fixtures').evaluate((el)=>el.open=true);await page.getByRole('button',{name:'Preview composition fixture',exact:true}).click();
     await page.getByRole('button',{name:/Save \d+ valid rows/}).click();
     await page.locator('#candidate-count').filter({hasText:'9'}).waitFor();
     await page.getByRole('checkbox',{name:'Select COMP-001',exact:true}).check();

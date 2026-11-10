@@ -90,7 +90,7 @@ def _pdb_atoms(content, gemmi):
                           "residue_name": line[17:20].strip(), "atom_name": line[12:16].strip(), "altloc": line[16:17].strip(),
                           "source_atom_id": str(serial), "x": _float(line[30:38]), "y": _float(line[38:46]), "z": _float(line[46:54]),
                           "occupancy": _float(line[54:60], True), "b_value": _float(line[60:66], True),
-                          "element": line[76:78].strip(), "hetero": record == "HETATM"})
+                          "element": line[76:78].strip(), "hetero": record == "HETATM", "source_part": part})
             any_atoms = True
             require(len(atoms) <= MAX_ATOMS, "Structure exceeds 100,000 atoms")
     require(not opened, "Unclosed PDB model")
@@ -174,6 +174,39 @@ def parse_structure(content, file_format):
         residue["atom_indices"].append(atom["index"])
         if atom["altloc"] not in residue["altlocs"]: residue["altlocs"].append(atom["altloc"])
         chains.setdefault(ckey, {field: atom[field] for field in CHAIN_FIELDS})
+    # Derived source order, never a numeric/lexical sort of author identifiers.
+    # PDB ATOM protein records are N->C within a TER-delimited chain; CIF
+    # label_seq_id addresses entity_poly_seq.num, independently of row order.
+    groups, last, revisited = defaultdict(dict), {}, set()
+    for atom in atoms:
+        key = residue_key(atom)
+        group = ((atom["model"], atom["auth_chain"], atom["segment"], atom["source_part"])
+                 if file_format == "pdb" else (atom["model"], atom["label_asym"]))
+        if file_format == "pdb" and not atom["hetero"]:
+            if last.get(group) != key:
+                if key in groups[group]: revisited.add(group)
+                groups[group].setdefault(key, len(groups[group]) + 1)
+                last[group] = key
+        elif file_format == "mmcif" and key not in groups[group]:
+            groups[group][key] = len(groups[group]) + 1
+    labels = defaultdict(lambda: defaultdict(int))
+    if file_format == "mmcif":
+        for group, keys in groups.items():
+            for key in keys: labels[group][residues[key]["label_number"]] += 1
+    for residue in residues.values():
+        members = [atoms[i] for i in residue["atom_indices"]]
+        first = members[0]
+        group = ((first["model"], first["auth_chain"], first["segment"], first["source_part"])
+                 if file_format == "pdb" else (first["model"], first["label_asym"]))
+        if file_format == "pdb":
+            known = all(not a["hetero"] for a in members) and group not in revisited
+            order = groups[group][residue_key(residue)] if known else None
+        else:
+            label = residue["label_number"]
+            known = first["model"] is not None and first["label_asym"] is not None and label is not None and label > 0
+            known = known and labels[group][label] == 1
+            order = label if known else None
+        residue["polymer_group"], residue["polymer_order"] = list(group), order
     return {"parser": {"name": "Gemmi", "version": gemmi.__version__}, "atoms": atoms,
             "residues": list(residues.values()), "chains": list(chains.values()), "models": sorted({a["model"] for a in atoms}, key=lambda m: (m is None, m or 0))}
 
@@ -240,7 +273,38 @@ def validate_model_metric(entity):
         require(entity['value'] is None or 0 <= entity['value'] <= 1, 'ipTM/pTM value is outside its source-defined range')
 
 
-def validate_structure_references(index):
+def correspondence_order(mapping, parsed):
+    """Return verified/unverified/contradictory without altering stored maps.
+
+    Checks relative polymer order, not alignment correctness or a biological
+    validation. Unknown source order must never drive reciprocal highlighting.
+    """
+    source = {residue_key(r): r for r in parsed["residues"]}
+    groups, partitions, unknown = defaultdict(list), defaultdict(set), False
+    for entry in mapping["residues"]:
+        if entry["status"] != "mapped": continue
+        residue = source.get(residue_key(entry["structure_residue"]))
+        if residue is None or residue["polymer_order"] is None:
+            unknown = True
+            continue
+        group = tuple(residue["polymer_group"])
+        groups[(entry["chain_id"], group)].append((entry["sequence_index"], residue["polymer_order"]))
+        partitions[(entry["chain_id"], chain_key(residue))].add(group)
+    for positions in groups.values():
+        ordered = sorted(positions)
+        if any(left[1] >= right[1] for left, right in zip(ordered, ordered[1:])):
+            return "contradictory", "Sequence order contradicts source polymer residue order; review the correspondence."
+    if unknown or any(len(parts) > 1 for parts in partitions.values()):
+        return "unverified", "Source polymer order is unavailable or crosses TER partitions; sequence/coordinate linking is withheld."
+    return "verified", None
+
+
+def require_order_consistency(mapping, parsed):
+    status, message = correspondence_order(mapping, parsed)
+    require(status != "contradictory", message)
+
+
+def validate_structure_references(index, existing_entity_ids=frozenset()):
     for entity in index.values():
         if entity["type"] == "structure":
             subject = index.get(entity["molecule_id"])
@@ -279,6 +343,8 @@ def validate_structure_references(index):
                 target = tuple(entry["structure_residue"][key] for key in sorted(RESIDUE_FIELDS - {"residue_name"}))
                 require(target not in seen_residues, "One structural residue locus cannot map to two sequence positions or alternatives")
                 seen_residues.add(target)
+            if entity["id"] not in existing_entity_ids:
+                require_order_consistency(entity, parsed)
         elif entity["type"] == "evidence":
             validate_model_metric(entity)
             subject = index.get(entity["subject_id"])
@@ -296,6 +362,9 @@ def structure_observation(bundle, structure_id, map_id=None):
     maps = [e for e in bundle["entities"] if e["type"] == "structure_map" and e["structure_id"] == structure_id]
     selected = next((e for e in maps if e["id"] == map_id), None) if map_id else (maps[0] if len(maps) == 1 else None)
     require(map_id is None or selected is not None, "Selected structural correspondence is unavailable")
+    status, warning = correspondence_order(selected, parsed) if selected else ("unselected", None)
+    if status != "verified": selected = None
     return {"structure": {key: value for key, value in structure.items() if key != "content"}, "parsed": parsed,
+            "mapping_status": status, "mapping_warning": warning,
             "map": selected, "map_options": [{"id": e["id"], "source": e["source"]} for e in maps],
             "confidence": [e for e in bundle["entities"] if e["type"] == "evidence" and e["subject_id"] == structure_id and e["kind"] == "computed"]}

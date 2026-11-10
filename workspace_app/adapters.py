@@ -9,7 +9,7 @@ import io
 import json
 from decimal import Decimal
 
-from .domain import AA, SCHEMA, ValidationError, fields, new_id, now, require, validate_entity, validate_project
+from .domain import AA, SCHEMA, ValidationError, fields, new_id, now, require, text, validate_entity, validate_project
 
 
 def parse_json(raw):
@@ -84,9 +84,57 @@ def csv_rows(raw):
         raise ValidationError("Malformed CSV") from exc
 
 
-def preview(raw, file_format, filename, project, structure_options=None):
+def grouped_fasta_preview(raw, filename, project, options):
+    """Explicit record-to-molecule/chain registration, never inferred pairing."""
+    validate_project(project)
+    fields(options, {'assignments', 'text_sha256', 'molecular_format'}, 'FASTA grouping options')
+    rows = fasta_rows(raw)
+    require(len(rows) <= 10000, 'Maximum 10,000 sequence records per import')
+    digest = hashlib.sha256(raw.encode('utf-8')).hexdigest()
+    for row in rows:
+        require(bool(row['external_id']) and bool(row['sequence']) and set(row['sequence']) <= AA,
+                f"FASTA line {row['row']}: header and valid amino-acid sequence are required; no grouped records saved")
+        require(len(row['sequence']) <= 100000, 'Sequence exceeds length limit')
+    report = {'kind': 'grouped_fasta', 'total_rows': len(rows), 'valid_rows': 0,
+              'excluded': [], 'duplicates': [], 'warnings': [], 'text_sha256': digest,
+              'sequence_records': [{'record_index': i, **row} for i, row in enumerate(rows)]}
+    result = {'bundle': {'schema_version': SCHEMA, 'project': project, 'entities': []}, 'report': report}
+    if options['assignments'] is None: return result
+    require(options['text_sha256'] == digest, 'FASTA text changed; review source records and assign chains again')
+    text(options['molecular_format'], 'Declared molecular format', 500)
+    assignments = options['assignments']
+    require(isinstance(assignments, list) and len(assignments) == len(rows), 'Assign every source record explicitly')
+    groups, used = {}, set()
+    for assignment in assignments:
+        fields(assignment, {'record_index', 'external_id', 'chain_id', 'role'}, 'FASTA chain assignment')
+        position = assignment['record_index']
+        require(type(position) is int and 0 <= position < len(rows) and position not in used, 'Duplicate or unknown FASTA record assignment')
+        used.add(position)
+        for key in ('external_id', 'chain_id', 'role'):
+            text(assignment[key], 'Declared ' + key, 100 if key != 'external_id' else 500)
+            require(assignment[key] == assignment[key].strip(), 'Remove surrounding whitespace from declared IDs/roles')
+        external = assignment['external_id']
+        group = groups.setdefault(external, {'chains': [], 'records': []})
+        require(assignment['chain_id'] not in {c['id'] for c in group['chains']}, 'Duplicate chain ID within a declared candidate')
+        group['chains'].append({'id': assignment['chain_id'], 'role': assignment['role'], 'sequence': rows[position]['sequence']})
+        group['records'].append(f"record {position + 1}, line {rows[position]['row']}, header {rows[position]['external_id']}")
+    for external, group in groups.items():
+        entity = {'id': new_id('molecule'), 'type': 'molecule', 'project_id': project['id'], 'created_at': now(),
+                  'external_id': external, 'name': external, 'format': options['molecular_format'], 'chains': group['chains'],
+                  'source': {'name': filename + '; explicit FASTA grouping: ' + '; '.join(group['records']), 'version': 'sha256:' + digest}}
+        validate_entity(entity, project['id'])
+        result['bundle']['entities'].append(entity)
+    report['valid_rows'] = len(rows)
+    report['warnings'] = [{'message': 'Candidate/chain roles and molecular format are user declarations, not biological validation. Source record order is not a pairing rule.'}]
+    report['sequence_records'] = []
+    return result
+
+
+def preview(raw, file_format, filename, project, structure_options=None, sequence_options=None):
     require(isinstance(raw, str), "File text required")
     require(isinstance(filename, str) and 0 < len(filename) <= 500, "Source filename required")
+    if file_format == 'fasta_grouped':
+        return grouped_fasta_preview(raw, filename, project, sequence_options)
     if file_format in ("pdb", "mmcif"):
         require(isinstance(structure_options, dict), "Import sequences first, then explicitly choose a structure's molecule")
         fields(structure_options, {"molecule_id", "origin_kind", "source_name", "source_version"}, "structure options")

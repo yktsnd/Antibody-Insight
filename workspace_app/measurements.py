@@ -11,7 +11,7 @@ from decimal import Decimal, InvalidOperation
 from . import __version__
 from .adapters import parse_json
 from .domain import (MAX_SAFE_INTEGER, PREFIX, SCHEMA, ValidationError, fields, identifier,
-                     new_id, now, number, require, source, text, validate_entity, validate_graph)
+                     new_id, now, number, require, source, text, validate_entity, validate_extension)
 
 
 def validate_import_origin(origin):
@@ -146,7 +146,7 @@ def measurement_preview(bundle, raw, filename, mappings=None, file_source=None, 
         except ValidationError as exc:
             report['excluded'].append({'record_index': record_index, 'row': line_number, 'material_ref': ref,
                                        'reason': str(exc), 'details': exc.details})
-    validate_graph(bundle['project'], [*bundle['entities'], *entities])
+    validate_extension(bundle['project'], bundle['entities'], entities)
     report['valid_rows'] = len(entities)
     report['unresolved_refs'] = sorted(unresolved)
     return {'bundle': {'schema_version': SCHEMA, 'project': copy.deepcopy(bundle['project']), 'entities': entities}, 'report': report}

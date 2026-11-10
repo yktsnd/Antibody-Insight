@@ -14,8 +14,8 @@ from urllib.parse import parse_qs, urlsplit
 
 from . import __version__
 from .adapters import new_project, parse_json, preview
-from .domain import MAX_BUNDLE_BYTES, SCHEMA, ValidationError, fields, new_id, now, require, validate_graph
-from .fixtures import composition_bundle, example_bundle, numbering_bundle
+from .domain import MAX_BUNDLE_BYTES, SCHEMA, ValidationError, fields, new_id, now, require, validate_extension
+from .fixtures import composition_bundle, example_bundle, numbering_bundle, research_example_bundle
 from .numbering import cdr3_groups, observations
 from .observation import observation_order
 from .storage import Store
@@ -116,6 +116,8 @@ class Handler(BaseHTTPRequestHandler):
                     self.reply(200, self.server.store.bundle(project_id))
                 elif parsed.path == "/api/example":
                     self.reply(200, example_bundle())
+                elif parsed.path == "/api/example-research":
+                    self.reply(200, research_example_bundle())
                 elif parsed.path == "/api/example-composition":
                     self.reply(200, composition_bundle())
                 elif parsed.path == "/api/example-numbering":
@@ -171,14 +173,23 @@ class Handler(BaseHTTPRequestHandler):
             data = parse_json(raw)
             route = urlsplit(self.path).path
             if route == "/api/preview":
-                fields(data, {"text", "format", "filename", "project_id", "title", "goal"}, "request", {"structure_options", "data_class"})
+                fields(data, {"text", "format", "filename", "project_id", "title", "goal"}, "request", {"structure_options", "sequence_options", "data_class"})
                 if data["format"] == "json":
                     project = None
                 elif data["project_id"]:
                     project = self.server.store.bundle(data["project_id"])["project"]
                 else:
                     project = new_project(data["title"], data["goal"], data.get("data_class", "research"))
-                result = preview(data["text"], data["format"], data["filename"], project, data.get("structure_options"))
+                result = preview(data["text"], data["format"], data["filename"], project, data.get("structure_options"), data.get('sequence_options'))
+                if any(e['type'] == 'structure_map' for e in result['bundle']['entities']):
+                    # Resolve append-file maps against this local project too.
+                    # Collision rejection remains transactional at commit.
+                    incoming = result['bundle']['entities']
+                    pid = result['bundle']['project']['id']
+                    previous = self.server.store.bundle(pid)['entities'] if any(p['id'] == pid for p in self.server.store.projects()) else []
+                    from .structures import validate_structure_references
+                    validate_structure_references({e['id']: e for e in [*previous, *incoming]},
+                                                  {e['id'] for e in previous} - {e['id'] for e in incoming})
             elif route == "/api/import":
                 result = self.server.store.import_bundle(data)
             elif route == "/api/measurement-preview":
@@ -233,7 +244,7 @@ class Handler(BaseHTTPRequestHandler):
                 fields(data["definition"], {"structure_id", "molecule_id", "source", "chain_assignments", "residues"}, "mapping definition")
                 bundle = self.server.store.bundle(data["project_id"])
                 candidate = {**data["definition"], "id": new_id("structure_map"), "type": "structure_map", "project_id": data["project_id"], "created_at": now()}
-                validate_graph(bundle["project"], [*bundle["entities"], candidate])
+                validate_extension(bundle["project"], bundle["entities"], [candidate])
                 result = {"schema_version": SCHEMA, "project": bundle["project"], "entities": [candidate]}
             else:
                 self.reply(404, {"error": "Unknown API route"})
