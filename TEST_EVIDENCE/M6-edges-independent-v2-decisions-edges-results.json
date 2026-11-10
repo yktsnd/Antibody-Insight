@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "delayed exact contexts retain new reason and chosen subset without automatic source or weight",
+      "status": "PASS",
+      "duration_ms": 991
+    },
+    {
+      "name": "late preview cannot replace an edited reason or a different project decision draft",
+      "status": "PASS",
+      "duration_ms": 1155
+    },
+    {
+      "name": "old rejected save cannot unlock or report its error in a newer pending review",
+      "status": "PASS",
+      "duration_ms": 596
+    },
+    {
+      "name": "submitted save retains a newer project and its unsaved criteria decision",
+      "status": "PASS",
+      "duration_ms": 1042
+    },
+    {
+      "name": "actual legacy continuation remains draft and a concurrently advanced head rejects stale UI save",
+      "status": "PASS",
+      "duration_ms": 1668
+    },
+    {
+      "name": "late three-candidate preview preserves a newer two-candidate draft and both original scopes",
+      "status": "PASS",
+      "duration_ms": 642
+    }
+  ],
+  "error": null,
+  "errors": [],
+  "outbound": [],
+  "scope": "Independent synthetic decision ownership/source/version edges; full frozen integration and scientific/user gates remain separate",
+  "timestamp": "2026-11-10T11:27:32.336Z"
+}

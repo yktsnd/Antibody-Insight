@@ -4,11 +4,13 @@ A local research workspace connecting antibody candidates to sequences, material
 
 [日本語の利用ガイド](README.ja.md) · [Product goal](PRODUCT_GOAL.md) · [Development specification](DEVELOPMENT_PLAN.md) · [Current limitations](KNOWN_LIMITATIONS.md)
 
-**Development build0.8.0-dev.** All eight prescribed synthetic engineering journeys and sixteen specified negatives passed independent replay on the same frozen source (`a82cc0f`). F01–F22 connect exploration, source-numbered design, structural reasoning, property-driven variants, explicit composition, original construct/material observations, immutable decisions and source-preserving complete project transfer. [Independent review](TEST_EVIDENCE/M5-final-independent-review.md) · [Release gates](TEST_EVIDENCE/M5-release-gates.json). M5 overall quality integration and Release1.0 remain incomplete: standard-hardware latency, eighteen human-verified scientific examples and actual researcher evaluation remain open. No predictive model or automatic numbering engine is executed here.
+**Development build0.8.0-dev. Historical engineering checkpoint:** All eight prescribed synthetic engineering journeys and sixteen specified negatives passed independent replay on the same frozen source (`a82cc0f`). F01–F22 connect exploration, source-numbered design, structural reasoning, property-driven variants, explicit composition, original construct/material observations, immutable decisions and source-preserving complete project transfer. [Independent review](TEST_EVIDENCE/M5-final-independent-review.md) · [Release gates](TEST_EVIDENCE/M5-release-gates.json). M5 overall quality integration and Release1.0 remain incomplete: standard-hardware latency, eighteen human-verified scientific examples and actual researcher evaluation remain open. No predictive model or automatic numbering engine is executed here.
 
 The latest source-preserving computed JSON import explicitly records actual subjects/model IDs and retains the complete submitted JSON, unmapped fields, source/hash and value pointers. Native project export/fresh-store reimport preserves those records, typed values, original correspondence, proposed hypotheses and fixed Decision versions. Reconstruction does not rerun or authenticate an external computation. The current8GB host measured simple-operation p95≈327ms after a bounded selection improvement; this exceeds300ms and does not qualify the specified16GB/SSD performance gate. [Human validation packet](validation/README.md).
 
 Version0.7.0-dev adds J07 criterion-bearing Decision drafts/finalized revisions in R. Independent design/domain/API/UI and frozen J01–J07 integration passed at source commit `b7eabac`. Explicit required observations, original source snapshots and separate immutable revisions survive actual restart and native fresh export/reimport. M4 meets its engineering gate; the whole product remains unfinished. [Decision data contract](docs/DECISION_CONTRACT.md).
+
+Current product review: **FAIL** on7d691b2 despite the historical8/16. M6 corrects source-order correspondence and lost shortlist input, and adds a paired research example plus explicit chain grouping for your FASTA. [Final independent M6 engineering replay](TEST_EVIDENCE/M6-final-independent-review.md) PASS:549 Python tests,26 Node commands and8/16 prescribed paths on source057b3e9. [Current gates](TEST_EVIDENCE/M6-release-gates.json). The complete real-antibody input→observation→design→experiment→decision action, scientific validity and researcher usefulness remain open. See [revised development plan9.2](DEVELOPMENT_PLAN.md), [real-data validation](docs/CORE_RESEARCH_VALIDATION.md) and [current progress](docs/PROGRESS.md).
 
 ## Run locally
 
@@ -26,13 +28,13 @@ The default database is `%LOCALAPPDATA%/AntibodyInsight/workspace.sqlite3` on Wi
 
 ## First research action
 
-1. Choose **Import data**. Preview the synthetic example, or import your own FASTA, sequence CSV or awx/1 JSON.
+1. On an empty workspace, open **Explore two paired candidates — synthetic example**, review and save, then compare H/L chains and original sample conditions. For your own files, choose **Import data**. Select **FASTA (explicit candidate / chain grouping)** to assign each record to a declared candidate/chain/role. Ordinary FASTA remains unpaired.
 2. Review the valid/excluded rows, sequence repeats, source and target project. Explicitly save the valid records.
 3. Select candidates in **E**. Inspect chains and raw sequence positions in **W**. The positions are unaligned indexes, not verified IMGT positions.
 4. In **R**, inspect measured/computed labels, source, event time, conditions and the Material → Construct → Molecule path. Record the reason for a shortlist, preview the IDs and evidence, then save a draft.
 5. Restart the server and reopen the workspace. Saved records and drafts persist. **Export JSON** creates an explicit local download suitable for reimport into an empty database.
 
-Use **Preview composition fixture** to inspect two explicitly declared binding units, ordered components/linker, chain copy counts and composition lineage in W. Origin IDs and before/after signatures remain intact after restart and reimport. The declaration does not validate physical assembly, chemical connectivity or binding.
+Use The format-specific engineering fixtures are under **Format-specific engineering fixtures** in Import data. **Preview composition fixture** to inspect two explicitly declared binding units, ordered components/linker, chain copy counts and composition lineage in W. Origin IDs and before/after signatures remain intact after restart and reimport. The declaration does not validate physical assembly, chemical connectivity or binding.
 
 Use **Preview numbering fixture** for explicitly synthetic IMGT annotations. W separates raw indexes, imported IMGT coordinates, domain IDs and verification states. E can group complete heavy-chain CDR3 sequences using eligible imported maps; multiple map versions/domains require an explicit choice. Unknown, truncated, unverified and failed maps remain visible. No sequence is sent to a numbering service.
 

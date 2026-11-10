@@ -1,0 +1,68 @@
+{
+  "schema_version": "release-gates/1",
+  "version": "0.8.0-dev",
+  "timestamp": "2026-11-10T11:34:15.938961+00:00",
+  "baseline_product_review": {
+    "commit": "7d691b2f8d47169c98d247a2d1e4562b872f6c23",
+    "status": "FAIL",
+    "score": 64,
+    "source": "Requester-supplied independent product review"
+  },
+  "overall_release_status": "INCOMPLETE",
+  "current_product_acceptance": "NOT_REEVALUATED",
+  "current_engineering_review": "PASS",
+  "fixes": {
+    "F23": "INDEPENDENT_ENGINEERING_PASS",
+    "F24": "INDEPENDENT_ENGINEERING_PASS",
+    "F25": "ENGINEERING_PASS_HUMAN_FIRST_USE_PENDING",
+    "F26": "INDEPENDENT_ENGINEERING_PASS"
+  },
+  "real_data_core": {
+    "status": "PARTIAL",
+    "verified": "Public1MLC ordinary FASTA to explicitly declared multi-chain candidate",
+    "remaining": [
+      "Source-grounded structure correspondence through ordinary inputs",
+      "Eligible scientific numbering for actual input",
+      "Source-traceable original material measurements",
+      "Comparison to justified variant and retained experiment/decision in one real-data task"
+    ]
+  },
+  "scientific_validation": {
+    "status": "PENDING",
+    "human_verified_categories": 0,
+    "required": 18
+  },
+  "researcher_evaluation": {
+    "status": "PENDING",
+    "completed_roles": 0,
+    "required": 8
+  },
+  "standard_host_performance": {
+    "status": "PENDING",
+    "previous_nonstandard_host_p95_ms": 327,
+    "target_ms": 300
+  },
+  "notes": [
+    "New M6 record; historical M5 evidence is preserved.",
+    "No scientific utility inferred from engineering test counts.",
+    "A contradictory legacy map is quarantined, not rewritten. Fresh reimport requires valid correspondence."
+  ],
+  "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+  "source_sha256": "734757cbb61938a4539ade3efc1e844a9e36fe4bdb88dc56ee2850fe12f23ff6",
+  "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+  "engineering_workflows": {
+    "status": "PASS",
+    "main_flows": 8,
+    "prescribed_negative_flows": 16,
+    "scope": "Frozen M6 synthetic engineering regression; not whole-product scientific or actual researcher acceptance"
+  },
+  "regression": {
+    "status": "PASS",
+    "python_tests": 549,
+    "node_commands": 26,
+    "actual_chrome_commands": 25,
+    "js_vm_commands": 1,
+    "additional_mapping_domain_probes": 10
+  },
+  "fresh_checkout_byte_attestation": "PENDING_MIXED_EOL_PORTABILITY_CHECK"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/mapping_review",
+  "timestamp": "2026-11-10T11:32:41.237706+00:00",
+  "count": 642,
+  "unchanged": 642,
+  "changed": [],
+  "before_manifest": "M6-integration-independent-historical-before.json",
+  "scope": "Exact tracked pre-M6 evidence bytes through final replay; later active acceptance-registry updates are separate"
+}

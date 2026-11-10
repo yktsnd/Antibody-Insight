@@ -1,0 +1,6 @@
+PASS empty E offers one research task; cancelling preview writes no project
+PASS two candidates each retain H and L; both chains and sequence differences are observable
+PASS R identifies original samples, distinct conditions and an unknown value without a prediction
+PASS a proposed next experiment and exact source evidence save independently of shortlist judgment
+PASS observe-source-decide roundtrip saves reason with chosen evidence and next action
+PASS duplicate import rejects atomically and actual restart retains saved research records

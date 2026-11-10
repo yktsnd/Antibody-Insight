@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-10T11:16:53.442408+00:00",
+  "command": ".venv/Scripts/python.exe -m pytest -q",
+  "summary": "549 passed in 46.98s",
+  "scope": "Unit/domain/API regression; not scientific or researcher validation",
+  "diagnostics_before_correction": [
+    {
+      "summary": "First full run:537passed,1failed. Existing duplicate-locus rejection was raised as order rejection first, breaking diagnostic expectation. Moved order check after existing identity/locus checks without removing tests."
+    },
+    {
+      "summary": "New grouped-FASTA collision test initially expected collision wording while existing contract returns Duplicate internal ID. Corrected test assertion; no behavior relaxation."
+    }
+  ]
+}

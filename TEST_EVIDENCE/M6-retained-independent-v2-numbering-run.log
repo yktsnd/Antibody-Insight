@@ -1,0 +1,6 @@
+PASS 800 candidates imported with explicit synthetic numbering metadata
+PASS CDR-H3 grouping retains five selected IDs across raw chain and exact insertion observations
+PASS unavailable partial unverified and ambiguous mappings remain explicit
+PASS bad sequence annotation and malformed map choices reject without overwrite
+PASS server restart preserves map choice chain context and exact map provenance
+PASS F07 browser checks 5

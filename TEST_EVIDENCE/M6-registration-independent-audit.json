@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/mapping_review",
+  "timestamp": "2026-11-10T11:36:04.377555+00:00",
+  "scope": "Registration consistency only; bounded engineering acceptance, not whole-product completion",
+  "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+  "source_sha256": "734757cbb61938a4539ade3efc1e844a9e36fe4bdb88dc56ee2850fe12f23ff6",
+  "source_files": 107,
+  "git_source_content_matches": true,
+  "git_worktree_eol_only_differences": [
+    ".gitattributes",
+    "scripts/check_traceability.py",
+    "tests/j02-browser.cjs",
+    "tests/j05-browser.cjs",
+    "tests/j06-browser.cjs",
+    "tests/j07-browser.cjs",
+    "tests/observation-journeys-browser.cjs",
+    "tests/observation-representation-independent-browser.cjs",
+    "web/composition.js",
+    "web/decisions.js",
+    "web/design.js",
+    "web/experiments.js",
+    "web/style.css",
+    "web/vendor/manifest.json",
+    "workspace_app/__init__.py"
+  ],
+  "fresh_checkout_byte_attestation": "PENDING",
+  "journeys": 8,
+  "named_negative_paths": 16,
+  "traced_reviewed_tickets": 26,
+  "finished_acceptance_artifact_hashes_verified": 97,
+  "historical_raw_files_unchanged": 641,
+  "historical_registry_preserved": true,
+  "registered_hashes": {
+    "TRACEABILITY.csv": "60a205e72a91158c7ba3ca82d8fcc4f51f39e8c932ca595c6868e2c7ea22e17d",
+    "IMPLEMENTATION_TRACEABILITY.csv": "93ffdcc6becbfc6ed1a1387131944abd64ca6c2314ceaba7874b5fc8c37e2356",
+    "TEST_EVIDENCE/JOURNEY_ACCEPTANCE.json": "cc28dac8cc35556a4aecc7d6d769243ff30483355011a95c4a50cf035270a525",
+    "TEST_EVIDENCE/M6-release-gates.json": "673fd066a08b664a74f583fa31cd4e558864f287aca1af9f01e535f268b5f6d8",
+    "TEST_EVIDENCE/M6-final-independent-review.md": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+    "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+  },
+  "traceability_checker": "PASS: 8 complete journey definitions and 26 traced implementation slices\nFull journey engineering acceptance: 8/8. Prescribed final browser edge cases: 16/16. Release 1.0 scientific, user and integration gates remain separate."
+}

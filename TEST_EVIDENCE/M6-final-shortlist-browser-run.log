@@ -1,0 +1,10 @@
+PASS R-W-R retains reason and excluded evidence IDs; preview and saved snapshot exact
+PASS candidate-set switch isolates text and choices; returning in reverse selection order restores draft
+PASS different project isolates drafts and return restores original candidate set
+PASS all evidence can remain excluded and blank reason cannot preview or write
+PASS successful save freezes selected exact evidence while newer in-flight draft edit survives
+PASS a rejected late save preserves revised draft and suppresses obsolete error
+PASS delayed post-save bundle cannot replace a newer project or its draft
+PASS ordinary successful save persists exact snapshot and clears only submitted draft
+PASS successful persistence remains explicit when the subsequent bundle refresh fails
+PASS scientific text stays out of localStorage

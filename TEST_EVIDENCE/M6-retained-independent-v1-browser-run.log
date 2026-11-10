@@ -1,0 +1,19 @@
+PASS empty workspace and explicit fixture preview
+PASS five IDs persist across E W D R and residue selection
+PASS measured computed null zero conditions and immutable five-candidate draft
+PASS fresh JSON export and restart preserve IDs snapshots selection and source versions
+locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByText('Humanization means engineering').first() to be visible[22m
+[2m    62 × locator resolved to hidden <p>Humanization means engineering a non-human antibo…</p>[22m
+
+    at bodyContains (C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\browser.cjs:34:91)
+    at C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\browser.cjs:104:67
+    at async check (C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\browser.cjs:32:63)
+    at async C:\Users\yukis\OneDrive\ドキュメント\ChatGPT\Antibody Insight\tests\browser.cjs:100:3 {
+  log: [
+    "  - waiting for getByText('Humanization means engineering').first() to be visible",
+    '    62 × locator resolved to hidden <p>Humanization means engineering a non-human antibo…</p>'
+  ],
+  name: 'TimeoutError'
+}

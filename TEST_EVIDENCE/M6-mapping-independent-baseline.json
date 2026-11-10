@@ -1,0 +1,52 @@
+{
+  "reviewer": "/root/mapping_review",
+  "scope": "P0 source-order domain and read-time quarantine; synthetic engineering evidence only",
+  "sources_at_completion": {
+    "workspace_app/structures.py": "d8f9190812e6b3dc3553bb55ddb054e8b42454442d1bb68a68f3523ed480d692",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/hypotheses.py": "ef222e9e2c6cfb0239039cdd8726fcbf3bf5d4bf453e81cbf2ef5ab61c819e12",
+    "workspace_app/server.py": "fa028c0b3ca373bf6e126189cb36d7c3d72362ab3e8bbf3d832541d7176b20ef"
+  },
+  "results": [
+    {
+      "name": "PDB repeated identical residues reverse order rejected in graph and atomic import",
+      "status": "PASS"
+    },
+    {
+      "name": "CIF repeated identical residues reverse label order rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Correct PDB source order accepts missing raw index and author insertion",
+      "status": "PASS"
+    },
+    {
+      "name": "Correct PDB order never sorts descending author numbers",
+      "status": "PASS"
+    },
+    {
+      "name": "CIF shuffled atom rows and descending author numbers use polymer label order",
+      "status": "PASS"
+    },
+    {
+      "name": "CIF missing single-residue label has no verified sequence highlight",
+      "status": "PASS"
+    },
+    {
+      "name": "CIF duplicated polymer label under distinct author loci remains unverified",
+      "status": "PASS"
+    },
+    {
+      "name": "PDB same source chain across TER cannot establish cross-part order",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy contradictory map source-only; unrelated shortlist still saves; source immutable",
+      "status": "FAIL",
+      "error": "[WinError 32] \u30d7\u30ed\u30bb\u30b9\u306f\u30d5\u30a1\u30a4\u30eb\u306b\u30a2\u30af\u30bb\u30b9\u3067\u304d\u307e\u305b\u3093\u3002\u5225\u306e\u30d7\u30ed\u30bb\u30b9\u304c\u4f7f\u7528\u4e2d\u3067\u3059\u3002: 'C:\\\\Users\\\\yukis\\\\AppData\\\\Local\\\\Temp\\\\antibody-independent-legacy-83k5qndr\\\\legacy.sqlite3'",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yukis\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shutil.py\", line 633, in _rmtree_unsafe\n    os.unlink(fullname)\nPermissionError: [WinError 32] \u30d7\u30ed\u30bb\u30b9\u306f\u30d5\u30a1\u30a4\u30eb\u306b\u30a2\u30af\u30bb\u30b9\u3067\u304d\u307e\u305b\u3093\u3002\u5225\u306e\u30d7\u30ed\u30bb\u30b9\u304c\u4f7f\u7528\u4e2d\u3067\u3059\u3002: 'C:\\\\Users\\\\yukis\\\\AppData\\\\Local\\\\Temp\\\\antibody-independent-legacy-83k5qndr\\\\legacy.sqlite3'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\yukis\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Antibody Insight\\TEST_EVIDENCE\\M6-mapping-independent-probe.py\", line 140, in run\n    action()\n  File \"C:\\Users\\yukis\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\ChatGPT\\Antibody Insight\\TEST_EVIDENCE\\M6-mapping-independent-probe.py\", line 110, in legacy_view_and_continuation\n    with tempfile.TemporaryDirectory(prefix=\"antibody-independent-legacy-\") as directory:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yukis\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py\", line 950, in __exit__\n    self.cleanup()\n  File \"C:\\Users\\yukis\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py\", line 954, in cleanup\n    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)\n  File \"C:\\Users\\yukis\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py\", line 934, in _rmtree\n    _shutil.rmtree(name, onexc=onexc)\n  File \"C:\\Users\\yukis\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shutil.py\", line 781, in rmtree\n    return _rmtree_unsafe(path, onexc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\yukis\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shutil.py\", line 635, in _rmtree_unsafe\n    onexc(os.unlink, fullname, err)\n  File \"C:\\Users\\yukis\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py\", line 909, in onexc\n    _os.unlink(path)\nPermissionError: [WinError 32] \u30d7\u30ed\u30bb\u30b9\u306f\u30d5\u30a1\u30a4\u30eb\u306b\u30a2\u30af\u30bb\u30b9\u3067\u304d\u307e\u305b\u3093\u3002\u5225\u306e\u30d7\u30ed\u30bb\u30b9\u304c\u4f7f\u7528\u4e2d\u3067\u3059\u3002: 'C:\\\\Users\\\\yukis\\\\AppData\\\\Local\\\\Temp\\\\antibody-independent-legacy-83k5qndr\\\\legacy.sqlite3'\n"
+    }
+  ],
+  "status": "FAIL"
+}

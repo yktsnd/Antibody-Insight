@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/mapping_review",
+  "timestamp": "2026-11-10T11:23:53.491446+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "duration_s": 89.31,
+  "source_sha256": "734757cbb61938a4539ade3efc1e844a9e36fe4bdb88dc56ee2850fe12f23ff6",
+  "log": "M6-integration-independent-v2-python.log",
+  "log_sha256": "2661088546ff427f92ee62e9413f3212ba2fc062d88c1fe826a4c0f5ebabf7f7",
+  "source_stable_before_after": true,
+  "summary": [
+    "........................................................................ [ 78%]",
+    "........................................................................ [ 91%]",
+    ".............................................                            [100%]",
+    "549 passed in 86.31s (0:01:26)"
+  ]
+}

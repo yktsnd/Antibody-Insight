@@ -1,0 +1,37 @@
+{
+  "reviewer": "/root/mapping_review",
+  "status": "FAIL",
+  "scope": "P0 API and actual WebGL only; synthetic engineering evidence, not real scientific validation",
+  "database": "C:\\Users\\yukis\\AppData\\Local\\Temp\\antibody-map-independent-KWB2Qc\\legacy.sqlite3",
+  "results": [
+    {
+      "name": "API map preview refuses reversed identical amino acids in a legacy project",
+      "status": "PASS"
+    },
+    {
+      "name": "Direct import refuses a new reversed map and leaves all prior entities exact",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy contradictory map renders an explicit warning and never highlights sequence-linked atoms",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual coordinate click on quarantined source stays source-only and cannot select a sequence residue",
+      "status": "PASS"
+    },
+    {
+      "name": "Independent replay interrupted",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n422 !== 200\n\n    at C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\TEST_EVIDENCE\\M6-mapping-independent-browser.cjs:62:141\n    at async check (C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\TEST_EVIDENCE\\M6-mapping-independent-browser.cjs:24:31)\n    at async C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\TEST_EVIDENCE\\M6-mapping-independent-browser.cjs:60:2"
+    }
+  ],
+  "source_hashes_at_completion": {
+    "workspace_app/structures.py": "091ab7f19aad4a25d9d88739c17fc607aa6657bcb53fe5599f624af0d3d5f93e",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/hypotheses.py": "ef222e9e2c6cfb0239039cdd8726fcbf3bf5d4bf453e81cbf2ef5ab61c819e12",
+    "workspace_app/server.py": "fa028c0b3ca373bf6e126189cb36d7c3d72362ab3e8bbf3d832541d7176b20ef",
+    "web/structures.js": "2c262ba3fd8e029440bb693a1d16222bcc90bd5e98562fabf7da74cd783b964d"
+  }
+}

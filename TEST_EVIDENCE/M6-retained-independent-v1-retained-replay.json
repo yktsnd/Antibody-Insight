@@ -1,0 +1,52 @@
+{
+  "status": "FAIL",
+  "source_sha256": "ab51b437649192bd0f6315e2365f44a727531abeccbe3df011fc470f24b307f9",
+  "runs": [
+    {
+      "suite": "browser.cjs",
+      "exit_code": 1,
+      "duration_s": 35.88,
+      "log": "M6-retained-independent-v1-browser-run.log",
+      "results": [
+        {
+          "report": "M6-retained-independent-v1-foundation-results.json",
+          "status": "PASS",
+          "result_groups": 11
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M1-browser-failure.json",
+          "copy": "M6-retained-independent-v1-browser-M1-browser-failure.json",
+          "sha256": "d729ba4e3d5e7db385b3d056954184713e677466ccca07e5e7c554bdd028dd9d"
+        },
+        {
+          "original": "M1-browser-results.json",
+          "copy": "M6-retained-independent-v1-foundation-results.json",
+          "sha256": "dc8ca50230cda6a914333d9fd9b63f2d636ce79b1b379615aea7944be22794c5"
+        },
+        {
+          "original": "M1-evidence-screen.png",
+          "copy": "M6-retained-independent-v1-browser-M1-evidence-screen.png",
+          "sha256": "f022279babaef4b3d85daadd8848cb8557aa1a97d6e8bfff1269c6ffc81c90e0"
+        }
+      ]
+    }
+  ],
+  "preservation": [
+    {
+      "path": "M1-evidence-screen.png",
+      "before_after_sha256": "f1dd29fb30ec16a9f2b3bb26258744551df42dcef09e647e60da4a482627f4e4",
+      "copied_current_sha256": "f022279babaef4b3d85daadd8848cb8557aa1a97d6e8bfff1269c6ffc81c90e0",
+      "suite": "browser.cjs"
+    },
+    {
+      "path": "M1-browser-failure.json",
+      "before_after_sha256": "7b0ae93bce22f28cf0e7ebc80eff2f019c05b91e656003cbe7e94e360b17880e",
+      "copied_current_sha256": "d729ba4e3d5e7db385b3d056954184713e677466ccca07e5e7c554bdd028dd9d",
+      "suite": "browser.cjs"
+    }
+  ],
+  "error": "AssertionError(('browser.cjs', 1))",
+  "timestamp": "2026-11-10T11:17:41.504407+00:00"
+}

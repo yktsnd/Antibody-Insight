@@ -1,0 +1,152 @@
+{
+  "status": "PASS",
+  "main": 8,
+  "negative": 16,
+  "source_sha256": "734757cbb61938a4539ade3efc1e844a9e36fe4bdb88dc56ee2850fe12f23ff6",
+  "results": [
+    {
+      "scenario": "J01",
+      "kind": "main_test",
+      "test": "e2e_j01_candidate_shortlist",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J01",
+      "kind": "negative_test_1",
+      "test": "e2e_j01_invalid_sequence",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J01",
+      "kind": "negative_test_2",
+      "test": "e2e_j01_missing_measurement",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J02",
+      "kind": "main_test",
+      "test": "e2e_j02_humanize_variant",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J02",
+      "kind": "negative_test_1",
+      "test": "e2e_j02_numbering_unavailable",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J02",
+      "kind": "negative_test_2",
+      "test": "e2e_j02_insertion_mapping",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J03",
+      "kind": "main_test",
+      "test": "e2e_j03_complex_comparison",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J03",
+      "kind": "negative_test_1",
+      "test": "e2e_j03_unmappable_residue",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J03",
+      "kind": "negative_test_2",
+      "test": "e2e_j03_missing_confidence",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J04",
+      "kind": "main_test",
+      "test": "e2e_j04_developability_review",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J04",
+      "kind": "negative_test_1",
+      "test": "e2e_j04_unit_mismatch",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J04",
+      "kind": "negative_test_2",
+      "test": "e2e_j04_unknown_assay_condition",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J05",
+      "kind": "main_test",
+      "test": "e2e_j05_bispecific_composition",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J05",
+      "kind": "negative_test_1",
+      "test": "e2e_j05_undefined_chain",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J05",
+      "kind": "negative_test_2",
+      "test": "e2e_j05_unsupported_analysis",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J06",
+      "kind": "main_test",
+      "test": "e2e_j06_construct_sample_lineage",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J06",
+      "kind": "negative_test_1",
+      "test": "e2e_j06_unknown_sample_id",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J06",
+      "kind": "negative_test_2",
+      "test": "e2e_j06_incomparable_units",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J07",
+      "kind": "main_test",
+      "test": "e2e_j07_candidate_decision",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J07",
+      "kind": "negative_test_1",
+      "test": "e2e_j07_missing_required_metric",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J07",
+      "kind": "negative_test_2",
+      "test": "e2e_j07_immutable_decision",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J08",
+      "kind": "main_test",
+      "test": "e2e_j08_export_reimport",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J08",
+      "kind": "negative_test_1",
+      "test": "e2e_j08_duplicate_id",
+      "status": "PASS"
+    },
+    {
+      "scenario": "J08",
+      "kind": "negative_test_2",
+      "test": "e2e_j08_corrupted_structure",
+      "status": "PASS"
+    }
+  ]
+}

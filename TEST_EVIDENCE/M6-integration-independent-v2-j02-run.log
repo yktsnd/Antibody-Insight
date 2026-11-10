@@ -1,0 +1,4 @@
+PASS e2e_j02_humanize_variant
+PASS e2e_j02_numbering_unavailable
+PASS e2e_j02_insertion_mapping
+PASS J02 browser checks 4

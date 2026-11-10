@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "R-W-R retains reason and excluded evidence IDs; preview and saved snapshot exact",
+      "status": "PASS",
+      "duration_ms": 974
+    },
+    {
+      "name": "candidate-set switch isolates text and choices; returning in reverse selection order restores draft",
+      "status": "PASS",
+      "duration_ms": 651
+    },
+    {
+      "name": "different project isolates drafts and return restores original candidate set",
+      "status": "PASS",
+      "duration_ms": 514
+    },
+    {
+      "name": "all evidence can remain excluded and blank reason cannot preview or write",
+      "status": "PASS",
+      "duration_ms": 994
+    },
+    {
+      "name": "successful save freezes selected exact evidence while newer in-flight draft edit survives",
+      "status": "PASS",
+      "duration_ms": 448
+    },
+    {
+      "name": "a rejected late save preserves revised draft and suppresses obsolete error",
+      "status": "PASS",
+      "duration_ms": 302
+    },
+    {
+      "name": "delayed post-save bundle cannot replace a newer project or its draft",
+      "status": "PASS",
+      "duration_ms": 310
+    },
+    {
+      "name": "ordinary successful save persists exact snapshot and clears only submitted draft",
+      "status": "PASS",
+      "duration_ms": 593
+    },
+    {
+      "name": "scientific text stays out of localStorage",
+      "status": "PASS",
+      "duration_ms": 3
+    }
+  ],
+  "error": null,
+  "errors": [],
+  "outbound": [],
+  "timestamp": "2026-11-10T11:01:25.441Z",
+  "scope": "Actual Chrome, temporary SQLite, synthetic fixtures. Engineering edges only; not human or scientific validation."
+}

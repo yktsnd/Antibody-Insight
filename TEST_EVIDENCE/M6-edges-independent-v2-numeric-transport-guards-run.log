@@ -1,0 +1,4 @@
+PASS edited approved root and nested snapshots fail closed before any import request
+PASS mismatched top-level nested raw companion is rejected before use
+PASS unknown direct objects retain strict server validation and current explicit body
+PASS Unicode nested source numbers signed zero and native fresh export preserve exact typed records

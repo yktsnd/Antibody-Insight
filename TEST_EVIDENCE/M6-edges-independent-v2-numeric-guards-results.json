@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-10T11:27:49.346Z",
+  "browser": "156.0.8078.79",
+  "scope": "Raw-snapshot mutation/pairing/direct-body guards and Unicode typed-source transport",
+  "results": [
+    {
+      "name": "edited approved root and nested snapshots fail closed before any import request",
+      "status": "PASS",
+      "duration_ms": 659
+    },
+    {
+      "name": "mismatched top-level nested raw companion is rejected before use",
+      "status": "PASS",
+      "duration_ms": 106
+    },
+    {
+      "name": "unknown direct objects retain strict server validation and current explicit body",
+      "status": "PASS",
+      "duration_ms": 853
+    },
+    {
+      "name": "Unicode nested source numbers signed zero and native fresh export preserve exact typed records",
+      "status": "PASS",
+      "duration_ms": 1580
+    }
+  ],
+  "no_javascript_errors": true
+}

@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/mapping_review",
+  "source_sha256": "734757cbb61938a4539ade3efc1e844a9e36fe4bdb88dc56ee2850fe12f23ff6",
+  "timestamp": "2026-11-10T11:29:04.397470+00:00",
+  "runs": [
+    {
+      "name": "mapping-browser",
+      "exit_code": 0,
+      "duration_s": 9.89,
+      "log": "M6-final-mapping-browser-run.log",
+      "report": "M6-final-mapping-browser.json",
+      "status": "PASS",
+      "result_groups": 9
+    },
+    {
+      "name": "shortlist-browser",
+      "exit_code": 0,
+      "duration_s": 9.72,
+      "log": "M6-final-shortlist-browser-run.log",
+      "report": "M6-final-shortlist-browser.json",
+      "status": "PASS",
+      "result_groups": 10
+    },
+    {
+      "name": "research-entry-browser",
+      "exit_code": 0,
+      "duration_s": 8.39,
+      "log": "M6-final-research-entry-browser-run.log",
+      "report": "M6-final-research-entry-browser.json",
+      "status": "PASS",
+      "result_groups": 6
+    },
+    {
+      "name": "grouped-fasta-browser",
+      "exit_code": 0,
+      "duration_s": 7.16,
+      "log": "M6-final-grouped-fasta-browser-run.log",
+      "report": "M6-final-grouped-fasta-browser.json",
+      "status": "PASS",
+      "result_groups": 4
+    },
+    {
+      "name": "mapping-domain",
+      "exit_code": 0,
+      "duration_s": 1.66,
+      "log": "M6-final-mapping-domain-run.log",
+      "report": "M6-final-mapping-domain.json",
+      "status": "PASS",
+      "result_groups": 10
+    }
+  ],
+  "scope": "Four actual browser suites plus independent mapping domain probes; engineering evidence only. Real core/scientific/researcher validation remain separate."
+}

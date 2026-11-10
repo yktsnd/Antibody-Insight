@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/mapping_review",
+  "timestamp": "2026-11-10T11:32:41.239709+00:00",
+  "source_sha256": "734757cbb61938a4539ade3efc1e844a9e36fe4bdb88dc56ee2850fe12f23ff6",
+  "source_files": 107,
+  "source_stable_before_after": true,
+  "python_passed": 549,
+  "node_commands": 26,
+  "chrome_commands": 25,
+  "js_vm_commands": 1,
+  "main_journeys_passed": 8,
+  "negative_paths_passed": 16,
+  "additional_mapping_probes_passed": 10,
+  "historical_unchanged": 642,
+  "scope": "F23-F26 bounded engineering integration PASS; real-data core, scientific validity, actual-researcher/first-use acceptance and Release1.0 remain incomplete",
+  "reports": [
+    "M6-integration-independent-v2-python.json",
+    "M6-integration-independent-v2-journeys-replay.json",
+    "M6-retained-independent-v2-retained-replay.json",
+    "M6-edges-independent-v2-edges-replay.json",
+    "M6-final-new-suites-summary.json",
+    "M6-final-independent-review.md"
+  ]
+}

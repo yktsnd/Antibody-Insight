@@ -1,0 +1,20 @@
+# Real-antibody core validation
+
+[日本語](CORE_RESEARCH_VALIDATION.ja.md) · [Revised development order](../DEVELOPMENT_PLAN.md) · [Current gaps](../KNOWN_LIMITATIONS.md)
+
+Question: can a researcher explain which candidate difference belongs to which molecule, residue, material and assay condition, then retain a justified variant, next experiment and selection for another researcher?
+
+The prepared synthetic example tests operation only. Separate evidence must start from ordinary files with actual provenance. The pinned public experimental1MLC source provides real Fab D44.1 sequences and coordinates, not experimental material identities, assay results or human-verified IMGT numbering. Never invent those missing records or label synthetic measurements as real.
+
+1. Import ordinary FASTA using explicit candidate/chain grouping. Declare each record's candidate ID, chain ID and role, inspect every sequence and format, then save. Check that ordinary unpaired FASTA still produces separate candidates. Record the source filename/hash and original record/line identifiers.
+2. Import actual PDB/mmCIF against the declared molecular candidate. Use source-grounded chain and residue correspondence. Independently inspect repeated residues, missing coordinates, insertion codes and alternatives. Source polymer order does not validate an alignment.
+3. Register actual Constructs and Materials from available original records, with provenance. Import measured CSV with actual event time, units, conditions and source, explicitly resolving each material. If absent, mark this stage unavailable; do not manufacture samples or results to finish the path.
+4. Compare original observations with distinct condition/subject identities. Show missingness and unverified comparability. Explain the observed difference and its limitations before choosing an experiment or variant.
+5. Supply a source/version-grounded, independently validated numbering map for the actual sequence. Inspect the target position/reference in W/D, retain the reason and child lineage. New measurements/numbering/coordinates are not inherited as child observations.
+6. Save the proposed hypothesis and next controlled experiment, plus the reason and exact evidence for selection. A second researcher must reconstruct why the candidate was retained and what should be measured next. Restart and native export/fresh-store reimport must retain those identities and snapshots.
+
+For each stage record input sources, saved IDs, operation evidence, whether the scientific question could be answered, external-tool returns, repeated ID entry, source search and lost context. Compare elapsed effort with the researcher's present method; do not infer improvement from successful clicks. Keep implementation, independent engineering replay, human scientific correctness and unassisted researcher evaluation as four separate statuses.
+
+Current boundary: independent engineering tests cover the synthetic example and real public FASTA→declared H/L registration. The complete real-data action above, scientific validation and eight-role usefulness remain unverified. Prioritize the first demonstrated obstruction in this action before further algorithms or decorative controls.
+
+The [independent feasibility review](../TEST_EVIDENCE/M6-real-core-independent-gap-review.md) adds concrete boundaries. The [D44.1 study](https://pmc.ncbi.nlm.nih.gov/articles/PMC2803018/) measures yeast-displayed single-chain antibodies; its measurements cannot be relabeled as observations of the1MLC Fab material. Its mutant/WT ratios are not independently measured absolute mutant points. Current required lot/event-time fields also prevent completing a measured import when those original details are absent. Do not substitute publication/import dates, fabricated lots, PDB author positions for IMGT positions or an invented human verification record. First remove the established-tool output preparation bottleneck, using actual source metadata; any richer unknown-provenance representation needs separate review and approval.

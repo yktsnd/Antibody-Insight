@@ -1,0 +1,51 @@
+{
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "empty E offers one research task; cancelling preview writes no project",
+      "status": "PASS",
+      "duration_ms": 802
+    },
+    {
+      "name": "two candidates each retain H and L; both chains and sequence differences are observable",
+      "status": "PASS",
+      "duration_ms": 261
+    },
+    {
+      "name": "R identifies original samples, distinct conditions and an unknown value without a prediction",
+      "status": "PASS",
+      "duration_ms": 88
+    },
+    {
+      "name": "a proposed next experiment and exact source evidence save independently of shortlist judgment",
+      "status": "PASS",
+      "duration_ms": 402
+    },
+    {
+      "name": "observe-source-decide roundtrip saves reason with chosen evidence and next action",
+      "status": "PASS",
+      "duration_ms": 816
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /collision/i. Input:\n\n'Duplicate internal ID; no overwrite'\n\n    at C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\research-entry-independent-browser.cjs:38:393\n    at async check (C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\research-entry-independent-browser.cjs:13:54)\n    at async C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\research-entry-independent-browser.cjs:37:2",
+  "errors": [],
+  "outbound": [],
+  "initial_source_sha256": {
+    "web/app.js": "1011f78a271bc9ba170a0181bb84b3a909857413f918f1cf9b9fd24533b71520",
+    "web/index.html": "a303520a3f2221a4cae3ab08d724020370d17bf2778df388a20867a1d16061e1",
+    "workspace_app/fixtures.py": "f97799eadce34140136c7a13a6ded33d3277a752e6400bc151023ed5fb33ca62",
+    "workspace_app/server.py": "0e7fa86ad85e22a9edd243c1b43eb651884eb87df0ee0b8c4cdc15a821d21ff5",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "tests/research-entry-independent-browser.cjs": "88282215a310560b57b704cc978524023f3bc207f01ca2e81a7ff6ecb7385c45"
+  },
+  "final_source_sha256": {
+    "web/app.js": "1011f78a271bc9ba170a0181bb84b3a909857413f918f1cf9b9fd24533b71520",
+    "web/index.html": "a303520a3f2221a4cae3ab08d724020370d17bf2778df388a20867a1d16061e1",
+    "workspace_app/fixtures.py": "f97799eadce34140136c7a13a6ded33d3277a752e6400bc151023ed5fb33ca62",
+    "workspace_app/server.py": "0e7fa86ad85e22a9edd243c1b43eb651884eb87df0ee0b8c4cdc15a821d21ff5",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "tests/research-entry-independent-browser.cjs": "88282215a310560b57b704cc978524023f3bc207f01ca2e81a7ff6ecb7385c45"
+  },
+  "timestamp": "2026-11-10T11:09:02.094Z",
+  "scope": "Actual Chrome, temporary SQLite, deliberately synthetic paired example. Human first-use, ordinary-data core, and scientific correctness require separate acceptance."
+}

@@ -1,0 +1,344 @@
+{
+  "status": "PASS",
+  "source_sha256": "734757cbb61938a4539ade3efc1e844a9e36fe4bdb88dc56ee2850fe12f23ff6",
+  "runs": [
+    {
+      "suite": "j01-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 35.02,
+      "log": "M6-integration-independent-v2-j01-run.log",
+      "results": [
+        {
+          "report": "M6-integration-independent-v2-J01-results.json",
+          "status": "PASS",
+          "result_groups": 5
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J01-browser-results.json",
+          "copy": "M6-integration-independent-v2-J01-results.json",
+          "sha256": "6a5fd5805f86a549eefbd8ea366983df3924d1bcaba6f6e2176754fd0694b43e"
+        },
+        {
+          "original": "J01-saved-shortlist.png",
+          "copy": "M6-integration-independent-v2-j01-J01-saved-shortlist.png",
+          "sha256": "12789c2d4ee4f4df1bf66bdd37e58b92dc10a8c6670846d5621b4d3c718a821b"
+        },
+        {
+          "original": "J01-two-candidate-observation.png",
+          "copy": "M6-integration-independent-v2-j01-J01-two-candidate-observation.png",
+          "sha256": "57fa9a8c53caedcbb1bdce7278d2c6a21eb01b9b9d4e7cd245e89156050bf13f"
+        }
+      ]
+    },
+    {
+      "suite": "j02-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 10.91,
+      "log": "M6-integration-independent-v2-j02-run.log",
+      "results": [
+        {
+          "report": "M6-integration-independent-v2-J02-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J02-browser-results.json",
+          "copy": "M6-integration-independent-v2-J02-results.json",
+          "sha256": "adba308289b1127bda19730850bd964be12042ad83db68b444ea665b6554e846"
+        },
+        {
+          "original": "J02-coordinate-design.png",
+          "copy": "M6-integration-independent-v2-j02-J02-coordinate-design.png",
+          "sha256": "91212c934a8a6f19b128e4c958f85fb6d0a571cf6dca351ad63a7444a49cc605"
+        },
+        {
+          "original": "J02-saved-hypothesis.png",
+          "copy": "M6-integration-independent-v2-j02-J02-saved-hypothesis.png",
+          "sha256": "40174549ce95c048c8d4be8d67a5ddf5be8f4323369078b9cc90dba5ccc024f4"
+        }
+      ]
+    },
+    {
+      "suite": "observation-journeys-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 55.53,
+      "log": "M6-integration-independent-v2-observation-journeys-run.log",
+      "results": [
+        {
+          "report": "M6-integration-independent-v2-J03-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        },
+        {
+          "report": "M6-integration-independent-v2-J04-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        },
+        {
+          "report": "M6-integration-independent-v2-public-results.json",
+          "status": "PASS",
+          "result_groups": 1
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J03-browser-results.json",
+          "copy": "M6-integration-independent-v2-J03-results.json",
+          "sha256": "b295bbf3b402b6e97bfd72ab0b4c193ad59776f7b3c3113fc8e8d07f174ed2ac"
+        },
+        {
+          "original": "J03-saved-hypothesis.png",
+          "copy": "M6-integration-independent-v2-observation-journeys-J03-saved-hypothesis.png",
+          "sha256": "1a1852bc14e3413df62bc132d344a14dd71865ca7622e64fa2379a9667dd4d85"
+        },
+        {
+          "original": "J04-browser-results.json",
+          "copy": "M6-integration-independent-v2-J04-results.json",
+          "sha256": "597b1b28f68127e2dd088fd34b6daf92e9b756775aefa84108ec26478912e2d7"
+        },
+        {
+          "original": "J04-saved-property-hypothesis.png",
+          "copy": "M6-integration-independent-v2-observation-journeys-J04-saved-property-hypothesis.png",
+          "sha256": "88fd2053621d81211a9b2a55f8223ea9d966c68abe8147b9811d86abc6a48f0a"
+        },
+        {
+          "original": "public-structure-browser-results.json",
+          "copy": "M6-integration-independent-v2-public-results.json",
+          "sha256": "a902818c7f1e0af8ce04c83d4b3d296b88475dd3295f446f9b6bf1bf44f15329"
+        }
+      ]
+    },
+    {
+      "suite": "j05-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 11.75,
+      "log": "M6-integration-independent-v2-j05-run.log",
+      "results": [
+        {
+          "report": "M6-integration-independent-v2-J05-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J05-browser-results.json",
+          "copy": "M6-integration-independent-v2-J05-results.json",
+          "sha256": "e4996a2abcaf511daae5d85dcf7740eee133d3f04e394f17941d1c3cec8a49b5"
+        },
+        {
+          "original": "J05-composition-comparison.png",
+          "copy": "M6-integration-independent-v2-j05-J05-composition-comparison.png",
+          "sha256": "e90ccd684b838c78b00fe9caa3ae6e2ed89dcb4069ad1839407f7be0a6a22a16"
+        }
+      ]
+    },
+    {
+      "suite": "j06-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 13.08,
+      "log": "M6-integration-independent-v2-j06-run.log",
+      "results": [
+        {
+          "report": "M6-integration-independent-v2-J06-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-J06-browser-results.json",
+          "copy": "M6-integration-independent-v2-J06-results.json",
+          "sha256": "535e860d51c7e4013450273bdbaac6e4b49eeed31f24175a1ab7564900d4f6f0"
+        },
+        {
+          "original": "M4-J06-construct-comparison.png",
+          "copy": "M6-integration-independent-v2-j06-M4-J06-construct-comparison.png",
+          "sha256": "e9b5cc00b272423973b4df1fb91885e5291ed299360bf43db168189f1b425d7e"
+        },
+        {
+          "original": "M4-J06-material-observations.png",
+          "copy": "M6-integration-independent-v2-j06-M4-J06-material-observations.png",
+          "sha256": "650c1d721c5fa7ba69197c7067c5988a350ba1d6d80b1c53f3b16ad8921072a3"
+        }
+      ]
+    },
+    {
+      "suite": "j07-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 13.11,
+      "log": "M6-integration-independent-v2-j07-run.log",
+      "results": [
+        {
+          "report": "M6-integration-independent-v2-J07-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-J07-browser-results.json",
+          "copy": "M6-integration-independent-v2-J07-results.json",
+          "sha256": "df449c50aedc31eee49379e327727e11339badc2585967a00036fb917e9816d6"
+        },
+        {
+          "original": "M4-J07-final-review.png",
+          "copy": "M6-integration-independent-v2-j07-M4-J07-final-review.png",
+          "sha256": "63c095d3fec23dd0cee8b5a0950004772361626c4b49571725271db716000c66"
+        }
+      ]
+    },
+    {
+      "suite": "j08-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 23.89,
+      "log": "M6-integration-independent-v2-j08-run.log",
+      "results": [
+        {
+          "report": "M6-integration-independent-v2-J08-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M5-J08-browser-results.json",
+          "copy": "M6-integration-independent-v2-J08-results.json",
+          "sha256": "2617c0e245fda6b0ed6eecc22beaf99059c40e946d4d782518d4a9e476427464"
+        },
+        {
+          "original": "M5-J08-restored-project.png",
+          "copy": "M6-integration-independent-v2-j08-M5-J08-restored-project.png",
+          "sha256": "78947227408dc2be13fc71ed7a97197984c9ee0d5a43a650dcc341a1f0b21520"
+        }
+      ]
+    }
+  ],
+  "preservation": [
+    {
+      "path": "J01-saved-shortlist.png",
+      "before_after_sha256": "607ca48c6591bcd7209b94abaa70cb055d730635660438c591297592c403e0af",
+      "copied_current_sha256": "12789c2d4ee4f4df1bf66bdd37e58b92dc10a8c6670846d5621b4d3c718a821b",
+      "suite": "j01-browser.cjs"
+    },
+    {
+      "path": "J01-browser-results.json",
+      "before_after_sha256": "5e5d8c0418c44d6a96b2ecc581966a897a38ecdcd82e36ae12aec2342a1945b9",
+      "copied_current_sha256": "6a5fd5805f86a549eefbd8ea366983df3924d1bcaba6f6e2176754fd0694b43e",
+      "suite": "j01-browser.cjs"
+    },
+    {
+      "path": "J01-two-candidate-observation.png",
+      "before_after_sha256": "e77c54bfe99b1ae953efc8f22a39fd628db0ee164cdac700d0eb6635eb91b673",
+      "copied_current_sha256": "57fa9a8c53caedcbb1bdce7278d2c6a21eb01b9b9d4e7cd245e89156050bf13f",
+      "suite": "j01-browser.cjs"
+    },
+    {
+      "path": "J02-browser-results.json",
+      "before_after_sha256": "fa641fee9ba2d99c59cb705c1047d1f6a0f1c144a6f720eff76f15e8cbaf94da",
+      "copied_current_sha256": "adba308289b1127bda19730850bd964be12042ad83db68b444ea665b6554e846",
+      "suite": "j02-browser.cjs"
+    },
+    {
+      "path": "J02-saved-hypothesis.png",
+      "before_after_sha256": "19daffb374fbdf9de4bcc045858a8e81ee7b6a61edb71eff7cf68ff4e1a0fbe6",
+      "copied_current_sha256": "40174549ce95c048c8d4be8d67a5ddf5be8f4323369078b9cc90dba5ccc024f4",
+      "suite": "j02-browser.cjs"
+    },
+    {
+      "path": "J02-coordinate-design.png",
+      "before_after_sha256": "88ee3e85be4820789d003a13a498e0b4dba87a0c32e11aa3ecf4943c175e7e83",
+      "copied_current_sha256": "91212c934a8a6f19b128e4c958f85fb6d0a571cf6dca351ad63a7444a49cc605",
+      "suite": "j02-browser.cjs"
+    },
+    {
+      "path": "J03-saved-hypothesis.png",
+      "before_after_sha256": "e4365596c6edc84a7f934b8f2a7f801551248b021a1ba1c5c5f790274687dbbd",
+      "copied_current_sha256": "1a1852bc14e3413df62bc132d344a14dd71865ca7622e64fa2379a9667dd4d85",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "J04-browser-results.json",
+      "before_after_sha256": "bf1055b9b08aa985d24fe847efaa30b9e1e850e69264c79e4af58db173a02082",
+      "copied_current_sha256": "597b1b28f68127e2dd088fd34b6daf92e9b756775aefa84108ec26478912e2d7",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "public-structure-browser-results.json",
+      "before_after_sha256": "e012e15412cb63fe327695cc7c3094d602e5fd8bf5a4144574c06dc4190d8e53",
+      "copied_current_sha256": "a902818c7f1e0af8ce04c83d4b3d296b88475dd3295f446f9b6bf1bf44f15329",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "J04-saved-property-hypothesis.png",
+      "before_after_sha256": "193996658660a65c7c86efb600c28c83187f4a809b658ecda5c5311420805699",
+      "copied_current_sha256": "88fd2053621d81211a9b2a55f8223ea9d966c68abe8147b9811d86abc6a48f0a",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "J03-browser-results.json",
+      "before_after_sha256": "114aa681091a538c82c5f3ed376fd051edd5a71690f14698cb800e6f6e5ab548",
+      "copied_current_sha256": "b295bbf3b402b6e97bfd72ab0b4c193ad59776f7b3c3113fc8e8d07f174ed2ac",
+      "suite": "observation-journeys-browser.cjs"
+    },
+    {
+      "path": "J05-composition-comparison.png",
+      "before_after_sha256": "d76eebae02f30a7337b58e1a8bac20baed11cf50a383264cd29750f46da68362",
+      "copied_current_sha256": "e90ccd684b838c78b00fe9caa3ae6e2ed89dcb4069ad1839407f7be0a6a22a16",
+      "suite": "j05-browser.cjs"
+    },
+    {
+      "path": "J05-browser-results.json",
+      "before_after_sha256": "2c64292843d6421645df07690a9ab0076f1798199c1ae880a6a77640cc4614e2",
+      "copied_current_sha256": "e4996a2abcaf511daae5d85dcf7740eee133d3f04e394f17941d1c3cec8a49b5",
+      "suite": "j05-browser.cjs"
+    },
+    {
+      "path": "M4-J06-browser-results.json",
+      "before_after_sha256": "5ef37a9468fdfa11b062653ee1dfe93fe5b5334d3b6e18b60a2a8f89966f5a20",
+      "copied_current_sha256": "535e860d51c7e4013450273bdbaac6e4b49eeed31f24175a1ab7564900d4f6f0",
+      "suite": "j06-browser.cjs"
+    },
+    {
+      "path": "M4-J06-construct-comparison.png",
+      "before_after_sha256": "6e50eecf442901301dec6738e8863362dde19f4f73b81934c0647bef7164fffb",
+      "copied_current_sha256": "e9b5cc00b272423973b4df1fb91885e5291ed299360bf43db168189f1b425d7e",
+      "suite": "j06-browser.cjs"
+    },
+    {
+      "path": "M4-J06-material-observations.png",
+      "before_after_sha256": "99737704aeb67807b9ae401c89e594dff24ea9721180380c0253fe07876993df",
+      "copied_current_sha256": "650c1d721c5fa7ba69197c7067c5988a350ba1d6d80b1c53f3b16ad8921072a3",
+      "suite": "j06-browser.cjs"
+    },
+    {
+      "path": "M4-J07-final-review.png",
+      "before_after_sha256": "907deba2ad4e92d9de72879617cb3e151ef07956145d9d2e50a79b4d4e6b5268",
+      "copied_current_sha256": "63c095d3fec23dd0cee8b5a0950004772361626c4b49571725271db716000c66",
+      "suite": "j07-browser.cjs"
+    },
+    {
+      "path": "M4-J07-browser-results.json",
+      "before_after_sha256": "9b7d37c3c2df06484e1b874c3349fecd7ebd75e9dcae73f02c60ff14cbc73c61",
+      "copied_current_sha256": "df449c50aedc31eee49379e327727e11339badc2585967a00036fb917e9816d6",
+      "suite": "j07-browser.cjs"
+    },
+    {
+      "path": "M5-J08-restored-project.png",
+      "before_after_sha256": "bb595fa405a0ff95fbbf75f0d458e3f25fd40267d920603d392241b417121a7d",
+      "copied_current_sha256": "78947227408dc2be13fc71ed7a97197984c9ee0d5a43a650dcc341a1f0b21520",
+      "suite": "j08-browser.cjs"
+    },
+    {
+      "path": "M5-J08-browser-results.json",
+      "before_after_sha256": "350a3fb17df1c3297b3163e2b65619358521f53df00ececaab8c62b332b3c67d",
+      "copied_current_sha256": "2617c0e245fda6b0ed6eecc22beaf99059c40e946d4d782518d4a9e476427464",
+      "suite": "j08-browser.cjs"
+    }
+  ],
+  "timestamp": "2026-11-10T11:23:55.414388+00:00"
+}

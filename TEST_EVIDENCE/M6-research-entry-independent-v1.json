@@ -1,0 +1,25 @@
+{
+  "status": "FAIL",
+  "results": [],
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#import-dialog [data-close=\"import-dialog\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" class=\"icon-button\" aria-label=\"Close import\" data-close=\"import-dialog\">×</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\research-entry-independent-browser.cjs:20:454\n    at async check (C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\research-entry-independent-browser.cjs:13:54)\n    at async C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\research-entry-independent-browser.cjs:19:2",
+  "errors": [],
+  "outbound": [],
+  "initial_source_sha256": {
+    "web/app.js": "1011f78a271bc9ba170a0181bb84b3a909857413f918f1cf9b9fd24533b71520",
+    "web/index.html": "a303520a3f2221a4cae3ab08d724020370d17bf2778df388a20867a1d16061e1",
+    "workspace_app/fixtures.py": "f97799eadce34140136c7a13a6ded33d3277a752e6400bc151023ed5fb33ca62",
+    "workspace_app/server.py": "0e7fa86ad85e22a9edd243c1b43eb651884eb87df0ee0b8c4cdc15a821d21ff5",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "tests/research-entry-independent-browser.cjs": "1141f2bbc640eb10ea23037ad8831e2af54f346b885bfd1a7e3415eec2fffeea"
+  },
+  "final_source_sha256": {
+    "web/app.js": "1011f78a271bc9ba170a0181bb84b3a909857413f918f1cf9b9fd24533b71520",
+    "web/index.html": "a303520a3f2221a4cae3ab08d724020370d17bf2778df388a20867a1d16061e1",
+    "workspace_app/fixtures.py": "f97799eadce34140136c7a13a6ded33d3277a752e6400bc151023ed5fb33ca62",
+    "workspace_app/server.py": "0e7fa86ad85e22a9edd243c1b43eb651884eb87df0ee0b8c4cdc15a821d21ff5",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "tests/research-entry-independent-browser.cjs": "1141f2bbc640eb10ea23037ad8831e2af54f346b885bfd1a7e3415eec2fffeea"
+  },
+  "timestamp": "2026-11-10T11:08:45.587Z",
+  "scope": "Actual Chrome, temporary SQLite, deliberately synthetic paired example. Human first-use, ordinary-data core, and scientific correctness require separate acceptance."
+}

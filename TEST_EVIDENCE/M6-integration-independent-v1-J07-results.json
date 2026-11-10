@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "e2e_j07_candidate_decision",
+      "status": "PASS",
+      "duration_ms": 3496
+    },
+    {
+      "name": "e2e_j07_missing_required_metric",
+      "status": "PASS",
+      "duration_ms": 1051
+    },
+    {
+      "name": "e2e_j07_immutable_decision",
+      "status": "PASS",
+      "duration_ms": 764
+    },
+    {
+      "name": "e2e_j07_restart_fresh_export_reimport",
+      "status": "PASS",
+      "duration_ms": 3161
+    }
+  ],
+  "steps": [
+    "E→R: three actual candidates, three explicit contexts/weights/preferences, no automatic sole choice, alternative lots retained, null versus0 and proposed-Hypothesis source closure; saved draft and explicit weight revision",
+    "R→W→R: actual source subject inspected without losing three IDs, weight or reason; finalized new immutable revision with explicit chosen subset, optional missingness and before/after changes",
+    "Required null result blocks finalized write even for unchosen candidate/weight0; saved draft records the gap, then explicit optional requirement/reason is retained as a separate fourth version",
+    "A later same-context result is added through actual import; the finalized original and all frozen source values remain unchanged, old snapshot inspection is read-only",
+    "Actual server restart and native full-project export/file reimport into a second SQLite store retain all four immutable versions, typed source snapshots, chosen IDs, original hypotheses, timestamps and requirements"
+  ],
+  "errors": [],
+  "outbound": [],
+  "fixture": "Clearly labelled synthetic engineering fixture; no biological validation",
+  "timestamp": "2026-11-10T11:15:55.447Z"
+}

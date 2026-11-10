@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "R-W-R retains reason and excluded evidence IDs; preview and saved snapshot exact",
+      "status": "PASS",
+      "duration_ms": 815
+    },
+    {
+      "name": "candidate-set switch isolates text and choices; returning in reverse selection order restores draft",
+      "status": "PASS",
+      "duration_ms": 629
+    },
+    {
+      "name": "different project isolates drafts and return restores original candidate set",
+      "status": "PASS",
+      "duration_ms": 426
+    },
+    {
+      "name": "all evidence can remain excluded and blank reason cannot preview or write",
+      "status": "PASS",
+      "duration_ms": 988
+    },
+    {
+      "name": "successful save freezes selected exact evidence while newer in-flight draft edit survives",
+      "status": "PASS",
+      "duration_ms": 364
+    },
+    {
+      "name": "a rejected late save preserves revised draft and suppresses obsolete error",
+      "status": "PASS",
+      "duration_ms": 332
+    },
+    {
+      "name": "scientific text stays out of localStorage",
+      "status": "PASS",
+      "duration_ms": 4
+    }
+  ],
+  "error": null,
+  "errors": [],
+  "outbound": [],
+  "timestamp": "2026-11-10T11:00:51.916Z",
+  "scope": "Actual Chrome, temporary SQLite, synthetic fixtures. Engineering edges only; not human or scientific validation."
+}

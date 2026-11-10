@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "Full J02 and two prescribed negatives, labelled synthetic engineering fixture; human scientific/reference validation remains pending",
+  "timestamp": "2026-11-10T11:21:57.113Z",
+  "browser": "156.0.8078.79",
+  "dataset_sha256": "fe93bca7ce11519520629e50ba0cff0172c805d970ed4927bdf77545eeae5819",
+  "steps": [
+    "E/W/D: explicit VH/VL parent and reference; source IMGT 111.1/CDR3 and L10/FR1 observed; source-coordinate comparison and two reviewed substitutions saved with full lineage; original records unchanged",
+    "D/W/R: parent/child differences observed with child numbering explicitly unavailable; proposed hypothesis, next test, limitations, actual parent Evidence ID, child raw residue and lineage retained separately from measurements",
+    "Actual process restart: exact parent, child, mutation identifiers, original evidence, hypothesis text/question/limitations/source contexts and selection restored",
+    "Fresh database JSON reimport: all entity IDs/types, exact source data, full lineage and proposed hypothesis equal the saved bundle"
+  ],
+  "results": [
+    {
+      "name": "e2e_j02_humanize_variant",
+      "status": "PASS",
+      "duration_ms": 6471
+    },
+    {
+      "name": "e2e_j02_numbering_unavailable",
+      "status": "PASS",
+      "duration_ms": 233
+    },
+    {
+      "name": "e2e_j02_insertion_mapping",
+      "status": "PASS",
+      "duration_ms": 921
+    },
+    {
+      "name": "No outbound browser requests or JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}

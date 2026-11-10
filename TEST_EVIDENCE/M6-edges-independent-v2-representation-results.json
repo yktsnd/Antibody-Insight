@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-10T11:27:11.185Z",
+  "scope": "Independent synthetic geometry/source identity edges, not biological validity",
+  "browser": "156.0.8078.79",
+  "results": [
+    {
+      "name": "geometry bonds exclude incompatible alternates and unknown fields without source mutation",
+      "status": "PASS",
+      "duration_ms": 327
+    },
+    {
+      "name": "C-alpha overview excludes calcium modified residues and absent CA; hidden atom cannot steal physical pick",
+      "status": "PASS",
+      "duration_ms": 894
+    },
+    {
+      "name": "source-only unknown conformer survives proposal and exact focus; unavailable sequence clears old focus",
+      "status": "PASS",
+      "duration_ms": 3301
+    },
+    {
+      "name": "late source resolution cannot reopen a hypothesis after current selection changes",
+      "status": "PASS",
+      "duration_ms": 1312
+    }
+  ],
+  "no_outbound_requests": true,
+  "no_javascript_errors": true
+}

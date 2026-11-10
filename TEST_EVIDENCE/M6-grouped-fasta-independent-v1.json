@@ -1,0 +1,36 @@
+{
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "API enumerates source records without inferred candidate/chain registration",
+      "status": "PASS",
+      "duration_ms": 93
+    },
+    {
+      "name": "API rejects duplicate chain, stale text, missing assignment and boolean record index without writes",
+      "status": "PASS",
+      "duration_ms": 124
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /mapping unavailable|Numbering:/. Input:\n\n'Choose a sequence index to compare. Gold marks raw position differences.'\n\n    at C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\grouped-fasta-independent-browser.cjs:44:2060\n    at async check (C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\grouped-fasta-independent-browser.cjs:24:54)\n    at async C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\grouped-fasta-independent-browser.cjs:44:2",
+  "errors": [],
+  "outbound": [],
+  "initial_source_sha256": {
+    "web/app.js": "1011f78a271bc9ba170a0181bb84b3a909857413f918f1cf9b9fd24533b71520",
+    "web/index.html": "a303520a3f2221a4cae3ab08d724020370d17bf2778df388a20867a1d16061e1",
+    "workspace_app/adapters.py": "cea2d9c5054b5fa97425687a283c32ddddd32f05037ab4ba6ea827a1f3f9f33f",
+    "workspace_app/server.py": "0e7fa86ad85e22a9edd243c1b43eb651884eb87df0ee0b8c4cdc15a821d21ff5",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "tests/grouped-fasta-independent-browser.cjs": "169ebfb4cc130dfb7399bfaaa9ef9648825351f32baea4e16cbe5691b6d135e8"
+  },
+  "final_source_sha256": {
+    "web/app.js": "1011f78a271bc9ba170a0181bb84b3a909857413f918f1cf9b9fd24533b71520",
+    "web/index.html": "a303520a3f2221a4cae3ab08d724020370d17bf2778df388a20867a1d16061e1",
+    "workspace_app/adapters.py": "cea2d9c5054b5fa97425687a283c32ddddd32f05037ab4ba6ea827a1f3f9f33f",
+    "workspace_app/server.py": "0e7fa86ad85e22a9edd243c1b43eb651884eb87df0ee0b8c4cdc15a821d21ff5",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "tests/grouped-fasta-independent-browser.cjs": "169ebfb4cc130dfb7399bfaaa9ef9648825351f32baea4e16cbe5691b6d135e8"
+  },
+  "timestamp": "2026-11-10T11:11:21.967Z",
+  "scope": "Real public 1MLC sequences via conventional FASTA and explicit declarations in Chrome. No real assay or complete scientific workflow validation."
+}

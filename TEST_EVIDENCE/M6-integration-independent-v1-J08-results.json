@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "e2e_j08_export_reimport",
+      "status": "PASS",
+      "duration_ms": 17191
+    },
+    {
+      "name": "e2e_j08_duplicate_id",
+      "status": "PASS",
+      "duration_ms": 582
+    },
+    {
+      "name": "e2e_j08_corrupted_structure",
+      "status": "PASS",
+      "duration_ms": 280
+    }
+  ],
+  "steps": [
+    "Actual FASTA, PDB, measured CSV and canonical/native computed JSON imports; actual Construct/Material registration, explicit coordinate correspondence, exact model1 vs2 inspection, unsupported path list, raw source download; supplementary labelled dependency import plus two real immutable decision versions",
+    "Actual process restart, native exact project export and file reimport into separate fresh store preserve every ID/type/source/time, original PDB and computed JSON/BOM/CRLF/hash, mapping, lineage/hypothesis, fixed decisions and typed scalar/parameter/snapshot values; FASTA/CSV are compared as recorded derived entities/provenance"
+  ],
+  "errors": [],
+  "outbound": [],
+  "fixture": "Synthetic engineering fixture; no actual external model run, experiment or biological validation",
+  "timestamp": "2026-11-10T11:16:16.261Z"
+}

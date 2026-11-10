@@ -1,5 +1,12 @@
 # Changes
 
+## Unreleased: reliable observation and reasoning (M6)
+
+- Reject sequence/coordinate order reversals in previews and imports using source polymer order. Recheck old maps before reciprocal selection or a new mapped hypothesis. Retain original records and source-only coordinates when order is unknown or contradictory.
+- Keep shortlist text and evidence choices in tab memory per project/candidate set, including roundtrips and concurrent save/input changes. Confirm saved IDs even if refresh fails.
+- Start empty workspaces with one explicitly synthetic paired-candidate research question; disclose format-specific fixtures separately. Offer explicit per-record candidate/chain/role registration for ordinary FASTA.
+- Reprioritize completion around eight research actions and real antibody inputs. Engineering, scientific validation and researcher usefulness remain separate. Final independent engineering integration PASS on057b3e9:549 Python tests,26 Node commands and8/16 prescribed paths. The full real-data core and scientific/researcher/release gates remain incomplete. See TEST_EVIDENCE/M6-final-independent-review.md.
+
 ## 0.8.0-dev: retained computed sources and project transfer (independently verified engineering scope)
 
 - E explicitly imports canonical computed-evidence/1 and AlphaFold 3 summary scalar JSON, retaining the complete submitted UTF-8 source, hash, actual subject bindings, value pointers and unique source allocations. Native summary associations require an actual computed Structure and known coordinate-model ID; no run, model, version or time is inferred.

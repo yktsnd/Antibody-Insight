@@ -1,0 +1,64 @@
+{
+  "status": "FAIL",
+  "results": [
+    {
+      "name": "R-W-R retains reason and excluded evidence IDs; preview and saved snapshot exact",
+      "status": "PASS",
+      "duration_ms": 825
+    },
+    {
+      "name": "candidate-set switch isolates text and choices; returning in reverse selection order restores draft",
+      "status": "PASS",
+      "duration_ms": 661
+    },
+    {
+      "name": "different project isolates drafts and return restores original candidate set",
+      "status": "PASS",
+      "duration_ms": 521
+    },
+    {
+      "name": "all evidence can remain excluded and blank reason cannot preview or write",
+      "status": "PASS",
+      "duration_ms": 946
+    },
+    {
+      "name": "successful save freezes selected exact evidence while newer in-flight draft edit survives",
+      "status": "PASS",
+      "duration_ms": 356
+    },
+    {
+      "name": "a rejected late save preserves revised draft and suppresses obsolete error",
+      "status": "PASS",
+      "duration_ms": 247
+    },
+    {
+      "name": "delayed post-save bundle cannot replace a newer project or its draft",
+      "status": "PASS",
+      "duration_ms": 294
+    },
+    {
+      "name": "ordinary successful save persists exact snapshot and clears only submitted draft",
+      "status": "PASS",
+      "duration_ms": 587
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /dec_f9bfe163-d4d9-4ce4-9804-af07561cb9fa/. Input:\n\n'Saved shortlist draft dec_58832437-4ca1-4af2-a763-eeaab05a03d6. This record and its evidence snapshot are immutable.'\n\n    at C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\shortlist-independent-browser.cjs:74:513\n    at async check (C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\shortlist-independent-browser.cjs:27:54)\n    at async C:\\Users\\yukis\\OneDrive\\ドキュメント\\ChatGPT\\Antibody Insight\\tests\\shortlist-independent-browser.cjs:73:2",
+  "errors": [],
+  "outbound": [],
+  "initial_source_sha256": {
+    "web/app.js": "76fdbf0172fd44b528b56d5631f66b9a2332dcfdb1c4784ed6b50ba1a224a6c5",
+    "workspace_app/server.py": "8b72eb4a8dd4285c99afccfeb413b6f30dbe10cee5809ddc20a4dd502d9e583e",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "tests/shortlist-independent-browser.cjs": "c6a9d44fa13dccdfd99f48d5b5bc8c91d78bf31cc19dea6af45603a2d0683056"
+  },
+  "final_source_sha256": {
+    "web/app.js": "76fdbf0172fd44b528b56d5631f66b9a2332dcfdb1c4784ed6b50ba1a224a6c5",
+    "workspace_app/server.py": "8b72eb4a8dd4285c99afccfeb413b6f30dbe10cee5809ddc20a4dd502d9e583e",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/domain.py": "9487b46914dbe3ae77333b8c8fe166a13651b35d0a548405c8752a376a4bdf7b",
+    "tests/shortlist-independent-browser.cjs": "c6a9d44fa13dccdfd99f48d5b5bc8c91d78bf31cc19dea6af45603a2d0683056"
+  },
+  "timestamp": "2026-11-10T11:04:54.105Z",
+  "scope": "Actual Chrome, temporary SQLite, synthetic fixtures. Engineering edges only; not human or scientific validation."
+}

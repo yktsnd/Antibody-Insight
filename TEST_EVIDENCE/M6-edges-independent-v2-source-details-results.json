@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "scope": "Independent actual-domain fixture and renderer/toggle replay; frozen actual-browser integration remains separate",
+  "results": [
+    {
+      "name": "domain-valid thousand-value project fits the original transport ceiling",
+      "status": "PASS",
+      "duration_ms": 0
+    },
+    {
+      "name": "previously reviewed renderer reproduces allocation-metadata amplification on the same valid source",
+      "status": "PASS",
+      "duration_ms": 2281
+    },
+    {
+      "name": "initial fixed metadata/raw details are empty and markup scales with evidence rather than allocations squared",
+      "status": "PASS",
+      "duration_ms": 0
+    },
+    {
+      "name": "raw and metadata open separately through textContent with all actual allocations and hostile tokens retained",
+      "status": "PASS",
+      "duration_ms": 3
+    },
+    {
+      "name": "closing each native detail releases only its text and reopening preserves the exact original source",
+      "status": "PASS",
+      "duration_ms": 10
+    },
+    {
+      "name": "source-last imports use the existing identity index and never scan the entity list per detail",
+      "status": "PASS",
+      "duration_ms": 9
+    },
+    {
+      "name": "a changed project cannot disclose the previous source through stale detail nodes",
+      "status": "PASS",
+      "duration_ms": 0
+    }
+  ],
+  "amplification": {
+    "project_utf8_bytes": 1231433,
+    "source_utf8_bytes": 397057,
+    "evidence_count": 1000,
+    "reviewed_before_origin_characters": 162152,
+    "reviewed_before_total_origin_characters": 162153890,
+    "fixed_origin_characters": 1121,
+    "fixed_total_origin_characters": 1122890
+  },
+  "source_sha256": "1c344752905b786efa1c2d1cc4df57ccad0ecd63e3731ead44715766f566bf0b",
+  "historical_source_sha256": "b987785e0ffcad6d6a37f97e140ab57273590b4b03e1fc7aef6603501a1d7cde",
+  "test_sha256": "99dcc1615efbfa6971c7cac7217bd4996f45eafb32bc2aa9e9ea7c8776137700",
+  "fixture": "Synthetic engineering fixture; no model run or scientific validation",
+  "timestamp": "2026-11-10T11:28:05.575Z"
+}
