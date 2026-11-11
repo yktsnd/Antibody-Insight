@@ -2,6 +2,22 @@
 
 Store the input identity/checksum, target commit or exact source digest, command, runtime, reviewer, time and verdict for each verified slice. Screenshots supplement data assertions; they do not prove scientific validity.
 
+## Run the checks
+
+Run these commands in a disposable checkout if you want to preserve the recorded artifacts. The browser suite writes result JSON and screenshots under `TEST_EVIDENCE`. Install the development requirements in the same environment as the runtime requirements. The browser scripts use Node.js, Playwright and installed Chrome. If Playwright is installed outside the project, set `NODE_PATH` to the directory containing its `node_modules` packages.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m pytest -q
+$env:PYTHON = (Resolve-Path .venv/Scripts/python.exe).Path
+node tests/browser.cjs
+.\.venv\Scripts\python.exe scripts/check_traceability.py
+```
+
+The browser suite creates a temporary database and starts its own loopback server. See the [M7 named journey audit](M7-journeys-v2-named-journey-audit.json) for the eight prescribed paths and their negatives.
+
+## Recorded evidence
+
 - `M0-independent-review.md`: independent design PASS, with full M1 and release still pending.
 - `M0-screen-prototype.png`: static four-screen design rendered in Chrome.
 - `M1-browser-results.json`: initial F01–F05 browser replay, including actual server restart and JSON comparison; not full J01–J08 acceptance.
