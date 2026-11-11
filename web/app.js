@@ -214,7 +214,7 @@ function renderWorkspace() {
     const positions = new Map((map?.entries || []).map((entry) => [entry.sequence_index, entry]));
     html += `<div class="panel"><div class="panel-head"><div><h2>${esc(m.name)}</h2><p class="subtle">${esc(m.external_id)}</p></div><span class="tag">${esc(m.format)}</span></div><div class="panel-body"><p class="mono">Molecule: ${m.id}</p><label class="field">Chain<select data-chain="${m.id}" aria-label="Chain for ${esc(m.external_id)}">${m.chains.map((c) => `<option value="${esc(c.id)}" ${c.id === chain.id ? "selected" : ""}>${esc(c.id)} / ${esc(c.role)} / ${c.sequence.length} aa</option>`).join("")}</select></label>`;
     html += maps.length ? `<label class="field">Imported numbering map / domain<select data-chain-map="${esc(mapKey)}" aria-label="Numbering map for ${esc(m.external_id)} ${esc(chain.id)}"><option value="">${maps.length > 1 ? "Choose map/domain — no implicit match" : "Inspect imported map"}</option>${maps.map((item) => `<option value="${item.id}" ${map?.id === item.id ? "selected" : ""}>${esc(item.scheme)} / ${esc(item.domain_id)} / ${esc(item.status)} / ${esc(item.verification.status)}</option>`).join("")}</select></label>` : '<p class="muted">Numbering: mapping unavailable (no imported map).</p>';
-    if (map) html += `<p class="muted">${esc(map.scheme)} / ${esc(map.domain_id)}: <strong>${esc(map.status)}</strong> · ${esc(map.verification.status)}${map.reason ? " / " + esc(map.reason) : ""}<br>${map.eligible ? (map.verification.status === "engineering_fixture" ? "Synthetic engineering annotation; human scientific validation pending." : "Source verification is a recorded external attestation; the application does not assign numbering.") : "Not eligible for source-verified numbering actions."}<br>CDR3: ${map.cdr3_complete ? esc(map.cdr3_sequence) : "partial / unavailable"}</p><details><summary>Numbering source, definition and verification</summary><p>${esc(map.source.name)} / ${esc(map.source.version || "version unknown")}</p><pre>${pretty(map.verification)}</pre><p class="muted">${esc(map.region_source)}</p></details>`;
+    if (map) html += `<p class="muted">${esc(map.scheme)} / ${esc(map.domain_id)}: <strong>${esc(map.status)}</strong> · ${esc(map.verification.status)}${map.reason ? " / " + esc(map.reason) : ""}<br>${map.eligible ? (map.verification.status === "engineering_fixture" ? "Synthetic engineering annotation; human scientific validation pending." : "Source verification is a recorded external attestation; the application does not assign numbering.") : "Not eligible for source-verified numbering actions."}<br>CDR3: ${map.cdr3_complete ? esc(map.cdr3_sequence) : "partial / unavailable"}</p><details><summary>Numbering source, definition and verification</summary><p>${esc(map.source.name)} / ${esc(map.source.version || "version unknown")}</p><pre>${pretty(map.verification)}</pre><p class="muted">${esc(map.region_source)}</p>${NumberingImportUI.origin(map)}</details>`;
     html += '<div class="sequence">';
     // Long chains stay inspectable without rendering hundreds of thousands of buttons.
     const start = state.position && state.position > 200 ? Math.floor((state.position - 1) / 200) * 200 : 0;
@@ -366,6 +366,8 @@ async function refreshProjects(preferred) {
   if (id) await loadProject(id); else {readyControls(true);render();}
 }
 function showImport() {
+  NumberingImportUI.reset();
+  $("#numbering-tool-version").value = "";
   sequenceGrouping=null;
   importEpoch++;mappingDraft=null;PredictionUI.reset();
   $('#import-dialog > .dialog-error')?.remove();
@@ -376,6 +378,7 @@ function showImport() {
 }
 async function updateStructureImport() {
   PredictionUI.update();
+  $("#numbering-import-options").hidden = $("#import-format").value !== "anarci_text";
   const coordinate = ["pdb","mmcif"].includes($("#import-format").value);
   $("#structure-import-options").hidden = !coordinate;
   $("#measurement-import-options").hidden = $("#import-format").value!=='measurement_csv';
@@ -391,8 +394,13 @@ function renderPreview(result, synthetic = false) {
   pendingImport = result.bundle;
   const r = result.report;
   $("#import-form").hidden = true; const target = $("#import-preview"); target.hidden = false;
+  const previewRecords = pendingImport.entities.slice(0, 8).map((entity) => {
+    if(entity.type!=="numbering_file")return entity;
+    const {content,...metadata}=entity;
+    return metadata;
+  });
   const samples = pendingImport.entities.filter((e) => e.type === "molecule").slice(0, 5);
-  target.innerHTML = `<h2>Review before saving</h2>${synthetic ? '<p class="fixture-notice">Synthetic fixture. These are invented engineering values, not real scientific results.</p>' : ""}<p class="muted">Project: ${esc(pendingImport.project.title)}</p><div class="preview-summary">${r.total_rows} input rows · ${r.valid_rows} valid · ${r.excluded.length} excluded · ${r.duplicates.length} ${r.kind==='computed_json'?'potential repeated-source':r.kind==='measurement_csv'?'potential repeated-observation':'sequence-repeat'} warnings</div><p class="muted">${pendingImport.entities.length} entities will be added. Existing records are never overwritten. IDs and references are revalidated at save time.</p>${r.excluded.length ? `<h3>Excluded records (not saved)</h3><pre class="preview-list">${pretty(r.excluded)}</pre>` : ""}${r.duplicates.length || r.warnings.length ? `<details><summary>QC warnings</summary><pre class="preview-list">${pretty([...r.duplicates, ...r.warnings])}</pre></details>` : ""}${samples.length?`<h3>Sample of incoming candidates</h3><ul class="muted">${samples.map((m) => `<li>${esc(m.external_id)} / ${esc(m.name)} / ${esc(m.format)}<ul>${m.chains.map((c)=>`<li>${esc(c.id)} / ${esc(c.role)} / ${c.sequence.length} aa<details><summary>Sequence</summary><pre>${esc(c.sequence)}</pre></details></li>`).join('')}</ul></li>`).join("")}</ul>`:''}${sequenceGroupingPanel(r)}${measurementMappingPanel(r)}${PredictionUI.mappingPanel(r)}<details><summary>Incoming records and source metadata</summary><pre class="preview-list">${pretty(pendingImport.entities.slice(0, 8))}</pre></details>${r.kind==='measurement_csv'?`<details><summary>Full measurement import QC and mapping provenance</summary><pre>${pretty(r)}</pre></details>`:''}<div class="dialog-actions"><button class="secondary" id="back-import">Back</button><button id="commit-import" ${pendingImport.entities.length ? "" : "disabled"}>Save ${r.valid_rows} valid rows${r.excluded.length ? " (excluded rows omitted)" : ""}</button></div>`;
+  target.innerHTML = `<h2>Review before saving</h2>${synthetic ? '<p class="fixture-notice">Synthetic fixture. These are invented engineering values, not real scientific results.</p>' : ""}<p class="muted">Project: ${esc(pendingImport.project.title)}</p><div class="preview-summary">${r.total_rows} input rows · ${r.valid_rows} valid · ${r.excluded.length} excluded · ${r.duplicates.length} ${r.kind==='computed_json'?'potential repeated-source':r.kind==='measurement_csv'?'potential repeated-observation':'sequence-repeat'} warnings</div><p class="muted">${pendingImport.entities.length} entities will be added. Existing records are never overwritten. IDs and references are revalidated at save time.</p>${r.excluded.length ? `<h3>Excluded records (not saved)</h3><pre class="preview-list">${pretty(r.excluded)}</pre>` : ""}${r.duplicates.length || r.warnings.length ? `<details><summary>QC warnings</summary><pre class="preview-list">${pretty([...r.duplicates, ...r.warnings])}</pre></details>` : ""}${samples.length?`<h3>Sample of incoming candidates</h3><ul class="muted">${samples.map((m) => `<li>${esc(m.external_id)} / ${esc(m.name)} / ${esc(m.format)}<ul>${m.chains.map((c)=>`<li>${esc(c.id)} / ${esc(c.role)} / ${c.sequence.length} aa<details><summary>Sequence</summary><pre>${esc(c.sequence)}</pre></details></li>`).join('')}</ul></li>`).join("")}</ul>`:''}${sequenceGroupingPanel(r)}${NumberingImportUI.panel(r,pendingImport)}${measurementMappingPanel(r)}${PredictionUI.mappingPanel(r)}<details><summary>Incoming records and source metadata</summary><pre class="preview-list">${pretty(previewRecords)}</pre></details>${r.kind==='measurement_csv'?`<details><summary>Full measurement import QC and mapping provenance</summary><pre>${pretty(r)}</pre></details>`:''}<div class="dialog-actions"><button class="secondary" id="back-import">Back</button><button id="commit-import" ${pendingImport.entities.length ? "" : "disabled"}>Save ${r.valid_rows} valid rows${r.excluded.length ? " (excluded rows omitted)" : ""}</button></div>`;
 }
 
 function sequenceGroupingPanel(report){
@@ -414,7 +422,9 @@ async function validateImport(){
   let result;
   const current=()=>ticket===importEpoch&&dialog.open;
   try{
-    if(request.format==='fasta_grouped'){
+    if(request.format==='anarci_text'){
+      result=await NumberingImportUI.preview(request,current);
+    }else if(request.format==='fasta_grouped'){
       const mapped=sequenceGrouping?.text===request.text&&sequenceGrouping.project===request.project_id;
       request.sequence_options={assignments:mapped?sequenceGrouping.assignments:null,text_sha256:mapped?sequenceGrouping.sha:null,molecular_format:mapped?sequenceGrouping.format:'unspecified'};
       result=await api('/api/preview',request);if(!current())return;
@@ -450,6 +460,8 @@ guides.en += `<h3>Criteria and immutable decision versions</h3><p>Select actual 
 guides.ja += `<h3>評価項目と変更できない判断記録</h3><p>Eで実際の比較対象を選び、RのCriteria and decision versionsを開きます。元の観測結果の条件を選び、重要度と評価の方向を明示し、各候補に使う根拠の記録を実際の試料・ロットとともに指定します。利用できる結果が1件だけでも自動選択しません。重みは研究者が指定した重要度であり、総合点や推奨候補を計算するものではありません。必須項目には、採用しない候補も含め、比較対象すべてについて数値を持つ元の観測結果の選択が必要です。重要度が0でも、この必須条件は変わりません。任意項目の欠測はそのまま表示します。採用する候補、トレードオフ、関連する提案段階の仮説を記録し、下書きまたは確定版を確認して保存します。Wで元の対象を調べてRに戻っても、操作中の下書きを保持します。確定済みの記録は上書きできず、変更は別IDの新しい版として保存します。評価項目・重み・必須条件の変更点を確認し、その理由を記入してください。後日の結果追加で、過去の根拠の保存内容が変わることはありません。Export JSONには、プロジェクト全体と改訂元も含まれます。確定は判断記録を固定する意味であり、科学的結論の妥当性や入力者の本人認証を保証しません。</p>`;
 guides.en += `<h3>Start with paired candidates or your own FASTA</h3><p>On an empty workspace, preview the synthetic two-candidate example, compare H/L chains in W, inspect original materials and conditions in R, then save a reason and next experiment. To register your own chains, choose FASTA (explicit candidate / chain grouping). Assign each source record to a candidate ID and a distinct chain ID with a declared role. Review the actual sequences before saving. Normal FASTA imports remain unpaired. Structures, numbering, constructs, materials and measurements must be registered against their actual subjects separately.</p>`;
 guides.ja += `<h3>複数鎖の候補と手元のFASTAから始める</h3><p>空のワークスペースでは、2候補の合成例を保存前に確認できます。Wで重鎖・軽鎖を比較し、Rで元の試料と測定条件を確認して、選定理由と次の実験を保存します。手元のFASTAは、明示的な候補・鎖の割当を行う形式を選び、各レコードに候補ID、候補内で重複しない鎖ID、鎖の役割を指定します。実際の配列を確認してから保存してください。通常のFASTA取込では各配列を別候補として扱います。構造、番号対応、コンストラクト、試料、測定結果は、それぞれ実際の対象に紐付けて別途登録します。</p>`;
+guides.en += `<h3>Numbering and deposited coordinates</h3><p>Import ANARCI IMGT numbering text into an existing project. Bind each source domain to its exact candidate chain and review the interval and verification state. W can download the original file. Enter a scientific review record when it covers the selected domains. For mmCIF, assign the source chains in W and choose Use deposited polymer positions to check the complete sequences and review mapped or unavailable positions.</p>`;
+guides.ja += `<h3>番号付け結果と構造の残基対応</h3><p>既存のプロジェクトにANARCIのIMGT番号付けテキストを取り込みます。元のドメインを実際の候補と鎖に割り当て、配列範囲と照合状態を確認します。元ファイルはWから保存できます。対象ドメインを人が照合した記録がある場合は、その記録を入力します。mmCIFでは、Wで元の鎖を指定し、Use deposited polymer positionsから全鎖配列の一致と、座標が対応する位置・対応できない位置を確認できます。</p>`;
 guides.en += PredictionUI.guide.en;
 guides.ja += PredictionUI.guide.ja;
 function renderHelp() {
@@ -481,8 +493,10 @@ document.addEventListener("click", async (event) => {
     else if (button.dataset.designSelected!==undefined) DesignUI.fromSelection();
     else if (button.dataset.expressionDesign) {const id=button.dataset.expressionDesign;if(!state.selected.includes(id))state.selected.push(id);state.expressionMolecule=id;state.expressionLeft=null;state.expressionRight=null;state.expressionCohort=null;state.expressionMaterial=null;state.designTask='expression';state.screen='D';render();}
     else if (button.dataset.restore) { const d = entities("decision").find((e) => e.id === button.dataset.restore); state.selected = [...d.candidate_ids]; state.focus = null; render(); }
-    else if (button.id === "back-import") { importEpoch++;pendingImport = null; $("#import-preview").hidden = true; $("#import-form").hidden = false; }
+    else if (button.id === "back-import") { NumberingImportUI.reset();importEpoch++;pendingImport = null; $("#import-preview").hidden = true; $("#import-form").hidden = false; }
     else if(button.dataset.predictionDownload) PredictionUI.download(button.dataset.predictionDownload);
+    else if(button.dataset.numberingDownload) NumberingImportUI.download(button.dataset.numberingDownload);
+    else if(button.id==='apply-numbering-bindings'){NumberingImportUI.bind();loading=true;await validateImport();}
     else if(button.id === 'apply-prediction-mappings') {loading=true;await validateImport();}
     else if (button.id === 'apply-measurement-mappings') {loading=true;await validateImport();}
     else if(button.id==='apply-sequence-grouping'){
@@ -560,6 +574,8 @@ document.addEventListener("change", async (event) => {
     else if (el.id === 'import-format') {importEpoch++;PredictionUI.reset();mappingDraft=null;pendingImport=null;updateStructureImport();}
     else if (el.hasAttribute('data-measurement-map')) {if(!mappingDraft)return;const ref=mappingDraft.refs[Number(el.dataset.measurementMap)];if(el.value)mappingDraft.choices.set(ref,el.value);else mappingDraft.choices.delete(ref);pendingImport=null;$('#commit-import').disabled=true;}
     else if (el.id === 'import-file' && el.files[0]) {
+      NumberingImportUI.reset();sequenceGrouping=null;
+      $("#numbering-tool-version").value = "";
       const file=el.files[0],ticket=++importEpoch;PredictionUI.reset();mappingDraft=null;pendingImport=null;
       ownsError=()=>ticket===importEpoch&&el.files[0]===file&&$('#import-dialog').open;
       // A failed/new file cannot leave the previous file text available for saving.
@@ -570,7 +586,9 @@ document.addEventListener("change", async (event) => {
       catch(error){throw Error('File must be valid UTF-8. Unsupported or unreadable file; no data saved.');}
       if(ticket!==importEpoch||el.files[0]!==file||!$('#import-dialog').open)return;
       const ext=file.name.split('.').pop().toLowerCase();
-      if((ext==='csv'&&$('#import-format').value==='measurement_csv')||(ext==='json'&&['prediction_json','af3_summary'].includes($('#import-format').value))){}else if(['json','csv','pdb'].includes(ext))$('#import-format').value=ext;
+      if(file.name.toLowerCase().endsWith('.anarci.txt'))$('#import-format').value='anarci_text';
+      else if(['txt','out','anarci'].includes(ext)&&$('#import-format').value==='anarci_text'){}
+      else if((ext==='csv'&&$('#import-format').value==='measurement_csv')||(ext==='json'&&['prediction_json','af3_summary'].includes($('#import-format').value))){}else if(['json','csv','pdb'].includes(ext))$('#import-format').value=ext;
       else if(['cif','mmcif'].includes(ext))$('#import-format').value='mmcif';else if(['fa','fasta','faa'].includes(ext)){if($('#import-format').value!=='fasta_grouped')$('#import-format').value='fasta';}else throw Error('Unsupported file format; no data saved.');
       $('#import-text').value=decoded;importSourceText={file,text:$('#import-text').value,decoded};updateStructureImport();
     }
@@ -579,7 +597,8 @@ document.addEventListener("change", async (event) => {
 });
 document.addEventListener("input", (event) => {
   if(event.target.id==='shortlist-reason'){const draft=shortlistDraft();draft.reason=event.target.value;draft.version++;invalidateShortlistPreview();}
-  if(event.target.closest('#import-form')){importEpoch++;pendingImport=null;if(event.target.id==='import-text'){PredictionUI.reset();mappingDraft=null;importSourceText=null;}}
+  if(event.target.closest('#numbering-binding-panel')){importEpoch++;pendingImport=null;}
+  if(event.target.closest('#import-form')){NumberingImportUI.reset();importEpoch++;pendingImport=null;if(event.target.id==='import-text'){PredictionUI.reset();mappingDraft=null;importSourceText=null;$("#numbering-tool-version").value="";}}
   if (event.target.id === "candidate-search") {
     state.filter = event.target.value; const pos = event.target.selectionStart; render(); const input = $("#candidate-search"); input.focus(); if (input.type !== "search") input.setSelectionRange(pos, pos);
   }
@@ -592,7 +611,8 @@ $("#import-form").addEventListener("submit", async (event) => {
   } catch (error) { notify(error.message, true); }
   finally { loading = false; }
 });
-$('#import-dialog').addEventListener('close',()=>{importEpoch++;PredictionUI.reset();pendingImport=null;mappingDraft=null;});
+$('#import-dialog').addEventListener('close',()=>{NumberingImportUI.reset();importEpoch++;PredictionUI.reset();pendingImport=null;mappingDraft=null;});
+NumberingImportUI.configure({api,bundle:()=>bundle,find:(id)=>index().get(id),esc});
 PredictionUI.configure({api,bundle:()=>bundle,find:(id)=>index().get(id),esc,pretty,notify,invalidate(){importEpoch++;pendingImport=null;if($('#commit-import'))$('#commit-import').disabled=true;}});
 StructureUI.configure({api,bundle:()=>bundle,state:()=>state,remember,notify,render,
   focusSequence(selection){state.residueSelection=selection;state.focus=selection.molecule_id;state.chains[selection.molecule_id]=selection.chain_id;state.position=selection.sequence_index;render();},

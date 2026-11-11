@@ -110,7 +110,7 @@ def observe_map(record, project):
             "definition": record["definition"], "status": record["status"], "reason": record["reason"],
             "verification": record["verification"], "source": record["source"], "entries": entries,
             "eligible": eligible, "cdr3_complete": complete, "cdr3_sequence": cdr3,
-            "region_source": REGION_SOURCE}
+            "region_source": REGION_SOURCE, "numbering_origin": record.get("numbering_origin")}
 
 
 def observations(bundle):

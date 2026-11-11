@@ -3,6 +3,7 @@ web/vendor/** -text -whitespace
 
 # Preserve downloaded scientific archive bytes and their pinned digest.
 fixtures/public/*.cif -text -whitespace
+fixtures/public/*.anarci.txt -text -whitespace
 
 # Preserve exact hashes of this reviewed milestone evidence across checkouts.
 TEST_EVIDENCE/M3-observation-* -text -whitespace
@@ -10,3 +11,4 @@ TEST_EVIDENCE/M3-composition-* -text -whitespace
 TEST_EVIDENCE/M4-* -text -whitespace
 TEST_EVIDENCE/M5-* -text -whitespace
 TEST_EVIDENCE/M6-* -text -whitespace
+TEST_EVIDENCE/M7-* -text -whitespace

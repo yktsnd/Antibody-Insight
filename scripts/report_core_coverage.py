@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 CORE = {'adapters', 'assembly', 'composition', 'decisions', 'design', 'domain',
-        'experiments', 'hypotheses', 'measurements', 'numbering', 'observation',
+        'experiments', 'hypotheses', 'measurements', 'numbering', 'numbering_import', 'observation',
         'predictions', 'residue_evidence', 'storage', 'structures'}
 parser = argparse.ArgumentParser()
 parser.add_argument('coverage_json', type=Path)

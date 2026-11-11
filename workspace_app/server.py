@@ -19,7 +19,7 @@ from .fixtures import composition_bundle, example_bundle, numbering_bundle, rese
 from .numbering import cdr3_groups, observations
 from .observation import observation_order
 from .storage import Store
-from .structures import structure_observation
+from .structures import deposited_polymer_definition, structure_observation
 from .design import design_context, variant_preview
 from .hypotheses import hypothesis_preview
 from .assembly import composition_context, composition_preview
@@ -150,6 +150,7 @@ class Handler(BaseHTTPRequestHandler):
                 self.reply(422, {"error": str(exc), "details": exc.details})
             return
         files = {"/": "index.html", "/app.js": "app.js", "/style.css": "style.css", "/structures.js": "structures.js", "/design.js": "design.js", "/composition.js": "composition.js", "/experiments.js": "experiments.js", "/decisions.js": "decisions.js", "/predictions.js": "predictions.js",
+                 "/numbering-import.js": "numbering-import.js",
                  "/vendor/3Dmol-2.5.5.min.js": "vendor/3Dmol-2.5.5.min.js"}
         filename = files.get(parsed.path)
         if filename is None:
@@ -192,6 +193,11 @@ class Handler(BaseHTTPRequestHandler):
                                                   {e['id'] for e in previous} - {e['id'] for e in incoming})
             elif route == "/api/import":
                 result = self.server.store.import_bundle(data)
+            elif route == "/api/numbering-file-preview":
+                from .numbering_import import anarci_preview
+                fields(data, {"project_id", "text", "filename", "version", "bindings", "bindings_text_sha256"}, "request")
+                result = anarci_preview(self.server.store.bundle(data["project_id"]), data["text"], data["filename"],
+                                        data["version"], data["bindings"], data["bindings_text_sha256"])
             elif route == "/api/measurement-preview":
                 fields(data, {'project_id', 'text', 'filename', 'mappings', 'file_source', 'mapping_text_sha256'}, 'request')
                 result = measurement_preview(self.server.store.bundle(data['project_id']), data['text'], data['filename'],
@@ -239,11 +245,21 @@ class Handler(BaseHTTPRequestHandler):
                 original = self.server.store.bundle(data["project_id"])
                 candidate = composition_preview(original, data["definition"])
                 result = {"bundle": candidate, "context": composition_context({**original, "entities": original["entities"] + candidate["entities"]}, candidate["entities"][0]["id"])}
-            elif route == "/api/structure-map-preview":
+            elif route in ("/api/structure-map-preview", "/api/deposited-correspondence-preview"):
                 fields(data, {"project_id", "definition"}, "request")
-                fields(data["definition"], {"structure_id", "molecule_id", "source", "chain_assignments", "residues"}, "mapping definition")
                 bundle = self.server.store.bundle(data["project_id"])
-                candidate = {**data["definition"], "id": new_id("structure_map"), "type": "structure_map", "project_id": data["project_id"], "created_at": now()}
+                definition = data["definition"]
+                if route == "/api/deposited-correspondence-preview":
+                    fields(definition, {"structure_id", "molecule_id", "chain_assignments"}, "deposited mapping definition")
+                    index = {entity["id"]: entity for entity in bundle["entities"]}
+                    structure = index.get(definition["structure_id"])
+                    molecule = index.get(definition["molecule_id"])
+                    require(structure is not None and structure["type"] == "structure", "Choose an existing structure")
+                    require(molecule is not None and molecule["type"] == "molecule", "Choose an existing molecule")
+                    definition = deposited_polymer_definition(structure, molecule, definition["chain_assignments"])
+                else:
+                    fields(definition, {"structure_id", "molecule_id", "source", "chain_assignments", "residues"}, "mapping definition")
+                candidate = {**definition, "id": new_id("structure_map"), "type": "structure_map", "project_id": data["project_id"], "created_at": now()}
                 validate_extension(bundle["project"], bundle["entities"], [candidate])
                 result = {"schema_version": SCHEMA, "project": bundle["project"], "entities": [candidate]}
             else:

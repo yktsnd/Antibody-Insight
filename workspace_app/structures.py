@@ -128,6 +128,7 @@ def _cif_atoms(content, gemmi):
             require(model is None or model > 0, "Invalid mmCIF model identifier")
             atoms.append({"model": model, "auth_chain": cid("auth_asym_id"), "label_asym": cid("label_asym_id"),
                           "segment": code("pdbx_pdb_segment_id"), "auth_number": _int(numeric("auth_seq_id"), True),
+                          "label_entity_id": cid("label_entity_id"),
                           "label_number": _int(numeric("label_seq_id"), True), "insertion_code": code("pdbx_pdb_ins_code"),
                           "residue_name": cid("label_comp_id"), "auth_residue_name": cid("auth_comp_id"),
                           "atom_name": cid("label_atom_id"), "altloc": code("label_alt_id"),
@@ -238,6 +239,8 @@ def validate_structure_shape(entity):
         parse_structure(entity["content"], entity["file_format"])
         return
     identifier(entity["structure_id"], "structure")
+    if "derivation" in entity:
+        require(entity["derivation"] == "mmcif_polymer_sequence", "Unsupported structure correspondence derivation")
     require(isinstance(entity["chain_assignments"], list) and len(entity["chain_assignments"]) <= 10000, "Invalid chain assignment list")
     require(isinstance(entity["residues"], list) and len(entity["residues"]) <= 100000, "Invalid structure correspondence list")
     for assignment in entity["chain_assignments"]:
@@ -304,6 +307,93 @@ def require_order_consistency(mapping, parsed):
     require(status != "contradictory", message)
 
 
+@lru_cache(maxsize=4)
+def _deposited_polymer_tables(content):
+    import gemmi
+    block = gemmi.cif.read_string(content).sole_block()
+    asym_entities = {}
+    for row in block.find(["_struct_asym.id", "_struct_asym.entity_id"]):
+        asym, entity = (gemmi.cif.as_string(value) for value in row)
+        asym_entities.setdefault(asym, []).append(entity)
+    monomers = defaultdict(lambda: defaultdict(list))
+    for row in block.find(["_entity_poly_seq.entity_id", "_entity_poly_seq.num", "_entity_poly_seq.mon_id"]):
+        entity, number, name = (gemmi.cif.as_string(value) for value in row)
+        position = _int(number, True)
+        monomers[entity][position].append(name)
+    return asym_entities, monomers
+
+
+def deposited_polymer_definition(structure, molecule, assignments):
+    """Use deposited polymer positions after explicit chain assignment and full sequence equality."""
+    require(structure["file_format"] == "mmcif", "Deposited polymer positions require mmCIF")
+    require(structure["molecule_id"] == molecule["id"], "Structure belongs to another molecule")
+    require(isinstance(assignments, list) and 0 < len(assignments) <= 10000, "Choose source chain assignments")
+    for assignment in assignments:
+        fields(assignment, CHAIN_FIELDS | {"role", "molecule_chain_id", "target_ref", "label"}, "chain assignment")
+        _validate_key({key: assignment[key] for key in CHAIN_FIELDS}, True)
+    require(len({a["model"] for a in assignments}) == 1, "Choose one explicit source model")
+    parsed = parse_structure(structure["content"], "mmcif")
+    asym_entities, monomers = _deposited_polymer_tables(structure["content"])
+    chains = {c["id"]: c["sequence"] for c in molecule["chains"]}
+    source_residues = defaultdict(list)
+    for residue in parsed["residues"]:
+        source_residues[chain_key(residue)].append(residue)
+    targets, entries = set(), []
+    for assignment in assignments:
+        if assignment["role"] != "antibody":
+            continue
+        chain_id = assignment["molecule_chain_id"]
+        require(isinstance(chain_id, str) and chain_id in chains and chain_id not in targets,
+                "Assign each target molecule chain to exactly one source chain in this model")
+        targets.add(chain_id)
+        sequence = chains[chain_id]
+        label_asym = assignment["label_asym"]
+        entities = asym_entities.get(label_asym, [])
+        require(len(entities) == 1 and bool(entities[0]), "Deposited label asym ID has no unique polymer entity")
+        entity = entities[0]
+        polymer = monomers.get(entity, {})
+        require(set(polymer) == set(range(1, len(sequence) + 1)), "Deposited polymer range differs from the full target chain")
+        for position, aa in enumerate(sequence, 1):
+            names = polymer[position]
+            require(len(names) == 1 and STANDARD_AA.get(names[0]) == aa,
+                    f"Deposited polymer differs from chain {chain_id} at raw position {position}")
+        coordinates = source_residues.get(chain_key(assignment), [])
+        require(bool(coordinates), "Assigned source chain has no coordinates in this model")
+        by_position = defaultdict(list)
+        for residue in coordinates:
+            labels = {parsed["atoms"][i]["label_entity_id"] for i in residue["atom_indices"]}
+            require(labels == {entity}, "Coordinate label entity differs from the deposited polymer entity")
+            position = residue["label_number"]
+            if position is None:
+                continue
+            require(position in polymer and residue["residue_name"] in polymer[position],
+                    "Coordinate monomer conflicts with its deposited polymer position")
+            by_position[position].append(residue)
+        for position in range(1, len(sequence) + 1):
+            hits = by_position[position]
+            residue = hits[0] if len(hits) == 1 else None
+            reason = None
+            if not hits:
+                reason = "No coordinates at this deposited polymer position"
+            elif residue is None or residue["polymer_order"] is None:
+                reason = "Ambiguous deposited coordinate position"
+            elif residue["altlocs"] != [""]:
+                reason = "Choose an explicit alternate conformer in a manual map"
+            entries.append({
+                "chain_id": chain_id, "sequence_index": position,
+                "status": "unavailable" if reason else "mapped",
+                "structure_residue": None if reason else {key: residue[key] for key in RESIDUE_FIELDS},
+                "altloc": "", "reason": reason,
+            })
+    require(bool(targets), "Explicitly assign at least one antibody chain")
+    require(any(e["status"] == "mapped" for e in entries), "No unambiguous deposited coordinates were matched")
+    return {
+        "structure_id": structure["id"], "molecule_id": molecule["id"],
+        "source": {"name": "Deposited mmCIF polymer sequence", "version": "sha256:" + structure["sha256"]},
+        "derivation": "mmcif_polymer_sequence", "chain_assignments": assignments, "residues": entries,
+    }
+
+
 def validate_structure_references(index, existing_entity_ids=frozenset()):
     for entity in index.values():
         if entity["type"] == "structure":
@@ -345,6 +435,10 @@ def validate_structure_references(index, existing_entity_ids=frozenset()):
                 seen_residues.add(target)
             if entity["id"] not in existing_entity_ids:
                 require_order_consistency(entity, parsed)
+            if "derivation" in entity:
+                expected = deposited_polymer_definition(structure, molecule, entity["chain_assignments"])
+                require(all(entity[key] == value for key, value in expected.items()),
+                        "Deposited correspondence differs from the retained coordinate source")
         elif entity["type"] == "evidence":
             validate_model_metric(entity)
             subject = index.get(entity["subject_id"])

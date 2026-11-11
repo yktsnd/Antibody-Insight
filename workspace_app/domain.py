@@ -11,7 +11,8 @@ from datetime import datetime, timezone
 SCHEMA = "awx/1"
 PREFIX = {"project": "prj", "molecule": "mol", "construct": "con", "material": "mat",
           "evidence": "evd", "decision": "dec", "binding_unit": "bnd", "lineage": "lin", "residue_map": "rmp",
-          "structure": "stc", "structure_map": "smp", "hypothesis": "hyp", "prediction_file": "prf"}
+          "structure": "stc", "structure_map": "smp", "hypothesis": "hyp", "prediction_file": "prf",
+          "numbering_file": "nmf"}
 AA = frozenset("ACDEFGHIKLMNPQRSTVWYBXZJUO")
 MAX_SAFE_INTEGER = 2**53 - 1
 MAX_BUNDLE_BYTES = 32 * 1024 * 1024
@@ -27,6 +28,7 @@ FIELDS = {
     "structure": {"name", "molecule_id", "file_format", "content", "sha256", "origin_kind", "source"},
     "structure_map": {"structure_id", "molecule_id", "source", "chain_assignments", "residues"},
     "prediction_file": {"name", "file_format", "content", "sha256", "bindings", "options", "allocations", "source"},
+    "numbering_file": {"name", "file_format", "content", "sha256", "allocations", "source"},
     "evidence": {"subject_id", "kind", "metric", "source", "timestamp", "conditions", "value", "unit"},
     "hypothesis": {"text", "question", "limitations", "molecule_ids", "related_evidence_ids", "lineage_ids", "residue_refs", "structure_refs", "status", "source"},
     "decision": {"candidate_ids", "criteria", "evidence_snapshot", "reason", "timestamp",
@@ -172,6 +174,8 @@ def validate_entity(entity, project_id):
     kind = entity.get("type")
     require(isinstance(kind, str) and kind in FIELDS, "Unsupported entity type")
     optional = ({"component_graph"} if kind == "molecule" else {"residue_refs", "description", "import_origin", "prediction_origin"} if kind == "evidence"
+                else {"derivation"} if kind == "structure_map"
+                else {"numbering_origin"} if kind == "residue_map"
                 else {"source"} if kind in ("construct", "material") else {"chosen_candidate_ids", "source", "hypothesis_ids"} if kind == "decision" else frozenset())
     fields(entity, CORE | FIELDS[kind], "entity", optional)
     identifier(entity["id"], kind)
@@ -199,6 +203,9 @@ def validate_entity(entity, project_id):
     elif kind == "residue_map":
         from .numbering import validate_numbering_shape
         validate_numbering_shape(entity)
+    elif kind == "numbering_file":
+        from .numbering_import import validate_numbering_file
+        validate_numbering_file(entity)
     elif kind in ("structure", "structure_map"):
         from .structures import validate_structure_shape
         validate_structure_shape(entity)
@@ -323,6 +330,8 @@ def validate_graph(project, entities, *, existing_entity_ids=frozenset()):
     validate_composition_references(index, project)
     from .numbering import validate_numbering_references
     validate_numbering_references(project, index)
+    from .numbering_import import validate_numbering_origins
+    validate_numbering_origins(index)
     from .structures import validate_structure_references
     validate_structure_references(index, existing_entity_ids)
     from .hypotheses import validate_hypothesis_references
