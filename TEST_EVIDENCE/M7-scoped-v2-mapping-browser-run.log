@@ -1,0 +1,8 @@
+PASS API map preview refuses reversed identical amino acids in a legacy project
+PASS Native awx file preview refuses both complete and append-file reversed maps
+PASS Direct import refuses a new reversed map and leaves all prior entities exact
+PASS Legacy contradictory map renders an explicit warning and never highlights sequence-linked atoms
+PASS Actual coordinate click on quarantined source stays source-only and cannot select a sequence residue
+PASS Ordinary correspondence editor rejects reverse identical residues before offering Save
+PASS Explicit valid map retains molecule identity and a distinct gap-bearing molecule saves
+PASS Actual valid gap/insertion selection works from sequence and from WebGL atom

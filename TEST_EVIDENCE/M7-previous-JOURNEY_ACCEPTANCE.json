@@ -1,0 +1,101 @@
+{
+  "schema_version": "journey-acceptance/1",
+  "journeys": {
+    "J01": {
+      "status": "PASS",
+      "reviewer": "/root/mapping_review",
+      "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+      "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M6-integration-independent-v2-J01-results.json",
+      "source_manifest": "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json",
+      "scope": "Frozen M6 synthetic engineering main journey and two prescribed negatives; complete real-antibody research action, scientific validity, first-use researcher evaluation and Release1.0 remain incomplete.",
+      "review_report_sha256": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+      "test_report_sha256": "6a5fd5805f86a549eefbd8ea366983df3924d1bcaba6f6e2176754fd0694b43e",
+      "source_manifest_sha256": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+    },
+    "J02": {
+      "status": "PASS",
+      "reviewer": "/root/mapping_review",
+      "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+      "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M6-integration-independent-v2-J02-results.json",
+      "source_manifest": "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json",
+      "scope": "Frozen M6 synthetic engineering main journey and two prescribed negatives; complete real-antibody research action, scientific validity, first-use researcher evaluation and Release1.0 remain incomplete.",
+      "review_report_sha256": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+      "test_report_sha256": "adba308289b1127bda19730850bd964be12042ad83db68b444ea665b6554e846",
+      "source_manifest_sha256": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+    },
+    "J03": {
+      "status": "PASS",
+      "reviewer": "/root/mapping_review",
+      "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+      "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M6-integration-independent-v2-J03-results.json",
+      "source_manifest": "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json",
+      "scope": "Frozen M6 synthetic engineering main journey and two prescribed negatives; complete real-antibody research action, scientific validity, first-use researcher evaluation and Release1.0 remain incomplete.",
+      "review_report_sha256": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+      "test_report_sha256": "b295bbf3b402b6e97bfd72ab0b4c193ad59776f7b3c3113fc8e8d07f174ed2ac",
+      "source_manifest_sha256": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+    },
+    "J04": {
+      "status": "PASS",
+      "reviewer": "/root/mapping_review",
+      "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+      "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M6-integration-independent-v2-J04-results.json",
+      "source_manifest": "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json",
+      "scope": "Frozen M6 synthetic engineering main journey and two prescribed negatives; complete real-antibody research action, scientific validity, first-use researcher evaluation and Release1.0 remain incomplete.",
+      "review_report_sha256": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+      "test_report_sha256": "597b1b28f68127e2dd088fd34b6daf92e9b756775aefa84108ec26478912e2d7",
+      "source_manifest_sha256": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+    },
+    "J05": {
+      "status": "PASS",
+      "reviewer": "/root/mapping_review",
+      "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+      "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M6-integration-independent-v2-J05-results.json",
+      "source_manifest": "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json",
+      "scope": "Frozen M6 synthetic engineering main journey and two prescribed negatives; complete real-antibody research action, scientific validity, first-use researcher evaluation and Release1.0 remain incomplete.",
+      "review_report_sha256": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+      "test_report_sha256": "e4996a2abcaf511daae5d85dcf7740eee133d3f04e394f17941d1c3cec8a49b5",
+      "source_manifest_sha256": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+    },
+    "J06": {
+      "status": "PASS",
+      "reviewer": "/root/mapping_review",
+      "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+      "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M6-integration-independent-v2-J06-results.json",
+      "source_manifest": "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json",
+      "scope": "Frozen M6 synthetic engineering main journey and two prescribed negatives; complete real-antibody research action, scientific validity, first-use researcher evaluation and Release1.0 remain incomplete.",
+      "review_report_sha256": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+      "test_report_sha256": "535e860d51c7e4013450273bdbaac6e4b49eeed31f24175a1ab7564900d4f6f0",
+      "source_manifest_sha256": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+    },
+    "J07": {
+      "status": "PASS",
+      "reviewer": "/root/mapping_review",
+      "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+      "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M6-integration-independent-v2-J07-results.json",
+      "source_manifest": "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json",
+      "scope": "Frozen M6 synthetic engineering main journey and two prescribed negatives; complete real-antibody research action, scientific validity, first-use researcher evaluation and Release1.0 remain incomplete.",
+      "review_report_sha256": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+      "test_report_sha256": "df449c50aedc31eee49379e327727e11339badc2585967a00036fb917e9816d6",
+      "source_manifest_sha256": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+    },
+    "J08": {
+      "status": "PASS",
+      "reviewer": "/root/mapping_review",
+      "implementation_commit": "057b3e97866a7c82cdf04f3e0d24db3ecdb251f8",
+      "review_report": "TEST_EVIDENCE/M6-final-independent-review.md",
+      "test_report": "TEST_EVIDENCE/M6-integration-independent-v2-J08-results.json",
+      "source_manifest": "TEST_EVIDENCE/M6-integration-independent-v2-source-manifest.json",
+      "scope": "Frozen M6 synthetic engineering main journey and two prescribed negatives; complete real-antibody research action, scientific validity, first-use researcher evaluation and Release1.0 remain incomplete.",
+      "review_report_sha256": "d3806a926c091a65f780eb49999bfed06792393f12a133284fcb7040cda91c80",
+      "test_report_sha256": "2617c0e245fda6b0ed6eecc22beaf99059c40e946d4d782518d4a9e476427464",
+      "source_manifest_sha256": "e307bd7cff28886b97c779b9b06a62931b8a07eaedb1ad393c23c98fc7b8a9e7"
+    }
+  }
+}

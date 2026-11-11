@@ -1,0 +1,167 @@
+{
+  "status": "FAIL",
+  "source_sha256": "b40db8458e0514a8e3f88a759089dbfe0abd1113bac43cb1324150bb3b442880",
+  "runs": [
+    {
+      "suite": "composition-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 8.56,
+      "log": "M7-edges-v2-composition-independent-run.log",
+      "results": [
+        {
+          "report": "M7-edges-v2-composition-edges-results.json",
+          "status": "PASS",
+          "result_groups": 6
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M3-composition-independent-browser-results.json",
+          "copy": "M7-edges-v2-composition-edges-results.json",
+          "sha256": "77f0a90bf0d4bdf8cdfa62c0a6c08c48cec4ea8640671e55366cbc24d6178eb5"
+        }
+      ]
+    },
+    {
+      "suite": "observation-representation-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 9.84,
+      "log": "M7-edges-v2-observation-representation-independent-run.log",
+      "results": [
+        {
+          "report": "M7-edges-v2-representation-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M3-observation-representation-independent-results.json",
+          "copy": "M7-edges-v2-representation-results.json",
+          "sha256": "2c4a44998fdf4d3344d9e1593599792539d76732ec1041199615d3e061798919"
+        }
+      ]
+    },
+    {
+      "suite": "experiments-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 9.91,
+      "log": "M7-edges-v2-experiments-independent-run.log",
+      "results": [
+        {
+          "report": "M7-edges-v2-experiments-edges-results.json",
+          "status": "PASS",
+          "result_groups": 8
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-experiments-independent-browser-results.json",
+          "copy": "M7-edges-v2-experiments-edges-results.json",
+          "sha256": "ac8a16295b755bcccbb0edb790392de31e9e698239ced0884804955181b0aacf"
+        }
+      ]
+    },
+    {
+      "suite": "decisions-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 9.3,
+      "log": "M7-edges-v2-decisions-independent-run.log",
+      "results": [
+        {
+          "report": "M7-edges-v2-decisions-edges-results.json",
+          "status": "PASS",
+          "result_groups": 6
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-decisions-independent-browser-results.json",
+          "copy": "M7-edges-v2-decisions-edges-results.json",
+          "sha256": "ea054c99c60b1528206e93ad71eaa889a1f3a2235f4df074ace323c4c69c9408"
+        },
+        {
+          "original": "M4-decisions-independent-frozen-draft.png",
+          "copy": "M7-edges-v2-decisions-independent-M4-decisions-independent-frozen-draft.png",
+          "sha256": "fdf80fe6bb45d2587ff72ea858620308684f809a237c5b28a0bc00d2aa535eb2"
+        }
+      ]
+    },
+    {
+      "suite": "numeric-transport-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 6.92,
+      "log": "M7-edges-v2-numeric-transport-run.log",
+      "results": [
+        {
+          "report": "M7-edges-v2-numeric-results.json",
+          "status": "PASS",
+          "result_groups": null
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-numeric-transport-browser-results.json",
+          "copy": "M7-edges-v2-numeric-results.json",
+          "sha256": "fa790b29ce965321c511b0458837e6c8d92bcd432238b9b8dcbc26a116a619b9"
+        }
+      ]
+    },
+    {
+      "suite": "numeric-transport-guards-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 4.64,
+      "log": "M7-edges-v2-numeric-transport-guards-run.log",
+      "results": [
+        {
+          "report": "M7-edges-v2-numeric-guards-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-numeric-transport-guards-results.json",
+          "copy": "M7-edges-v2-numeric-guards-results.json",
+          "sha256": "664715c795541c39fcf15dac6153f8eba5bf0152994dfd54b19d131f4f34f674"
+        }
+      ]
+    },
+    {
+      "suite": "predictions-independent-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 7.77,
+      "log": "M7-edges-v2-predictions-independent-run.log",
+      "results": [
+        {
+          "report": "M7-edges-v2-predictions-edges-results.json",
+          "status": "PASS",
+          "result_groups": 5
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M5-predictions-independent-browser-results.json",
+          "copy": "M7-edges-v2-predictions-edges-results.json",
+          "sha256": "aea17a9e2986b6c406a40249ad14a411b74ff677f568f1c98a616855915d3c1a"
+        },
+        {
+          "original": "M5-predictions-independent-source-inspection.png",
+          "copy": "M7-edges-v2-predictions-independent-M5-predictions-independent-source-inspection.png",
+          "sha256": "547cbb30d9f4afb675c2fdfd0fcef23978c9906493a5b1af6187c2d165f2fbd4"
+        }
+      ]
+    },
+    {
+      "suite": "prediction-source-details-independent.cjs",
+      "exit_code": 1,
+      "duration_s": 0.16,
+      "log": "M7-edges-v2-prediction-source-details-independent-run.log",
+      "results": [],
+      "copied_artifacts": []
+    }
+  ],
+  "preservation": [],
+  "error": "AssertionError(('prediction-source-details-independent.cjs', 1))",
+  "timestamp": "2026-11-10T23:19:01.345148+00:00"
+}

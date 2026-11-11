@@ -1,0 +1,4 @@
+START prediction-source-details-independent.cjs
+PASS prediction-source-details-independent.cjs [{'report': 'M7-edges-tail-v2-source-details-results.json', 'status': 'PASS', 'result_groups': 7}]
+START selection-independent-browser.cjs
+PASS selection-independent-browser.cjs [{'report': 'M7-edges-tail-v2-selection-results.json', 'status': 'PASS', 'result_groups': 2}]

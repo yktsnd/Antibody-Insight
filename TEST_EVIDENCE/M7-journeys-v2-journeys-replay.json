@@ -1,0 +1,228 @@
+{
+  "status": "PASS",
+  "source_sha256": "b40db8458e0514a8e3f88a759089dbfe0abd1113bac43cb1324150bb3b442880",
+  "runs": [
+    {
+      "suite": "j01-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 46.14,
+      "log": "M7-journeys-v2-j01-run.log",
+      "results": [
+        {
+          "report": "M7-journeys-v2-J01-results.json",
+          "status": "PASS",
+          "result_groups": 5
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J01-browser-results.json",
+          "copy": "M7-journeys-v2-J01-results.json",
+          "sha256": "dc167145dea70d0c6e71fdc52987b167f05b5e6816df35757179529308feb6b5"
+        },
+        {
+          "original": "J01-saved-shortlist.png",
+          "copy": "M7-journeys-v2-j01-J01-saved-shortlist.png",
+          "sha256": "3e961adcb58e1620963c6637048ca89bf0ebd029e2abb30d1a35a515aab7cbb6"
+        },
+        {
+          "original": "J01-two-candidate-observation.png",
+          "copy": "M7-journeys-v2-j01-J01-two-candidate-observation.png",
+          "sha256": "f19af708c57e2943ec526e9c06cd09ae338dbec37f1beb660ec377877a441618"
+        }
+      ]
+    },
+    {
+      "suite": "j02-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 12.74,
+      "log": "M7-journeys-v2-j02-run.log",
+      "results": [
+        {
+          "report": "M7-journeys-v2-J02-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J02-browser-results.json",
+          "copy": "M7-journeys-v2-J02-results.json",
+          "sha256": "86f5b62892b6e430f230258c112914920f107374e75c56baa0d21259367e565f"
+        },
+        {
+          "original": "J02-coordinate-design.png",
+          "copy": "M7-journeys-v2-j02-J02-coordinate-design.png",
+          "sha256": "91212c934a8a6f19b128e4c958f85fb6d0a571cf6dca351ad63a7444a49cc605"
+        },
+        {
+          "original": "J02-saved-hypothesis.png",
+          "copy": "M7-journeys-v2-j02-J02-saved-hypothesis.png",
+          "sha256": "f632c37a2bbfd39baba0d8343333970c57a7c31372a6f0182f321563afc6c3e1"
+        }
+      ]
+    },
+    {
+      "suite": "observation-journeys-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 47.23,
+      "log": "M7-journeys-v2-observation-journeys-run.log",
+      "results": [
+        {
+          "report": "M7-journeys-v2-J03-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        },
+        {
+          "report": "M7-journeys-v2-J04-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        },
+        {
+          "report": "M7-journeys-v2-public-results.json",
+          "status": "PASS",
+          "result_groups": 1
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J03-browser-results.json",
+          "copy": "M7-journeys-v2-J03-results.json",
+          "sha256": "2b5c44edef43a6a98850bf737ea3acb710dbad3af158cc84b18495b16e8409e1"
+        },
+        {
+          "original": "J03-saved-hypothesis.png",
+          "copy": "M7-journeys-v2-observation-journeys-J03-saved-hypothesis.png",
+          "sha256": "a42408d12a855a51b3ade88e4ad128a7f044ae0ae51b41b1e6173585e2651e3d"
+        },
+        {
+          "original": "J04-browser-results.json",
+          "copy": "M7-journeys-v2-J04-results.json",
+          "sha256": "97b6b190ac4907b8752989ae1346b26f16f22727dccb847c4cf9def69d8d12a6"
+        },
+        {
+          "original": "J04-saved-property-hypothesis.png",
+          "copy": "M7-journeys-v2-observation-journeys-J04-saved-property-hypothesis.png",
+          "sha256": "9d8ab7de5df5cef41f1ccf6af919438d2bf30b4960c0cf96544df892b23b75d6"
+        },
+        {
+          "original": "public-1MLC-observation.png",
+          "copy": "M7-journeys-v2-observation-journeys-public-1MLC-observation.png",
+          "sha256": "677bff33b5718b6beec7a2cd642766abb1728362b3845901f34ab3667b6db358"
+        },
+        {
+          "original": "public-structure-browser-results.json",
+          "copy": "M7-journeys-v2-public-results.json",
+          "sha256": "69d7a0be9d94cb168c6fb23d33cc039e35c6ac70298adafadc63d4a17ffbfdcd"
+        }
+      ]
+    },
+    {
+      "suite": "j05-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 11.27,
+      "log": "M7-journeys-v2-j05-run.log",
+      "results": [
+        {
+          "report": "M7-journeys-v2-J05-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "J05-browser-results.json",
+          "copy": "M7-journeys-v2-J05-results.json",
+          "sha256": "8832e69a757b4fa88ada5fb90c67f7c4bb56a32ba2f360bad88bd648c35ea87f"
+        },
+        {
+          "original": "J05-composition-comparison.png",
+          "copy": "M7-journeys-v2-j05-J05-composition-comparison.png",
+          "sha256": "8bfa023669d519f148554c86129f23aeac0ca67cd4754a0b4ea054c15267d76d"
+        }
+      ]
+    },
+    {
+      "suite": "j06-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 10.98,
+      "log": "M7-journeys-v2-j06-run.log",
+      "results": [
+        {
+          "report": "M7-journeys-v2-J06-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-J06-browser-results.json",
+          "copy": "M7-journeys-v2-J06-results.json",
+          "sha256": "8bcd5375aba33bd23446b4bc2e7c6783d0cc7da29812261c0121f6a1bbf440e8"
+        },
+        {
+          "original": "M4-J06-construct-comparison.png",
+          "copy": "M7-journeys-v2-j06-M4-J06-construct-comparison.png",
+          "sha256": "e9da4ae5a933d95044bd94b2fa70734d208d04ce04bf5b247bf3d13905a61440"
+        },
+        {
+          "original": "M4-J06-material-observations.png",
+          "copy": "M7-journeys-v2-j06-M4-J06-material-observations.png",
+          "sha256": "eded6adf532c7754b6928034cdef52a4692380231b47d2ed20d72b2dee36b278"
+        }
+      ]
+    },
+    {
+      "suite": "j07-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 12.31,
+      "log": "M7-journeys-v2-j07-run.log",
+      "results": [
+        {
+          "report": "M7-journeys-v2-J07-results.json",
+          "status": "PASS",
+          "result_groups": 4
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M4-J07-browser-results.json",
+          "copy": "M7-journeys-v2-J07-results.json",
+          "sha256": "4b2f4d6a402e9dcee454ffd59afe1cf34a6a149d5e8766f3fc7774d8e2de1e49"
+        },
+        {
+          "original": "M4-J07-final-review.png",
+          "copy": "M7-journeys-v2-j07-M4-J07-final-review.png",
+          "sha256": "d3d0b46bc86ef03bf2b640f23f346be651c93ecccd172474ffaa71a3bcc77464"
+        }
+      ]
+    },
+    {
+      "suite": "j08-browser.cjs",
+      "exit_code": 0,
+      "duration_s": 21.34,
+      "log": "M7-journeys-v2-j08-run.log",
+      "results": [
+        {
+          "report": "M7-journeys-v2-J08-results.json",
+          "status": "PASS",
+          "result_groups": 3
+        }
+      ],
+      "copied_artifacts": [
+        {
+          "original": "M5-J08-browser-results.json",
+          "copy": "M7-journeys-v2-J08-results.json",
+          "sha256": "70c2d44ef2d026f7e00222f1a5b35d4e178138f0f4c169c72bf8e4740401ac68"
+        },
+        {
+          "original": "M5-J08-restored-project.png",
+          "copy": "M7-journeys-v2-j08-M5-J08-restored-project.png",
+          "sha256": "78947227408dc2be13fc71ed7a97197984c9ee0d5a43a650dcc341a1f0b21520"
+        }
+      ]
+    }
+  ],
+  "preservation": [],
+  "timestamp": "2026-11-10T23:15:11.960491+00:00"
+}

@@ -1,0 +1,6 @@
+PASS deleted component identity is not automatically recycled into a dangling connection
+PASS late composition review is discarded on task or project change and drafts remain
+PASS late successful save retains newer same-project recipe and current task
+PASS late successful save in another project cannot erase its draft or change current project
+PASS late rejected save cannot enable a newer pending save or inject its old error into the new review
+PASS undefined and declared compositions compare by actual identity format and role without inferred graph

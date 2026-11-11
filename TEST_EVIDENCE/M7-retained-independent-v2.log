@@ -1,0 +1,12 @@
+START browser.cjs
+PASS browser.cjs [{'report': 'M7-retained-v2-foundation-results.json', 'status': 'PASS', 'result_groups': 11}]
+START numbering-browser.cjs
+PASS numbering-browser.cjs [{'report': 'M7-retained-v2-numbering-results.json', 'status': 'PASS', 'result_groups': 5}]
+START structures-browser.cjs
+PASS structures-browser.cjs [{'report': 'M7-retained-v2-structures-results.json', 'status': 'PASS', 'result_groups': 11}]
+START observation-independent-browser.cjs
+PASS observation-independent-browser.cjs [{'report': 'M7-retained-v2-observation-results.json', 'status': 'PASS', 'result_groups': 3}]
+START design-hypotheses-independent-browser.cjs
+PASS design-hypotheses-independent-browser.cjs [{'report': 'M7-retained-v2-design-results.json', 'status': 'PASS', 'result_groups': 4}]
+START design-save-independent-browser.cjs
+PASS design-save-independent-browser.cjs [{'report': 'M7-retained-v2-design-save-results.json', 'status': 'PASS', 'result_groups': 3}]

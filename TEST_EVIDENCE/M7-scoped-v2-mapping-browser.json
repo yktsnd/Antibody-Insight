@@ -1,0 +1,52 @@
+{
+  "reviewer": "/root/mapping_review",
+  "status": "PASS",
+  "scope": "P0 API and actual WebGL only; synthetic engineering evidence, not real scientific validation",
+  "database": "C:\\Users\\yukis\\AppData\\Local\\Temp\\antibody-map-independent-zpKu4H\\legacy.sqlite3",
+  "results": [
+    {
+      "name": "API map preview refuses reversed identical amino acids in a legacy project",
+      "status": "PASS"
+    },
+    {
+      "name": "Native awx file preview refuses both complete and append-file reversed maps",
+      "status": "PASS"
+    },
+    {
+      "name": "Direct import refuses a new reversed map and leaves all prior entities exact",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy contradictory map renders an explicit warning and never highlights sequence-linked atoms",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual coordinate click on quarantined source stays source-only and cannot select a sequence residue",
+      "status": "PASS"
+    },
+    {
+      "name": "Ordinary correspondence editor rejects reverse identical residues before offering Save",
+      "status": "PASS"
+    },
+    {
+      "name": "Explicit valid map retains molecule identity and a distinct gap-bearing molecule saves",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual valid gap/insertion selection works from sequence and from WebGL atom",
+      "status": "PASS"
+    },
+    {
+      "name": "No browser errors or external requests",
+      "status": "PASS"
+    }
+  ],
+  "source_hashes_at_completion": {
+    "workspace_app/structures.py": "17c86747a6f588201bd8595fdc194258f400100c105d3e04e052af77c11414db",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/hypotheses.py": "ef222e9e2c6cfb0239039cdd8726fcbf3bf5d4bf453e81cbf2ef5ab61c819e12",
+    "workspace_app/server.py": "ebafa27783390d6d8bb9122b47cc26d838f9768c2b966647c893dd21eaefd5c9",
+    "web/structures.js": "6f15b4c8d49593c1220e8789e709a5d1ce0a65c7846e9b948f29fc0007ebf2ae"
+  }
+}

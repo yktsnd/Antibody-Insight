@@ -1,0 +1,8 @@
+PASS e2e_j03_complex_comparison
+PASS e2e_j03_unmappable_residue
+PASS e2e_j03_missing_confidence
+PASS e2e_j04_developability_review
+PASS e2e_j04_unit_mismatch
+PASS e2e_j04_unknown_assay_condition
+PASS public_1MLC_offline_source_scale
+PASS observation journeys and public source-scale check

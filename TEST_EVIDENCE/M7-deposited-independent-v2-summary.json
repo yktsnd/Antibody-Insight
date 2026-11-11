@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/mapping_review",
+  "timestamp": "2026-11-10T23:21:16.404873+00:00",
+  "source_sha256": "b40db8458e0514a8e3f88a759089dbfe0abd1113bac43cb1324150bb3b442880",
+  "runs": [
+    {
+      "name": "deposited",
+      "exit_code": 0,
+      "duration_s": 35.11,
+      "log": "M7-deposited-independent-v2.log",
+      "copied_artifacts": [
+        "M7-deposited-v2-browser-public-1MLC.png",
+        "M7-deposited-v2-browser.json"
+      ],
+      "tail": [
+        "PASS Classify a map with the copied source name as declared when it lacks typed derivation",
+        "PASS Discard a delayed deposited preview when its editor has closed",
+        "PASS Reject a coordinate entity mismatch without changing the persisted project",
+        "PASS Expose an explicit alternate and missing coordinate as unavailable",
+        "PASS Reopen the saved map after server restart and reproduce the project in a fresh store"
+      ]
+    }
+  ]
+}

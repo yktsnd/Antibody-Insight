@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/deposited_mapping_review",
+  "timestamp": "2026-11-10T23:10:23.212716+00:00",
+  "results": [
+    "Same chain retains distinct light and heavy domains and an exact raw offset after a linker",
+    "Duplicate domain ordinals and changed line endings cannot reuse a binding",
+    "UTF-8 BOM and CRLF remain byte-identical after persistence and fresh transfer"
+  ],
+  "scope": "Synthetic mixed-domain input adapted from real source text and labelled as an engineering probe",
+  "sha256": {
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "workspace_app/numbering.py": "43a888112b1087ec39b23d003438b946ee45cf9a78d4c404bea806504fe86033",
+    "workspace_app/numbering_import.py": "2272db978fe33beaff5de4df37d61cd961c0bdc07f6c1730f9f666c0436adb57"
+  }
+}

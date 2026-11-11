@@ -1,5 +1,11 @@
 # Changes
 
+## Unreleased: deposited coordinates and original numbering files
+
+- W derives a reviewable map from explicit mmCIF polymer positions when each assigned full chain matches the deposited monomers. It preserves the source's coordinate identifiers and displays unavailable coordinates and conformers.
+- E imports native ANARCI IMGT text. The reviewed binding specifies an actual chain and domain. W exposes the original file and verification record. Save and fresh import validate both relationships against the original text.
+- Independent public-data replays connect ordinary D44.1 FASTA and mmCIF to a proposed experiment and inspect 223 original numbered residues. The recorded human review and sample-level assay inputs needed for the real design and decision workflow remain pending.
+
 ## Unreleased: reliable observation and reasoning (M6)
 
 - Reject sequence/coordinate order reversals in previews and imports using source polymer order. Recheck old maps before reciprocal selection or a new mapped hypothesis. Retain original records and source-only coordinates when order is unknown or contradictory.

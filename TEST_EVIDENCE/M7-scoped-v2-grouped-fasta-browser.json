@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "API enumerates source records without inferred candidate/chain registration",
+      "status": "PASS",
+      "duration_ms": 123
+    },
+    {
+      "name": "API rejects duplicate chain, stale text, missing assignment and boolean record index without writes",
+      "status": "PASS",
+      "duration_ms": 78
+    },
+    {
+      "name": "actual file picker requires explicit assignments and exposes duplicate-chain recovery",
+      "status": "PASS",
+      "duration_ms": 2188
+    },
+    {
+      "name": "new source text and a different project require fresh grouping declarations",
+      "status": "PASS",
+      "duration_ms": 982
+    }
+  ],
+  "error": null,
+  "errors": [],
+  "outbound": [],
+  "initial_source_sha256": {
+    "web/app.js": "a496fb55f0a8542825e53ff994b1f3941b2181d381dc1b23a58fe8eca064b7d6",
+    "web/index.html": "5d70dc5d6e96d78100a66d1eb051033c8daa799c73c8a3962d662c80d9b37bf4",
+    "workspace_app/adapters.py": "cea2d9c5054b5fa97425687a283c32ddddd32f05037ab4ba6ea827a1f3f9f33f",
+    "workspace_app/server.py": "ebafa27783390d6d8bb9122b47cc26d838f9768c2b966647c893dd21eaefd5c9",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "tests/grouped-fasta-independent-browser.cjs": "728e25d9116d5d5fff4ba5f945573d24a23f2f6c35bdf7a496fae39f0d7bffdf"
+  },
+  "final_source_sha256": {
+    "web/app.js": "a496fb55f0a8542825e53ff994b1f3941b2181d381dc1b23a58fe8eca064b7d6",
+    "web/index.html": "5d70dc5d6e96d78100a66d1eb051033c8daa799c73c8a3962d662c80d9b37bf4",
+    "workspace_app/adapters.py": "cea2d9c5054b5fa97425687a283c32ddddd32f05037ab4ba6ea827a1f3f9f33f",
+    "workspace_app/server.py": "ebafa27783390d6d8bb9122b47cc26d838f9768c2b966647c893dd21eaefd5c9",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "tests/grouped-fasta-independent-browser.cjs": "728e25d9116d5d5fff4ba5f945573d24a23f2f6c35bdf7a496fae39f0d7bffdf"
+  },
+  "timestamp": "2026-11-10T23:20:38.843Z",
+  "scope": "Real public 1MLC sequences via conventional FASTA and explicit declarations in Chrome. No real assay or complete scientific workflow validation."
+}

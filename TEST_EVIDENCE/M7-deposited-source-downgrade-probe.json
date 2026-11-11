@@ -1,0 +1,16 @@
+{
+  "reviewer": "/root/deposited_mapping_review",
+  "timestamp": "2026-11-10T22:57:29.117376+00:00",
+  "scope": "Same-AA offset with typed provenance vs deleting only derivation while retaining generated source name",
+  "typed": "Deposited correspondence differs from the retained coordinate source",
+  "untyped": "accepted",
+  "source_name": "Deposited mmCIF polymer sequence",
+  "label_asym": "A",
+  "raw_position": 31,
+  "claimed_label_number": 32,
+  "sha256": {
+    "workspace_app/structures.py": "17c86747a6f588201bd8595fdc194258f400100c105d3e04e052af77c11414db",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "web/structures.js": "8c53b17e565c66b2adf185ffa7ceea7461674084ed5ad7433d0c4f4c71182911"
+  }
+}

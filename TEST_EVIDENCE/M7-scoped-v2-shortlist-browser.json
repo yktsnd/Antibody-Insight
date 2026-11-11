@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "R-W-R retains reason and excluded evidence IDs; preview and saved snapshot exact",
+      "status": "PASS",
+      "duration_ms": 1156
+    },
+    {
+      "name": "candidate-set switch isolates text and choices; returning in reverse selection order restores draft",
+      "status": "PASS",
+      "duration_ms": 963
+    },
+    {
+      "name": "different project isolates drafts and return restores original candidate set",
+      "status": "PASS",
+      "duration_ms": 447
+    },
+    {
+      "name": "all evidence can remain excluded and blank reason cannot preview or write",
+      "status": "PASS",
+      "duration_ms": 1256
+    },
+    {
+      "name": "successful save freezes selected exact evidence while newer in-flight draft edit survives",
+      "status": "PASS",
+      "duration_ms": 359
+    },
+    {
+      "name": "a rejected late save preserves revised draft and suppresses obsolete error",
+      "status": "PASS",
+      "duration_ms": 638
+    },
+    {
+      "name": "delayed post-save bundle cannot replace a newer project or its draft",
+      "status": "PASS",
+      "duration_ms": 317
+    },
+    {
+      "name": "ordinary successful save persists exact snapshot and clears only submitted draft",
+      "status": "PASS",
+      "duration_ms": 649
+    },
+    {
+      "name": "successful persistence remains explicit when the subsequent bundle refresh fails",
+      "status": "PASS",
+      "duration_ms": 209
+    },
+    {
+      "name": "scientific text stays out of localStorage",
+      "status": "PASS",
+      "duration_ms": 4
+    }
+  ],
+  "error": null,
+  "errors": [],
+  "outbound": [],
+  "initial_source_sha256": {
+    "web/app.js": "a496fb55f0a8542825e53ff994b1f3941b2181d381dc1b23a58fe8eca064b7d6",
+    "workspace_app/server.py": "ebafa27783390d6d8bb9122b47cc26d838f9768c2b966647c893dd21eaefd5c9",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "tests/shortlist-independent-browser.cjs": "c6a9d44fa13dccdfd99f48d5b5bc8c91d78bf31cc19dea6af45603a2d0683056"
+  },
+  "final_source_sha256": {
+    "web/app.js": "a496fb55f0a8542825e53ff994b1f3941b2181d381dc1b23a58fe8eca064b7d6",
+    "workspace_app/server.py": "ebafa27783390d6d8bb9122b47cc26d838f9768c2b966647c893dd21eaefd5c9",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "tests/shortlist-independent-browser.cjs": "c6a9d44fa13dccdfd99f48d5b5bc8c91d78bf31cc19dea6af45603a2d0683056"
+  },
+  "timestamp": "2026-11-10T23:20:26.496Z",
+  "scope": "Actual Chrome, temporary SQLite, synthetic fixtures. Engineering edges only; not human or scientific validation."
+}

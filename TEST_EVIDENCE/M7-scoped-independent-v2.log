@@ -1,0 +1,10 @@
+START mapping-browser
+PASS mapping-browser {'name': 'mapping-browser', 'exit_code': 0, 'duration_s': 9.06, 'log': 'M7-scoped-v2-mapping-browser-run.log', 'report': 'M7-scoped-v2-mapping-browser.json', 'status': 'PASS', 'result_groups': 9}
+START shortlist-browser
+PASS shortlist-browser {'name': 'shortlist-browser', 'exit_code': 0, 'duration_s': 9.66, 'log': 'M7-scoped-v2-shortlist-browser-run.log', 'report': 'M7-scoped-v2-shortlist-browser.json', 'status': 'PASS', 'result_groups': 10}
+START research-entry-browser
+PASS research-entry-browser {'name': 'research-entry-browser', 'exit_code': 0, 'duration_s': 6.44, 'log': 'M7-scoped-v2-research-entry-browser-run.log', 'report': 'M7-scoped-v2-research-entry-browser.json', 'status': 'PASS', 'result_groups': 6}
+START grouped-fasta-browser
+PASS grouped-fasta-browser {'name': 'grouped-fasta-browser', 'exit_code': 0, 'duration_s': 5.83, 'log': 'M7-scoped-v2-grouped-fasta-browser-run.log', 'report': 'M7-scoped-v2-grouped-fasta-browser.json', 'status': 'PASS', 'result_groups': 4}
+START mapping-domain
+PASS mapping-domain {'name': 'mapping-domain', 'exit_code': 0, 'duration_s': 1.34, 'log': 'M7-scoped-v2-mapping-domain-run.log', 'report': 'M7-scoped-v2-mapping-domain.json', 'status': 'PASS', 'result_groups': 10}

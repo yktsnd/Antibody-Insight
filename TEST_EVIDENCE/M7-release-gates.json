@@ -1,0 +1,77 @@
+{
+  "schema_version": "release-gates/1",
+  "version": "0.8.0-dev",
+  "timestamp": "2026-11-11T09:57:56.491578+00:00",
+  "overall_release_status": "INCOMPLETE",
+  "current_product_acceptance": "NOT_REEVALUATED",
+  "source_sha256": "b40db8458e0514a8e3f88a759089dbfe0abd1113bac43cb1324150bb3b442880",
+  "engineering_workflows": {
+    "status": "PASS",
+    "main_flows": 8,
+    "prescribed_negative_flows": 16,
+    "scope": "Prescribed engineering replays on the final source snapshot"
+  },
+  "core_branch_coverage": {
+    "status": "PASS",
+    "covered": 630,
+    "total": 682,
+    "percent": 92.37536656891496,
+    "threshold_percent": 85,
+    "report": "TEST_EVIDENCE/M7-core-branch-coverage.json"
+  },
+  "real_data_core": {
+    "status": "PARTIAL",
+    "verified_stages": [
+      "Ordinary grouped 1MLC FASTA registration",
+      "Actual mmCIF deposit correspondence to 432 positions",
+      "Reciprocal sequence and physical 3D selection",
+      "Proposed experiment retains exact source residue",
+      "Actual ANARCI output maps 223 residues with original bytes",
+      "Restart and exact fresh-store transfer"
+    ],
+    "remaining": [
+      "Genuine numbering review and actual reference sequence through design",
+      "Original material/construct identity and event-bearing assays through comparison",
+      "One complete real experiment proposal and evidence-based decision action"
+    ]
+  },
+  "real_workflows": {
+    "J01": "Full measured candidate cohort, grouping and persisted shortlist still unverified",
+    "J02": "Actual H/L and original numbering import verified. Genuine review, reference comparison and variant decision still unverified",
+    "J03": "Public experimental structure, coordinate selection and next experiment verified. Two actual predicted complexes and their uncertainties still unverified",
+    "J04": "Source positions verified. Actual property measurements, attributed concerns and variant reasoning still unverified",
+    "J05": "Declared composition workflow has engineering evidence. Actual binding-unit source designs and researcher evaluation still unverified",
+    "J06": "Actual distinct constructs, sample lots and matched condition measurements still unverified",
+    "J07": "Actual candidate decision with original assays and revised criteria still unverified",
+    "J08": "Actual public FASTA/mmCIF/numbering file transfer verified. Complete original measurement and prediction transfer for one real project still unverified"
+  },
+  "scientific_validation": {
+    "status": "PENDING",
+    "human_verified_categories": 0,
+    "required": 18
+  },
+  "researcher_evaluation": {
+    "status": "PENDING",
+    "completed_roles": 0,
+    "required": 8
+  },
+  "standard_host_performance": {
+    "status": "PENDING",
+    "current_host_logical_cpu": 8,
+    "current_host_ram_bytes": 8155983872,
+    "required_ram_gb": 16,
+    "prior_nonstandard_host_p95_ms": 327
+  },
+  "fresh_checkout_byte_attestation": "PENDING_MIXED_EOL_PORTABILITY_CHECK",
+  "implementation_commit": "eee5e14385cb32d6d24a6b062bc36bc0040ae260",
+  "current_engineering_review": "PASS",
+  "review_report": "TEST_EVIDENCE/M7-final-independent-review.md",
+  "review_report_sha256": "e041049b199fcb44d440512b7ace9da90df8ed7527674be334baa0cfa6d79a08",
+  "regression": {
+    "status": "PASS",
+    "python_tests": 564,
+    "original_node_commands": 22,
+    "retained_scoped_browser_commands": 4,
+    "new_actual_browser_suites": 2
+  }
+}

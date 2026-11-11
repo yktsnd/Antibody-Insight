@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "empty E offers one research task; cancelling preview writes no project",
+      "status": "PASS",
+      "duration_ms": 1184
+    },
+    {
+      "name": "two candidates each retain H and L; both chains and sequence differences are observable",
+      "status": "PASS",
+      "duration_ms": 280
+    },
+    {
+      "name": "R identifies original samples, distinct conditions and an unknown value without a prediction",
+      "status": "PASS",
+      "duration_ms": 79
+    },
+    {
+      "name": "a proposed next experiment and exact source evidence save independently of shortlist judgment",
+      "status": "PASS",
+      "duration_ms": 787
+    },
+    {
+      "name": "observe-source-decide roundtrip saves reason with chosen evidence and next action",
+      "status": "PASS",
+      "duration_ms": 597
+    },
+    {
+      "name": "duplicate import rejects atomically and actual restart retains saved research records",
+      "status": "PASS",
+      "duration_ms": 1134
+    }
+  ],
+  "error": null,
+  "errors": [],
+  "outbound": [],
+  "initial_source_sha256": {
+    "web/app.js": "a496fb55f0a8542825e53ff994b1f3941b2181d381dc1b23a58fe8eca064b7d6",
+    "web/index.html": "5d70dc5d6e96d78100a66d1eb051033c8daa799c73c8a3962d662c80d9b37bf4",
+    "workspace_app/fixtures.py": "f97799eadce34140136c7a13a6ded33d3277a752e6400bc151023ed5fb33ca62",
+    "workspace_app/server.py": "ebafa27783390d6d8bb9122b47cc26d838f9768c2b966647c893dd21eaefd5c9",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "tests/research-entry-independent-browser.cjs": "14bca95df9c0067a84cb7eee1745d668334364bff12441f8ee6d21c5765b608c"
+  },
+  "final_source_sha256": {
+    "web/app.js": "a496fb55f0a8542825e53ff994b1f3941b2181d381dc1b23a58fe8eca064b7d6",
+    "web/index.html": "5d70dc5d6e96d78100a66d1eb051033c8daa799c73c8a3962d662c80d9b37bf4",
+    "workspace_app/fixtures.py": "f97799eadce34140136c7a13a6ded33d3277a752e6400bc151023ed5fb33ca62",
+    "workspace_app/server.py": "ebafa27783390d6d8bb9122b47cc26d838f9768c2b966647c893dd21eaefd5c9",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "tests/research-entry-independent-browser.cjs": "14bca95df9c0067a84cb7eee1745d668334364bff12441f8ee6d21c5765b608c"
+  },
+  "timestamp": "2026-11-10T23:20:32.905Z",
+  "scope": "Actual Chrome, temporary SQLite, deliberately synthetic paired example. Human first-use, ordinary-data core, and scientific correctness require separate acceptance."
+}

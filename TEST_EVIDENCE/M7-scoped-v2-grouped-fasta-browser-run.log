@@ -1,0 +1,4 @@
+PASS API enumerates source records without inferred candidate/chain registration
+PASS API rejects duplicate chain, stale text, missing assignment and boolean record index without writes
+PASS actual file picker requires explicit assignments and exposes duplicate-chain recovery
+PASS new source text and a different project require fresh grouping declarations

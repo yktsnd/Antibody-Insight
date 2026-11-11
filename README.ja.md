@@ -23,6 +23,8 @@ M4の工学的受入に続いて、0.8版でJ08と全8経路の独立再検証�
 
 現在の製品受入は、7d691b2に対する追加独立レビューで **FAIL** です。M6で残基対応の順序とショートリスト入力の保持を修正し、両鎖を持つ合成例と、手元のFASTAの鎖所属を明示する入口を追加しています。変更後の固定版057b3e9は、Python549件、Node26本、8経路・16異常系の独立工学検証に合格しました。[最終独立レビュー](TEST_EVIDENCE/M6-final-independent-review.md)・[現在のゲート](TEST_EVIDENCE/M6-release-gates.json)を参照してください。実在抗体の入力から観察・設計・実験・判断までの経路全体、科学的妥当性、実研究者の利用評価は未達です。[開発順序9.2](DEVELOPMENT_PLAN.md)・[実データの検証手順](docs/CORE_RESEARCH_VALIDATION.ja.md)を参照してください。
 
+既存プロジェクトへ番号付け結果を入れるには、取込形式の **ANARCI IMGT numbering text** を選びます。元のドメインを実際の候補と鎖に割り当て、配列範囲と照合状態を確認します。元ファイルはWから取得できます。mmCIFでは、Wで元の鎖を指定し、**Use deposited polymer positions** で全鎖配列の一致と座標対応を確認できます。公開1MLCでは、この操作と、元の座標を参照する実験案の保存を検証しました。[実データの検証手順](docs/CORE_RESEARCH_VALIDATION.ja.md)・[独立統合レビュー](TEST_EVIDENCE/M7-final-independent-review.md)・[現在の完了条件](TEST_EVIDENCE/M7-release-gates.json)
+
 ## 起動
 
 Python 3.12以降で、作業フォルダーから実行します。

@@ -1,0 +1,4 @@
+PASS geometry bonds exclude incompatible alternates and unknown fields without source mutation
+PASS C-alpha overview excludes calcium modified residues and absent CA; hidden atom cannot steal physical pick
+PASS source-only unknown conformer survives proposal and exact focus; unavailable sequence clears old focus
+PASS late source resolution cannot reopen a hypothesis after current selection changes

@@ -12,6 +12,8 @@ Version0.7.0-dev adds J07 criterion-bearing Decision drafts/finalized revisions 
 
 Current product review: **FAIL** on7d691b2 despite the historical8/16. M6 corrects source-order correspondence and lost shortlist input, and adds a paired research example plus explicit chain grouping for your FASTA. [Final independent M6 engineering replay](TEST_EVIDENCE/M6-final-independent-review.md) PASS:549 Python tests,26 Node commands and8/16 prescribed paths on source057b3e9. [Current gates](TEST_EVIDENCE/M6-release-gates.json). The complete real-antibody input→observation→design→experiment→decision action, scientific validity and researcher usefulness remain open. See [revised development plan9.2](DEVELOPMENT_PLAN.md), [real-data validation](docs/CORE_RESEARCH_VALIDATION.md) and [current progress](docs/PROGRESS.md).
 
+Use **ANARCI IMGT numbering text** to bring numbered domains into an existing project. Bind each original domain to the exact candidate chain and review the interval and attestation. W can download the preserved original output. For an mmCIF file, assign the source chains in W and use **Use deposited polymer positions** to compare the full sequences and review the coordinate map. The public 1MLC case exercises both inputs and retains the coordinate behind a proposed experiment. [Real-data validation](docs/CORE_RESEARCH_VALIDATION.md) · [Independent integration](TEST_EVIDENCE/M7-final-independent-review.md) · [Release gates](TEST_EVIDENCE/M7-release-gates.json)
+
 ## Run locally
 
 Requires Python 3.12 or later and a local browser. SQLite and the application API use Python's standard library; the structural parser is pinned Gemmi0.7.5. The pinned 3Dmol viewer is already included and served locally. No external analysis service is required.

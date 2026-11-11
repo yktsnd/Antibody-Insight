@@ -1,0 +1,14 @@
+START j01-browser.cjs
+PASS j01-browser.cjs [{'report': 'M7-journeys-v2-J01-results.json', 'status': 'PASS', 'result_groups': 5}]
+START j02-browser.cjs
+PASS j02-browser.cjs [{'report': 'M7-journeys-v2-J02-results.json', 'status': 'PASS', 'result_groups': 4}]
+START observation-journeys-browser.cjs
+PASS observation-journeys-browser.cjs [{'report': 'M7-journeys-v2-J03-results.json', 'status': 'PASS', 'result_groups': 3}, {'report': 'M7-journeys-v2-J04-results.json', 'status': 'PASS', 'result_groups': 3}, {'report': 'M7-journeys-v2-public-results.json', 'status': 'PASS', 'result_groups': 1}]
+START j05-browser.cjs
+PASS j05-browser.cjs [{'report': 'M7-journeys-v2-J05-results.json', 'status': 'PASS', 'result_groups': 4}]
+START j06-browser.cjs
+PASS j06-browser.cjs [{'report': 'M7-journeys-v2-J06-results.json', 'status': 'PASS', 'result_groups': 4}]
+START j07-browser.cjs
+PASS j07-browser.cjs [{'report': 'M7-journeys-v2-J07-results.json', 'status': 'PASS', 'result_groups': 4}]
+START j08-browser.cjs
+PASS j08-browser.cjs [{'report': 'M7-journeys-v2-J08-results.json', 'status': 'PASS', 'result_groups': 3}]

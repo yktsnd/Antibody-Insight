@@ -1,0 +1,10 @@
+PASS Register both real D44.1 chains through grouped FASTA with explicit identities
+PASS Import the deposited file against the explicit molecule and save the reviewed A/B mapping
+PASS Select a sequence residue and physically click its deposited CA atom in Chrome
+PASS Save a proposed experiment with the actual public source residue and map
+PASS Reject an order-consistent same-AA offset forged as a deposited mapping
+PASS Classify a map with the copied source name as declared when it lacks typed derivation
+PASS Discard a delayed deposited preview when its editor has closed
+PASS Reject a coordinate entity mismatch without changing the persisted project
+PASS Expose an explicit alternate and missing coordinate as unavailable
+PASS Reopen the saved map after server restart and reproduce the project in a fresh store

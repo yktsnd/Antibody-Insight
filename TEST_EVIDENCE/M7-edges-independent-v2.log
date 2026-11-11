@@ -1,0 +1,19 @@
+START composition-independent-browser.cjs
+PASS composition-independent-browser.cjs [{'report': 'M7-edges-v2-composition-edges-results.json', 'status': 'PASS', 'result_groups': 6}]
+START observation-representation-independent-browser.cjs
+PASS observation-representation-independent-browser.cjs [{'report': 'M7-edges-v2-representation-results.json', 'status': 'PASS', 'result_groups': 4}]
+START experiments-independent-browser.cjs
+PASS experiments-independent-browser.cjs [{'report': 'M7-edges-v2-experiments-edges-results.json', 'status': 'PASS', 'result_groups': 8}]
+START decisions-independent-browser.cjs
+PASS decisions-independent-browser.cjs [{'report': 'M7-edges-v2-decisions-edges-results.json', 'status': 'PASS', 'result_groups': 6}]
+START numeric-transport-browser.cjs
+PASS numeric-transport-browser.cjs [{'report': 'M7-edges-v2-numeric-results.json', 'status': 'PASS', 'result_groups': None}]
+START numeric-transport-guards-browser.cjs
+PASS numeric-transport-guards-browser.cjs [{'report': 'M7-edges-v2-numeric-guards-results.json', 'status': 'PASS', 'result_groups': 4}]
+START predictions-independent-browser.cjs
+PASS predictions-independent-browser.cjs [{'report': 'M7-edges-v2-predictions-edges-results.json', 'status': 'PASS', 'result_groups': 5}]
+START prediction-source-details-independent.cjs
+Traceback (most recent call last):
+  File "C:\Users\yukis\AppData\Local\Temp\antibody-M7-regression-muz6lo0e\TEST_EVIDENCE\regression-runner.py", line 128, in <module>
+    raise AssertionError((suite, process.returncode))
+AssertionError: ('prediction-source-details-independent.cjs', 1)

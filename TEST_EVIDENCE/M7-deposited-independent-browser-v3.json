@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/deposited_mapping_review",
+  "timestamp": "2026-11-10T22:56:12.348Z",
+  "scope": "Ordinary public FASTA and 1MLC mmCIF through persisted structural correspondence, browser selection, restart and transfer. Adversarial derivatives are engineering inputs.",
+  "source_sha256": {
+    "fixtures/public/1MLC.cif": "5536c79a3d73e09503f6a4d252bbca2dac5fa0e59b5424309f49cd0c34e8606e",
+    "fixtures/public/README.md": "7ff73b3be1e088802ba0e45576d407e357ea2b987b750d688acb91f29036af95",
+    "web/app.js": "3a901dc595c00fab14fa3640937143c21ec0385c1f467f3748573dea276187c9",
+    "web/composition.js": "d113bc63590897e022c8aaeb27333f07359f9895d23f09bfe37792387a93f2d7",
+    "web/decisions.js": "27bd514e8893a0a1d4cec6293d829c1ce5d591548a3f1407183ca1011d0514e3",
+    "web/design.js": "d48a4b258c878ec5e1ed4f21fc698431262fc83d60ae8401f6ba9104c4d19f0e",
+    "web/experiments.js": "b1c963d66202e6a4694821ebee6995536f4d3e125766182cd1afac83036b0ff4",
+    "web/index.html": "a303520a3f2221a4cae3ab08d724020370d17bf2778df388a20867a1d16061e1",
+    "web/predictions.js": "1c344752905b786efa1c2d1cc4df57ccad0ecd63e3731ead44715766f566bf0b",
+    "web/structures.js": "8c53b17e565c66b2adf185ffa7ceea7461674084ed5ad7433d0c4f4c71182911",
+    "web/style.css": "7ef8feb170ea6f8734b049bd6b6e8cfd06f8986670ff7050ee96c672d044690d",
+    "web/vendor/3Dmol-2.5.5.min.js": "f7cc78921ae72e7623e89cdd111434f58c2efddd2ffda1cd212644b406fb8016",
+    "web/vendor/3Dmol-LICENSE.txt": "4c6eaaed856f3f28a3b1a98e74f4a8a71618de7d51ea4155c29f6f793bcef861",
+    "web/vendor/Gemmi-MPL-2.0.txt": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+    "web/vendor/manifest.json": "d4ab309882103a1aee6fdadd3b99c47cba10311a10a5bea693aa6ca1eef05392",
+    "workspace_app/__init__.py": "b31e32320b29cd65962628083b18ef1ca316ae4ad3bddc02f4f1a704a82a73da",
+    "workspace_app/adapters.py": "cea2d9c5054b5fa97425687a283c32ddddd32f05037ab4ba6ea827a1f3f9f33f",
+    "workspace_app/assembly.py": "88db349c062ac72ae3c42f023777e042f83211ce66dff856e9bd74b9b84ba0ce",
+    "workspace_app/composition.py": "566ea2567103a2f1e4a5c8d90a0da3f230b15ef7a4df14deeb41c7444dec5d96",
+    "workspace_app/decisions.py": "7416f121160e9ef378984e6e33f92c885f654fb798166dc1269c36ae719a391c",
+    "workspace_app/design.py": "79562e70cb55db2069656ec92aa17ef9b983f4a40e34cd99a4a662fa4f7cac54",
+    "workspace_app/design_fixtures.py": "bba4668ca720c9ae880966353333fe1e145a4611bdb4e339f00c8aaec40d065a",
+    "workspace_app/discovery_fixtures.py": "57ce0f51a2dd80beb772bf8071e7a8506b43ae6ca36b20b5046fdba3a960182d",
+    "workspace_app/domain.py": "f19ca7906f7d67a749a768a24f0f78971534e41e99563d8bbd13e62c203236ba",
+    "workspace_app/experiments.py": "a2f26b60180e5a5368f831024a45630efb77906f3337945073c183c59835a3f1",
+    "workspace_app/fixtures.py": "f97799eadce34140136c7a13a6ded33d3277a752e6400bc151023ed5fb33ca62",
+    "workspace_app/hypotheses.py": "ef222e9e2c6cfb0239039cdd8726fcbf3bf5d4bf453e81cbf2ef5ab61c819e12",
+    "workspace_app/measurements.py": "70a747e00d3b19d56bceb656adf6c5dd19355023528a49a10e6a6a2dfde313f4",
+    "workspace_app/numbering.py": "d6973ffcd0cc0de1225ee40fc2bd329963ceaa521018f2b29dc48d98cf3bdf4d",
+    "workspace_app/numbering_import.py": "1aade1e6c9022af1a3d050f9d7fc1a7b07429e13da8eb89997ec3f62c0bbaaee",
+    "workspace_app/observation.py": "3189d8d5b633a385dceb77ecc782b5791f3b3a1930adc5d40ec1f75d37687b4c",
+    "workspace_app/predictions.py": "057931339a08a8696acbf2ecfd4b5c2212dfa7f67c556ee5f50034a05a7ffd3b",
+    "workspace_app/residue_evidence.py": "00507de650bbc47b1fce8eda46770ec484bcfd4ff3c4118a978a962287b4d0b8",
+    "workspace_app/server.py": "1961588d4e325a1f36c0dd30f37a2bc5143346b15b6d10d51f8e757fe9b84917",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/structure_fixtures.py": "5764d762feab311eb8dd294d977ee429f116ea92e8bb5d2aa627f9d1596976e9",
+    "workspace_app/structures.py": "17c86747a6f588201bd8595fdc194258f400100c105d3e04e052af77c11414db"
+  },
+  "observed": [
+    {
+      "name": "Register both real D44.1 chains through grouped FASTA with explicit identities",
+      "status": "PASS"
+    },
+    {
+      "name": "Import the deposited file against the explicit molecule and save the reviewed A/B mapping",
+      "status": "PASS"
+    },
+    {
+      "name": "Select a sequence residue and physically click its deposited CA atom in Chrome",
+      "status": "PASS"
+    },
+    {
+      "name": "Save a proposed experiment with the actual public source residue and map",
+      "status": "PASS"
+    },
+    {
+      "name": "Reject an order-consistent same-AA offset forged as a deposited mapping",
+      "status": "PASS"
+    },
+    {
+      "name": "Reject a coordinate entity mismatch without changing the persisted project",
+      "status": "PASS"
+    },
+    {
+      "name": "Expose an explicit alternate and missing coordinate as unavailable",
+      "status": "PASS"
+    },
+    {
+      "name": "Reopen the saved map after server restart and reproduce the project in a fresh store",
+      "status": "PASS"
+    }
+  ],
+  "page_errors": [],
+  "external_requests": [],
+  "error": null
+}

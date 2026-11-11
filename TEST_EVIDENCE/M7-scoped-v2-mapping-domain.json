@@ -1,0 +1,54 @@
+{
+  "reviewer": "/root/mapping_review",
+  "scope": "P0 source-order domain and read-time quarantine; synthetic engineering evidence only",
+  "sources_at_completion": {
+    "workspace_app/structures.py": "17c86747a6f588201bd8595fdc194258f400100c105d3e04e052af77c11414db",
+    "workspace_app/domain.py": "9d42bf075d177f8ee0981bd759f82513f9b889473e11d184d99711718b039a95",
+    "workspace_app/storage.py": "7b01247772f4859d29a70a6bcd233de3ea8ddbd63e7a75c3d56f2f5b9a587d3e",
+    "workspace_app/hypotheses.py": "ef222e9e2c6cfb0239039cdd8726fcbf3bf5d4bf453e81cbf2ef5ab61c819e12",
+    "workspace_app/server.py": "ebafa27783390d6d8bb9122b47cc26d838f9768c2b966647c893dd21eaefd5c9"
+  },
+  "results": [
+    {
+      "name": "PDB repeated identical residues reverse order rejected in graph and atomic import",
+      "status": "PASS"
+    },
+    {
+      "name": "CIF repeated identical residues reverse label order rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "Correct PDB source order accepts missing raw index and author insertion",
+      "status": "PASS"
+    },
+    {
+      "name": "Correct PDB order never sorts descending author numbers",
+      "status": "PASS"
+    },
+    {
+      "name": "CIF shuffled atom rows and descending author numbers use polymer label order",
+      "status": "PASS"
+    },
+    {
+      "name": "CIF missing single-residue label has no verified sequence highlight",
+      "status": "PASS"
+    },
+    {
+      "name": "CIF duplicated polymer label under distinct author loci remains unverified",
+      "status": "PASS"
+    },
+    {
+      "name": "PDB same source chain across TER cannot establish cross-part order",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy contradictory map source-only; unrelated shortlist still saves; source immutable",
+      "status": "PASS"
+    },
+    {
+      "name": "New hypothesis cannot assert a quarantined map; explicit source-only context allowed",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

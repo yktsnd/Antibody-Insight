@@ -42,3 +42,11 @@ If several eligible maps/domains exist for a chain or several heavy-chain domain
 Grouping uses the mapped sequence's CDR3 residue order, never lexical sorting of coordinate strings or a raw-sequence substring heuristic.
 
 The application validates imported data consistency. It does not perform numbering, assign humanness, validate antibody function or assert that fixtures are scientifically human-verified.
+
+## Native ANARCI text
+
+Choose **ANARCI IMGT numbering text** in E and import the output for an existing project. Match the exact record and domain to a registered candidate chain. Preview includes the tool's original H/K/L classification and the inclusive raw interval. A missing hit stays excluded with its source identifier. Save retains the selected maps and a single original UTF-8 file. W shows the verification state and can download the original bytes.
+
+The parser requires the source's explicit IMGT declaration. It converts both inclusive zero-based indexes to one-based indexes and consumes a raw index only for a numbered residue. It retains the exact source text and converts supported ANARCI 111/112 letter insertions to the existing IMGT decimal coordinates. The actual chain sequence, order and map shape must pass validation. Other schemes and unsupported insertions are reported at import. [ANARCI file format](https://github.com/oxpig/ANARCI/blob/79f6c575056dedef86cb8f405ebb039197923eec/README.md) · [IMGT additional positions](https://www.imgt.org/IMGTScientificChart/Numbering/IMGTnumberingAC.html)
+
+An immutable `numbering_file` holds the content, digest, recorded version and allocations. A `residue_map.numbering_origin` names the exact file, record occurrence and domain. Save and fresh import rederive the numbered entries and verify the target and review record. The preview requires a fresh binding when the source text changes. Use the optional scientific review fields only for an actual review covering those domains and chains. Unverified imports are available for W inspection. Eligible numbering-dependent design continues to require the existing recorded review.

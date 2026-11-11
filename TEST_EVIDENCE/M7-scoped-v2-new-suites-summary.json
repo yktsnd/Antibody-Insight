@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/mapping_review",
+  "source_sha256": "b40db8458e0514a8e3f88a759089dbfe0abd1113bac43cb1324150bb3b442880",
+  "timestamp": "2026-11-10T23:20:40.584007+00:00",
+  "runs": [
+    {
+      "name": "mapping-browser",
+      "exit_code": 0,
+      "duration_s": 9.06,
+      "log": "M7-scoped-v2-mapping-browser-run.log",
+      "report": "M7-scoped-v2-mapping-browser.json",
+      "status": "PASS",
+      "result_groups": 9
+    },
+    {
+      "name": "shortlist-browser",
+      "exit_code": 0,
+      "duration_s": 9.66,
+      "log": "M7-scoped-v2-shortlist-browser-run.log",
+      "report": "M7-scoped-v2-shortlist-browser.json",
+      "status": "PASS",
+      "result_groups": 10
+    },
+    {
+      "name": "research-entry-browser",
+      "exit_code": 0,
+      "duration_s": 6.44,
+      "log": "M7-scoped-v2-research-entry-browser-run.log",
+      "report": "M7-scoped-v2-research-entry-browser.json",
+      "status": "PASS",
+      "result_groups": 6
+    },
+    {
+      "name": "grouped-fasta-browser",
+      "exit_code": 0,
+      "duration_s": 5.83,
+      "log": "M7-scoped-v2-grouped-fasta-browser-run.log",
+      "report": "M7-scoped-v2-grouped-fasta-browser.json",
+      "status": "PASS",
+      "result_groups": 4
+    },
+    {
+      "name": "mapping-domain",
+      "exit_code": 0,
+      "duration_s": 1.34,
+      "log": "M7-scoped-v2-mapping-domain-run.log",
+      "report": "M7-scoped-v2-mapping-domain.json",
+      "status": "PASS",
+      "result_groups": 10
+    }
+  ],
+  "scope": "Four actual browser suites plus independent mapping domain probes; engineering evidence only. Real core/scientific/researcher validation remain separate."
+}

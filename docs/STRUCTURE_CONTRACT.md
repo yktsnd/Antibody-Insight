@@ -51,3 +51,9 @@ New maps must preserve strictly increasing raw indexes versus source polymer ord
 At read time the same assessment gates legacy map use. Contradictory/unverified maps produce mapping_status/mapping_warning, map=null and source-only coordinates. No database record is rewritten. A new Hypothesis cannot cite such a map as mapped context; exact source-only structure/residue hypotheses remain possible. Trusted existing records retain prior shape/reference checks while unrelated appends continue; newly supplied maps are always checked. No HTTP parameter exempts a new map. Export retains original maps, so fresh-store import rejects a contradictory legacy map rather than repairing it silently.
 
 Primary definitions: [wwPDB v3.3 ATOM/TER](https://www.wwpdb.org/documentation/file-format-content/format33/sect9.html), [mmCIF label_seq_id](https://mmcif.wwpdb.org/dictionaries/mmcif_pdbx_v50.dic/Items/_atom_site.label_seq_id.html). The requested correction changes no numbering scheme or residue identity.
+
+## Deposited polymer positions
+
+In W, assign the actual mmCIF source model and antibody chains to the exact registered chains. **Use deposited polymer positions** compares the complete deposited monomer sequence with each registered chain. It uses the explicit label asym, entity and sequence identifiers. The review lists mapped and unavailable positions before save. Missing coordinates and alternate conformers that need a choice are unavailable in this map. Manual correspondence supports an explicit alternate selection and other input files.
+
+The saved map records its typed derivation and the coordinate file digest. Import rederives the entries from the retained source. W displays the derivation alongside the source label. Full-chain identity and exact coordinate keys establish the mapping for the retained file. Scientific interpretation and experimental comparability require their own evidence.
