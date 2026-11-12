@@ -96,7 +96,8 @@ def validate_numbering_references(project, index):
 
 def observe_map(record, project):
     """Return transparent views of a validated imported map, retaining its identity."""
-    entries = [{**entry, "coordinate": str(entry["number"]) + entry["ins_code"], "region": region_for(entry["number"])}
+    entries = [{**entry, "coordinate": str(entry["number"]) + entry["ins_code"],
+                "order": coordinate_key(entry["number"], entry["ins_code"]), "region": region_for(entry["number"])}
                for entry in record["entries"]]
     anchors = {entry["number"] for entry in record["entries"] if entry["ins_code"] == ""}
     complete = (record["status"] == "mapped" and {104, 118} <= anchors and

@@ -22,3 +22,22 @@
 .comparison-record + .comparison-record { margin-top: 8px; }
 .comparison-table details .comparison-record { margin-top: 8px; }
 .comparison-note { margin: 0; padding: 8px 14px; }
+
+.numbered-comparison .panel-head select { padding: 5px 8px; }
+.numbered-comparison table { width: max-content; min-width: 100%; }
+.numbered-comparison th, .numbered-comparison td { padding: 5px 4px; text-align: center; }
+.numbered-comparison th { color: #284d5d; font-size: 11px; text-transform: none; }
+.numbered-comparison th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 130px;
+  max-width: 220px;
+  padding: 6px 12px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.numbered-comparison small { display: block; color: var(--muted); font-weight: 400; }
+.numbered-cell { min-width: 34px; padding: 4px 2px; color: #223b49; background: transparent; }
+.numbered-cell[aria-pressed="true"] { border-color: var(--teal); background: #dcefeb; }
+.numbered-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 14px 10px; }

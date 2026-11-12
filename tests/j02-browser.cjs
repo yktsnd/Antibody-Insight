@@ -27,6 +27,11 @@ async function download(page,name){const wait=page.waitForEvent('download');awai
     await page.locator('#candidate-count').filter({hasText:'8'}).waitFor();
     await page.getByRole('checkbox',{name:'Select DES-001',exact:true}).check();await page.getByRole('checkbox',{name:'Select REF-001',exact:true}).check();
     await page.getByRole('button',{name:parent.name,exact:true}).click();
+    const headers=await page.locator('.numbered-comparison thead th').allTextContents();
+    const center=headers.indexOf('111');
+    assert.ok(center>0);
+    assert.deepEqual(headers.slice(center,center+4),['111','111.1','112.1','112']);
+    assert.equal(await page.getByRole('button',{name:'DES-001 H IMGT 111.1 N, raw index 112',exact:true}).count(),1);
     await page.getByRole('button',{name:/DES-001 H sequence index 112 /}).click();
     assert.match(await page.locator('.sequence-details').first().textContent(),/IMGT 111\.1 \/ CDR3/);
     await page.getByRole('button',{name:'Design a substitution at the selected residue',exact:false}).click();
