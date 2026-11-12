@@ -1,0 +1,24 @@
+{
+  "status": "AWAITING_HUMAN_VALIDATED_INPUT",
+  "cases": {
+    "G01": {
+      "source_fasta": "public/nist-mam-reference-source.fasta",
+      "format": "humanized IgG1 kappa",
+      "reference_chains": [
+        {"record": "nm|NHEAVY|NHVY_NIST", "role": "heavy", "residues": 450, "copies": 2},
+        {"record": "nm|NLIGHT|NLGT_NIST", "role": "light", "residues": 213, "copies": 2}
+      ],
+      "excluded_search_database_records": ["sp|P00761|TRYP_PIG", "cm|P88320|RTCM_PIERCE"],
+      "format_source": "https://tsapps.nist.gov/srmext/certificates/archives/8671.pdf",
+      "scope": "Declared reference sequence and IgG subunit stoichiometry. The source FASTA does not enumerate all experimental proteoforms."
+    },
+    "G15": {
+      "parent_reference": "NISTmAb RM 8671",
+      "bulk_batch": "14HB",
+      "distinct_rm_lots": ["14HB-D-001", "14HB-D-002", "14HB-D-003"],
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5830479/",
+      "analyzed_lot_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5830482/",
+      "scope": "Lot-level identity from the release and characterization studies. Kit digests are prepared specimens. An observation from a digest is scoped to that prepared specimen."
+    }
+  }
+}

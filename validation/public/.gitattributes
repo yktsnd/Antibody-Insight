@@ -2,3 +2,4 @@
 *.fasta -text
 *.anarci.txt -text
 emicizumab-gsrs.json -text
+nist-mam-reference-source.fasta -text -whitespace

@@ -1,5 +1,5 @@
 golden_id,required_category,status,input_path,input_sha256,expected_results_path,primary_source,method_and_version,human_reviewer,review_date,result,notes
-G01,Conventional IgG1,AWAITING_HUMAN_VALIDATED_INPUT,,,,,,,,,
+G01,Conventional IgG1,AWAITING_HUMAN_VALIDATED_INPUT,validation/public/nist-mam-reference-source.fasta,c1f2ef9e9645c906e8b6fad38e5b88339f3dd5814660ded6376310bd7fbf5eba,validation/nist-mam-reference-expectations.json,https://data.nist.gov/od/ds/mds2-2497/FASTA%20Sequence.fasta,NIST MAM dataset v1.0.0 and RMIS 2022-01-24,,,,Candidate expectations distinguish antibody chains from search database controls and proteoforms
 G02,Kappa light chain,AWAITING_HUMAN_VALIDATED_INPUT,fixtures/public/1MLC.cif,5536c79a3d73e09503f6a4d252bbca2dac5fa0e59b5424309f49cd0c34e8606e,validation/1MLC-reference-expectations.json,https://www.rcsb.org/structure/1MLC,wwPDB 1MLC revision 1.3,,,,Candidate expectations prepared for independent human review
 G03,Lambda light chain,AWAITING_HUMAN_VALIDATED_INPUT,,,,,,,,,
 G04,Fab,AWAITING_HUMAN_VALIDATED_INPUT,fixtures/public/1MLC.cif,5536c79a3d73e09503f6a4d252bbca2dac5fa0e59b5424309f49cd0c34e8606e,validation/1MLC-reference-expectations.json,https://www.rcsb.org/structure/1MLC,wwPDB 1MLC revision 1.3,,,,Candidate expectations prepared for independent human review
@@ -13,7 +13,7 @@ G11,Truncated sequence,AWAITING_HUMAN_VALIDATED_INPUT,validation/public/1VFB.cif
 G12,Unknown chain type,AWAITING_HUMAN_VALIDATED_INPUT,,,,,,,,,
 G13,Duplicate protein sequences with distinct identities,AWAITING_HUMAN_VALIDATED_INPUT,,,,,,,,,
 G14,Same protein with different CDS,AWAITING_HUMAN_VALIDATED_INPUT,,,,,,,,,
-G15,Distinct experimental material batches,AWAITING_HUMAN_VALIDATED_INPUT,,,,,,,,,
+G15,Distinct experimental material batches,AWAITING_HUMAN_VALIDATED_INPUT,,,validation/nist-mam-reference-expectations.json,https://pmc.ncbi.nlm.nih.gov/articles/PMC5830479/,NIST RM 8671 lifecycle and value assignment studies,,,,Three actual lot references prepared for human review; no lot-level source record pinned yet
 G16,Unmappable structural residue,AWAITING_HUMAN_VALIDATED_INPUT,validation/public/3OGO.cif,7367c427469002c633362d7e0ac98dec7242b02facfed8750caaa8e58b4c42f5,validation/public-structure-expectations.json,https://www.rcsb.org/structure/3OGO,wwPDB 3OGO revision 1.3,,,,Deposited polymer without observed atoms at selected positions
 G17,Computed-only data,AWAITING_HUMAN_VALIDATED_INPUT,,,,,,,,,
 G18,Measurement with missing experimental conditions,AWAITING_HUMAN_VALIDATED_INPUT,,,,,,,,,

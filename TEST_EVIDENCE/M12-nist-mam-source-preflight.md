@@ -1,0 +1,17 @@
+# NISTmAb MAM reference sample and acquisition metadata
+
+2026-11-13 JST · P04/P08 · J04/J08 · AC-J04/AC-J08.
+
+The [attribute analytics paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC9460773/#sec2) identifies the Reference Sample as a tryptic digest of NISTmAb RM 8671 lot `14HB-D-002`. The [dataset README](https://data.nist.gov/od/ds/mds2-2497/README_2022-07-12.txt) identifies the run roles and one MS-only injection per digest per submitting lab. The two Reference MS runs below have explicit timezone offsets. This joins the published kit sample designation to an acquisition event. Individual vial serial numbers are unavailable in the checked sources.
+
+| NIST archive and exact entry path | Byte range in archive | SHA-256 of decompressed member | Acquisition stamp |
+| --- | --- | --- | --- |
+| `MAM_Data_07/REF_MS.d/AcqData/Contents.xml` | `18311913152–18311914515` | `af37aa8081e54f2a90f5993a6b10ac4390fb9f9267eb94d826042b7e8dee71fe` | `2017-09-06T19:40:04.4252299-04:00` |
+| `MAM_Data_11/Ref_MS.d/AcqData/Contents.xml` | `12426782092–12426783453` | `9535dcd453732dda073ec61237cd962b74407b11a422831a09d7292b50ee4512` | `2017-06-29T04:27:42Z` |
+| `MAM_Data_02/04_ReferenceSample_MS.raw/_HEADER.TXT` | `9946911229–9946912975` | `957855a15baa838fa76a5bb5df55206e880640253357b98a15c4fe40654d6be6` | `05-Oct-2017 21:29:33`, offset unspecified |
+
+Read the last 262,144 archive bytes and the listed inclusive ranges from the [NIST dataset](https://catalog.data.gov/dataset/mam-consortium-interlaboratory-study-raw-data). Check each local ZIP entry name, decompressed size and CRC-32 against its central-directory record before hashing. These bounded reads establish the checked members' bytes. Whole-archive integrity and spectra remain unverified.
+
+**NEEDS-EVIDENCE for measured CSV.** The attribute paper's supplemental Tables S1–S3 summarize results across laboratories. No checked record maps those values or an individual reported value to `MAM_Data_07` or `MAM_Data_11`. The digest, intact IgG, and Fab structure are different experimental subjects. A source export with a specific run, value, unit and conditions would allow measured import. A new extraction from raw spectra would require its own recorded method and scientific review. The lot and timestamp evidence supports that next check without changing the [measurement contract](../docs/MEASUREMENT_CONTRACT.md).
+
+For human reference cases, the repository preserves the [NIST source FASTA](../validation/public/nist-mam-reference-source.fasta). The NIST RMIS describes the conventional humanized IgG1κ as two heavy and two light subunits. The lifecycle paper identifies three separately prepared RM lots and the value-assignment study identifies vials analyzed from each. G01 checks the declared format, reference chains and copy counts. G15 checks distinct lot identities for the same parent antibody. Measurements and individual vials require their own evidence. [Archived NIST RMIS](https://tsapps.nist.gov/srmext/certificates/archives/8671.pdf) · [Lifecycle study](https://pmc.ncbi.nlm.nih.gov/articles/PMC5830479/) · [Value-assignment study](https://pmc.ncbi.nlm.nih.gov/articles/PMC5830482/)
