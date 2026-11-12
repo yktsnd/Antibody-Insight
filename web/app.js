@@ -6,7 +6,7 @@ const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({"&":"&am
 const pretty = (value) => esc(JSON.stringify(value, null, 2));
 const screenNames = {E:"Candidate Explorer", W:"Molecule Workspace", D:"Design & Compare", R:"Evidence & Decision"};
 let csrf = "", projects = [], bundle = null, pendingImport = null, pendingShortlist = null;
-let importEpoch=0, mappingDraft=null, importSourceText=null;
+let importEpoch=0, mappingDraft=null, importSourceText=null, importFileRead=null;
 let sequenceGrouping=null;
 // Scientific draft text stays in this tab's memory, never browser storage.
 const shortlistDrafts = new Map();
@@ -607,6 +607,37 @@ async function validateImport(){
   }catch(error){if(current())notify(error.message,true);}
 }
 
+async function readImportFile(input, file, reading){
+  const dialog=$('#import-dialog');
+  const current=()=>importFileRead===reading&&input.files[0]===file&&dialog.open;
+  try{
+    if(file.size>24*1024*1024)throw Error('Maximum input file size is 24 MiB.');
+    const format=$('#import-format');
+    const name=file.name.toLowerCase(),ext=name.split('.').pop();
+    if(name.endsWith('.anarci.txt'))format.value='anarci_text';
+    else if(['txt','out','anarci'].includes(ext)&&format.value==='anarci_text'){}
+    else if((ext==='csv'&&format.value==='measurement_csv')||(ext==='json'&&['prediction_json','af3_summary'].includes(format.value))){}
+    else if(['json','csv','pdb'].includes(ext))format.value=ext;
+    else if(['cif','mmcif'].includes(ext))format.value='mmcif';
+    else if(['fa','fasta','faa'].includes(ext)){if(format.value!=='fasta_grouped')format.value='fasta';}
+    else throw Error('Unsupported file format; no data saved.');
+    updateStructureImport();
+    let decoded;
+    try{decoded=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(await file.arrayBuffer());}
+    catch{throw Error('File must be valid UTF-8. Unsupported or unreadable file; no data saved.');}
+    if(!current())return false;
+    const text=$('#import-text');
+    text.value=decoded;
+    importSourceText={file,text:text.value,decoded};
+    return true;
+  }catch(error){
+    if(current())notify(error.message,true);
+    return false;
+  }finally{
+    if(importFileRead===reading)importFileRead=null;
+  }
+}
+
 const guides = {
   en:`<h3>Observe, then retain the reasoning</h3><ol class="scope-list"><li>Import a local FASTA, sequence CSV or awx/1 JSON. Inspect the preview and excluded rows before saving.</li><li>Select candidates in E. Open W to inspect chains and compare raw sequence indexes. These are not IMGT positions or an alignment.</li><li>In R, follow each evidence record to its source and subject. Measured values belong to a particular material and construct.</li><li>Write a reason, review the candidate IDs and evidence snapshot, and save a shortlist draft.</li><li>Export JSON for an explicit local backup or import into a fresh database. An existing ID collision rejects the entire import.</li></ol><p>Missing values stay unknown; zero remains zero. Measured, computed, literature and annotation are distinct. Drafts are not finalized decisions. Imported numbering maps, CDR-H3 groups and local PDB/mmCIF observation with explicit correspondence are supported. D can create an explicit source-numbered substitution design and a proposed research hypothesis. Select a residue in W, choose Design a substitution, inspect a reference if supplied, then review the new child and exact lineage. Child numbering, structures and measurements are not inherited. In R, save the proposed hypothesis, original evidence, limitations and next experiment. Automatic numbering remains unavailable. Criterion-bearing decision versions are a separate R task with explicit requirements and immutable revisions. Composition recipes are declarations, not validated physical assembly. Camera linking shares orientation and zoom; it does not superpose structures. B-values are not automatically treated as confidence.</p><h3>Explicit molecular composition</h3><p>In E, select actual BindingUnit sources and choose Design an explicit composition. In D, enter chains, roles, copy counts and ordered source-chain intervals or literal linker/component sequences. Preview the actual source-chain usage, including absent partners and unequal declared occurrences, before saving. These counts do not establish functional units or valency. Inspect each saved chain in W; compare two saved designs in D. Using an explicit parent recipe retains exact component IDs and composition Lineage. In R, retain unverified assembly questions and the next experiment as a proposed hypothesis. Computed results can be imported with explicit source/subject scope; no predictive model is executed here. Imported maps and coordinates retain their actual scope.</p><h3>Reported positions and structural context</h3><p>Follow Source-reported position links from W or R to the actual molecule/chain/raw index. These links retain an association from the source; they do not localize a whole-material measurement or establish causality. In W, choose atoms, distance-based ball-and-stick or C-alpha atoms and focus the exact selected source residue. C-alpha is an atom subset, not assigned secondary structure. Unmapped source selections do not select an antibody sequence residue. A reviewed hypothesis can retain the exact file/model/source residue/alternate state without converting it into experimental evidence.</p><h3>Contextual numeric ordering</h3><p>In E, choose an observation context and numeric direction. Units, assay conditions, evidence kind and source/version remain separate. Matching metadata does not prove scientific comparability. If several observations exist, choose the actual material/evidence record explicitly. No averaging, unit conversion or missing-value replacement is performed. The original records remain available in R.</p><details><summary>Domain terminology: humanization and humanness</summary><p>Humanization means engineering a non-human antibody toward a human antibody framework while evaluating effects experimentally. A humanness score has a model-specific definition; no such score is implemented or inferred here.</p></details>`,
   ja:`<h3>観察した内容と判断の理由を残す</h3><ol class="scope-list"><li>ローカルのFASTA、配列CSV、awx/1形式のJSONを読み込みます。保存前に取込内容と除外行を確認します。</li><li>Eで候補を選び、Wで鎖と配列を確認します。表示位置は配列先頭からの通し番号で、IMGT番号やアラインメントによる対応位置ではありません。</li><li>Rでは根拠の出典と対象を確認します。実測値は特定の試料とコンストラクトに紐づきます。</li><li>選定理由を書き、候補IDと根拠の保存内容を確認して、ショートリストの下書きを保存します。</li><li>明示的にJSONを書き出し、バックアップや空のデータベースへの再取込に利用できます。同じIDがあれば取込全体を拒否します。</li></ol><p>欠測値と0は区別します。実測、計算結果、文献、注釈も区別します。下書きは確定した意思決定ではありません。出典を持つ番号対応表の取込、CDR-H3群分け、ローカルのPDB/mmCIF表示に対応しています。構造ファイル中の鎖ID、残基番号、挿入コードと配列位置を明示的に対応付けます。視点の同期は構造の重ね合わせではありません。B値を予測信頼度と自動的に同一視しません。Wで残基を選び、Design a substitutionからDへ進むと、出典を持つ番号対応表を使って置換を指定できます。比較配列があれば対応位置を確認し、新しい子候補と変更記録を保存前に確認します。子の番号付け、構造、実測値は親から引き継ぎません。Rでは未検証の仮説、原根拠、限界、次の実験を別の記録として保存します。番号付けの自動実行は未対応です。評価項目を使う判断記録は、Rの別の作業として必須条件を明示し、確定後は新しい版として改訂します。分子構成の設計は宣言の保存であり、実際の会合を検証したものではありません。</p><h3>分子構成の明示的な設計</h3><p>Eで元の結合単位を選び、Design an explicit compositionからDへ進みます。鎖、役割、コピー数、使用する元の鎖と区間、領域やリンカーなどの構成要素の配列と順序を指定します。保存前に、結合単位で定義した各鎖について、全区間の使用数と部分区間の使い方、使用していない相方の鎖を確認します。使用数は宣言したコピー数に基づき、機能する結合単位の数や結合価を意味しません。Wで保存した各鎖の配列を観察し、Dで2つの設計を比較できます。元にする設計を明示して変更すると、構成要素のIDと構成変更の親子関係を保持します。Rでは会合などの未検証事項と次の実験を仮説として残します。検証済みの解析アダプターがないため、分子全体の予測は利用できません。取り込んだ番号対応表と構造の対象範囲は自動で広げません。</p><h3>報告された位置と構造の観察</h3><p>WとRのSource-reported positionから、出典に記載された分子・鎖・配列位置をたどれます。この関連付けは、試料全体の測定値が特定の残基に由来することや、因果関係を示すものではありません。Wでは原子表示、距離に基づく球棒表示、標準アミノ酸のCα原子表示を選び、選択した残基へ視点を合わせられます。Cα表示は原子の抜粋で、二次構造の判定ではありません。配列との対応がない構造上の選択から、抗体の配列位置を推測しません。仮説には観察したファイル・モデル・元の残基識別子・代替配座を保存でき、実測の根拠とは区別されます。</p><h3>条件を区別した値の並べ替え</h3><p>EでObservation contextと並び順を選びます。単位、測定条件、実測と計算、出典と版を区別します。記録された条件が一致しても、科学的に比較可能であることを保証しません。複数の結果がある場合は、使用する試料と根拠の記録を明示的に選びます。平均、単位換算、欠測値の補完は行いません。原記録はRで確認できます。</p><details><summary>専門用語：ヒト化とヒト抗体らしさ</summary><p>humanizationは「ヒト化」です。非ヒト抗体の配列をヒト抗体に近づける改変を指し、機能への影響は別途評価します。humanness（ヒト抗体らしさ）は指標ごとに定義が異なるため、必要に応じて英語を併記し、ヒト抗体配列との類似性をどう評価した値かを説明します。この製品では現時点でその指標を計算していません。</p></details>`
@@ -695,6 +726,7 @@ document.addEventListener("click", async (event) => {
       }else notify(`Saved ${saved.imported} submitted entities. The newer project, selection and import draft were retained.`);
     } else if (["research-example-button", "fixture-button", "composition-fixture-button", "numbering-fixture-button", "structure-fixture-button"].includes(button.id)) {
       if(button.id==='research-example-button')showImport();
+      if(importFileRead){importFileRead=null;$('#import-file').value='';}
       const route = {"research-example-button":"/api/example-research", "fixture-button":"/api/example", "composition-fixture-button":"/api/example-composition", "numbering-fixture-button":"/api/example-numbering", "structure-fixture-button":"/api/example-structures"}[button.id];
       const ticket=++importEpoch;const example = await api(route); if(ticket===importEpoch&&$('#import-dialog').open)renderPreview({bundle:example, report:{total_rows:example.entities.length, valid_rows:example.entities.length, excluded:[], duplicates:[], warnings:[]}}, true);
     } else if (button.id === "export-button") {
@@ -772,24 +804,17 @@ document.addEventListener("change", async (event) => {
     else if (el.id === 'import-target') {importEpoch++;PredictionUI.reset();mappingDraft=null;pendingImport=null;$('#new-project-fields').hidden=!!el.value;updateStructureImport();}
     else if (el.id === 'import-format') {importEpoch++;PredictionUI.reset();mappingDraft=null;pendingImport=null;updateStructureImport();}
     else if (el.hasAttribute('data-measurement-map')) {if(!mappingDraft)return;const ref=mappingDraft.refs[Number(el.dataset.measurementMap)];if(el.value)mappingDraft.choices.set(ref,el.value);else mappingDraft.choices.delete(ref);pendingImport=null;$('#commit-import').disabled=true;}
-    else if (el.id === 'import-file' && el.files[0]) {
+    else if (el.id === 'import-file') {
       NumberingImportUI.reset();sequenceGrouping=null;
       $("#numbering-tool-version").value = "";
-      const file=el.files[0],ticket=++importEpoch;PredictionUI.reset();mappingDraft=null;pendingImport=null;
-      ownsError=()=>ticket===importEpoch&&el.files[0]===file&&$('#import-dialog').open;
+      const file=el.files[0];
+      importEpoch++;PredictionUI.reset();mappingDraft=null;pendingImport=null;importFileRead=null;
       // A failed/new file cannot leave the previous file text available for saving.
       $('#import-text').value='';importSourceText=null;
-      if(file.size>24*1024*1024)throw Error('Maximum input file size is 24 MiB.');
-      let decoded;
-      try{decoded=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(await file.arrayBuffer());}
-      catch(error){throw Error('File must be valid UTF-8. Unsupported or unreadable file; no data saved.');}
-      if(ticket!==importEpoch||el.files[0]!==file||!$('#import-dialog').open)return;
-      const ext=file.name.split('.').pop().toLowerCase();
-      if(file.name.toLowerCase().endsWith('.anarci.txt'))$('#import-format').value='anarci_text';
-      else if(['txt','out','anarci'].includes(ext)&&$('#import-format').value==='anarci_text'){}
-      else if((ext==='csv'&&$('#import-format').value==='measurement_csv')||(ext==='json'&&['prediction_json','af3_summary'].includes($('#import-format').value))){}else if(['json','csv','pdb'].includes(ext))$('#import-format').value=ext;
-      else if(['cif','mmcif'].includes(ext))$('#import-format').value='mmcif';else if(['fa','fasta','faa'].includes(ext)){if($('#import-format').value!=='fasta_grouped')$('#import-format').value='fasta';}else throw Error('Unsupported file format; no data saved.');
-      $('#import-text').value=decoded;importSourceText={file,text:$('#import-text').value,decoded};updateStructureImport();
+      if(!file)return;
+      const reading={};
+      importFileRead=reading;
+      reading.finished=readImportFile(el,file,reading);
     }
     else if (el.id === "help-language") renderHelp();
   } catch (error) { if(ownsError())notify(error.message, true); }
@@ -797,20 +822,22 @@ document.addEventListener("change", async (event) => {
 document.addEventListener("input", (event) => {
   if(event.target.id==='shortlist-reason'){const draft=shortlistDraft();draft.reason=event.target.value;draft.version++;invalidateShortlistPreview();}
   if(event.target.closest('#numbering-binding-panel')){importEpoch++;pendingImport=null;}
-  if(event.target.closest('#import-form')){NumberingImportUI.reset();importEpoch++;pendingImport=null;if(event.target.id==='import-text'){PredictionUI.reset();mappingDraft=null;importSourceText=null;$("#numbering-tool-version").value="";}}
+  if(event.target.closest('#import-form')){NumberingImportUI.reset();importEpoch++;pendingImport=null;if(event.target.id==='import-text'){PredictionUI.reset();mappingDraft=null;importSourceText=null;importFileRead=null;$('#import-file').value='';$("#numbering-tool-version").value="";}}
   if (event.target.id === "candidate-search") {
     state.filter = event.target.value; const pos = event.target.selectionStart; render(); const input = $("#candidate-search"); input.focus(); if (input.type !== "search") input.setSelectionRange(pos, pos);
   }
 });
 $("#import-form").addEventListener("submit", async (event) => {
   event.preventDefault(); if (loading) return;
+  const reading=importFileRead;
+  if(reading&&(!await reading.finished||loading||!$('#import-dialog').open||!importSourceText))return;
   loading = true;
   try {
     await validateImport();
   } catch (error) { notify(error.message, true); }
   finally { loading = false; }
 });
-$('#import-dialog').addEventListener('close',()=>{NumberingImportUI.reset();importEpoch++;PredictionUI.reset();pendingImport=null;mappingDraft=null;});
+$('#import-dialog').addEventListener('close',()=>{NumberingImportUI.reset();importEpoch++;PredictionUI.reset();pendingImport=null;mappingDraft=null;if(importFileRead)$('#import-file').value='';importFileRead=null;});
 NumberingImportUI.configure({api,bundle:()=>bundle,find:(id)=>index().get(id),esc});
 PredictionUI.configure({api,bundle:()=>bundle,find:(id)=>index().get(id),esc,pretty,notify,invalidate(){importEpoch++;pendingImport=null;if($('#commit-import'))$('#commit-import').disabled=true;}});
 StructureUI.configure({api,bundle:()=>bundle,state:()=>state,remember,notify,render,
