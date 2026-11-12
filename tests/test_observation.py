@@ -43,6 +43,10 @@ def test_no_pooling_different_recorded_context(change):
     result = observation_order(b, measured(b)[0]["id"])
     assert record["id"] not in [r["evidence_id"] for r in result["candidates"]]
     assert len(result["cohorts"]) == 2
+    if change == "float":
+        labels = [cohort["conditions_text"] for cohort in result["cohorts"]]
+        assert any('"temperature_C":25}' in label for label in labels)
+        assert any('"temperature_C":25.0}' in label for label in labels)
 
 
 def test_multiple_materials_require_explicit_choice_even_equal_values(tmp_path):

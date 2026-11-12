@@ -24,7 +24,7 @@ const emptyState = () => ({screen:"E", selected:[], focus:null, chains:{}, posit
   designParent:null,designMap:null,designReferenceMap:null,designLineage:null,observedStructures:{},selectedUnits:[],compositionOpen:false,
   compositionParent:null,compositionCurrent:null,compositionCompareLeft:'',compositionCompareRight:'',designTask:'substitution',
   expressionMolecule:null,expressionLeft:null,expressionRight:null,expressionCohort:null,expressionMaterial:null,
-  researchTask:'evidence',decisionBase:null,decisionEditorOpen:true});
+  researchTask:'evidence',decisionBase:null,decisionEditorOpen:true,comparisonContext:null});
 let state = emptyState();
 let numberingView = {maps:[]}, groupView = {candidates:[], groups:[]};
 let observationView = {cohorts:[],candidates:[],ineligible:[]}, observationRequest = 0, observationLoading = false;
@@ -107,7 +107,7 @@ function reportedEvidence(molecule) {
 function heading(label, title, description) {
   return `<div class="page-heading"><div><p class="eyebrow">${label}</p><h1>${title}</h1><p class="muted">${description}</p></div><span class="project-chip">${esc(bundle?.project.title || "No active project")}</span></div>`;
 }
-function fixtureBanner() { return bundle?.project.data_class === "synthetic_fixture" ? '<div class="fixture-notice">Synthetic engineering fixture. Values are invented test data, not real experiments or model predictions.</div>' + (bundle.project.title.startsWith('[SYNTHETIC EXAMPLE]')?'<div class="panel panel-body"><h2>Which candidate should we investigate next?</h2><p>Compare the declared H/L chains, inspect the original materials and assay conditions, then save your reason and next experiment. One thermal value is missing; the alternate material was measured under a different condition.</p><button data-screen="W">Compare paired candidates</button> <button class="secondary" data-screen="R">Inspect evidence and retain reasoning</button></div>':'') : ""; }
+function fixtureBanner() { return bundle?.project.data_class === "synthetic_fixture" ? '<div class="fixture-notice">Synthetic engineering fixture. Values are invented test data, not real experiments or model predictions.</div>' + (state.screen !== 'R' && bundle.project.title.startsWith('[SYNTHETIC EXAMPLE]')?'<div class="panel panel-body"><h2>Which candidate should we investigate next?</h2><p>Compare the declared H/L chains, inspect the original materials and assay conditions, then save your reason and next experiment. One thermal value is missing; the alternate material was measured under a different condition.</p><button data-screen="W">Compare paired candidates</button> <button class="secondary" data-screen="R">Inspect evidence and retain reasoning</button></div>':'') : ""; }
 function emptySelection() { return '<div class="panel empty"><h2>Choose candidates to continue</h2><p class="muted">Select candidates in the Explorer. Their IDs remain selected as you move through the workspace.</p><button data-screen="E">Open Candidate Explorer</button></div>'; }
 function render() {
   StructureUI.dispose();
@@ -131,7 +131,7 @@ function render() {
 
 function observationControls() {
   const context=observationView.cohorts.find((c)=>c.evidence_ids.includes(state.observationCohort));
-  return `<div class="panel-body observation-controls"><label class="field">Observation context<select id="observation-context" ${observationLoading?"disabled":""}><option value="">No numeric ordering</option>${observationView.cohorts.map((c)=>`<option value="${c.id}" ${context?.id===c.id?'selected':''}>${esc(c.kind)} / ${esc(c.metric)} / ${esc(c.unit)} / ${esc(JSON.stringify(c.conditions).slice(0,160))}${JSON.stringify(c.conditions).length>160?"…":""} / ${esc(c.source.name)} / ${esc(c.source.version)} / ${c.evidence_ids.length} records / ${c.id}</option>`).join('')}</select></label><label class="field">Numeric order<select id="observation-direction" ${observationLoading?"disabled":""}><option value="ascending" ${state.observationDirection==='ascending'?'selected':''}>Ascending</option><option value="descending" ${state.observationDirection==='descending'?'selected':''}>Descending</option></select></label><p class="muted">Exact recorded context only; no averaging or unit conversion. Matching metadata does not establish scientific comparability. Missing values follow numeric values in either direction.</p></div>`+
+  return `<div class="panel-body observation-controls"><label class="field">Observation context<select id="observation-context" ${observationLoading?"disabled":""}><option value="">No numeric ordering</option>${observationView.cohorts.map((c)=>`<option value="${c.id}" ${context?.id===c.id?'selected':''}>${esc(c.kind)} / ${esc(c.metric)} / ${esc(c.unit)} / ${esc(c.conditions_text.slice(0,160))}${c.conditions_text.length>160?"…":""} / ${esc(c.source.name)} / ${esc(c.source.version)} / ${c.evidence_ids.length} records / ${c.id}</option>`).join('')}</select></label><label class="field">Numeric order<select id="observation-direction" ${observationLoading?"disabled":""}><option value="ascending" ${state.observationDirection==='ascending'?'selected':''}>Ascending</option><option value="descending" ${state.observationDirection==='descending'?'selected':''}>Descending</option></select></label><p class="muted">Exact recorded context only; no averaging or unit conversion. Matching metadata does not establish scientific comparability. Missing values follow numeric values in either direction.</p></div>`+
     (context?`<details class="panel-body" id="observation-context-details"><summary>Original ordering context and source</summary><pre>${pretty(context)}</pre><p class="muted">Multiple observations require an explicit choice. Material and evidence identities remain separate.</p></details>`:'')+
     (observationView.ineligible.length?`<p class="panel-body muted">${observationView.ineligible.length} records cannot establish an ordering context (unknown unit, source version, assay or conditions, or a different evidence kind). Original records remain available in R.</p>`:'');
 }
@@ -278,19 +278,91 @@ function renderDesign() {
     taskControls+(state.designTask==='composition'?CompositionUI.panel():state.designTask==='expression'?ExperimentUI.panel():DesignUI.panel())+DesignUI.hypothesesPanel();
 }
 
+function originalObservationValue(value) {
+  return Object.is(value, -0) ? '-0' : value;
+}
+
+function comparisonObservation(evidence, showTime = false) {
+  const subject = index().get(evidence.subject_id);
+  const number = originalObservationValue(evidence.value);
+  const value = number === null ? 'Value missing' : `${number} ${evidence.unit}`;
+  const label = subject.type === 'material' ? `${subject.name} · lot ${subject.lot}` : `${subject.type} · ${subject.name}`;
+  return `<button type="button" class="text-button comparison-record" data-source-evidence="${evidence.id}">${esc(value)}<small>${esc(label)}</small>${showTime ? `<small>${esc(evidence.timestamp)}</small>` : ''}</button>`;
+}
+
+function renderCandidateObservations(evidence) {
+  const candidates = selectedMolecules();
+  if (candidates.length < 2) return '';
+  const owners = new Map(evidence.map((record) => [record.id, subjectPath(record).at(-1).id]));
+  const rows = [];
+  for (const context of observationView.cohorts) {
+    const byCandidate = new Map();
+    for (const id of context.evidence_ids) {
+      const owner = owners.get(id);
+      if (!owner) continue;
+      if (!byCandidate.has(owner)) byCandidate.set(owner, []);
+      byCandidate.get(owner).push(index().get(id));
+    }
+    if (byCandidate.size) rows.push({context, byCandidate});
+  }
+  // Show contexts shared by more selected candidates first, independent of the values.
+  rows.sort((left, right) => right.byCandidate.size - left.byCandidate.size);
+  const incomplete = observationView.ineligible.filter((entry) => owners.has(entry.evidence_id)).length;
+  let html = '<section class="panel" id="candidate-observations"><div class="panel-head"><h2>Compare original observations</h2></div>';
+  if (!rows.length) {
+    return html + '<p class="panel-body muted">No observations with a complete comparison context. See the original Evidence below.</p></section>';
+  }
+
+  const maxOverviewRows = 4;
+  let selected;
+  if (rows.length > maxOverviewRows) {
+    selected = rows.find(({context}) => context.evidence_ids.includes(state.comparisonContext));
+    html += `<label class="field comparison-filter">Observation context<select id="comparison-context">
+      <option value="">Overview · ${maxOverviewRows} of ${rows.length} recorded contexts</option>
+      ${rows.map((row) => {
+        const {context} = row;
+        const label = `${context.kind} / ${context.metric} / ${context.unit} / ${context.conditions_text} / ${context.source.name} ${context.source.version}`;
+        return `<option value="${context.id}" ${selected === row ? 'selected' : ''}>${esc(label)}</option>`;
+      }).join('')}
+      </select></label>`;
+  }
+  html += '<div class="table-wrap"><table class="comparison-table"><thead><tr><th scope="col">Recorded context</th>';
+  html += candidates.map((candidate) => `<th scope="col">${esc(candidate.external_id)}<small>${esc(candidate.name)}</small></th>`).join('');
+  html += '</tr></thead><tbody>';
+  for (const {context, byCandidate} of selected ? [selected] : rows.slice(0, maxOverviewRows)) {
+    html += `<tr><th scope="row"><span class="tag ${esc(context.kind)}">${esc(context.kind)}</span> ${esc(context.metric)} <small>${esc(context.unit)} · ${esc(context.source.name)} ${esc(context.source.version)}</small><small>${esc(context.conditions_text)}</small></th>`;
+    for (const candidate of candidates) {
+      const records = byCandidate.get(candidate.id) || [];
+      let cell = '<span class="muted">No record in this context</span>';
+      if (records.length === 1) cell = comparisonObservation(records[0]);
+      if (records.length > 1) cell = `<details><summary>${records.length} original observations</summary>${records.map((record) => comparisonObservation(record, true)).join('')}</details>`;
+      html += `<td>${cell}</td>`;
+    }
+    html += '</tr>';
+  }
+  return html + `</tbody></table></div><p class="comparison-note muted">Rows share recorded conditions and source. Check sample details for scientific comparability.${incomplete ? ` ${incomplete} records outside these contexts are available under original Evidence.` : ''}</p></section>`;
+}
+
 function renderEvidence() {
   let html = heading("RETAIN THE REASONING", "Evidence & Decision", "Separate observations from calculations, and keep the subject and source attached.");
   if (!state.selected.length) return html + emptySelection();
   html+=`<div class="dialog-actions" aria-label="Research task"><button class="secondary" data-research-task="evidence" aria-pressed="${state.researchTask!=='decision'}">Evidence and research questions</button><button class="secondary" data-research-task="decision" aria-pressed="${state.researchTask==='decision'}">Criteria and decision versions</button></div>`;
   const deciding=state.researchTask==='decision';
+  const evidence = selectedEvidence();
+  const conditionsByEvidence = new Map();
+  for (const context of observationView.cohorts) {
+    for (const id of context.evidence_ids) conditionsByEvidence.set(id, context.conditions_text);
+  }
+  html += renderCandidateObservations(evidence);
   html += '<p><button data-open-hypothesis>Record research hypothesis</button></p>';
   html += deciding?DecisionUI.panel():ExperimentUI.evidencePanel();
-  const evidence = selectedEvidence(), draft=shortlistDraft();
+  const draft=shortlistDraft();
   html += `${deciding?'<details id="decision-original-evidence"><summary>Inspect all original Evidence cards (subjects and sources unchanged)</summary>':''}<div class="${deciding?'':'two-columns'}"><div><div class="panel"><div class="panel-head"><h2>Evidence for ${state.selected.length} selected candidates</h2><span class="subtle">${evidence.length} records</span></div>`;
   if (!evidence.length) html += '<div class="panel-body"><p class="muted">Not measured / not predicted. No evidence records were registered for this selection.</p></div>';
   for (const e of evidence) {
     const path = subjectPath(e);
-    html += `<article class="evidence-row" id="evidence-${e.id}" tabindex="-1"><div class="metric"><div><span class="tag ${esc(e.kind)}">${esc(e.kind)}</span><p>${esc(e.metric)}</p></div><div class="value">${e.value === null ? '<span class="muted">'+(e.description?'No numeric value supplied':'Value missing')+'</span>' : esc(e.value) + ' <span class="muted">' + esc(e.unit) + '</span>'}</div></div>${e.description?`<p>${esc(e.description)}</p>`:''}${reportedPositions(e)}<p class="muted">${path.map((p) => `${esc(p.type)}: ${esc(p.name)}`).join(" → ")}</p><p>Source: ${esc(e.source.name)} / ${esc(e.source.version || "version unknown")}<br>Event time: ${esc(e.timestamp)}</p><p>${e.conditions === null ? '<span class="tag warning">Conditions unknown — do not pool</span>' : 'Conditions: ' + esc(JSON.stringify(e.conditions))}</p>${["iptm","ptm"].includes(e.metric.toLowerCase()) ? '<p class="muted">Model-internal metric; not measured binding affinity. Model scope is declared in the source conditions or remains unspecified.</p>' : ""}${e.kind === "computed" ? '<p class="muted">Computed result. Interpretation and uncertainty depend on the source; this is not an experimental measurement.</p>' : ""}${PredictionUI.origin(e)}<details><summary>Original record, subject IDs & provenance</summary><pre>${pretty(e)}</pre>${path.map((p) => `<p class="mono">${esc(p.type)}: ${p.id}</p>`).join("")}</details>${deciding?'':`<label class="evidence-check"><input type="checkbox" data-evidence="${e.id}" ${draft.evidenceIds.has(e.id)?"checked":""}> Include in draft snapshot</label>`}</article>`;
+    const conditions = conditionsByEvidence.get(e.id) ?? JSON.stringify(e.conditions);
+    html += `<article class="evidence-row" id="evidence-${e.id}" tabindex="-1"><div class="metric"><div><span class="tag ${esc(e.kind)}">${esc(e.kind)}</span><p>${esc(e.metric)}</p></div><div class="value">${e.value === null ? '<span class="muted">'+(e.description?'No numeric value supplied':'Value missing')+'</span>' : esc(originalObservationValue(e.value)) + ' <span class="muted">' + esc(e.unit) + '</span>'}</div></div>${e.description?`<p>${esc(e.description)}</p>`:''}${reportedPositions(e)}<p class="muted">${path.map((p) => `${esc(p.type)}: ${esc(p.name)}`).join(" → ")}</p><p>Source: ${esc(e.source.name)} / ${esc(e.source.version || "version unknown")}<br>Event time: ${esc(e.timestamp)}</p><p>${e.conditions === null ? '<span class="tag warning">Conditions unknown — do not pool</span>' : 'Conditions: ' + esc(conditions)}</p>${["iptm","ptm"].includes(e.metric.toLowerCase()) ? '<p class="muted">Model-internal metric; not measured binding affinity. Model scope is declared in the source conditions or remains unspecified.</p>' : ""}${e.kind === "computed" ? '<p class="muted">Computed result. Interpretation and uncertainty depend on the source; this is not an experimental measurement.</p>' : ""}${PredictionUI.origin(e)}<details><summary>Original record, subject IDs & provenance</summary><pre>${pretty(e)}</pre>${path.map((p) => `<p class="mono">${esc(p.type)}: ${p.id}</p>`).join("")}</details>${deciding?'':`<label class="evidence-check"><input type="checkbox" data-evidence="${e.id}" ${draft.evidenceIds.has(e.id)?"checked":""}> Include in draft snapshot</label>`}</article>`;
   }
   if(deciding)return html+'</div></div></div></details>'+DesignUI.hypothesesPanel();
   html += '</div></div><div><div class="panel"><div class="panel-head"><h2>Save a shortlist draft</h2><span class="tag">Draft only</span></div><div class="panel-body"><p class="muted">Record why these candidates deserve further investigation. Use Criteria and decision versions above for explicit requirements, finalization and revisions.</p><p class="section-label">CANDIDATES IN CONTEXT</p>';
@@ -487,8 +559,17 @@ document.addEventListener("click", async (event) => {
     }
     else if (button.dataset.sourceEvidence) {
       const evidence=index().get(button.dataset.sourceEvidence),molecule=subjectPath(evidence).find((p)=>p.type==='molecule');
-      if(!state.selected.includes(molecule.id))state.selected.push(molecule.id);
-      state.screen='R';render();const card=document.getElementById('evidence-'+evidence.id);for(let parent=card?.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;card?.focus();card?.scrollIntoView({block:'center'});
+      if (state.screen !== 'R' || !state.selected.includes(molecule.id)) {
+        if (!state.selected.includes(molecule.id)) state.selected.push(molecule.id);
+        state.screen = 'R';
+        render();
+      }
+      const card = document.getElementById('evidence-' + evidence.id);
+      for (let parent = card?.parentElement; parent; parent = parent.parentElement) {
+        if (parent.tagName === 'DETAILS') parent.open = true;
+      }
+      card?.focus({preventScroll:true});
+      card?.scrollIntoView({block:'center'});
     }
     else if (button.dataset.designSelected!==undefined) DesignUI.fromSelection();
     else if (button.dataset.expressionDesign) {const id=button.dataset.expressionDesign;if(!state.selected.includes(id))state.selected.push(id);state.expressionMolecule=id;state.expressionLeft=null;state.expressionRight=null;state.expressionCohort=null;state.expressionMaterial=null;state.designTask='expression';state.screen='D';render();}
@@ -565,6 +646,12 @@ document.addEventListener("change", async (event) => {
     else if (el.id === "group-by") {state.groupBy = el.value;render();}
     else if (el.id === "cdr3-filter") {state.cdr3Group = el.value;render();}
     else if (el.id === "observation-context") {state.observationCohort=el.value||null;state.observationChoices={};await refreshObservations();render();}
+    else if (el.id === "comparison-context") {
+      state.comparisonContext = el.value || null;
+      remember();
+      $('#candidate-observations').outerHTML = renderCandidateObservations(selectedEvidence());
+      $('#comparison-context')?.focus();
+    }
     else if (el.id === "observation-direction") {state.observationDirection=el.value;await refreshObservations();render();}
     else if (el.dataset.observationChoice) {if(el.value)state.observationChoices[el.dataset.observationChoice]=el.value;else delete state.observationChoices[el.dataset.observationChoice];await refreshObservations();render();}
     else if (el.dataset.jump) { const pos = Number(el.value), m = entities("molecule").find((x) => x.id === el.dataset.jump); const c = m.chains.find((x) => x.id === state.chains[m.id]) || m.chains[0]; if (!Number.isInteger(pos) || pos < 1 || pos > c.sequence.length) throw new Error("Sequence index is outside this chain."); state.position = pos; render(); }

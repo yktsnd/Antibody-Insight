@@ -12,7 +12,7 @@ from .adapters import parse_json
 from .domain import (MAX_SAFE_INTEGER, SCHEMA, ValidationError, fields, identifier, molecule_id_for,
                      new_id, now, number, require, source, text, validate_extension)
 from .hypotheses import id_list
-from .observation import context_issue, context_key
+from .observation import context_issue, context_json, context_key
 
 NEW_FIELDS = {'chosen_candidate_ids', 'source', 'hypothesis_ids'}
 CRITERION_FIELDS = {'key', 'name', 'weight', 'required', 'preference', 'anchor_evidence_id', 'evidence_choices'}
@@ -177,7 +177,8 @@ def decision_context(bundle, candidate_ids):
             continue
         key = context_key(evidence)
         if key not in cohorts:
-            cohorts[key] = {'id': evidence['id'], 'evidence_ids': [], **{field: copy.deepcopy(evidence[field]) for field in
+            cohorts[key] = {'id': evidence['id'], 'evidence_ids': [], 'conditions_text': context_json(evidence['conditions']),
+                            **{field: copy.deepcopy(evidence[field]) for field in
                             ('kind', 'metric', 'unit', 'conditions', 'source')}}
         cohorts[key]['evidence_ids'].append(evidence['id'])
     return {'candidate_ids': copy.deepcopy(candidate_ids), 'cohorts': list(cohorts.values()), 'ineligible': ineligible}

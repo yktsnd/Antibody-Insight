@@ -22,10 +22,13 @@ def context_issue(record):
     return None
 
 
-def context_key(record):
+def context_json(value):
     # JSON retains bool versus number and int versus float; dict order is immaterial.
-    return json.dumps([record["kind"], record["metric"], record["unit"], record["conditions"], record["source"]],
-                      sort_keys=True, ensure_ascii=False, allow_nan=False, separators=(",", ":"))
+    return json.dumps(value, sort_keys=True, ensure_ascii=False, allow_nan=False, separators=(",", ":"))
+
+
+def context_key(record):
+    return context_json([record["kind"], record["metric"], record["unit"], record["conditions"], record["source"]])
 
 
 def observation_order(bundle, cohort_id=None, choices=DEFAULT_CHOICES, direction="ascending"):
@@ -60,7 +63,8 @@ def observation_order(bundle, cohort_id=None, choices=DEFAULT_CHOICES, direction
         eligible[record["id"]] = key
         if key not in cohorts:
             cohorts[key] = {"id": record["id"], "kind": record["kind"], "metric": record["metric"],
-                            "unit": record["unit"], "conditions": record["conditions"], "source": record["source"], "evidence_ids": []}
+                            "unit": record["unit"], "conditions": record["conditions"], "conditions_text": context_json(record["conditions"]),
+                            "source": record["source"], "evidence_ids": []}
         cohorts[key]["evidence_ids"].append(record["id"])
     require(cohort_id is None or cohort_id in eligible, "Selected context is unavailable or incomplete; choose a context explicitly")
     selected_key = eligible.get(cohort_id)
