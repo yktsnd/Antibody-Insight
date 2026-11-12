@@ -1,0 +1,23 @@
+{
+  "status": "AWAITING_HUMAN_VALIDATED_INPUT",
+  "cases": {
+    "G03": {
+      "source": "https://www.rcsb.org/structure/7FAB",
+      "revision": "1.5",
+      "subject": "Human Fab New",
+      "lambda_light_chain": {"entity": "1", "label_asym": "A", "author_chain": "L", "polymer_positions": 208},
+      "heavy_chain": {"entity": "2", "label_asym": "B", "author_chain": "H", "polymer_positions": 217},
+      "check": "Register and identify the declared lambda light chain by the actual label and author keys. Retain the exact molecular subject after export and fresh reimport."
+    },
+    "G05": {
+      "source": "https://www.rcsb.org/structure/1DZB",
+      "revision": "1.5",
+      "subject": "1F9 scFv",
+      "polymer": {"entity": "1", "label_asym_instances": ["A", "B"], "polymer_positions": 253},
+      "polymer_segments_one_based_inclusive": {"VH": [1, 116], "linker": [117, 131], "VL": [132, 238], "C-terminal extension": [239, 253]},
+      "antigen_label_asym_instances": ["C", "D"],
+      "expected_missing_linker_positions": [118, 131],
+      "check": "Use _struct_ref_seq and the polymer sequence to verify chain order and boundaries. Check that only linker position 117 has deposited atoms in each scFv instance and that the remaining linker positions stay unavailable for highlighting."
+    }
+  }
+}
