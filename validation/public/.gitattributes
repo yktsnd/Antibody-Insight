@@ -1,3 +1,4 @@
 *.cif -text -whitespace
 *.fasta -text
 *.anarci.txt -text
+emicizumab-gsrs.json -text

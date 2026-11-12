@@ -1,0 +1,19 @@
+{
+  "status": "AWAITING_HUMAN_REVIEW",
+  "primary_source": "https://gsrs.ncats.nih.gov/api/v1/substances(7NL2E3F6K3)",
+  "source_version": 37,
+  "input": "validation/public/emicizumab-gsrs.json",
+  "input_sha256": "696d14a3c129ea3924ff675378c91eb7428dd42e8ff8592affed8af453149322",
+  "derived_fasta": "validation/public/emicizumab.fasta",
+  "derived_fasta_sha256": "c73ed0220a131df2a76aaa46e50364404cec2c9b60b96b18582873ee93ff19f7",
+  "cases": {
+    "G07": {
+      "expected": "The source distinguishes two heavy-chain identities and two sequence-identical light-chain instances. The GSRS interchain disulfides include subunit pairs 1–3, 2–4 and 1–2.",
+      "application_check": "Preserve separate L1/L2 instance IDs and resolve each declared link against the source record. Evaluate whether the original residue endpoints are retained or only the linked components."
+    },
+    "G08": {
+      "expected": "Q is the 448-residue anti-FIXa heavy chain, J is the 444-residue anti-FX heavy chain. The 214-residue L1/L2 sequences are identical.",
+      "application_check": "Confirm both heavy-chain sequences and component provenance survive save, restart and import into a fresh store. Verify the application retains both light-chain identities."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "Developer preflight of declared composition using public source data",
+  "source_sha256": "696d14a3c129ea3924ff675378c91eb7428dd42e8ff8592affed8af453149322",
+  "chain_lengths": {
+    "Q": 448,
+    "J": 444,
+    "L1": 214,
+    "L2": 214
+  },
+  "original_interchain_disulfides": 4,
+  "retained_component_pairs": [
+    [
+      "J",
+      "L2"
+    ],
+    [
+      "J",
+      "Q"
+    ],
+    [
+      "L1",
+      "Q"
+    ]
+  ],
+  "separate_equal_sequence_light_chains": true,
+  "read_only_preview": true,
+  "missing_endpoint_rejected": true,
+  "restart_and_fresh_store_equal": true,
+  "human_validation": "pending",
+  "residue_level_bond_identity": "requires original registry"
+}
