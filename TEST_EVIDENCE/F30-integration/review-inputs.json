@@ -1,0 +1,18 @@
+{
+  "supplemental": {
+    "TRACEABILITY.csv": "5fbe2e2f01328b634eb5536d022e156974f87109b422b4ff562a4574d1b35090",
+    "IMPLEMENTATION_TRACEABILITY.csv": "e7ee6425351d9ec21e74d72f313d94781acb33fe6655b8b64fa2c53c0de7a6eb",
+    "docs/SCIENTIFIC_UX.md": "80778426fcdbd907aa6e28f56c30faee8531cb99f2f5dc1cc5f05c9d9dc07e18",
+    "docs/PRODUCT_ALIGNMENT.md": "2007c721badbb6517123539455ae63164eb317cc35cf0c2321ff54252803a123",
+    "ADR/ADR-0012-deposited-correspondence-and-numbering-files.md": "3b05e15e49c4ff0567440f9b9496f060513d6ae2e17c8a01751a08d50f79143f",
+    "TEST_EVIDENCE/M9-public-pair-browser.cjs": "d409777624d3d5348b6bbe2caf7c337adcbe18b5d139754af08b23eb6eed05c4",
+    "TEST_EVIDENCE/M9-real-source-preflight.md": "07dbb5a1dc81aa12a5e436b0607e19786979af36404ede68a5d47ac018081ccc"
+  },
+  "public_inputs": {
+    "1FDL-AB.anarci.txt": "fc19caed78df3b8319193525b23fcbf087ab83246e721f4202fc23d723898899",
+    "1FDL-AB.fasta": "76a70677701aade96e173a71bc06feea6c3003717dc108304b575c6f2e3d97ba",
+    "1FDL.cif": "6b525be71aff6850ebc4d83e2df75e2e8cfffbe7a2e4b68adf1aff9987a4c25f",
+    "1MLC-AB.fasta": "3962ac992876bbedf9bb8a9b5ec42a66f17245ec3b8d118d5dbeea044582220b",
+    "public-fab-pair.fasta": "ce44394e578b1e5e391cb168474e764e8af291acfac1ee2cc0cf82000f1aa5e6"
+  }
+}

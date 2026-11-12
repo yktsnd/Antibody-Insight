@@ -1,0 +1,297 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/numbered_review",
+  "timestamp": "2026-11-12T09:15:09.645803+00:00",
+  "scope": "Independent frozen F30 source, full named J01\u2013J08 Chrome integration, isolated SQLite, labeled synthetic engineering fixtures",
+  "source_manifest": "source-manifest.json",
+  "source_manifest_sha256": "a583f086921224d9d62decf59798e1633107a583f817524d324cfbb759165791",
+  "source_sha256": "ad5ac230aca7a2076e9a10d29c3d0ff57499409cfa5b8f79d3669b6742764952",
+  "source_files": 112,
+  "traceability_sha256": "5fbe2e2f01328b634eb5536d022e156974f87109b422b4ff562a4574d1b35090",
+  "main_passed": 8,
+  "negative_passed": 16,
+  "journeys": {
+    "J01": {
+      "status": "PASS",
+      "acceptance_id": "AC-J01",
+      "harness": "tests/j01-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "TEST_EVIDENCE/J01-browser-results.json",
+      "artifact_sha256": "5b163369ee8c705ab298490e7899c5e8a9de1d7a26cc5979adb2c38b96b0477b",
+      "reported_count": 5,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j01_candidate_shortlist",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j01_invalid_sequence",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j01_missing_measurement",
+          "status": "PASS"
+        }
+      }
+    },
+    "J02": {
+      "status": "PASS",
+      "acceptance_id": "AC-J02",
+      "harness": "tests/j02-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "TEST_EVIDENCE/J02-browser-results.json",
+      "artifact_sha256": "bc0b0d845fbf6006d5da76badf5809fbf3c4e94bbe9c364f89137a8cbe9cc019",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j02_humanize_variant",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j02_numbering_unavailable",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j02_insertion_mapping",
+          "status": "PASS"
+        }
+      }
+    },
+    "J03": {
+      "status": "PASS",
+      "acceptance_id": "AC-J03",
+      "harness": "tests/observation-journeys-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "TEST_EVIDENCE/J03-browser-results.json",
+      "artifact_sha256": "57aba7ad9fe870feaecb25e77ac883ce8d049c4b9810225ff3408b20f3303403",
+      "reported_count": 3,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j03_complex_comparison",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j03_unmappable_residue",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j03_missing_confidence",
+          "status": "PASS"
+        }
+      }
+    },
+    "J04": {
+      "status": "PASS",
+      "acceptance_id": "AC-J04",
+      "harness": "tests/observation-journeys-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "TEST_EVIDENCE/J04-browser-results.json",
+      "artifact_sha256": "1de19bd4401a64fd87a85494d5b266d4e510046ff48c6400aa257cc9191c0a73",
+      "reported_count": 3,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j04_developability_review",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j04_unit_mismatch",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j04_unknown_assay_condition",
+          "status": "PASS"
+        }
+      }
+    },
+    "J05": {
+      "status": "PASS",
+      "acceptance_id": "AC-J05",
+      "harness": "tests/j05-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "TEST_EVIDENCE/J05-browser-results.json",
+      "artifact_sha256": "75d196df21187cb459bd3a0f772a85bcb9bf60ed20917974492451a0ef751a38",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j05_bispecific_composition",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j05_undefined_chain",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j05_unsupported_analysis",
+          "status": "PASS"
+        }
+      }
+    },
+    "J06": {
+      "status": "PASS",
+      "acceptance_id": "AC-J06",
+      "harness": "tests/j06-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "TEST_EVIDENCE/M4-J06-browser-results.json",
+      "artifact_sha256": "68c1c1cdc2eb17cbbaf16919e807d647cc46ef71a7dceafcad028ba9aa42babf",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j06_construct_sample_lineage",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j06_unknown_sample_id",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j06_incomparable_units",
+          "status": "PASS"
+        }
+      }
+    },
+    "J07": {
+      "status": "PASS",
+      "acceptance_id": "AC-J07",
+      "harness": "tests/j07-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "TEST_EVIDENCE/M4-J07-browser-results.json",
+      "artifact_sha256": "25ecd59ca5f37a7044d7af42f7df4cd33a20690dc2f43ec7da38571207f66d32",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j07_candidate_decision",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j07_missing_required_metric",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j07_immutable_decision",
+          "status": "PASS"
+        }
+      }
+    },
+    "J08": {
+      "status": "PASS",
+      "acceptance_id": "AC-J08",
+      "harness": "tests/j08-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "TEST_EVIDENCE/M5-J08-browser-results.json",
+      "artifact_sha256": "72e0fb2f967bc3aa9641d96f3117032ede2130f2d0e1682bc2b05692d82510a5",
+      "reported_count": 3,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j08_export_reimport",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j08_duplicate_id",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j08_corrupted_structure",
+          "status": "PASS"
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "name": "e2e_j01_candidate_shortlist",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j01_invalid_sequence",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j01_missing_measurement",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j02_humanize_variant",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j02_numbering_unavailable",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j02_insertion_mapping",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j03_complex_comparison",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j03_unmappable_residue",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j03_missing_confidence",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j04_developability_review",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j04_unit_mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j04_unknown_assay_condition",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j05_bispecific_composition",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j05_undefined_chain",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j05_unsupported_analysis",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j06_construct_sample_lineage",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j06_unknown_sample_id",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j06_incomparable_units",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j07_candidate_decision",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j07_missing_required_metric",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j07_immutable_decision",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j08_export_reimport",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j08_duplicate_id",
+      "status": "PASS"
+    },
+    {
+      "name": "e2e_j08_corrupted_structure",
+      "status": "PASS"
+    }
+  ]
+}

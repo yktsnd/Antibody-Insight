@@ -1,0 +1,19 @@
+{
+  "scope": "Developer preflight of exact deposited source positions, with human scientific review pending",
+  "method": "Gemmi canonical polymer extraction and application deposited_polymer_definition with explicit model-1 chain assignments",
+  "cases": {
+    "G06/G16": {
+      "source": "validation/public/3OGO.cif",
+      "chain": "E",
+      "mapped": 115,
+      "unavailable": [1, 117, 118, 119, 120, 121, 122, 123],
+      "mapped_neighbour": {"raw": 116, "label": "E:116"}
+    },
+    "G11": {
+      "source": "validation/public/1VFB.cif",
+      "mapped": 223,
+      "wrong_target": "validation/public/1FDL.cif",
+      "rejection": "Deposited polymer range differs from the full target chain"
+    }
+  }
+}

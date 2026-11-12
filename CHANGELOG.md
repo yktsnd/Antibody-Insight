@@ -1,5 +1,10 @@
 # Changes
 
+## Unreleased: compare imported IMGT positions
+
+- W shows the two displayed candidates in shared IMGT columns when their chosen mapped domains use the same numbering definition and known chain type. Each cell shows its own raw index, and each row identifies its chain, domain and verification state.
+- A numbered cell selects its original residue for structure inspection or an eligible design action. Missing annotations have no selection action. The public D44.1/D1.3 replay and all named engineering journeys passed independent verification.
+
 ## Unreleased: candidate observation comparison
 
 - R shows original observations side by side by recorded kind, metric, unit, conditions and source. Values open their exact original Evidence. Multiple records retain their own material and event time. Missing values, absent records and zero are distinct.

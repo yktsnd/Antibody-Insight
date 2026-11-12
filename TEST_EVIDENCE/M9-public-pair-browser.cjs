@@ -7,6 +7,7 @@ const path = require('node:path');
 const {chromium} = require('playwright');
 const input = process.env.AWX_PAIR_INPUT_DIRECTORY;
 assert(input, 'Set AWX_PAIR_INPUT_DIRECTORY to the prepared public input directory');
+const compareNumbered = process.argv.includes('--numbered-comparison');
 const artifacts = fs.mkdtempSync(path.join(os.tmpdir(), 'awx-real-pair-'));
 const sources = [
   {name:'D44.1', pdb:'1MLC', cif:path.resolve('fixtures/public/1MLC.cif'), numbering:path.resolve('fixtures/public/1MLC-AB.anarci.txt'), antigen:'E'},
@@ -114,6 +115,30 @@ async function run() {
   }
   for (const source of sources) await page.getByRole('combobox',{name:'Chain for '+source.name,exact:true}).selectOption('H');
   const stored = await read();
+  const comparison = page.getByRole('table',{name:'Imported IMGT coordinates'});
+  let visibleInitially;
+  if (compareNumbered) {
+    await page.getByRole('combobox',{name:'Chain for D1.3',exact:true}).selectOption('L');
+    assert.equal(await comparison.count(),0);
+    await page.getByText('IMGT comparison needs two mapped domains',{exact:false}).waitFor();
+    await page.getByRole('combobox',{name:'Chain for D1.3',exact:true}).selectOption('H');
+    await page.evaluate(() => scrollTo(0,0));
+    visibleInitially = await comparison.evaluate((el) => el.getBoundingClientRect().bottom <= innerHeight);
+    assert.equal(visibleInitially,true);
+    const headers = await comparison.locator('thead th').allTextContents();
+    const position = headers.indexOf('105');
+    assert.ok(position > 0);
+    for (const source of sources) {
+      const raw = source.pdb === '1MLC' ? 97 : 96;
+      const cell = comparison.getByRole('rowheader',{name:new RegExp('^'+source.name.replaceAll('.','\\.')+' / H')})
+        .locator('..').locator('td').nth(position-1);
+      assert.match(await cell.getByRole('button').getAttribute('aria-label'),new RegExp(' IMGT 105 .*, raw index '+raw+'$'));
+    }
+    await page.locator('#numbered-region').selectOption('all');
+    assert.ok(await comparison.getByLabel('No annotation at this position',{exact:true}).count() > 0);
+    assert.equal(await comparison.getByLabel('No annotation at this position',{exact:true}).first().locator('..').getByRole('button').count(),0);
+    await page.locator('#numbered-region').selectOption('CDR3');
+  }
   for (const source of sources) {
     const numbering = stored.entities.filter((e) => e.type==='residue_map' && e.molecule_id===source.id);
     assert.deepEqual(numbering.map((e) => [e.chain_id,e.entries.length,e.verification.status]).sort(),[['H',116,'unverified'],['L',107,'unverified']]);
@@ -122,17 +147,32 @@ async function run() {
     const heavy = numbering.find((e) => e.chain_id==='H');
     const position = heavy.entries.find((e) => e.number===105 && !e.insertion);
     assert(position);
-    await page.locator('[data-position-molecule="'+source.id+'"][data-position="'+position.sequence_index+'"]').click();
-    await page.locator('.structure-selection').filter({hasText:new RegExp('Mapped H raw index '+position.sequence_index+' .*label B:'+position.sequence_index+'(?:[^0-9]|$)')}).first().waitFor();
+    if (compareNumbered) {
+      const cell = comparison.getByRole('button',{name:source.name+' H IMGT 105 '+position.aa+', raw index '+position.sequence_index,exact:true});
+      await cell.click();
+      assert.equal(await cell.getAttribute('aria-pressed'),'true');
+      assert.equal(await comparison.getByRole('button',{pressed:true}).count(),1);
+      assert.ok((await page.locator('#breadcrumb').textContent()).endsWith(' / '+source.name+' / H / index '+position.sequence_index));
+    } else {
+      await page.locator('[data-position-molecule="'+source.id+'"][data-position="'+position.sequence_index+'"]').click();
+    }
+    await page.locator('[data-structure-host="'+source.id+'"] .structure-selection')
+      .filter({hasText:new RegExp('Mapped H raw index '+position.sequence_index+' .*label B:'+position.sequence_index+'(?:[^0-9]|$)')}).waitFor();
     source.selected = {raw:position.sequence_index, scheme:heavy.scheme, coordinate:String(position.number),depositedLabel:'B:'+position.sequence_index};
   }
   assert.equal(stored.entities.filter((e) => e.type==='evidence').length,0);
   assert.deepEqual(errors,[]);
   assert.deepEqual(outside,[]);
+  assert.deepEqual(await read(),stored);
   await page.evaluate(() => scrollTo(0,0));
   await page.screenshot({path:path.join(artifacts,'public-pair-W.png')});
+  if (compareNumbered) {
+    await page.getByRole('combobox',{name:'Chain for D1.3',exact:true}).selectOption('L');
+    assert.equal(await page.locator('.residue.active').count(),0);
+    assert.equal(await page.locator('[data-numbered-structure]').count(),0);
+  }
   const sha = (file) => createHash('sha256').update(fs.readFileSync(file)).digest('hex');
-  const report = {status:'PASS', scope:'Two genuine public experimental structures and native tool outputs. Human numbering review pending.', candidates:sources.map(({name,pdb,cif,numbering,selected,coordinatePreview})=>({name,pdb,coordinates_sha256:sha(cif),numbering_sha256:sha(numbering),selected,coordinatePreview})), file_input_sha256:sha(path.join(input,'public-fab-pair.fasta')), page_errors:errors, outside};
+  const report = {status:'PASS', scope:'Two genuine public experimental structures and native tool outputs. Human numbering review pending.', comparison:compareNumbered?{sameColumn:true, visibleInitially, missingIsUnselectable:true, mixedChainsExcluded:true}:null, candidates:sources.map(({name,pdb,cif,numbering,selected,coordinatePreview})=>({name,pdb,coordinates_sha256:sha(cif),numbering_sha256:sha(numbering),selected,coordinatePreview})), file_input_sha256:sha(path.join(input,'public-fab-pair.fasta')), page_errors:errors, outside};
   fs.writeFileSync(path.join(artifacts,'public-pair-W.json'),JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report),artifacts);
 }

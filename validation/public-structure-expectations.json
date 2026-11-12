@@ -1,0 +1,30 @@
+{
+  "status": "AWAITING_HUMAN_REVIEW",
+  "cases": {
+    "G06": {
+      "input": "validation/public/3OGO.cif",
+      "input_sha256": "7367c427469002c633362d7e0ac98dec7242b02facfed8750caaa8e58b4c42f5",
+      "primary_source": "https://www.rcsb.org/structure/3OGO",
+      "expected": "Polymer entity 2 is a dromedary GFP-binding VHH with 123 deposited positions, represented by chain instances E through H. Chain E can be declared as a single VHH chain. Entity 1 is GFP.",
+      "numbering_input": "validation/public/3OGO-E.anarci.txt",
+      "numbering_sha256": "ce5f3ab5e85c600b68b717b833474d8ef71715ffd954a298ac44b4b7237db855",
+      "application_check": "Confirm the single-chain molecular record and distinct antigen identity. The native tool HMM hit reports human/H and raw positions 2–116. That tool field belongs to the numbering result. The deposited origin remains Camelus dromedarius."
+    },
+    "G11": {
+      "input": "validation/public/1VFB.cif",
+      "input_sha256": "d599fbb9391deb66c3b65d62944c6eae87a6b74cc0661d2ac9c2ced1df243a45",
+      "primary_source": "https://www.rcsb.org/structure/1VFB",
+      "expected": "The D1.3 Fv input has 107 light-chain and 116 heavy-chain polymer positions. The D1.3 Fab comparator has 214 and 218. The deposited Fv sequences differ from the corresponding Fab prefixes.",
+      "comparator": "validation/public/1FDL.cif",
+      "comparator_sha256": "6b525be71aff6850ebc4d83e2df75e2e8cfffbe7a2e4b68adf1aff9987a4c25f",
+      "application_check": "Inspect the Fv as a distinct declared construct. Bind the exact Fv polymer inputs and verify that binding a full Fab chain to either short Fv polymer is rejected."
+    },
+    "G16": {
+      "input": "validation/public/3OGO.cif",
+      "input_sha256": "7367c427469002c633362d7e0ac98dec7242b02facfed8750caaa8e58b4c42f5",
+      "primary_source": "https://www.rcsb.org/structure/3OGO",
+      "expected": "In label chain E the deposit contains polymer positions 1–123. Atom-site label sequence identifiers cover only 2–116.",
+      "application_check": "With E explicitly assigned to the canonical VHH chain, pick positions 1 and 117. Both should be unavailable in that structure. Check position 116 independently as an observed neighbour."
+    }
+  }
+}
