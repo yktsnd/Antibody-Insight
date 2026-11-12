@@ -1,0 +1,26 @@
+{
+  "status": "AWAITING_HUMAN_REVIEW",
+  "primary_source": "https://www.rcsb.org/structure/1MLC",
+  "source_revision": "1.3",
+  "input": "fixtures/public/1MLC.cif",
+  "input_sha256": "5536c79a3d73e09503f6a4d252bbca2dac5fa0e59b5424309f49cd0c34e8606e",
+  "cases": {
+    "G02": {
+      "source_fields": ["_entity.pdbx_description", "_struct_asym", "_entity_poly"],
+      "expected": "Deposited entity 1 is the D44.1 Fab kappa light chain. It has 214 polymer positions. Its label-asym instances A and C remain distinct coordinate targets.",
+      "application_check": "Assign A to the declared light chain of the imported Fab and confirm that inspecting it retains the exact chain, source file and light-chain sequence. Verify C remains a separate deposited chain instance."
+    },
+    "G04": {
+      "source_fields": ["_struct.title", "_entity.pdbx_description", "_struct_asym", "_entity_poly"],
+      "expected": "One primary D44.1 Fab observation uses A (light, entity 1, 214 polymer positions) and B (heavy, entity 2, 218 polymer positions). Lysozyme E is entity 3. The second coordinate copy uses C/D/F.",
+      "application_check": "Declare the primary Fab and the distinct antigen. Check the chain assignments and two residue selections against the deposited identifiers and confirm exact assignment after restoring to a fresh store."
+    },
+    "G09": {
+      "source_fields": ["_entity_src_gen.pdbx_gene_src_scientific_name", "_entity_poly", "original ANARCI IMGT output"],
+      "expected": "The source organism for Fab entities 1 and 2 is Mus musculus, taxonomy 10090. Gallus gallus in this entry is the lysozyme source.",
+      "numbering_input": "fixtures/public/1MLC-AB.anarci.txt",
+      "numbering_input_sha256": "26c2c44b388d7f62dd9efdf992a1c69f366f07cc0db1b43001e32c175c3e0747",
+      "application_check": "Independently verify the variable-domain scope and numbering method for each real chain. Record the expected IMGT/CDR annotations and differences before assigning a scientific verdict."
+    }
+  }
+}

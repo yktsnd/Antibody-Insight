@@ -1,0 +1,188 @@
+{
+  "scope": "Independent replay, isolated store and synthetic fixtures",
+  "checks": [
+    {
+      "name": "numeric context types stay distinguishable",
+      "status": "PASS",
+      "integer": {
+        "id": "evd_68b1e882-6430-532e-9bce-37f9e8cbba0a",
+        "option": "measured / typed temperatures / nM / {\"assay\":\"synthetic engineering test\",\"temperature_C\":25} / SYNTHETIC FIXTURE (not an actual experiment) 1",
+        "row": "measured typed temperatures nM · SYNTHETIC FIXTURE (not an actual experiment) 1{\"assay\":\"synthetic engineering test\",\"temperature_C\":25}"
+      },
+      "float": {
+        "id": "evd_b6f2e060-aba0-5b88-92c8-516cc877df5f",
+        "option": "measured / typed temperatures / nM / {\"assay\":\"synthetic engineering test\",\"temperature_C\":25.0} / SYNTHETIC FIXTURE (not an actual experiment) 1",
+        "row": "measured typed temperatures nM · SYNTHETIC FIXTURE (not an actual experiment) 1{\"assay\":\"synthetic engineering test\",\"temperature_C\":25.0}"
+      },
+      "signedZero": {
+        "negative": "measured / signed-zero conditions / nM / {\"assay\":\"synthetic engineering test\",\"temperature_C\":-0.0} / SYNTHETIC FIXTURE (not an actual experiment) 1",
+        "positive": "measured / signed-zero conditions / nM / {\"assay\":\"synthetic engineering test\",\"temperature_C\":0.0} / SYNTHETIC FIXTURE (not an actual experiment) 1"
+      }
+    },
+    {
+      "name": "candidate scope, source version, original construct/material identities, and no save on browse",
+      "status": "PASS",
+      "ids": {
+        "a": "mol_f2e5aed9-b9c6-5405-9ecf-aa02a072f1b7",
+        "b": "mol_739fd96a-85b2-5158-b7a6-360ac720957a",
+        "c": "mol_34357566-68d2-5872-a41e-21ec103f819f",
+        "first": "evd_68b1e882-6430-532e-9bce-37f9e8cbba0a",
+        "second": "evd_b6f2e060-aba0-5b88-92c8-516cc877df5f",
+        "outside": "evd_201e9d7a-aa95-5a32-9ad8-bd1a48c0fbda",
+        "source_other": "evd_1831a79e-ab7c-53e7-af59-3f2be1432fcb",
+        "computed": "evd_583f0a18-59b5-5777-8a5e-1f1eb57300f8",
+        "repeat_subject": "evd_c9ac5524-3837-5388-9fbf-06e0a3e311ed",
+        "signed_zero_condition": "evd_0bd003b3-c96c-51ff-b8e4-95af39ba797b",
+        "positive_zero_condition": "evd_f4542fd8-0832-5658-8a78-9f61d0e3d571"
+      },
+      "selection": "2 selected",
+      "decisionDraft": {
+        "weight": "2.5",
+        "reason": "Independently retained synthetic trade-off."
+      },
+      "requestsDuringComparison": [],
+      "bundleByteIdentical": true
+    },
+    {
+      "name": "negative-zero scalar agrees in comparison and original Evidence",
+      "status": "PASS",
+      "comparison": "-0 nMFixture material 1 · lot fixture-lot-1",
+      "original": "-0 nM"
+    },
+    {
+      "name": "same material, same value, different times",
+      "status": "PASS",
+      "first": "10 nMFixture material 1 · lot fixture-lot-12026-11-02T00:00:00+00:00",
+      "repeat": "10 nMFixture material 1 · lot fixture-lot-12026-11-03T00:00:00+00:00"
+    },
+    {
+      "name": "comparison context persists after a same-context append changes representative",
+      "status": "PASS",
+      "previous": "evd_68b1e882-6430-532e-9bce-37f9e8cbba0a",
+      "representative": "evd_00000000-0000-4000-8000-000000000001",
+      "selectedOption": "evd_00000000-0000-4000-8000-000000000001",
+      "currentRows": 1
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "network": [
+    [
+      "GET",
+      "/"
+    ],
+    [
+      "GET",
+      "/style.css"
+    ],
+    [
+      "GET",
+      "/vendor/3Dmol-2.5.5.min.js"
+    ],
+    [
+      "GET",
+      "/structures.js"
+    ],
+    [
+      "GET",
+      "/design.js"
+    ],
+    [
+      "GET",
+      "/composition.js"
+    ],
+    [
+      "GET",
+      "/experiments.js"
+    ],
+    [
+      "GET",
+      "/decisions.js"
+    ],
+    [
+      "GET",
+      "/predictions.js"
+    ],
+    [
+      "GET",
+      "/numbering-import.js"
+    ],
+    [
+      "GET",
+      "/app.js"
+    ],
+    [
+      "GET",
+      "/api/bootstrap"
+    ],
+    [
+      "POST",
+      "/api/preview"
+    ],
+    [
+      "POST",
+      "/api/import"
+    ],
+    [
+      "GET",
+      "/api/bootstrap"
+    ],
+    [
+      "GET",
+      "/api/bundle?project_id=prj_991fe685-94ad-5fa0-a1e6-6df644d6ca48"
+    ],
+    [
+      "GET",
+      "/api/numbering?project_id=prj_991fe685-94ad-5fa0-a1e6-6df644d6ca48"
+    ],
+    [
+      "POST",
+      "/api/cdr3-groups"
+    ],
+    [
+      "POST",
+      "/api/observation-order"
+    ],
+    [
+      "GET",
+      "/api/construct-context?project_id=prj_991fe685-94ad-5fa0-a1e6-6df644d6ca48&molecule_id=mol_f2e5aed9-b9c6-5405-9ecf-aa02a072f1b7"
+    ],
+    [
+      "POST",
+      "/api/decision-context"
+    ],
+    [
+      "POST",
+      "/api/preview"
+    ],
+    [
+      "POST",
+      "/api/import"
+    ],
+    [
+      "GET",
+      "/api/bootstrap"
+    ],
+    [
+      "GET",
+      "/api/bundle?project_id=prj_991fe685-94ad-5fa0-a1e6-6df644d6ca48"
+    ],
+    [
+      "GET",
+      "/api/numbering?project_id=prj_991fe685-94ad-5fa0-a1e6-6df644d6ca48"
+    ],
+    [
+      "POST",
+      "/api/cdr3-groups"
+    ],
+    [
+      "POST",
+      "/api/observation-order"
+    ],
+    [
+      "POST",
+      "/api/decision-context"
+    ]
+  ],
+  "status": "PASS"
+}

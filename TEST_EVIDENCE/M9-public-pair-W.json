@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scope": "Two genuine public experimental structures and native tool outputs. Human numbering review pending.",
+  "candidates": [
+    {
+      "name": "D44.1",
+      "pdb": "1MLC",
+      "coordinates_sha256": "5536c79a3d73e09503f6a4d252bbca2dac5fa0e59b5424309f49cd0c34e8606e",
+      "numbering_sha256": "26c2c44b388d7f62dd9efdf992a1c69f366f07cc0db1b43001e32c175c3e0747",
+      "selected": {
+        "raw": 97,
+        "scheme": "IMGT",
+        "coordinate": "105",
+        "depositedLabel": "B:97"
+      },
+      "coordinatePreview": "432 mapped residues"
+    },
+    {
+      "name": "D1.3",
+      "pdb": "1FDL",
+      "coordinates_sha256": "6b525be71aff6850ebc4d83e2df75e2e8cfffbe7a2e4b68adf1aff9987a4c25f",
+      "numbering_sha256": "fc19caed78df3b8319193525b23fcbf087ab83246e721f4202fc23d723898899",
+      "selected": {
+        "raw": 96,
+        "scheme": "IMGT",
+        "coordinate": "105",
+        "depositedLabel": "B:96"
+      },
+      "coordinatePreview": "432 mapped residues"
+    }
+  ],
+  "file_input_sha256": "ce44394e578b1e5e391cb168474e764e8af291acfac1ee2cc0cf82000f1aa5e6",
+  "page_errors": [],
+  "outside": []
+}

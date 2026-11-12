@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "baseline": false,
+  "scope": "Synthetic engineering fixture at 1440 × 1000",
+  "fixtureSha256": "c041803a1ecd777c394822b639ce606f67642a2c5a1738774f8f3066ad7814f4",
+  "sourceSha256": {
+    "web/app.js": "5b8fde69c1e57e5fd1b6aeb0b1bd16dfb2dc5d2b88e36476c4cdbc94900f15b2",
+    "web/decisions.js": "ba1b24b61b9b91ed2a4fa4cbd5f6c1441651a909511c08d1513ec0510d6760d2",
+    "web/style.css": "ab699129dcd325793e1e9af461c48e8358d606ee3789f1c8ff730a3f31a1bc2e",
+    "workspace_app/observation.py": "a6775376e813dbeac98638aacff486b63f5ec7d19982cbaa178d4d8ccd4331f0",
+    "workspace_app/decisions.py": "66d1c30ca62dd8bcebc8e8117a7707a37898e4ddcec56d7e4a0fdbb8efc8cc2a"
+  },
+  "entry": {
+    "documentHeight": 4919,
+    "originalRecordTop": 2682,
+    "viewportHeight": 1000,
+    "valueVisibleInitially": true,
+    "scrollBeforeFirstPixel": 0
+  },
+  "checks": [
+    "condition and unit boundaries; original records for two lots; exact integer and float labels; null, absent and zero",
+    "one source action focuses the exact Evidence; W/R round trip preserves candidate and draft state"
+  ],
+  "errors": [],
+  "outside": []
+}

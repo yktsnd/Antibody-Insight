@@ -1,5 +1,10 @@
 # Changes
 
+## Unreleased: candidate observation comparison
+
+- R shows original observations side by side by recorded kind, metric, unit, conditions and source. Values open their exact original Evidence. Multiple records retain their own material and event time. Missing values, absent records and zero are distinct.
+- The same synthetic case shows the target comparison value on entry at 1440 × 1000. Independent engineering checks passed for source identity, typed conditions, read-only comparison and draft continuity. Real-data and researcher acceptance remain open. See TEST_EVIDENCE/F29-observation-comparison-review.md.
+
 ## Unreleased: deposited coordinates and original numbering files
 
 - W derives a reviewable map from explicit mmCIF polymer positions when each assigned full chain matches the deposited monomers. It preserves the source's coordinate identifiers and displays unavailable coordinates and conformers.

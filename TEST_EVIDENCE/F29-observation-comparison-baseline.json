@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "baseline": true,
+  "scope": "Synthetic engineering fixture at 1440 × 1000",
+  "fixtureSha256": "c041803a1ecd777c394822b639ce606f67642a2c5a1738774f8f3066ad7814f4",
+  "sourceSha256": {
+    "web/app.js": "c164812749d1660ccc83f80e5367d64190709e84876eabdbeb6300917ad874d9",
+    "web/decisions.js": "27bd514e8893a0a1d4cec6293d829c1ce5d591548a3f1407183ca1011d0514e3",
+    "web/style.css": "7ef8feb170ea6f8734b049bd6b6e8cfd06f8986670ff7050ee96c672d044690d",
+    "workspace_app/observation.py": "003adec49e9b5c23bec0c51d6a6ee3cacb553dadff69559a9284a67ed1f69ef6",
+    "workspace_app/decisions.py": "8e4191f4cbb7ff17b2171e2efbc175069b2441f91c6b32a7916356cbaf5ee4ab"
+  },
+  "entry": {
+    "documentHeight": 4580,
+    "originalRecordTop": 2342,
+    "viewportHeight": 1000,
+    "valueVisibleInitially": false,
+    "scrollBeforeFirstPixel": 1343
+  },
+  "checks": [],
+  "errors": [],
+  "outside": []
+}
