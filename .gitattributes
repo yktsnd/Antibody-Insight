@@ -1,14 +1,22 @@
-# Keep verified upstream assets and notices byte-for-byte across Windows checkouts.
-web/vendor/** -text -whitespace
+# Use the same bytes for owned source in the exact-source acceptance manifest.
+/.gitattributes text eol=lf
+/AGENTS.md text eol=lf
+/PRODUCT_GOAL.md text eol=lf
+/DEVELOPMENT_PLAN.md text eol=lf
+/requirements*.txt text eol=lf
+/start.ps1 text eol=lf
+/THIRD_PARTY_NOTICES.md text eol=lf
+/workspace_app/*.py text eol=lf
+/web/* text eol=lf
+/tests/*.py text eol=lf
+/tests/*.cjs text eol=lf
+/scripts/*.py text eol=lf
 
-# Preserve downloaded scientific archive bytes and their pinned digest.
-fixtures/public/*.cif -text -whitespace
-fixtures/public/*.anarci.txt -text -whitespace
+# Preserve upstream assets and scientific inputs as published.
+/web/vendor/** -text -whitespace
+/web/vendor/manifest.json text eol=lf !whitespace
+/fixtures/public/** -text -whitespace
+/fixtures/public/README.md text eol=lf !whitespace
 
-# Preserve exact hashes of this reviewed milestone evidence across checkouts.
-TEST_EVIDENCE/M3-observation-* -text -whitespace
-TEST_EVIDENCE/M3-composition-* -text -whitespace
-TEST_EVIDENCE/M4-* -text -whitespace
-TEST_EVIDENCE/M5-* -text -whitespace
-TEST_EVIDENCE/M6-* -text -whitespace
-TEST_EVIDENCE/M7-* -text -whitespace
+# Reviewed evidence is hashed as written, including reports under nested paths.
+/TEST_EVIDENCE/** -text -whitespace
