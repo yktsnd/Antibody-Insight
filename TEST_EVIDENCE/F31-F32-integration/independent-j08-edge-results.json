@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/import_review",
+  "timestamp": "2026-11-13T00:02:48.818Z",
+  "commit": "cd3a6d70ca7a999e8279187edfcae9fe3bfdd108",
+  "results": [
+    {
+      "name": "independent_j08_close_reopen_blocks_old_read_and_submit",
+      "status": "PASS",
+      "duration_ms": 630,
+      "evidence": "A queued preview from a closed import produced no request. The reopened dialog previewed only the new filename and record. Cancel preserved the store."
+    },
+    {
+      "name": "independent_j08_explicit_format_while_read_pending",
+      "status": "PASS",
+      "duration_ms": 200,
+      "evidence": "User-selected grouped FASTA took precedence over automatic extension selection. Both source records and the original CRLF bytes reached the grouped preview; cancellation preserved the store."
+    },
+    {
+      "name": "independent_j08_replaced_invalid_utf8_cannot_report_stale_error",
+      "status": "PASS",
+      "duration_ms": 204,
+      "evidence": "Late decode failure from the replaced file left the newer preview and status untouched and produced no writes."
+    }
+  ],
+  "outbound": [],
+  "pageErrors": []
+}

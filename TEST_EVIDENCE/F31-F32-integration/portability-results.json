@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "commit": "cd3a6d70ca7a999e8279187edfcae9fe3bfdd108",
+  "source_sha256": "a8401ea90d8df073cc3c831af20a8949c9407958beb863475d017f96275890b9",
+  "source_files": 112,
+  "configurations": [
+    "core.autocrlf=true",
+    "core.autocrlf=false"
+  ],
+  "retained_files": {
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/J01-browser-results.json": "5b163369ee8c705ab298490e7899c5e8a9de1d7a26cc5979adb2c38b96b0477b",
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/J02-browser-results.json": "bc0b0d845fbf6006d5da76badf5809fbf3c4e94bbe9c364f89137a8cbe9cc019",
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/J03-browser-results.json": "57aba7ad9fe870feaecb25e77ac883ce8d049c4b9810225ff3408b20f3303403",
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/J04-browser-results.json": "1de19bd4401a64fd87a85494d5b266d4e510046ff48c6400aa257cc9191c0a73",
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/J05-browser-results.json": "75d196df21187cb459bd3a0f772a85bcb9bf60ed20917974492451a0ef751a38",
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/M4-J06-browser-results.json": "68c1c1cdc2eb17cbbaf16919e807d647cc46ef71a7dceafcad028ba9aa42babf",
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/M4-J07-browser-results.json": "25ecd59ca5f37a7044d7af42f7df4cd33a20690dc2f43ec7da38571207f66d32",
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/M5-J08-browser-results.json": "72e0fb2f967bc3aa9641d96f3117032ede2130f2d0e1682bc2b05692d82510a5",
+    "TEST_EVIDENCE/F30-integration/TEST_EVIDENCE/public-structure-browser-results.json": "e6b5e66c5873156e46d8fffcd1e9443105b304553e9b8f755c245a93dabadcc5",
+    "TEST_EVIDENCE/F30-integration/independent-edges.cjs": "83cf70f29d6a4352c43a8ea50a8d00d002f53e557a7740fdc1b6a35d102db503",
+    "TEST_EVIDENCE/F30-integration/independent-edges.json": "1a37484b28ab26a422aa3ec5667a040e2f6e72cd8543450ddf9c98d1825630e7",
+    "TEST_EVIDENCE/F30-integration/independent-review.md": "ff60a9a93b6597dfc62f02cdacce37ad3c1e5596cb1e9d1c14cf4fb37b1ddf89",
+    "TEST_EVIDENCE/F30-integration/named-audit.json": "4d1074be959f55d3cddb62dd7e97efa6bea3d6189062eda1e820e62f3701f177",
+    "TEST_EVIDENCE/F30-integration/public-pair-W.json": "e4b004af0545dbfc6fb24a57da28ca696adbb91ebafeea824378b36b1e4ab189",
+    "TEST_EVIDENCE/F30-integration/public-pair-W.png": "24133166f73e39ce1ae50f52116ce1ad082dc8a5cef015d9b36904faf8417620",
+    "TEST_EVIDENCE/F30-integration/review-inputs.json": "4a2e089ae40cbae46aac9f60783db0b78fecc96c87146a675fa27704d2990c32",
+    "TEST_EVIDENCE/F30-integration/source-manifest.json": "a583f086921224d9d62decf59798e1633107a583f817524d324cfbb759165791",
+    "validation/public/nist-mam-reference-source.fasta": "c1f2ef9e9645c906e8b6fad38e5b88339f3dd5814660ded6376310bd7fbf5eba"
+  }
+}

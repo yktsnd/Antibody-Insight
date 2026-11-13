@@ -12,3 +12,5 @@ The exact-source acceptance checker passed in the reviewed worktree and failed i
 | `git clone --local --no-hardlinks -c core.autocrlf=false` | 12 | 0 | Source changed since acceptance: .gitattributes |
 
 The release evidence needs a stable Git checkout policy for reviewed text and byte preservation for original data and signed reports. Verify the exact same signed source and evidence on both checkout settings after applying that policy. The full release gate remains pending.
+
+F31 applied the checkout policy and F32 corrected a file-read race found during the new browser replay. The later signed review covers both checkout settings, all eight named journeys and the import race boundaries. [F31/F32 independent review](F31-F32-integration/independent-review.md)
