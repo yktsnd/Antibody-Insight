@@ -1,5 +1,10 @@
 # Changes
 
+## Unreleased: local file import and reproducible acceptance
+
+- Editing project or assay metadata during a local file read preserves the selected file. A requested preview waits for that read. Selecting a different file, pasting source text or closing the dialog prevents an older read from replacing the active input.
+- Fresh checkouts preserve the exact bytes of reviewed application files, upstream scientific inputs and evidence reports for acceptance verification with either Git newline setting.
+
 ## Unreleased: compare imported IMGT positions
 
 - W shows the two displayed candidates in shared IMGT columns when their chosen mapped domains use the same numbering definition and known chain type. Each cell shows its own raw index, and each row identifies its chain, domain and verification state.
