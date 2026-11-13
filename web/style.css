@@ -13,6 +13,7 @@
 
 .comparison-filter { margin: 12px 16px; max-width: 42rem; }
 .comparison-table th, .comparison-table td { padding: 9px 14px; }
+.composition-connections th, .composition-connections td { padding: 7px 12px; overflow-wrap: anywhere; }
 .comparison-table th { color: #284d5d; text-transform: none; letter-spacing: normal; font-size: 12px; }
 .comparison-table th:first-child { width: 40%; }
 .comparison-table th:not(:first-child) { min-width: 10rem; }
