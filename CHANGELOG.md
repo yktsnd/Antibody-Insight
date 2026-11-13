@@ -1,5 +1,10 @@
 # Changes
 
+## Unreleased: declared component connections
+
+- The composition comparison displays the kind and exact chain/component endpoints for each declared connection. An explicit graph with zero connections has its own empty state. The saved graph and source-usage details are available for audit.
+- The independent public emicizumab replay inspected the declared reference and a hypothetical alternative, retained both original light-chain identities and verified restart and fresh-store transfer. The reference source contains residue-level detail beyond the displayed component links.
+
 ## Unreleased: local file import and reproducible acceptance
 
 - Editing project or assay metadata during a local file read preserves the selected file. A requested preview waits for that read. Selecting a different file, pasting source text or closing the dialog prevents an older read from replacing the active input.

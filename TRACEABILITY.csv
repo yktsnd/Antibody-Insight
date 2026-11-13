@@ -1,9 +1,9 @@
 scenario_id,persona_id,acceptance_id,main_test,negative_test_1,negative_test_2,release_status,implementation_ticket,commit,reviewer,review_result
-J01,P01,AC-J01,e2e_j01_candidate_shortlist,e2e_j01_invalid_sequence,e2e_j01_missing_measurement,PASS,F01;F02;F03;F07;F09;F24;F25;F26;F28;F29;F30,cd3a6d70ca7a999e8279187edfcae9fe3bfdd108,/root/import_review,PASS
-J02,P02,AC-J02,e2e_j02_humanize_variant,e2e_j02_numbering_unavailable,e2e_j02_insertion_mapping,PASS,F06;F07;F10;F11;F25;F26;F28;F30,cd3a6d70ca7a999e8279187edfcae9fe3bfdd108,/root/import_review,PASS
-J03,P03,AC-J03,e2e_j03_complex_comparison,e2e_j03_unmappable_residue,e2e_j03_missing_confidence,PASS,F08;F11;F12;F13;F21;F23;F27;F28;F30,cd3a6d70ca7a999e8279187edfcae9fe3bfdd108,/root/import_review,PASS
-J04,P04,AC-J04,e2e_j04_developability_review,e2e_j04_unit_mismatch,e2e_j04_unknown_assay_condition,PASS,F08;F09;F10;F11;F12;F13;F23;F27;F28;F29,cd3a6d70ca7a999e8279187edfcae9fe3bfdd108,/root/import_review,PASS
-J05,P05,AC-J05,e2e_j05_bispecific_composition,e2e_j05_undefined_chain,e2e_j05_unsupported_analysis,PASS,F06;F14;F15,cd3a6d70ca7a999e8279187edfcae9fe3bfdd108,/root/import_review,PASS
-J06,P06,AC-J06,e2e_j06_construct_sample_lineage,e2e_j06_unknown_sample_id,e2e_j06_incomparable_units,PASS,F04;F09;F11;F16;F17;F18;F29,cd3a6d70ca7a999e8279187edfcae9fe3bfdd108,/root/import_review,PASS
-J07,P07,AC-J07,e2e_j07_candidate_decision,e2e_j07_missing_required_metric,e2e_j07_immutable_decision,PASS,F03;F09;F19;F20;F24;F25;F26;F29,cd3a6d70ca7a999e8279187edfcae9fe3bfdd108,/root/import_review,PASS
-J08,P08,AC-J08,e2e_j08_export_reimport,e2e_j08_duplicate_id,e2e_j08_corrupted_structure,PASS,F01;F02;F04;F05;F06;F07;F08;F16;F17;F20;F21;F22;F23;F26;F27;F28;F31;F32,cd3a6d70ca7a999e8279187edfcae9fe3bfdd108,/root/import_review,PASS
+J01,P01,AC-J01,e2e_j01_candidate_shortlist,e2e_j01_invalid_sequence,e2e_j01_missing_measurement,PASS,F01;F02;F03;F07;F09;F24;F25;F26;F28;F29;F30,21cc69852df094936f16ee89f2006eb20fc51e14,/root/import_review,PASS
+J02,P02,AC-J02,e2e_j02_humanize_variant,e2e_j02_numbering_unavailable,e2e_j02_insertion_mapping,PASS,F06;F07;F10;F11;F25;F26;F28;F30,21cc69852df094936f16ee89f2006eb20fc51e14,/root/import_review,PASS
+J03,P03,AC-J03,e2e_j03_complex_comparison,e2e_j03_unmappable_residue,e2e_j03_missing_confidence,PASS,F08;F11;F12;F13;F21;F23;F27;F28;F30,21cc69852df094936f16ee89f2006eb20fc51e14,/root/import_review,PASS
+J04,P04,AC-J04,e2e_j04_developability_review,e2e_j04_unit_mismatch,e2e_j04_unknown_assay_condition,PASS,F08;F09;F10;F11;F12;F13;F23;F27;F28;F29,21cc69852df094936f16ee89f2006eb20fc51e14,/root/import_review,PASS
+J05,P05,AC-J05,e2e_j05_bispecific_composition,e2e_j05_undefined_chain,e2e_j05_unsupported_analysis,PASS,F06;F14;F15;F33,21cc69852df094936f16ee89f2006eb20fc51e14,/root/import_review,PASS
+J06,P06,AC-J06,e2e_j06_construct_sample_lineage,e2e_j06_unknown_sample_id,e2e_j06_incomparable_units,PASS,F04;F09;F11;F16;F17;F18;F29,21cc69852df094936f16ee89f2006eb20fc51e14,/root/import_review,PASS
+J07,P07,AC-J07,e2e_j07_candidate_decision,e2e_j07_missing_required_metric,e2e_j07_immutable_decision,PASS,F03;F09;F19;F20;F24;F25;F26;F29,21cc69852df094936f16ee89f2006eb20fc51e14,/root/import_review,PASS
+J08,P08,AC-J08,e2e_j08_export_reimport,e2e_j08_duplicate_id,e2e_j08_corrupted_structure,PASS,F01;F02;F04;F05;F06;F07;F08;F16;F17;F20;F21;F22;F23;F26;F27;F28;F31;F32,21cc69852df094936f16ee89f2006eb20fc51e14,/root/import_review,PASS

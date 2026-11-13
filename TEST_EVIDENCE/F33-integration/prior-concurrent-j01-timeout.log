@@ -1,0 +1,12 @@
+PASS e2e_j01_invalid_sequence
+PASS e2e_j01_missing_measurement
+locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.saved-draft') to be visible[22m
+
+    at C:\Users\yukis\AppData\Local\Temp\awx-m13-final-independent-5c0b179a748d455d88ac8333fca4c4cd\snapshot\tests\j01-browser.cjs:108:110
+    at async check (C:\Users\yukis\AppData\Local\Temp\awx-m13-final-independent-5c0b179a748d455d88ac8333fca4c4cd\snapshot\tests\j01-browser.cjs:15:57)
+    at async C:\Users\yukis\AppData\Local\Temp\awx-m13-final-independent-5c0b179a748d455d88ac8333fca4c4cd\snapshot\tests\j01-browser.cjs:30:3 {
+  log: [ "  - waiting for locator('.saved-draft') to be visible" ],
+  name: 'TimeoutError'
+}

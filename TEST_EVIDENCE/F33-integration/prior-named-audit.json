@@ -1,0 +1,185 @@
+{
+  "status": "FAIL",
+  "reviewer": "/root/public_composition_review",
+  "timestamp": "2026-11-13T00:24:19.399111+00:00",
+  "scope": "Independent exact-checkout J01–J08 named engineering regression, public J05 and composition browser edges",
+  "git_base": "21cc69852df094936f16ee89f2006eb20fc51e14",
+  "source_manifest": "source-manifest.json",
+  "source_manifest_sha256": "d6668c3eddd5bc26efd8c493fd7c7fe5a31472329e5226f4d18252265293ae2b",
+  "source_sha256": "436e9fa1a793d0bf827054a8b91b7136299f4e333013682b9e95e23f0d0d9634",
+  "source_files": 112,
+  "traceability_sha256": "a441bdeac01d8974b5238a016f58686019f547464326e7f23c75d802c7be5b23",
+  "main_passed": 7,
+  "negative_passed": 14,
+  "journeys": {
+    "J01": {
+      "status": "FAIL",
+      "harness_exit": 1,
+      "artifact": "C:\\Users\\yukis\\AppData\\Local\\Temp\\awx-m13-final-independent-5c0b179a748d455d88ac8333fca4c4cd\\snapshot\\TEST_EVIDENCE\\J01-browser-results.json"
+    },
+    "J02": {
+      "status": "PASS",
+      "harness": "tests/j02-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "named/J02-browser-results.json",
+      "artifact_sha256": "1262522863199784658971b56f43838188bd1480c98b3d63d4262b48773ffc14",
+      "acceptance_id": "AC-J02",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j02_humanize_variant",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j02_numbering_unavailable",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j02_insertion_mapping",
+          "status": "PASS"
+        }
+      }
+    },
+    "J03": {
+      "status": "PASS",
+      "harness": "tests/observation-journeys-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "named/J03-browser-results.json",
+      "artifact_sha256": "ca3246ed016f5f8e0f70f672a05fe1955dde9fb16c0f2d99acfe75d573fe708d",
+      "acceptance_id": "AC-J03",
+      "reported_count": 3,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j03_complex_comparison",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j03_unmappable_residue",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j03_missing_confidence",
+          "status": "PASS"
+        }
+      }
+    },
+    "J04": {
+      "status": "PASS",
+      "harness": "tests/observation-journeys-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "named/J04-browser-results.json",
+      "artifact_sha256": "aa59eadece13bc9d5840c0747282c450b610ab8a8493e6d8311234aa3a5d1820",
+      "acceptance_id": "AC-J04",
+      "reported_count": 3,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j04_developability_review",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j04_unit_mismatch",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j04_unknown_assay_condition",
+          "status": "PASS"
+        }
+      }
+    },
+    "J05": {
+      "status": "PASS",
+      "harness": "tests/j05-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "named/J05-browser-results.json",
+      "artifact_sha256": "24b583d288926558cae386ef1447bc6a568f34518a7539f42c2a2e4fa53bf3ff",
+      "acceptance_id": "AC-J05",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j05_bispecific_composition",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j05_undefined_chain",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j05_unsupported_analysis",
+          "status": "PASS"
+        }
+      }
+    },
+    "J06": {
+      "status": "PASS",
+      "harness": "tests/j06-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "named/M4-J06-browser-results.json",
+      "artifact_sha256": "af84c610a8b393081c27bc0d6dda7060c0cd04fccf3d03132d8a31dcb6df8ff9",
+      "acceptance_id": "AC-J06",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j06_construct_sample_lineage",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j06_unknown_sample_id",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j06_incomparable_units",
+          "status": "PASS"
+        }
+      }
+    },
+    "J07": {
+      "status": "PASS",
+      "harness": "tests/j07-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "named/M4-J07-browser-results.json",
+      "artifact_sha256": "6c6b736dc37bfaf44e31527885bebc04200c28c1d1d458a0d102adc23b702b43",
+      "acceptance_id": "AC-J07",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j07_candidate_decision",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j07_missing_required_metric",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j07_immutable_decision",
+          "status": "PASS"
+        }
+      }
+    },
+    "J08": {
+      "status": "PASS",
+      "harness": "tests/j08-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "named/M5-J08-browser-results.json",
+      "artifact_sha256": "8edc9eca8b08824e12fc34b53b169859440d38aabfd9098665bd47a4861a6c99",
+      "acceptance_id": "AC-J08",
+      "reported_count": 4,
+      "cases": {
+        "main_test": {
+          "name": "e2e_j08_export_reimport",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j08_duplicate_id",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j08_corrupted_structure",
+          "status": "PASS"
+        }
+      }
+    }
+  },
+  "public_browser_exit": 0,
+  "composition_independent_exit": 0,
+  "python_exit": 0
+}

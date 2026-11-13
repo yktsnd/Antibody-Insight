@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-13T11:11:00.982Z",
+  "browser": "157.0.8103.51",
+  "sourceSha256": "696d14a3c129ea3924ff675378c91eb7428dd42e8ff8592affed8af453149322",
+  "scope": "Public source composition with a hypothetical comparison declaration",
+  "checks": [
+    "empty_recipe_cannot_be_previewed",
+    "four_public_chains_and_two_distinct_light_chain_sources",
+    "declared_endpoints_and_kinds_visible_without_json_disclosure",
+    "alternative_preserves_sequences_and_differs_only_in_declared_graph",
+    "unsupported_prediction_has_no_action",
+    "original_annotations_and_proposed_reasoning_survive_restart_and_transfer"
+  ],
+  "errors": [],
+  "outbound": []
+}
