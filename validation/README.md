@@ -20,6 +20,8 @@ SCIENTIFIC_GOLDENS.csv preserves the eighteen categories required by plan§10.1.
 
 For each supplied fixed example, review the exact molecule/construct/material identities, chain declarations, numbering scheme/domain/CDR definition if applicable, source-model/residue/insertion/alternate identities, evidence kind/unit/conditions/version/time and expected rejection/missingness behavior. Check the source directly. Record input hash, expected-result file, reviewer, review date and PASS/FAIL/NEEDS-EVIDENCE; retain the reviewed input and expectations locally. Import only annotations the reviewer has actually attested. Existing synthetic engineering fixtures must remain labelled synthetic and must not be relabelled human-validated.
 
+When a candidate lists an external pinned input and the local input path is blank, download the versioned source linked by its expectations, check the listed hash and retain the verified local copy with the evaluation. G14 uses the [public PROPHET-Ab workbook](prophet-ab-reference-expectations.json). Its batch-specific sequence records support a Construct comparison. The workbook's assay rows lack acquisition timestamps.
+
 The public experimental1MLC source is already pinned for offline parser/rendering scale checks. That automated check does not supply the eighteen reviewed goldens or validate a prediction. There is no claim of a humanness score, model accuracy, physical assembly, causal expression effect or coordinate-to-sequence inference.
 
 ## Eight-role researcher evaluation
