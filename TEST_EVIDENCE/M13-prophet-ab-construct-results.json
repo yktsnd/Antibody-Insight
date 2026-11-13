@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "source_sha256": "412791f8de59de29eb0549545b2303c9ed2ae35feb5479c12e28a83f29b8ea69",
+  "scope": "Public workbook translation check and heavy-chain Construct comparison",
+  "different_raw_dna_positions": 91,
+  "distinct_constructs_preserved": true,
+  "same_construct_pair_rejected": true,
+  "original_and_restored_stores_equal": true,
+  "measured_observations_imported": 0,
+  "human_scientific_review": "pending"
+}
