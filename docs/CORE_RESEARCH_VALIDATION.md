@@ -12,6 +12,8 @@ Start with one research question about two real antibody candidates. Which shoul
 
 Expand to the other roles after this case passes. Schedule additional prediction, composition and expression work when the case requires it or during that expansion. Treat material identity, provenance, security and existing workflow regressions as immediate priorities when a severe defect is found. Release acceptance requires all eight real-data workflows, eighteen human-verified reference categories, evaluation of all eight roles, all required tests, zero unresolved P0/P1 defects and all six release gates.
 
+The lead case now compares D44.1 and D44.1des. The 2019 study gives a Fab SPR comparison and both candidates have deposited experimental structures. The current 1440 × 1000 replay reached exact structural residues and the decision context picker. The SPR run-to-lot links, offset-bearing acquisition records and human numbering review are pending. [Source checks and browser baseline](../TEST_EVIDENCE/M14-d44-selection-source-and-baseline.md)
+
 ## Real-data replay
 
 Question: can a researcher explain which candidate difference belongs to which molecule, residue, material and assay condition, then retain a justified variant, next experiment and selection for another researcher?

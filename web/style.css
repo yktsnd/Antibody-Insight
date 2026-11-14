@@ -42,3 +42,27 @@
 .numbered-cell { min-width: 34px; padding: 4px 2px; color: #223b49; background: transparent; }
 .numbered-cell[aria-pressed="true"] { border-color: var(--teal); background: #dcefeb; }
 .numbered-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 14px 10px; }
+
+.workspace-heading { margin-bottom: 12px; }
+.workspace-heading h1 { margin: 0; }
+.workspace-heading p { margin: 4px 0 0; }
+.workspace-candidates .panel-head { padding: 9px 18px; }
+.workspace-candidates .panel-head p { margin: 3px 0 0; overflow-wrap: anywhere; }
+.workspace-candidates .panel-body { padding: 10px 18px; }
+.workspace-chain-controls { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+.workspace-chain-controls .field { margin-bottom: 8px; gap: 4px; }
+.workspace-chain-controls input, .workspace-chain-controls select { padding: 6px 8px; }
+.sequence-viewport { max-height: 143px; overflow: auto; scrollbar-gutter: stable; }
+.sequence-viewport .sequence { margin: 0; padding: 2px 2px 4px; }
+.sequence-viewport .residue { padding: 4px 5px; }
+.sequence-viewport .residue small { margin-bottom: 3px; }
+.workspace-candidates .sequence-details { margin: 8px 0; }
+.workspace-candidates .structure-section { margin-top: 8px; }
+.workspace-candidates .structure-section > .section-label { margin: 2px 0 6px; }
+.workspace-candidates .structure-section > .field { margin-bottom: 6px; gap: 4px; }
+.workspace-candidates .structure-section > .field select { padding: 6px 8px; }
+.workspace-candidates .structure-selection { margin: 4px 0 6px; min-height: 0; }
+.workspace-candidates .coordinate-canvas { height: 258px; margin: 0; }
+.structure-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; margin-top: 8px; }
+.structure-controls .field { flex: 1 1 145px; margin: 0; }
+.structure-controls .field select { padding: 8px; }

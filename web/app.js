@@ -110,6 +110,8 @@ function heading(label, title, description) {
 function fixtureBanner() { return bundle?.project.data_class === "synthetic_fixture" ? '<div class="fixture-notice">Synthetic engineering fixture. Values are invented test data, not real experiments or model predictions.</div>' + (state.screen !== 'R' && bundle.project.title.startsWith('[SYNTHETIC EXAMPLE]')?'<div class="panel panel-body"><h2>Which candidate should we investigate next?</h2><p>Compare the declared H/L chains, inspect the original materials and assay conditions, then save your reason and next experiment. One thermal value is missing; the alternate material was measured under a different condition.</p><button data-screen="W">Compare paired candidates</button> <button class="secondary" data-screen="R">Inspect evidence and retain reasoning</button></div>':'') : ""; }
 function emptySelection() { return '<div class="panel empty"><h2>Choose candidates to continue</h2><p class="muted">Select candidates in the Explorer. Their IDs remain selected as you move through the workspace.</p><button data-screen="E">Open Candidate Explorer</button></div>'; }
 function render() {
+  const sequenceViewports = new Map([...document.querySelectorAll('[data-sequence-viewport]')]
+    .map((element) => [element.dataset.sequenceViewport, element.scrollTop]));
   StructureUI.dispose();
   remember();
   document.querySelectorAll("nav [data-screen]").forEach((b) => { b.classList.toggle("active", b.dataset.screen === state.screen); b.setAttribute("aria-current", b.dataset.screen === state.screen ? "page" : "false"); });
@@ -128,7 +130,19 @@ function render() {
   readyControls(ready);
   const markup = workspace ? renderWorkspace(workspace) : ({E:renderExplorer, D:renderDesign, R:renderEvidence}[state.screen])();
   $("#content").innerHTML = fixtureBanner() + markup;
-  if (state.screen === "W") StructureUI.mount();
+  if (state.screen === "W") {
+    for (const element of document.querySelectorAll('[data-sequence-viewport]')) {
+      element.scrollTop = sequenceViewports.get(element.dataset.sequenceViewport) || 0;
+      const selected = element.querySelector('[aria-pressed="true"]');
+      if (selected) {
+        const bounds = element.getBoundingClientRect();
+        const residue = selected.getBoundingClientRect();
+        if (residue.top < bounds.top) element.scrollTop += residue.top - bounds.top;
+        if (residue.bottom > bounds.bottom) element.scrollTop += residue.bottom - bounds.bottom;
+      }
+    }
+    StructureUI.mount();
+  }
   if (state.screen === "D") {if(state.designTask==='composition')CompositionUI.mount();else if(state.designTask==='expression')ExperimentUI.mount();else DesignUI.mount();}
   if (state.screen === "R") {if(state.researchTask==='decision')DecisionUI.mount();else ExperimentUI.mount();}
 }
@@ -273,9 +287,8 @@ function workspaceMolecules() {
 }
 
 function renderWorkspace(molecules) {
-  let html = heading("FOLLOW THE MOLECULE", "Molecule Workspace", "Inspect chain identity and sequence positions without inventing biological correspondence.");
+  let html = '<div class="workspace-heading"><h1>Molecule Workspace</h1><p class="muted">Raw sequence indexes are 1-based and unaligned. Imported numbering and structure coordinates use their own identifiers.</p></div>';
   if (!molecules.length) return html + emptySelection();
-  html += '<p class="muted">Raw sequence indexes are 1-based and unaligned. Imported antibody and structural coordinates retain separate chain/domain/model identities. Shared camera orientation is not structural superposition.</p>';
   if (molecules.length > 2) html += `<p class="muted">Showing the first 2 of ${molecules.length} candidates in context. The full selection is retained.</p>`;
   const displayed = molecules.slice(0, 2);
   const views = displayed.map(workspaceChain);
@@ -287,7 +300,7 @@ function renderWorkspace(molecules) {
   else if (views.length === 2 && views.some(({maps}) => maps.length)) {
     html += '<p class="muted">IMGT comparison needs two mapped domains with the same known chain type and numbering definition.</p>';
   }
-  html += '<div class="two-columns">';
+  html += '<div class="two-columns workspace-candidates">';
   for (const [n, {molecule: m, chain, maps, mapKey, map}] of views.entries()) {
     const other = views[1 - n]?.chain;
     const positions = new Map((map?.entries || []).map((entry) => [entry.sequence_index, entry]));
@@ -295,24 +308,25 @@ function renderWorkspace(molecules) {
     const rawPosition = paired && state.residueSelection && !exactSelection
       ? map.entries.find((entry) => entry.coordinate === focusedEntry?.coordinate)?.sequence_index
       : state.position;
-    html += `<div class="panel"><div class="panel-head"><div><h2>${esc(m.name)}</h2><p class="subtle">${esc(m.external_id)}</p></div><span class="tag">${esc(m.format)}</span></div><div class="panel-body"><p class="mono">Molecule: ${m.id}</p><label class="field">Chain<select data-chain="${m.id}" aria-label="Chain for ${esc(m.external_id)}">${m.chains.map((c) => `<option value="${esc(c.id)}" ${c.id === chain.id ? "selected" : ""}>${esc(c.id)} / ${esc(c.role)} / ${c.sequence.length} aa</option>`).join("")}</select></label>`;
+    html += `<div class="panel"><div class="panel-head"><div><h2>${esc(m.name)}</h2>${m.external_id === m.name ? '' : `<p class="subtle">${esc(m.external_id)}</p>`}</div><span class="tag">${esc(m.format)}</span></div><div class="panel-body"><div class="workspace-chain-controls"><label class="field">Chain<select data-chain="${m.id}" aria-label="Chain for ${esc(m.external_id)}">${m.chains.map((c) => `<option value="${esc(c.id)}" ${c.id === chain.id ? "selected" : ""}>${esc(c.id)} / ${esc(c.role)} / ${c.sequence.length} aa</option>`).join("")}</select></label><label class="field">Jump to sequence index<input type="number" data-jump="${m.id}" min="1" max="${chain.sequence.length}" value="${rawPosition || 1}"></label></div>`;
     html += maps.length ? `<label class="field">Imported numbering map / domain<select data-chain-map="${esc(mapKey)}" aria-label="Numbering map for ${esc(m.external_id)} ${esc(chain.id)}"><option value="">${maps.length > 1 ? "Choose map/domain — no implicit match" : "Inspect imported map"}</option>${maps.map((item) => `<option value="${item.id}" ${map?.id === item.id ? "selected" : ""}>${esc(item.scheme)} / ${esc(item.domain_id)} / ${esc(item.status)} / ${esc(item.verification.status)}</option>`).join("")}</select></label>` : '<p class="muted">Numbering: mapping unavailable (no imported map).</p>';
     if (map) html += `<p class="muted">${esc(map.scheme)} / ${esc(map.domain_id)}: <strong>${esc(map.status)}</strong> · ${esc(map.verification.status)}${map.reason ? " / " + esc(map.reason) : ""}<br>${map.eligible ? (map.verification.status === "engineering_fixture" ? "Synthetic engineering annotation; human scientific validation pending." : "Source verification is a recorded external attestation; the application does not assign numbering.") : "Not eligible for source-verified numbering actions."}<br>CDR3: ${map.cdr3_complete ? esc(map.cdr3_sequence) : "partial / unavailable"}</p><details><summary>Numbering source, definition and verification</summary><p>${esc(map.source.name)} / ${esc(map.source.version || "version unknown")}</p><pre>${pretty(map.verification)}</pre><p class="muted">${esc(map.region_source)}</p>${NumberingImportUI.origin(map)}</details>`;
-    html += '<div class="sequence">';
     // Long chains stay inspectable without rendering hundreds of thousands of buttons.
     const start = rawPosition > 200 ? Math.floor((rawPosition - 1) / 200) * 200 : 0;
+    html += `<div class="sequence-viewport" role="region" aria-label="Sequence for ${esc(m.external_id)} ${esc(chain.id)}" tabindex="0" data-sequence-viewport="${esc(JSON.stringify([bundle.project.id, m.id, chain.id, start]))}"><div class="sequence">`;
     for (let i = start; i < Math.min(start + 200, chain.sequence.length); i++) {
       const difference = other && (other.sequence[i] ?? "absent") !== chain.sequence[i];
       const annotation = positions.get(i + 1);
-      html += `<button class="residue ${difference ? "diff" : ""} ${rawPosition === i + 1 ? "active" : ""} ${annotation?.region.startsWith("CDR") ? "cdr-residue" : ""}" data-position="${i + 1}" data-position-molecule="${m.id}" data-position-chain="${esc(chain.id)}" aria-label="${esc(m.external_id)} ${esc(chain.id)} sequence index ${i + 1} ${chain.sequence[i]}" title="${annotation ? esc(`${map.scheme} ${annotation.coordinate} / ${annotation.region} / ${map.domain_id}`) : "No imported antibody coordinate"}"><small>${i + 1}</small>${chain.sequence[i]}${annotation ? `<small>${esc(annotation.coordinate)}</small>` : ""}</button>`;
+      html += `<button class="residue ${difference ? "diff" : ""} ${rawPosition === i + 1 ? "active" : ""} ${annotation?.region.startsWith("CDR") ? "cdr-residue" : ""}" data-position="${i + 1}" data-position-molecule="${m.id}" data-position-chain="${esc(chain.id)}" aria-pressed="${exactSelection && rawPosition === i + 1}" aria-label="${esc(m.external_id)} ${esc(chain.id)} sequence index ${i + 1} ${chain.sequence[i]}" title="${annotation ? esc(`${map.scheme} ${annotation.coordinate} / ${annotation.region} / ${map.domain_id}`) : "No imported antibody coordinate"}"><small>${i + 1}</small>${chain.sequence[i]}${annotation ? `<small>${esc(annotation.coordinate)}</small>` : ""}</button>`;
     }
     const current = positions.get(rawPosition);
-    const cursor = paired && state.residueSelection && !exactSelection ? 'Corresponding raw index' : 'Selected raw index';
-    html += `</div><label class="field">Jump to sequence index<input type="number" data-jump="${m.id}" min="1" max="${chain.sequence.length}" value="${rawPosition || 1}"></label><p class="sequence-details">${rawPosition ? `${cursor} ${rawPosition}: ${esc(chain.sequence[rawPosition - 1] || "absent in this chain")} · ${current ? esc(`${map.scheme} ${current.coordinate} / ${current.region} / ${map.domain_id}`) : "numbering mapping unavailable for this index"}` : "Choose a sequence index to compare. Gold marks raw position differences."}</p><details><summary>Sequence source and raw record</summary><p>${esc(m.source.name)} / ${esc(m.source.version || "version unknown")}</p><pre>${pretty(m)}</pre></details>`;
+    const cursor = exactSelection ? 'Selected raw index' : paired ? 'Corresponding raw index' : 'Same raw index';
+    html += `</div></div><p class="sequence-details">${rawPosition ? `${cursor} ${rawPosition}: ${esc(chain.sequence[rawPosition - 1] || "absent in this chain")} · ${current ? esc(`${map.scheme} ${current.coordinate} / ${current.region} / ${map.domain_id}`) : "numbering mapping unavailable for this index"}` : "Choose a sequence index to compare. Gold marks raw position differences."}</p>`;
+    html += StructureUI.panel(m);
+    html += `<details><summary>Sequence source and raw record</summary><p class="mono">Molecule: ${m.id}</p><p>${esc(m.source.name)} / ${esc(m.source.version || "version unknown")}</p><pre>${pretty(m)}</pre></details>`;
     html += reportedEvidence(m);
     const computedSources=entities('evidence').filter((e)=>e.prediction_origin&&subjectPath(e).some((p)=>p.id===m.id));
     if(computedSources.length)html+=`<section class="reported-evidence"><h3>Original computed sources</h3>${computedSources.map((e)=>`<article><span class="tag computed">computed</span> ${esc(e.metric)} / ${e.subject_id}${PredictionUI.origin(e)} <button class="text-button" data-source-evidence="${e.id}">Open source evidence in R</button></article>`).join('')}</section>`;
-    html += StructureUI.panel(m);
     html += renderComposition(m);
     const constructs = entities("construct").filter((c) => c.molecule_id === m.id);
     html += '<p class="section-label">CONSTRUCTS & MATERIALS</p>';
@@ -667,7 +681,10 @@ document.addEventListener("click", async (event) => {
     else if (button.dataset.close) $("#" + button.dataset.close).close();
     else if (button.dataset.action === "import" || button.id === "import-button") showImport();
     else if (button.dataset.open) { state.focus = button.dataset.open; state.screen = "W"; render(); }
-    else if (button.dataset.position) selectWorkspaceResidue(button.dataset.positionMolecule, button.dataset.positionChain, button.dataset.position);
+    else if (button.dataset.position) {
+      selectWorkspaceResidue(button.dataset.positionMolecule, button.dataset.positionChain, button.dataset.position);
+      $('.sequence-viewport [aria-pressed="true"]')?.focus({preventScroll:true});
+    }
     else if (button.dataset.numberedIndex) {
       const left = $('#numbered-scroll').scrollLeft;
       const {numberedMolecule, numberedChain, numberedIndex} = button.dataset;

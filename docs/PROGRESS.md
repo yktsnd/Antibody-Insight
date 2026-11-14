@@ -8,6 +8,8 @@ Release 1.0 remains incomplete. The requester-supplied product review scored the
 
 The next milestone is one real two-candidate decision that another researcher can reconstruct from the saved project. First confirm an assay that informs selection and trace it to the actual material. Measure the current workflow on that case and fix the demonstrated barriers in W and R. Begin identifying the independent scientific and usability reviewers during sourcing. Expansion to the other roles follows acceptance of this case. [Current execution priorities](CORE_RESEARCH_VALIDATION.md#execution-priorities-as-of-2026-11-14) · [日本語](CORE_RESEARCH_VALIDATION.ja.md#2026-11-14の実行優先順位)
 
+D44.1 and D44.1des are the lead case. Public Fab SPR results and experimental structures support the selection question. The current browser replay reached the exact structure residues after scrolling below the initial viewport. Run-to-lot links, offset-bearing acquisition records and human review are pending. [Source checks and browser baseline](../TEST_EVIDENCE/M14-d44-selection-source-and-baseline.md)
+
 | Stage | Status | Evidence or remaining gate |
 |---|---|---|
 | M0 specification/design | PASS | Independent review, eight scenario definitions, source boundaries and rendered four-screen prototype |
