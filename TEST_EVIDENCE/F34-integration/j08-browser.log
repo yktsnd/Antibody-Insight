@@ -1,0 +1,7 @@
+STEP FASTA imported
+STEP actual material and coordinates imported
+STEP canonical and native sources imported
+PASS e2e_j08_export_reimport
+PASS e2e_j08_duplicate_id
+PASS e2e_j08_corrupted_structure
+PASS local file reading preserves project edits and yields to pasted input

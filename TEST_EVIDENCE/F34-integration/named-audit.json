@@ -1,0 +1,208 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/residue_structure_review",
+  "timestamp": "2026-11-14T11:47:02.031059+00:00",
+  "scope": "Independent detached exact-source serial all-eight synthetic engineering browser replay",
+  "git_base": "2e6d6f8edb9a81a359022aabe07bf6a26520903e",
+  "source_manifest": "source-manifest.json",
+  "source_manifest_sha256": "967f54504ef293501217b4c5a081d9cc03a5a0968bf46109926633695b4b9f27",
+  "source_sha256": "ba1c437e4e4fceae40586116c93f329ea1e348ef7044541add4bc3cf54933b95",
+  "source_files": 112,
+  "traceability_sha256": "970fabc18c0358e845e23fdd7bf9dacefe39cbe5967b809db94f8f291fb30fe8",
+  "main_passed": 8,
+  "negative_passed": 16,
+  "journeys": {
+    "J01": {
+      "status": "PASS",
+      "acceptance_id": "AC-J01",
+      "harness": "tests/j01-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "J01-browser-results.json",
+      "artifact_sha256": "c0ef31d71e22af76d258035ffe4897321eb761603d638fa418a954e0b098561a",
+      "reported_count": 5,
+      "replayed_by": "/root/residue_structure_review",
+      "cases": {
+        "main_test": {
+          "name": "e2e_j01_candidate_shortlist",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j01_invalid_sequence",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j01_missing_measurement",
+          "status": "PASS"
+        }
+      }
+    },
+    "J02": {
+      "status": "PASS",
+      "acceptance_id": "AC-J02",
+      "harness": "tests/j02-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "J02-browser-results.json",
+      "artifact_sha256": "d78abbb583e0b8e9494bd5d501103f576b0896c8202048379c75f365994c4431",
+      "reported_count": 4,
+      "replayed_by": "/root/residue_structure_review",
+      "cases": {
+        "main_test": {
+          "name": "e2e_j02_humanize_variant",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j02_numbering_unavailable",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j02_insertion_mapping",
+          "status": "PASS"
+        }
+      }
+    },
+    "J03": {
+      "status": "PASS",
+      "acceptance_id": "AC-J03",
+      "harness": "tests/observation-journeys-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "J03-browser-results.json",
+      "artifact_sha256": "28a89e35958dda753873ddb2f52d24cd3a5a92d4157213fe4a6f31e3fc5ce5e1",
+      "reported_count": 3,
+      "replayed_by": "/root/residue_structure_review",
+      "cases": {
+        "main_test": {
+          "name": "e2e_j03_complex_comparison",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j03_unmappable_residue",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j03_missing_confidence",
+          "status": "PASS"
+        }
+      }
+    },
+    "J04": {
+      "status": "PASS",
+      "acceptance_id": "AC-J04",
+      "harness": "tests/observation-journeys-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "J04-browser-results.json",
+      "artifact_sha256": "7a1d78dc70f1feb5640fe75f53bf4be6ee39ee37013ebd15e5fb4e150afd4f64",
+      "reported_count": 3,
+      "replayed_by": "/root/residue_structure_review",
+      "cases": {
+        "main_test": {
+          "name": "e2e_j04_developability_review",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j04_unit_mismatch",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j04_unknown_assay_condition",
+          "status": "PASS"
+        }
+      }
+    },
+    "J05": {
+      "status": "PASS",
+      "acceptance_id": "AC-J05",
+      "harness": "tests/j05-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "J05-browser-results.json",
+      "artifact_sha256": "5993096e7ce5b907b5ec3f9229518ac55527537d39e0e023c27a6b3e850ac115",
+      "reported_count": 4,
+      "replayed_by": "/root/residue_structure_review",
+      "cases": {
+        "main_test": {
+          "name": "e2e_j05_bispecific_composition",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j05_undefined_chain",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j05_unsupported_analysis",
+          "status": "PASS"
+        }
+      }
+    },
+    "J06": {
+      "status": "PASS",
+      "acceptance_id": "AC-J06",
+      "harness": "tests/j06-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "M4-J06-browser-results.json",
+      "artifact_sha256": "96b469c4be99426fb375ff9ec231295e7b9ea61ee3594a57d24015bca3764658",
+      "reported_count": 4,
+      "replayed_by": "/root/residue_structure_review",
+      "cases": {
+        "main_test": {
+          "name": "e2e_j06_construct_sample_lineage",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j06_unknown_sample_id",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j06_incomparable_units",
+          "status": "PASS"
+        }
+      }
+    },
+    "J07": {
+      "status": "PASS",
+      "acceptance_id": "AC-J07",
+      "harness": "tests/j07-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "M4-J07-browser-results.json",
+      "artifact_sha256": "f93c8430e67c4483a0f7609d9143c0ac984266a4356dc97e613aeefc1fd9b9f5",
+      "reported_count": 4,
+      "replayed_by": "/root/residue_structure_review",
+      "cases": {
+        "main_test": {
+          "name": "e2e_j07_candidate_decision",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j07_missing_required_metric",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j07_immutable_decision",
+          "status": "PASS"
+        }
+      }
+    },
+    "J08": {
+      "status": "PASS",
+      "acceptance_id": "AC-J08",
+      "harness": "tests/j08-browser.cjs",
+      "harness_exit": 0,
+      "artifact": "M5-J08-browser-results.json",
+      "artifact_sha256": "3d35bf0b653e0f0eb52a640f3101e1298d0f61553831c0f1977cf4835d1963ae",
+      "reported_count": 4,
+      "replayed_by": "/root/residue_structure_review",
+      "cases": {
+        "main_test": {
+          "name": "e2e_j08_export_reimport",
+          "status": "PASS"
+        },
+        "negative_test_1": {
+          "name": "e2e_j08_duplicate_id",
+          "status": "PASS"
+        },
+        "negative_test_2": {
+          "name": "e2e_j08_corrupted_structure",
+          "status": "PASS"
+        }
+      }
+    }
+  }
+}

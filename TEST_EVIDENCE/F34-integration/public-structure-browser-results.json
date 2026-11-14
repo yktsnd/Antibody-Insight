@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-11-14T11:45:53.735Z",
+  "browser": "157.0.8103.51",
+  "scope": "Public experimental 1MLC source/scale observation only, not predicted-confidence or scientific-golden validation",
+  "results": [
+    {
+      "name": "public_1MLC_offline_source_scale",
+      "status": "PASS",
+      "duration_ms": 7539
+    }
+  ],
+  "no_outbound_requests": true,
+  "no_javascript_errors": true
+}

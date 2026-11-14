@@ -1,5 +1,10 @@
 # Changes
 
+## Unreleased: inspect sequence and structure together
+
+- W keeps the sequence controls and local structure together and puts source settings beneath the coordinate view. The selected residue keeps its exact model, chain and conformer, and the sequence pane brings the selected row into view.
+- The D44.1/D44.1des browser replay reaches both mapped structures without vertical page scrolling at 1440 × 1000. See [source checks and baseline](TEST_EVIDENCE/M14-d44-selection-source-and-baseline.md).
+
 ## Unreleased: declared component connections
 
 - The composition comparison displays the kind and exact chain/component endpoints for each declared connection. An explicit graph with zero connections has its own empty state. The saved graph and source-usage details are available for audit.

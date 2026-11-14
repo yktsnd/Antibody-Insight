@@ -1,0 +1,183 @@
+{
+  "status": "PASS",
+  "browser": "157.0.8103.51",
+  "viewport": [
+    1440,
+    1000
+  ],
+  "checked": [
+    {
+      "name": "D44.1",
+      "pdb": "1MLC",
+      "exactSelected": "Mapped H raw index 47 ↔ model 1 / author B:47? / label B:47 / segment unknown / TRP / conformer common",
+      "coordinatePreview": "432 mapped residues",
+      "initialTarget": {
+        "x": 437,
+        "y": 546.875,
+        "width": 31,
+        "height": 39,
+        "top": 546.875,
+        "bottom": 585.875,
+        "right": 468,
+        "left": 437,
+        "scrollY": 0,
+        "documentY": 546.875,
+        "clipped": true
+      },
+      "target": {
+        "x": 437,
+        "y": 519.875,
+        "width": 31,
+        "height": 39,
+        "top": 519.875,
+        "bottom": 558.875,
+        "right": 468,
+        "left": 437,
+        "scrollY": 0,
+        "documentY": 519.875,
+        "clipped": false
+      },
+      "label": {
+        "x": 295,
+        "y": 686.171875,
+        "width": 518,
+        "height": 42.875,
+        "top": 686.171875,
+        "bottom": 729.046875,
+        "right": 813,
+        "left": 295,
+        "scrollY": 0,
+        "documentY": 686.171875,
+        "clipped": false
+      },
+      "canvases": [
+        {
+          "x": 296,
+          "y": 736.046875,
+          "width": 518,
+          "height": 258,
+          "top": 736.046875,
+          "bottom": 994.046875,
+          "right": 814,
+          "left": 296,
+          "scrollY": 0,
+          "documentY": 736.046875,
+          "clipped": false
+        },
+        {
+          "x": 872,
+          "y": 714.609375,
+          "width": 518,
+          "height": 258,
+          "top": 714.609375,
+          "bottom": 972.609375,
+          "right": 1390,
+          "left": 872,
+          "scrollY": 0,
+          "documentY": 714.609375,
+          "clipped": false
+        }
+      ],
+      "atoms": 14,
+      "ca": [
+        46.192,
+        20.883,
+        59.269
+      ]
+    },
+    {
+      "name": "D44.1des",
+      "pdb": "6GC2",
+      "exactSelected": "Mapped H raw index 47 ↔ model 1 / author H:47? / label B:47 / segment unknown / TYR / conformer common",
+      "coordinatePreview": "427 mapped residues",
+      "initialTarget": {
+        "x": 1013,
+        "y": 546.875,
+        "width": 31,
+        "height": 39,
+        "top": 546.875,
+        "bottom": 585.875,
+        "right": 1044,
+        "left": 1013,
+        "scrollY": 0,
+        "documentY": 546.875,
+        "clipped": true
+      },
+      "target": {
+        "x": 437,
+        "y": 519.875,
+        "width": 31,
+        "height": 39,
+        "top": 519.875,
+        "bottom": 558.875,
+        "right": 468,
+        "left": 437,
+        "scrollY": 0,
+        "documentY": 519.875,
+        "clipped": false
+      },
+      "label": {
+        "x": 295,
+        "y": 686.171875,
+        "width": 518,
+        "height": 42.875,
+        "top": 686.171875,
+        "bottom": 729.046875,
+        "right": 813,
+        "left": 295,
+        "scrollY": 0,
+        "documentY": 686.171875,
+        "clipped": false
+      },
+      "canvases": [
+        {
+          "x": 872,
+          "y": 714.609375,
+          "width": 518,
+          "height": 258,
+          "top": 714.609375,
+          "bottom": 972.609375,
+          "right": 1390,
+          "left": 872,
+          "scrollY": 0,
+          "documentY": 714.609375,
+          "clipped": false
+        },
+        {
+          "x": 296,
+          "y": 736.046875,
+          "width": 518,
+          "height": 258,
+          "top": 736.046875,
+          "bottom": 994.046875,
+          "right": 814,
+          "left": 296,
+          "scrollY": 0,
+          "documentY": 736.046875,
+          "clipped": false
+        }
+      ],
+      "atoms": 12,
+      "ca": [
+        -19.892,
+        101.616,
+        -3.883
+      ]
+    }
+  ],
+  "edges": {
+    "switchedSameRawAcrossCandidates": true,
+    "switchedActiveHeavyToLightClearsSelection": true,
+    "unobserved6GC2L1": {
+      "expectedSource": "No coordinates at this deposited polymer position",
+      "actual": "Mapping unavailable for this sequence position; no other residue was highlighted."
+    },
+    "observed6GC2L20": "Mapped L raw index 20 ↔ model 1 / author L:1? / label A:20 / segment unknown / ASP / conformer common",
+    "switchedSameRawAcrossChains": "Mapped L raw index 47 ↔ model 1 / author L:28? / label A:47 / segment unknown / SER / conformer common",
+    "keyboard47To48AndRReturn": "Mapped H raw index 48 ↔ model 1 / author H:48? / label B:48 / segment unknown / ILE / conformer common",
+    "jumpAcross200Boundary": "Mapped H raw index 201 ↔ model 1 / author H:201? / label B:201 / segment unknown / VAL / conformer common"
+  },
+  "noDatabaseWritesDuringInspection": true,
+  "errors": [],
+  "outside": []
+}
