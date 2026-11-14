@@ -2,6 +2,8 @@
 
 [日本語](PRODUCT_ALIGNMENT.ja.md) · [Original charter](../PRODUCT_GOAL.md) · [Execution specification](../DEVELOPMENT_PLAN.md) · [Progress](PROGRESS.md)
 
+Use the [2026-11-14 execution priorities](CORE_RESEARCH_VALIDATION.md#execution-priorities-as-of-2026-11-14) for the next work. Public sequence and structure comparison, synthetic measurement comparison and bispecific composition comparison each have scoped evidence. The largest gap is a single real case where the researcher uses actual measurements to choose a candidate and a second researcher reconstructs the reasoning. Reuse the existing comparison and decision tools and fix the obstacles demonstrated by that case.
+
 The researcher must be able to observe an antibody, investigate a question, compare evidence, design an experiment or variant, and retain the reasoning for the next person. Scientific correctness, freedom to inspect and transparent judgment take priority over feature count. The software supports the researcher's judgment.
 
 At each meaningful milestone, after context compaction and when priorities change:

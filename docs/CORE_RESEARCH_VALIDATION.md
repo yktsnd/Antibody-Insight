@@ -2,6 +2,18 @@
 
 [日本語](CORE_RESEARCH_VALIDATION.ja.md) · [Revised development order](../DEVELOPMENT_PLAN.md) · [Current gaps](../KNOWN_LIMITATIONS.md)
 
+## Execution priorities as of 2026-11-14
+
+Start with one research question about two real antibody candidates. Which should the researcher retain, and what should they measure next? Exercise the relevant parts of P01/J01/AC-J01, P02/J02/AC-J02, P04/J04/AC-J04, P07/J07/AC-J07 and P08/J08/AC-J08 in the same case. Apply each full journey's acceptance criteria separately.
+
+1. **Secure the inputs for one case.** Use ordinary sequence files, source-grounded structure and numbering, and a measurement that could affect selection. Confirm the original molecule, construct, material, lot, value, unit, conditions and offset-bearing acquisition time. D44.1/D1.3 supports sequence and structure comparison. Select a pair with original observations relevant to the decision. Limit additional source investigation to two engineer-days equivalent. If the inputs are still incomplete, present the evidence for obtaining a shareable research case or for a minimal way to hold incomplete original records. A change to provenance or comparison rules requires approval and independent review before implementation.
+2. **Measure the same case and fix its observed workflow barriers.** Record clicks, scroll distance, screen transitions, re-entry and elapsed time on the current version. In W, make the selected residue's structure position and design eligibility accessible. In R, carry the inspected observation and its candidate into the decision editor for researcher confirmation. Limit implementation to barriers reproduced in the selected case. Check the initial 1440 × 1000 comparison and next action, then compare the same task before and after. If inputs stop the baseline replay, record the last reachable step.
+3. **Verify that another researcher can reconstruct the decision.** Give the first researcher the task and input files for an unassisted replay. Use human-verified numbering to consider a substitution and retain its exact residue and lineage. Save the chosen candidate, evidence, limitations and next experiment. A second researcher reconstructs the target, evidence, conditions, reason and next experiment from the saved project. Verify exact decision references after restart and fresh-store import. Identify scientific and usability reviewers in parallel with sourcing.
+
+Expand to the other roles after this case passes. Schedule additional prediction, composition and expression work when the case requires it or during that expansion. Treat material identity, provenance, security and existing workflow regressions as immediate priorities when a severe defect is found. Release acceptance requires all eight real-data workflows, eighteen human-verified reference categories, evaluation of all eight roles, all required tests, zero unresolved P0/P1 defects and all six release gates.
+
+## Real-data replay
+
 Question: can a researcher explain which candidate difference belongs to which molecule, residue, material and assay condition, then retain a justified variant, next experiment and selection for another researcher?
 
 The prepared synthetic example tests operation only. Separate evidence must start from ordinary files with actual provenance. The pinned public experimental1MLC source provides real Fab D44.1 sequences and coordinates, not experimental material identities, assay results or human-verified IMGT numbering. Never invent those missing records or label synthetic measurements as real.
