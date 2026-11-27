@@ -1,0 +1,8 @@
+{
+  "pass": true,
+  "webview": "158.0.4370.45",
+  "errors": [],
+  "native_import": "GenBank preview and confirmed save",
+  "native_export": "Annotated mature FASTA, MA",
+  "duplicate": "Rejected, one component retained"
+}

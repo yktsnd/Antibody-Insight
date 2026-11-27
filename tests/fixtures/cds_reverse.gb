@@ -1,0 +1,19 @@
+LOCUS       cds_reverse                13 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional coordinate fixture.
+ACCESSION   cds_reverse
+VERSION     cds_reverse
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..13
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             complement(3..11)
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MA"
+ORIGIN
+        1 aattaagccatcc
+//

@@ -1,0 +1,61 @@
+[
+  {
+    "nucleotide": "M27660.1",
+    "protein": "AAA58746.1",
+    "dna_sha256": "daf0b3bd4494f9cdf460029cee672796e6b92af2260c50dc25b44695609956e1",
+    "fasta_sha256": "3172dc319f7137f41bb3215d13c93ce638f280a8a085d8840656bb28bf819aec",
+    "matched_residues": 135,
+    "exon_junction_residue": 15,
+    "junction_genomic_positions": [
+      258,
+      341,
+      342
+    ],
+    "expected_amino_acid": "G",
+    "last_translated_base": 702,
+    "trailing_unmapped_base": null,
+    "terminal_stop_present": false,
+    "mature_fragments": [
+      {
+        "feature_index": 5,
+        "start": 19,
+        "end": 135
+      }
+    ],
+    "complete_mature_exports": 0,
+    "zoom_restart": {
+      "pass": true,
+      "webview": "158.0.4370.33",
+      "errors": []
+    },
+    "desktop_replay": {
+      "pass": true,
+      "webview": "158.0.4370.33",
+      "errors": []
+    }
+  },
+  {
+    "nucleotide": "M27661.1",
+    "protein": "AAA58747.1",
+    "dna_sha256": "223a42cf32e1fe523735b5263113dd45539f5bc549a3ec3892f03dd94270ce37",
+    "fasta_sha256": "6705e528f8fe7ee8702fa1ea42042548daa0532b12ca163d6e32eb1c093bff66",
+    "matched_residues": 127,
+    "exon_junction_residue": 17,
+    "junction_genomic_positions": [
+      210,
+      324,
+      325
+    ],
+    "expected_amino_acid": "G",
+    "last_translated_base": 655,
+    "trailing_unmapped_base": 656,
+    "terminal_stop_present": false,
+    "mature_fragments": [],
+    "complete_mature_exports": 0,
+    "desktop_replay": {
+      "pass": true,
+      "webview": "158.0.4370.33",
+      "errors": []
+    }
+  }
+]

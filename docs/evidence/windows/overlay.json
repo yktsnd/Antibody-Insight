@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "webview": "158.0.4370.45",
+  "errors": [],
+  "restart": {
+    "pass": true,
+    "webview": "158.0.4370.45",
+    "errors": []
+  },
+  "entry": "1IGT",
+  "fixed": "B",
+  "moving": "D",
+  "matched": 444,
+  "reference_rmsd_angstrom": 17.892145080309795,
+  "selected": [
+    "B 52A",
+    "D 52A"
+  ],
+  "region": [
+    1,
+    110
+  ],
+  "region_matched": 110,
+  "region_rmsd_angstrom": 0.5687006039085082,
+  "bookmark_camera_restored": true,
+  "synchronized_side_by_side": true,
+  "structure_export": "PNG with rendered coordinates and context"
+}

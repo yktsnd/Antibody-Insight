@@ -1,0 +1,12 @@
+{
+  "pass": true,
+  "webview": "158.0.4370.33",
+  "errors": [],
+  "candidates": 2,
+  "individual_points": 3,
+  "calculated_mean": 2,
+  "calculated_sd": 2,
+  "calculated_sem": 1.1547005383792517,
+  "reported_sem": 0.5,
+  "missing_observations": 1
+}

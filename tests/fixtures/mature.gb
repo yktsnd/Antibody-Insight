@@ -1,0 +1,135 @@
+LOCUS       mature_positive           15 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional mature-region fixture.
+ACCESSION   mature_positive
+VERSION     mature_positive
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..15
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             1..15
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MAKG"
+     mat_peptide     7..12
+                     /product="synthetic mature segment"
+                     /translation="KG"
+ORIGIN
+        1 atggctaaaggttaa
+//
+LOCUS       mature_middle_boundary    15 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional mature-region fixture.
+ACCESSION   mature_middle_boundary
+VERSION     mature_middle_boundary
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..15
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             1..15
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MAKG"
+     mat_peptide     8..12
+                     /product="synthetic partial-codon segment"
+                     /translation="KG"
+ORIGIN
+        1 atggctaaaggttaa
+//
+LOCUS       mature_reverse             15 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional mature-region fixture.
+ACCESSION   mature_reverse
+VERSION     mature_reverse
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..15
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             complement(1..15)
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MAKG"
+     mat_peptide     complement(4..9)
+                     /product="synthetic reverse-strand segment"
+                     /translation="KG"
+ORIGIN
+        1 ttaacctttagccat
+//
+LOCUS       mature_ambiguous           15 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional mature-region fixture.
+ACCESSION   mature_ambiguous
+VERSION     mature_ambiguous
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..15
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             1..15
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MAKG"
+     CDS             1..15
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MAKG"
+     mat_peptide     7..12
+                     /product="synthetic ambiguous segment"
+                     /translation="KG"
+ORIGIN
+        1 atggctaaaggttaa
+//
+LOCUS       mature_opposite_strand     15 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional mature-region fixture.
+ACCESSION   mature_opposite_strand
+VERSION     mature_opposite_strand
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..15
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             complement(1..15)
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MAKG"
+     mat_peptide     4..9
+                     /product="synthetic opposite-strand segment"
+ORIGIN
+        1 ttaacctttagccat
+//
+LOCUS       mature_signal_only         15 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional mature-region fixture.
+ACCESSION   mature_signal_only
+VERSION     mature_signal_only
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..15
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             1..15
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MAKG"
+     sig_peptide     1..6
+                     /product="synthetic signal segment"
+                     /translation="MA"
+ORIGIN
+        1 atggctaaaggttaa
+//

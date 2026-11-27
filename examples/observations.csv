@@ -1,0 +1,3 @@
+candidate,metric,value,unit,kind,sample,conditions,source,event_time
+Example A,Example recovery,0,%,Measured,Demo sample A,synthetic condition,Synthetic demonstration,2026-11-26T08:00:00Z
+Example B,Example recovery,12.5,%,Measured,Demo sample B,synthetic condition,Synthetic demonstration,2026-11-26T08:05:00Z

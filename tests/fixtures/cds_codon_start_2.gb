@@ -1,0 +1,19 @@
+LOCUS       cds_codon_start_2          10 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional coordinate fixture.
+ACCESSION   cds_codon_start_2
+VERSION     cds_codon_start_2
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..10
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             1..10
+                     /codon_start=2
+                     /transl_table=1
+                     /translation="MA"
+ORIGIN
+        1 aatggcttaa
+//

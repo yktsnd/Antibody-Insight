@@ -1,0 +1,5 @@
+* text=auto eol=lf
+docs/requirements/** -text
+antibody_insight/ui/vendor/** -text
+*.pdb -text
+*.png binary

@@ -1,0 +1,17 @@
+LOCUS       Processing                15 bp    DNA              SYN 01-JAN-1980
+DEFINITION  Synthetic annotation for coordinate testing.
+ACCESSION   Processing_example
+VERSION     Processing_example
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     CDS             1..15
+                     /label="Example precursor"
+                     /translation="MPMA"
+     mat_peptide     7..12
+                     /product="Example mature peptide"
+ORIGIN
+        1 atgcctatgg cttaa
+//

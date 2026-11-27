@@ -1,0 +1,89 @@
+{
+  "version": "2.1.0",
+  "platform": "win32",
+  "cases": [
+    {
+      "record": "1IGT_2|Chains",
+      "length": 444,
+      "scheme": "IMGT",
+      "chain": "H",
+      "confidence": 0.8761146068572998,
+      "segment_lengths": {
+        "prefix": 0,
+        "fr1": 25,
+        "cdr1": 8,
+        "fr2": 17,
+        "cdr2": 8,
+        "fr3": 38,
+        "cdr3": 11,
+        "fr4": 11,
+        "postfix": 326
+      },
+      "segments_reconstruct_input": true
+    },
+    {
+      "record": "1IGT_1|Chains",
+      "length": 214,
+      "scheme": "IMGT",
+      "chain": "K",
+      "confidence": 0.9076314568519592,
+      "segment_lengths": {
+        "prefix": 0,
+        "fr1": 26,
+        "cdr1": 6,
+        "fr2": 17,
+        "cdr2": 3,
+        "fr3": 36,
+        "cdr3": 9,
+        "fr4": 10,
+        "postfix": 107
+      },
+      "segments_reconstruct_input": true
+    },
+    {
+      "record": "AAA58746.1",
+      "length": 135,
+      "scheme": "IMGT",
+      "chain": "H",
+      "confidence": 0.825730562210083,
+      "segment_lengths": {
+        "prefix": 18,
+        "fr1": 25,
+        "cdr1": 9,
+        "fr2": 17,
+        "cdr2": 7,
+        "fr3": 38,
+        "cdr3": 9,
+        "fr4": 11,
+        "postfix": 1
+      },
+      "segments_reconstruct_input": true
+    },
+    {
+      "record": "AAA58747.1",
+      "length": 127,
+      "scheme": "IMGT",
+      "chain": "K",
+      "confidence": 0.8292338252067566,
+      "segment_lengths": {
+        "prefix": 20,
+        "fr1": 26,
+        "cdr1": 6,
+        "fr2": 17,
+        "cdr2": 3,
+        "fr3": 36,
+        "cdr3": 9,
+        "fr4": 10,
+        "postfix": 0
+      },
+      "segments_reconstruct_input": true
+    }
+  ],
+  "negative": {
+    "status": "No assignment",
+    "chain": null,
+    "confidence": null,
+    "numbered_positions": 0
+  },
+  "scope": "Separate local Windows installation; reconstruction only, no independent numbering oracle"
+}

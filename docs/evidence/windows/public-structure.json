@@ -1,0 +1,16 @@
+{
+  "entry": "1IGT",
+  "cif_sha256": "d7b1a560ed993c7be669a15530b64f37e2af8e978c321a5779d20ab75746b63f",
+  "fasta_sha256": "32283b88a368e6f58b6ffc5dfc6f6b83c6cf37bdedff54b8aafa8c83908582e1",
+  "chain_positions": {
+    "B": 444,
+    "D": 444,
+    "A": 214,
+    "C": 214
+  },
+  "desktop_replay": {
+    "pass": true,
+    "webview": "158.0.4370.45",
+    "errors": []
+  }
+}

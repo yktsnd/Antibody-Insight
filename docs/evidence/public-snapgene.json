@@ -1,0 +1,64 @@
+{
+  "pass": true,
+  "webview": "158.0.4370.33",
+  "errors": [],
+  "source": "Biopython 1.88 test files",
+  "sha256": "9f2b69c06c2a49f23bd41d02672fbd4ee037ce8b575e754be79bac9834130fa3",
+  "length": 1000,
+  "sequence_sha256": "3792e36c08f1dcf8760064943266a568cd850bf1629dbff46c150ea8539f13bb",
+  "features": [
+    [
+      [
+        500,
+        700,
+        null
+      ]
+    ],
+    [
+      [
+        50,
+        150,
+        1
+      ]
+    ],
+    [
+      [
+        701,
+        720,
+        null
+      ]
+    ],
+    [
+      [
+        721,
+        740,
+        null
+      ]
+    ]
+  ],
+  "circular": {
+    "looped_feature": {
+      "sha256": "4812fccc232c3d3b7874e70b92e2bf252d9cb2052d98e7f90348b73c03877e11",
+      "ranges": [
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "looped_feature_origin": {
+      "sha256": "984fafde845f599a1162386b3ea587ca5833a2c0f8ea5f74436602726289c6c4",
+      "ranges": [
+        [
+          1,
+          10
+        ]
+      ]
+    }
+  },
+  "spreadsheet": "Independently entered sequence length, no assay"
+}

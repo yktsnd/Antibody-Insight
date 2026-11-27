@@ -1,0 +1,6 @@
+candidate,metric,value,unit,kind,sample,conditions,source,event_time,replicate_set,statistic,error_type,error,n
+Example A,Demo signal,0,AU,Measured,Demo aliquot A1,Demo buffer,Synthetic worksheet,,Run 1,Individual,,,
+Example A,Demo signal,2,AU,Measured,Demo aliquot A2,Demo buffer,Synthetic worksheet,,Run 1,Individual,,,
+Example A,Demo signal,4,AU,Measured,Demo aliquot A3,Demo buffer,Synthetic worksheet,,Run 1,Individual,,,
+Example A,Demo signal,,AU,Measured,Demo aliquot A4,Demo buffer,Synthetic worksheet,,Run 1,Individual,,,
+Example B,Demo signal,5,AU,Measured,,Demo buffer,Synthetic worksheet,,Submitted result,Mean,SEM,0.5,

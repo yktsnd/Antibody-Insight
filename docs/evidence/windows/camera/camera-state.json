@@ -1,0 +1,188 @@
+{
+  "requirements": [
+    "Q9",
+    "R-09",
+    "AC-17"
+  ],
+  "scope": "structure camera persistence only",
+  "boundary_cases": {
+    "first_view_without_saved_camera": {
+      "candidate": "Example B / Peptide",
+      "structure_key_distinct": true,
+      "stored_camera_before_view": false,
+      "camera": [
+        -3.08375,
+        -1.5825,
+        -0.0,
+        121.64359090191145,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "camera_is_finite_eight_values": true
+    },
+    "coordinate_free_component": {
+      "component": "Example A / Reporter",
+      "visible_status": "No coordinates registered"
+    }
+  },
+  "webview2_runtime": "158.0.4370.45",
+  "structure_a": "3f05b63db30c49bebe0a0519efd63251",
+  "camera_a": {
+    "component_order": [
+      "modelGroup.x",
+      "modelGroup.y",
+      "modelGroup.z",
+      "rotationGroup.position.z",
+      "quaternion.x",
+      "quaternion.y",
+      "quaternion.z",
+      "quaternion.w"
+    ],
+    "baseline": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      121.64359090191145,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "after_mouse_rotation": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      121.64359090191145,
+      -0.7743838238732018,
+      -0.3822947478117398,
+      0.0,
+      -0.5041630878188885
+    ],
+    "after_wheel_zoom": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      115.61785396856763,
+      -0.7743838238732018,
+      -0.3822947478117398,
+      0.0,
+      -0.5041630878188885
+    ],
+    "saved_before_switch": [
+      -3.08375,
+      -1.5825,
+      0,
+      115.61785396856763,
+      -0.7743838238732018,
+      -0.3822947478117398,
+      0,
+      -0.5041630878188885
+    ],
+    "after_candidate_round_trip": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      115.61785396856763,
+      -0.7743838238732018,
+      -0.3822947478117398,
+      0.0,
+      -0.5041630878188885
+    ],
+    "after_coordinate_free_round_trip": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      115.61785396856763,
+      -0.7743838238732018,
+      -0.3822947478117398,
+      0.0,
+      -0.5041630878188885
+    ],
+    "after_process_restart": [
+      -3.08375,
+      -1.5825,
+      0.0,
+      115.61785396856763,
+      -0.7743838238732018,
+      -0.3822947478117398,
+      0.0,
+      -0.5041630878188885
+    ]
+  },
+  "structure_b": "eafabf45b77f46229c69289e033ea68f",
+  "camera_b": {
+    "initial_without_stored_camera": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      121.64359090191145,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "after_mouse_rotation": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      121.64359090191145,
+      -0.4639902714949562,
+      0.3255075730580476,
+      0.0,
+      -0.8238676154819393
+    ],
+    "after_wheel_zoom": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      130.68219630192718,
+      -0.4639902714949562,
+      0.3255075730580476,
+      0.0,
+      -0.8238676154819393
+    ],
+    "saved": [
+      -3.08375,
+      -1.5825,
+      0,
+      130.68219630192718,
+      -0.4639902714949562,
+      0.3255075730580476,
+      0,
+      -0.8238676154819393
+    ],
+    "after_candidate_round_trip": [
+      -3.08375,
+      -1.5825,
+      -0.0,
+      130.68219630192718,
+      -0.4639902714949562,
+      0.3255075730580476,
+      0.0,
+      -0.8238676154819393
+    ]
+  },
+  "webview2_runtime_after_restart": "158.0.4370.45",
+  "persisted_after_restart": [
+    -3.08375,
+    -1.5825,
+    0,
+    115.61785396856763,
+    -0.7743838238732018,
+    -0.3822947478117398,
+    0,
+    -0.5041630878188885
+  ],
+  "comparison": {
+    "components_per_view": 8,
+    "tolerance": 1e-06,
+    "candidate_round_trip_a": true,
+    "candidate_round_trip_b": true,
+    "return_to_a_after_b": true,
+    "coordinate_free_round_trip": true,
+    "process_restart": true,
+    "errors": []
+  }
+}

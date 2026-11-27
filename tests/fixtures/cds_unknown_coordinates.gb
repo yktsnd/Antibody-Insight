@@ -1,0 +1,19 @@
+LOCUS       cds_unknown_coordinates   12 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional coordinate fixture.
+ACCESSION   cds_unknown_coordinates
+VERSION     cds_unknown_coordinates
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..12
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             one-of(1,2)..9
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MA"
+ORIGIN
+        1 atggcttaaccc
+//

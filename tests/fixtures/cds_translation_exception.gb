@@ -1,0 +1,19 @@
+LOCUS       cds_translation_exception  9 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional coordinate fixture.
+ACCESSION   cds_translation_exception
+VERSION     cds_translation_exception
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..9
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             1..9
+                     /codon_start=1
+                     /transl_table=999
+                     /translation="MA"
+ORIGIN
+        1 atggcttaa
+//

@@ -1,0 +1,39 @@
+{
+  "source": "Git index in empty directory",
+  "python": "3.12.10",
+  "fresh_venv": true,
+  "pip_check": true,
+  "pytest": "54 passed in 4.91s",
+  "packaged": true,
+  "desktop": [
+    {
+      "pass": true,
+      "webview": "158.0.4370.33",
+      "errors": []
+    },
+    {
+      "pass": true,
+      "webview": "158.0.4370.33",
+      "errors": []
+    }
+  ],
+  "comparison": {
+    "pass": true,
+    "webview": "158.0.4370.33",
+    "errors": [],
+    "pearson_r": 0.5,
+    "paired_candidates": 3,
+    "excluded": [
+      "D: missing X",
+      "E: ambiguous X"
+    ],
+    "selected_candidate": "B",
+    "export_records": 11,
+    "figure_pixels": [
+      1920,
+      1200
+    ]
+  },
+  "fresh_archive_sha256": "e3004e88fa93b1a93b5d820733e3cf9f632ea71c30699d5504ece05623c05423",
+  "same_operating_system": true
+}

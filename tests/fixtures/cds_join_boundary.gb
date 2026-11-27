@@ -1,0 +1,19 @@
+LOCUS       cds_join_boundary          14 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional coordinate fixture.
+ACCESSION   cds_join_boundary
+VERSION     cds_join_boundary
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..14
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             join(1..4,10..14)
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="MA"
+ORIGIN
+        1 atggaaaaacttaa
+//

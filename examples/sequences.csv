@@ -1,0 +1,5 @@
+candidate,component,kind,sequence
+Example A,Reporter,DNA,ATGGCTTAA
+Example B,Reporter,DNA,ATGGCCTAA
+Example A,Peptide,AA,MA
+Example B,Peptide,AA,MA

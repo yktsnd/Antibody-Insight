@@ -1,0 +1,16 @@
+LOCUS       CDS_example               12 bp    DNA     circular UNK 01-JAN-1980
+DEFINITION  Synthetic coordinate fixture; not an experimental construct..
+ACCESSION   Synthetic-coordinate-example
+VERSION     Synthetic-coordinate-example
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     CDS             complement(join(1..4,8..12))
+                     /label="Example CDS"
+                     /codon_start=1
+                     /translation="MA"
+ORIGIN
+        1 ttaacccgcc at
+//

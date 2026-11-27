@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Antibody Insight</title><link rel="stylesheet" href="screen.css">
+<script defer src="vendor/plotly.js-basic-dist-min/plotly-basic.min.js"></script>
+<script defer src="workbench.js"></script><script defer src="numbering.js"></script></head>
+<body><header><b class="brand">Antibody Insight</b><span id="projectTitle">No project open</span>
+<nav aria-label="Project"><button id="newProject">New</button><button id="openProject">Open</button><button id="example">Open example</button>
+<button id="import" disabled>Import…</button><button id="export" disabled>Export FASTA…</button><button id="bookmarks" disabled>Bookmarks…</button><button id="note" disabled>Project note</button></nav></header>
+<main>
+<section id="antibodies"><h1>Antibodies <small id="count"></small></h1><input id="filter" type="search" aria-label="Filter candidates" placeholder="Filter candidates">
+<div id="tree"></div></section>
+<section id="sequences"><h1>Sequences <small id="identity"></small></h1><div class="strip"><label>Position <input id="pos" type="number" min="1" value="1"></label>
+<label>Compare <select id="reference"><option>None</option></select></label><button id="prev" aria-label="Previous sequence window">←</button><button id="next" aria-label="Next sequence window">→</button></div>
+<div id="seqScale" hidden><button id="wholeRecord">Whole record</button><label>Zoom <input id="sequenceZoom" type="range" min="0" max="1000" step="1" value="0"></label><output id="visibleRange"></output></div>
+<div id="numberingTools" hidden><button id="numberingToggle" aria-expanded="false">IMGT domains</button><output id="numberedPosition"></output></div>
+<div id="numberingPanel" hidden></div><div id="sequenceBody"></div></section>
+<section id="plots"><h1>Plots <button id="exportPlot" disabled>Save plot PNG…</button></h1><select id="metric" aria-label="Plot metric"></select>
+<div id="measurementControls" hidden><select id="xMetric" aria-label="Horizontal axis"></select>
+<select id="measureView" aria-label="Measurement display"><option value="SD">Mean ± SD</option><option value="SEM">Mean ± SEM</option><option value="individual">Individual readings</option></select>
+<button id="measurementDetails">Source records…</button><button id="exportComparison" hidden>Export comparison…</button></div>
+<div id="plot"></div><div id="plotInfo" class="caption"></div></section>
+<section id="structures"><h1>Structures <small id="coordinate"></small><button class="save-image" id="exportStructure" disabled>Save structure PNG…</button></h1><div id="referenceScope" hidden></div>
+<div class="strip"><select id="model" aria-label="Coordinate file"></select><select id="style" aria-label="Structure representation"><option>Stick</option><option>Cartoon</option><option>Sphere</option></select><button id="fit">Fit</button><button id="focusResidue" disabled>Focus residue</button><button id="structureMetrics" disabled>Structure values…</button></div>
+<div id="overlayControls" class="strip" hidden><select id="movingModel" aria-label="Overlay structure"></select><button id="toggleOverlay" aria-pressed="true">Show overlay</button>
+<select id="structureLayout" aria-label="Comparison layout" hidden><option value="overlay">Overlay</option><option value="parallel">Side by side</option></select>
+<form id="overlayRange" hidden><label>Fit range <input type="number" id="fitFirst" min="1" aria-label="First position" placeholder="First">–<input type="number" id="fitLast" min="1" aria-label="Last position" placeholder="Last"></label><button>Apply</button></form>
+<small id="fitSummary" role="status"></small></div>
+<div id="structureViewport"><div id="molecule"><span>Select a component to inspect coordinates.</span></div><div id="overlayMolecule" hidden></div></div></section>
+</main><footer role="status" id="status">Open a project or explore the synthetic example.</footer>
+<dialog id="importDialog"><form method="dialog"><button aria-label="Close" class="close">×</button></form><h2>Import data</h2>
+<label>File content <select id="inputKind"><option value="AA">Protein FASTA, annotated DNA or template</option><option value="DNA">DNA FASTA</option><option value="Structure">PDB / mmCIF for selected component</option></select></label>
+<button id="chooseFile">Choose file…</button>
+<details id="manualEntry"><summary>Enter or paste measurements</summary>
+<div id="measurementFields"></div><button id="reviewEntry">Review measurement</button>
+<label for="measurementText">Paste a tab-separated table with column headings</label>
+<textarea id="measurementText" rows="3"></textarea><button id="reviewPaste">Review table</button></details>
+<div id="preview"></div><div id="importError" role="alert"></div><button id="confirm" hidden>Save reviewed records</button></dialog>
+<dialog id="noteDialog"><form method="dialog"><button aria-label="Close" class="close">×</button></form><h2>Project note</h2><textarea id="noteText" rows="10"></textarea><button id="saveNote">Save note</button></dialog>
+<dialog id="recordsDialog"><form method="dialog"><button aria-label="Close" class="close">×</button></form><h2>Measurement records</h2><div id="recordRows"></div></dialog>
+<dialog id="structureDialog"><form method="dialog"><button aria-label="Close" class="close">×</button></form><h2>Structure values</h2><p id="structureTarget"></p><p id="representativeStatus"></p>
+<button id="setRepresentative">Use for candidate metrics</button><div id="structureRows"></div></dialog>
+<dialog id="bookmarkDialog"><form method="dialog"><button aria-label="Close" class="close">×</button></form><h2>Bookmarks</h2><div class="strip"><select id="bookmarkList" aria-label="Saved bookmark"></select><button id="openBookmark">Restore</button></div>
+<label>Bookmark name <input id="bookmarkName" maxlength="100"></label><button id="addBookmark">Save observation</button><p id="bookmarkStatus" role="status"></p></dialog>
+</body></html>

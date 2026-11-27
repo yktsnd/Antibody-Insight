@@ -1,0 +1,15 @@
+{
+  "pass": true,
+  "webview": "158.0.4370.45",
+  "errors": [],
+  "windows": "Windows-11-10.0.26200-SP0",
+  "candidates": 300,
+  "observation_rows": 3900,
+  "duration_ms": {
+    "Bench 001": 35.200000047683716,
+    "Bench 002": 46,
+    "comparison_response": 128.80000019073486
+  },
+  "selected_candidate": "Bench 002",
+  "protocol": "Two timed clicks on visible controls during the actual local comparison; single run"
+}

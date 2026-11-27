@@ -1,0 +1,46 @@
+{
+  "source": "Git index in empty directory",
+  "python": "3.12.10",
+  "fresh_venv": true,
+  "pip_check": true,
+  "pytest": "61 passed in 7.45s",
+  "packaged": true,
+  "desktop": [
+    {
+      "pass": true,
+      "webview": "158.0.4370.45",
+      "errors": []
+    },
+    {
+      "pass": true,
+      "webview": "158.0.4370.45",
+      "errors": []
+    }
+  ],
+  "camera": {
+    "components_per_view": 8,
+    "tolerance": 1e-06,
+    "candidate_round_trip_a": true,
+    "candidate_round_trip_b": true,
+    "return_to_a_after_b": true,
+    "coordinate_free_round_trip": true,
+    "process_restart": true,
+    "errors": []
+  },
+  "representative": {
+    "pass": true,
+    "webview": "158.0.4370.45",
+    "errors": [],
+    "restart": {
+      "pass": true,
+      "webview": "158.0.4370.45",
+      "errors": []
+    },
+    "initial_value": 2.4,
+    "viewed_value": 7.1,
+    "plotted_while_viewing_alternative": 2.4,
+    "plotted_after_explicit_change": 7.1
+  },
+  "fresh_archive_sha256": "202b9e6c4805399329f049db612252bcf94a180e55747b73332d28129b78de13",
+  "same_operating_system": true
+}

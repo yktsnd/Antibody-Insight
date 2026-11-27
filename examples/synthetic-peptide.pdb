@@ -1,0 +1,11 @@
+HEADER    SYNTHETIC TWO-RESIDUE COORDINATE FIXTURE
+REMARK   1 INVENTED COORDINATES FOR SOFTWARE TESTING ONLY
+ATOM      1  N   MET A  10       0.000   0.000   0.000  1.00  0.00           N
+ATOM      2  CA  MET A  10       1.450   0.000   0.000  1.00  0.00           C
+ATOM      3  C   MET A  10       2.100   1.320   0.000  1.00  0.00           C
+ATOM      4  O   MET A  10       1.490   2.390   0.000  1.00  0.00           O
+ATOM      5  N   ALA A  10A      3.410   1.300   0.000  1.00  0.00           N
+ATOM      6  CA  ALA A  10A      4.220   2.500   0.000  1.00  0.00           C
+ATOM      7  C   ALA A  10A      5.650   2.100   0.000  1.00  0.00           C
+ATOM      8  O   ALA A  10A      6.350   3.050   0.000  1.00  0.00           O
+END   

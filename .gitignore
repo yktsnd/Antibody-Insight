@@ -1,0 +1,12 @@
+dist/
+.venv/
+__pycache__/
+.pytest_cache/
+.codex-attachments/
+build/
+*.spec
+*.ais
+*.ais-journal
+
+# Local source materials
+docs/requirements/

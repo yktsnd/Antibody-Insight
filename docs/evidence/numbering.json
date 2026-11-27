@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "webview": "158.0.4370.45",
+  "errors": [],
+  "restart": {
+    "pass": true,
+    "webview": "158.0.4370.45",
+    "errors": []
+  },
+  "sources": [
+    "1IGT",
+    "1MCP",
+    "Anti-digoxin"
+  ],
+  "imgt_1igt_d": {
+    "cdr_lengths": [
+      8,
+      8,
+      11
+    ],
+    "checked_labels": {
+      "23": "C",
+      "26": "S",
+      "39": "M",
+      "41": "W",
+      "55": "Y",
+      "66": "Y",
+      "89": "L",
+      "104": "C",
+      "118": "W",
+      "128": "S"
+    }
+  },
+  "selected": {
+    "imgt": "58",
+    "input_position": 53,
+    "author": "D 52A"
+  },
+  "short_control": "Unassigned"
+}

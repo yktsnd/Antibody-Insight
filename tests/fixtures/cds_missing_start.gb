@@ -1,0 +1,19 @@
+LOCUS       cds_missing_start           9 bp    DNA     linear   SYN 01-JAN-1980
+DEFINITION  Short synthetic nonfunctional coordinate fixture.
+ACCESSION   cds_missing_start
+VERSION     cds_missing_start
+KEYWORDS    .
+SOURCE      synthetic construct
+  ORGANISM  synthetic construct
+            other sequences; artificial sequences.
+FEATURES             Location/Qualifiers
+     source          1..9
+                     /organism="synthetic construct"
+                     /mol_type="genomic DNA"
+     CDS             1..9
+                     /codon_start=1
+                     /transl_table=1
+                     /translation="AA"
+ORIGIN
+        1 gctgcttaa
+//
