@@ -208,9 +208,10 @@ function drawFeatureScale(body,start,end){
 function drawSequence() {
   const body=by("sequenceBody"); body.replaceChildren();
   updateNumbering();
+  updateRegions();
   by("identity").textContent=detail ? owner(detail.candidate)+" / "+detail.label : "";
   by("pos").disabled=by("reference").disabled=by("prev").disabled=by("next").disabled=!detail;
-  by("seqScale").hidden=!detail||Boolean(alignment)||(detail.kind==="AA"&&view.numberingOpen);
+  by("seqScale").hidden=!detail||Boolean(alignment)||view.regionsOpen||(detail.kind==="AA"&&view.numberingOpen);
   if(!detail) {body.append(node("p","Select a component to inspect its sequence."));return;}
   const seq=detail.seq, pos=view.position;
   const {start,end,width}=sequenceWindow();

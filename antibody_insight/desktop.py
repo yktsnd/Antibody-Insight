@@ -23,6 +23,7 @@ class Desktop:
         self._lock = RLock()
         self._alignment_lock = Lock()
         self._alignment = None
+        self._region_comparisons = {}
         self._comparison = None
         self._comparison_version = 0
 
@@ -60,6 +61,7 @@ class Desktop:
             self._session = uuid4().hex
             self._path, self._pending, self._inspected, self._alignment = file, None, None, None
             self._comparison = None
+            self._region_comparisons.clear()
             return self.current()
 
     def inspect(self, session, key):
@@ -117,6 +119,44 @@ class Desktop:
             return result
         finally:
             self._alignment_lock.release()
+
+    def compare_regions(self,session,choices):
+        from .regions import MAX_ROWS, compare_regions, describe_region
+        if not isinstance(choices,list) or not 2<=len(choices)<=MAX_ROWS:
+            raise ValueError(f"Choose two to {MAX_ROWS} regions.")
+        with self._lock:
+            self._check(session)
+            path=self._path
+        if not self._alignment_lock.acquire(blocking=False):
+            raise ValueError("An alignment is running. Try again when it finishes.")
+        try:
+            details={}
+            rows=[]
+            for choice in choices:
+                if not isinstance(choice,dict) or not isinstance(choice.get("component"),str):
+                    raise ValueError("Select a registered component for each region.")
+                key=choice["component"]
+                if key not in details:
+                    details[key]=project.component_detail(path,key)
+                rows.append(describe_region(details[key],choice))
+            result=compare_regions(rows)
+            with self._lock:
+                self._check(session)
+                token=uuid4().hex
+                self._region_comparisons[rows[0]["kind"]]=token,result
+            return dict(result,token=token)
+        finally:
+            self._alignment_lock.release()
+
+    def export_regions(self,session,token):
+        from .regions import workbook
+        with self._lock:
+            self._check(session)
+            result=next((data for key,data in self._region_comparisons.values() if key==token),None)
+            if result is None:
+                raise ValueError("Refresh the region comparison before exporting.")
+        dest=self._choose(True,("Excel workbook (*.xlsx)",),"Region comparison.xlsx")
+        return dest is not None and self._write_export(session,dest,workbook(result),{".xlsx"})
 
     def coordinates(self, session, component, key):
         with self._lock:
@@ -177,7 +217,7 @@ class Desktop:
                 return [dict(r) for r in db.execute(
                     "SELECT id,component,filename,chain,origin FROM structure WHERE chain<>'' ORDER BY rowid")]
 
-    def numbered_domains(self,session,component):
+    def numbered_domains(self,session,component,scheme="imgt"):
         from .numbering import domains
         with self._lock:
             self._check(session)
@@ -185,14 +225,14 @@ class Desktop:
                 row=db.execute("SELECT kind,seq FROM component WHERE id=?",(component,)).fetchone()
         if row is None or row["kind"]!="AA":
             raise ValueError("Select a registered amino acid sequence.")
-        if len(row["seq"])>20000:
-            raise ValueError("Numbering supports records of up to 20,000 amino acids.")
-        value=domains(row["seq"])
+        if len(row["seq"])>10000:
+            raise ValueError("Numbering supports records of up to 10,000 amino acids.")
+        value=domains(row["seq"],scheme)
         with self._lock:
             self._check(session)
         return value
 
-    def compare_domains(self,session,choices):
+    def compare_domains(self,session,choices,scheme="imgt"):
         from .numbering import comparison
         if not isinstance(choices,list) or len(choices)<2:
             raise ValueError("Select two or more variable domains.")
@@ -204,7 +244,7 @@ class Desktop:
                     or (component,idx) in seen):
                 raise ValueError("Choose distinct domains from registered proteins.")
             seen.add((component,idx))
-            result=self.numbered_domains(session,component)["domains"]
+            result=self.numbered_domains(session,component,scheme)["domains"]
             if idx>=len(result):
                 raise ValueError("A selected domain is unavailable.")
             rows.append(result[idx])

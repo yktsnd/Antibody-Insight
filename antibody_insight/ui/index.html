@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Antibody Insight</title><link rel="stylesheet" href="screen.css">
 <script defer src="vendor/plotly.js-basic-dist-min/plotly-basic.min.js"></script>
-<script defer src="workbench.js"></script><script defer src="numbering.js"></script></head>
+<script defer src="workbench.js"></script><script defer src="numbering.js"></script><script defer src="regions.js"></script></head>
 <body><header><b class="brand">Antibody Insight</b><span id="projectTitle">No project open</span>
 <nav aria-label="Project"><button id="newProject">New</button><button id="openProject">Open</button><button id="example">Open example</button>
 <button id="import" disabled>Import…</button><button id="export" disabled>Export FASTA…</button><button id="bookmarks" disabled>Bookmarks…</button><button id="note" disabled>Project note</button></nav></header>
@@ -13,8 +13,8 @@
 <section id="sequences"><h1>Sequences <small id="identity"></small></h1><div class="strip"><label>Position <input id="pos" type="number" min="1" value="1"></label>
 <label>Compare <select id="reference"><option>None</option></select></label><button id="prev" aria-label="Previous sequence window">←</button><button id="next" aria-label="Next sequence window">→</button></div>
 <div id="seqScale" hidden><button id="wholeRecord">Whole record</button><label>Zoom <input id="sequenceZoom" type="range" min="0" max="1000" step="1" value="0"></label><output id="visibleRange"></output></div>
-<div id="numberingTools" hidden><button id="numberingToggle" aria-expanded="false">IMGT domains</button><output id="numberedPosition"></output></div>
-<div id="numberingPanel" hidden></div><div id="sequenceBody"></div></section>
+<div id="sequenceModes"><button id="numberingToggle" aria-expanded="false" hidden>Antibody domains</button><button id="regionsToggle" aria-expanded="false" hidden>Compare regions</button><output id="numberedPosition"></output></div>
+<div id="numberingPanel" hidden></div><div id="regionsPanel" hidden></div><div id="sequenceBody"></div></section>
 <section id="plots"><h1>Plots <button id="exportPlot" disabled>Save plot PNG…</button></h1><select id="metric" aria-label="Plot metric"></select>
 <div id="measurementControls" hidden><select id="xMetric" aria-label="Horizontal axis"></select>
 <select id="measureView" aria-label="Measurement display"><option value="SD">Mean ± SD</option><option value="SEM">Mean ± SEM</option><option value="individual">Individual readings</option></select>

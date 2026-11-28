@@ -10,7 +10,8 @@
   "sources": [
     "1IGT",
     "1MCP",
-    "Anti-digoxin"
+    "Anti-digoxin",
+    "Kol"
   ],
   "imgt_1igt_d": {
     "cdr_lengths": [
@@ -31,8 +32,29 @@
       "128": "S"
     }
   },
+  "kol_cdr3": {
+    "length": 19,
+    "insertions": [
+      "111.1",
+      "111.2",
+      "111.3",
+      "112.3",
+      "112.2",
+      "112.1"
+    ]
+  },
+  "light_terminal_127": [
+    "K",
+    "L"
+  ],
+  "mcpc603_kabat_insertions": [
+    "52A",
+    "52B",
+    "52C"
+  ],
   "selected": {
     "imgt": "58",
+    "kabat": "52A",
     "input_position": 53,
     "author": "D 52A"
   },

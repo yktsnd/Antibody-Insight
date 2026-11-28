@@ -13,12 +13,13 @@ function componentLabel(id) {
   return component ? owner(component.candidate)+" / "+component.label : "Unavailable component";
 }
 
-function loadNumbering(id) {
-  if(numberedCache.has(id))return;
+function loadNumbering(id,scheme) {
+  const key=scheme+"|"+id;
+  if(numberedCache.has(key))return;
   const cache=numberedCache, session=project.session;
-  cache.set(id,{loading:true});
-  api().numbered_domains(session,id).then(
-    value=>cache.set(id,value), error=>cache.set(id,{error:error.message||String(error)})
+  cache.set(key,{loading:true});
+  api().numbered_domains(session,id,scheme).then(
+    value=>cache.set(key,value), error=>cache.set(key,{error:error.message||String(error)})
   ).finally(()=>{if(numberedCache===cache)updateNumbering();});
 }
 
@@ -29,21 +30,29 @@ function updateNumbering() {
     cohortKey="";cohortColumns=null;cohortWarning="";cohortGeneration++;
   }
   const panel=by("numberingPanel"), available=detail?.kind==="AA", opened=Boolean(available && view.numberingOpen);
-  by("numberingTools").hidden=!available;
+  by("numberingToggle").hidden=!available;
   by("numberingToggle").setAttribute("aria-expanded",String(opened));
   panel.hidden=!opened;
   by("numberedPosition").textContent="";
   if(!opened)return;
-  const current=detail.id;
-  loadNumbering(current);
-  const numbered=numberedCache.get(current);
+  const current=detail.id, scheme=view.numberingScheme||"imgt";
+  const schemeLabel=scheme==="imgt"?"IMGT":"Kabat";
+  const cohort=scheme==="imgt"?"numberingCohort":"kabatCohort";
+  loadNumbering(current,scheme);
+  const numbered=numberedCache.get(scheme+"|"+current);
   const active=numbered.domains?.flatMap(d=>d.residues).find(r=>r.position===view.position);
-  if(active)by("numberedPosition").textContent="IMGT "+active.label+" · "+active.region+" · sequence "+active.position;
+  if(active)by("numberedPosition").textContent=schemeLabel+" "+active.label+" · "+active.region+" · sequence "+active.position;
   panel.replaceChildren();
-  if(numbered.loading){panel.append(node("small","Numbering variable domains…"));return;}
-  if(numbered.error){panel.append(node("small",numbered.error));return;}
   const controls=node("div");
   controls.className="strip";
+  const switcher=node("select");
+  switcher.setAttribute("aria-label","Numbering scheme");
+  switcher.append(opt("IMGT","imgt"),opt("Kabat","kabat"));
+  switcher.value=scheme;
+  switcher.onchange=()=>{view.numberingScheme=switcher.value;updateNumbering();save().catch(report);};
+  controls.append(switcher);
+  if(numbered.loading){panel.append(controls,node("small","Numbering variable domains…"));return;}
+  if(numbered.error){panel.append(controls,node("small",numbered.error));return;}
   const domains=node("select");
   domains.setAttribute("aria-label","Current variable domain");
   domains.id="domainChoice";
@@ -54,7 +63,7 @@ function updateNumbering() {
     controls.append(node("small","No antibody variable domain assigned."));
   }else{
     const region=node("select");
-    region.setAttribute("aria-label","IMGT region");
+    region.setAttribute("aria-label","Numbered region");
     region.append(...["FR1","CDR1","FR2","CDR2","FR3","CDR3","FR4"].map(r=>opt(r,r)));
     region.value=view.numberingRegion||"CDR1";
     const jump=node("button","Go to region");
@@ -67,13 +76,13 @@ function updateNumbering() {
     function updateButtons(){
       const index=Number(domains.value);
       add.disabled=!numbered.domains[index].complete ||
-        (view.numberingCohort||[]).some(c=>c.component===current && c.domain===index);
+        (view[cohort]||[]).some(c=>c.component===current && c.domain===index);
     }
     domains.onchange=updateButtons;
     updateButtons();
     add.onclick=()=>{
-      view.numberingCohort??=[];
-      view.numberingCohort.push({component:current,domain:Number(domains.value)});
+      view[cohort]??=[];
+      view[cohort].push({component:current,domain:Number(domains.value)});
       updateNumbering();save().catch(report);
     };
     region.onchange=()=>{
@@ -83,11 +92,10 @@ function updateNumbering() {
     controls.append(domains,region,jump,add);
   }
   panel.append(controls,node("small",numbered.method));
-  drawNumberedComparison(panel);
+  drawNumberedComparison(panel,view[cohort]||[],scheme,schemeLabel);
 }
 
-function drawNumberedComparison(panel) {
-  const choices=view.numberingCohort||[];
+function drawNumberedComparison(panel,choices,scheme,schemeLabel) {
   const list=node("div");
   list.className="numbered-cohort";
   choices.forEach(({component,domain},i)=>{
@@ -98,11 +106,11 @@ function drawNumberedComparison(panel) {
     list.append(button);
   });
   if(choices.length<2){panel.append(list);return;}
-  const key=JSON.stringify(choices);
+  const key=scheme+"|"+JSON.stringify(choices);
   if(cohortKey!==key){
     cohortKey=key;cohortColumns=null;cohortWarning="";
     const request=++cohortGeneration;
-    api().compare_domains(project.session,choices).then(
+    api().compare_domains(project.session,choices,scheme).then(
       columns=>{if(request===cohortGeneration)cohortColumns=columns;},
       error=>{if(request===cohortGeneration)cohortWarning=error.message||String(error);}
     ).finally(()=>{if(request===cohortGeneration)updateNumbering();});
@@ -116,16 +124,17 @@ function drawNumberedComparison(panel) {
   const table=node("table"), headings=node("tr"), scroller=node("div");
   table.id="numberedComparison";
   scroller.className="numbered-scroll";
-  headings.append(node("th",region+" · IMGT"),...cols.map(c=>node("th",c.label)));
+  headings.append(node("th",region+" · "+schemeLabel),...cols.map(c=>node("th",c.label)));
   table.append(headings);
   choices.forEach(({component,domain},i)=>{
     const row=node("tr");
     const name=node("th",componentLabel(component)+" · "+(domain+1));
     if(i){
-      const paired=cols.filter(c=>c.residues[0]&&c.residues[i]);
+      const known=r=>r&&"ACDEFGHIKLMNOPQRSTUVWY".includes(r.aa);
+      const paired=cols.filter(c=>known(c.residues[0])&&known(c.residues[i]));
       const equal=paired.filter(c=>c.residues[0].aa===c.residues[i].aa).length;
       const identity=node("small",equal+"/"+paired.length);
-      identity.title=paired.length?"Matching labels with a residue in both domains":"No paired residues in this region";
+      identity.title=paired.length?"Equal known residues over paired known residues":"No paired known residues in this region";
       identity.className="regional-identity";
       name.append(" ",identity);
     }
@@ -137,7 +146,7 @@ function drawNumberedComparison(panel) {
       button.className="base";
       button.dataset.imgt=r.label;
       button.dataset.component=component;
-      button.title="IMGT "+r.label+" · sequence "+r.position;
+      button.title=schemeLabel+" "+r.label+" · sequence "+r.position;
       button.setAttribute("aria-pressed",String(component===detail.id && r.position===view.position));
       button.onclick=()=>{if(component===detail.id)at(r.position);else select(component,false,r.position).catch(report);};
       cell.append(button);row.append(cell);
@@ -173,5 +182,6 @@ function drawNumberedComparison(panel) {
 
 action("numberingToggle",()=>{
   view.numberingOpen=!view.numberingOpen;
+  if(view.numberingOpen)view.regionsOpen=false;
   drawSequence();return save();
 });

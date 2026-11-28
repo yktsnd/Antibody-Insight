@@ -28,7 +28,7 @@
     }
   },
   "webview2_runtime": "158.0.4370.45",
-  "structure_a": "3f05b63db30c49bebe0a0519efd63251",
+  "structure_a": "fa625fd7db924bc19474ee1e8081c4e6",
   "camera_a": {
     "component_order": [
       "modelGroup.x",
@@ -111,7 +111,7 @@
       -0.5041630878188885
     ]
   },
-  "structure_b": "eafabf45b77f46229c69289e033ea68f",
+  "structure_b": "3625cd06c45d41d8b9d4df93ab7f3cea",
   "camera_b": {
     "initial_without_stored_camera": [
       -3.08375,

@@ -45,9 +45,15 @@ Click a point to inspect its candidate. **Save plot PNG** writes a 1,920 × 1,20
 
 ## Compare variable domains
 
-Open a registered protein and choose **IMGT domains**. The app numbers antibody variable domains locally using Immunum. The current residue shows its IMGT position, its region and its original position in the registered sequence. Use **Go to region** to jump to the first supported residue of a CDR or framework. The orange selection and author residue in a linked structure follow the original sequence position.
+Open a registered protein and choose **Antibody domains**. The app numbers antibody variable domains locally using Immunum. Switch between **IMGT** and **Kabat** while tracking the same original residue. Use **Go to region** to jump to the first supported residue of a CDR or framework. The orange selection and author residue in a linked structure follow the original sequence position.
 
-Add a domain to the comparison, then select another registered protein and add its domain. The matrix aligns domains of the same chain type by IMGT label. Select any residue to open its candidate at that position. Dashes indicate no residue at that label. The frequency row reports occupancy among the selected domains and shows observed residue counts when you hover. Domains lacking terminal numbering or key anchors can be inspected, and the comparison includes domains with supported coverage and anchors.
+Add a domain to the comparison, then select another registered protein and add its domain. The matrix aligns domains of the same chain type within one numbering scheme. Select any residue to open its candidate at that position. Dashes indicate no residue at that label. The frequency row reports occupancy among the selected domains and shows observed residue counts when you hover. Domains lacking terminal numbering or key anchors can be inspected, and the comparison includes domains with supported coverage and anchors.
+
+## Compare declared regions
+
+Choose **Compare regions** in **Sequences**. For each candidate, select a registered component and add an exact source annotation or an inclusive range. The first region anchors the comparison. A joined reverse-strand annotation is shown in its recorded direction. Selecting a letter opens its original sequence position. For coding DNA, use the coding track to follow the corresponding translated residue.
+
+The identity matrix reports matching known letters over paired known letters at reference positions. Unanchored insertions have their own columns and are excluded from cross-region identity. Tied alignments show their provisional letters with an ambiguous status and no cross-region identity. **Export comparison** saves the alignment letters, gaps, source positions and hashes, plus the identity counts, to an Excel workbook.
 
 ## Compare structures
 

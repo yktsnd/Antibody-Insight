@@ -8,6 +8,8 @@ def test_imgt_cdr3_labels_follow_the_published_sequence_order():
     assert sorted(labels,key=position_key)==["110","111","111.1","111.2","112.2","112.1","112","113"]
     assert all(region_of(label)=="CDR3" for label in labels)
     assert region_of("118")=="FR4"
+    assert sorted(["112A","111A","112B","112","111"],key=position_key)==["111","111A","112B","112A","112"]
+    assert region_of("35A","kabat","H")=="CDR1" and region_of("51","kabat","K")=="CDR2"
     with pytest.raises(ValueError):
         position_key("104.1")
 
@@ -21,6 +23,8 @@ def test_missing_label_does_not_shift_following_correspondence():
     assert [r["position"] for r in columns[-1]["residues"]]==[2,3]
     with pytest.raises(ValueError,match="same assigned chain"):
         comparison([row([("111","A")]),dict(row([("111","A")]),chain="K")])
+    with pytest.raises(ValueError,match="single numbering scheme"):
+        comparison([row([("111","A")]),dict(row([("111","A")]),scheme="kabat")])
 
 
 def test_short_peptide_gets_no_variable_domain():

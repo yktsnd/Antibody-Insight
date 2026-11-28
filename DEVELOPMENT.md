@@ -42,7 +42,7 @@
 | R-19 | 配列ビューワ（Q1, Q2, Q5, Q19, Q20, Q22–Q24, Q29） | 実装中 | desktop.json | 登録配列の位置指定・比較を実行。配列の各表示形式を検証する。 |
 | R-20 | 連続的な縮尺（Q20–Q23, Q35） | 実装中 | whole-record.png・zoomed-codon.png | 公開702 nt記録を1 ntまで連続拡大し、分割コドンの元座標を保持。抗体番号付き領域と円環表示が残る。 |
 | R-21 | プラスミド（Q1, Q2, Q21） | 実装中 | imports.py・test_project.py | 環状DNAとCDS区間を検査。全体マップと発現カセットの確認が残る。 |
-| R-22 | アラインメントと一致度（Q1, Q2, Q5, Q19, Q29） | 実装中 | test_pairwise.py・aligned-reference.json | 全長整列とIMGTのCDR/FR比較を検証。番号付きの位置で一致数・両方に残基がある列数を表示。GOIと任意領域の多配列比較が残る。 |
+| R-22 | アラインメントと一致度（Q1, Q2, Q5, Q19, Q29） | 実装中 | test_pairwise.py・aligned-reference.json | 全長整列、IMGT・Kabat比較、任意範囲の共通参照比較を検証。Germline参照と参照に依存しない多重整列が残る。 |
 | R-23 | 配列上の注釈・位置依存指標（Q20, Q22, Q24, Q32） | 実装中 | imports.py | 原本のfeatureと区間を保存。位置依存指標トラックを検証する。 |
 | R-24 | 配列着色・検索（Q5, Q24, Q36） | 実装中 | workspace.png | 選択位置・配列差を着色。検索と着色方式を追加検証する。 |
 | R-25 | 構造表示・比較（Q2, Q5, Q22, Q24, Q33） | 実装中 | structures.py・independent.ja.md | 公開1IGTの番号・Cα整列・範囲フィット・並列カメラ・座標選択を照合。表面と着色の検証が残る。 |
@@ -67,7 +67,7 @@
 | R-44 | 性能評価（Q35） | 実装中 | catalog-performance.json | 候補3規模で各10回。全体起動、転送、フレーム・GPU等を別途測る。 |
 | R-45 | デザイン（Q5, Q17, Q23, Q39, Q43） | 実装中 | workspace.png・SCIENTIFIC_UX.md | 英語4ペインの実画面を確認。実研究者の操作評価が残る。 |
 | AC-01 | `.dna` とExcelを受領し取り込む | 実装中 | public-snapgene.json・public-cds.json | 公開注釈付き.dnaとExcel定量表を同じ候補に登録。CDSはGenBankで別途照合。抗体の外部設計案件を通した照合が残る。 |
-| AC-02 | 3種類の抗体のGOI/CDR/FRを比較 | 実装中 | numbering.json・numbering.png | 公開3候補の重鎖を同じIMGT番号で比較。CDR・FR、占有数、元配列・構造の往復を検査。GOIを含む実案件の確認が残る。 |
+| AC-02 | 3種類の抗体のGOI/CDR/FRを比較 | 実装中 | numbering.json・numbering.png | 公開鎖のIMGT・Kabat比較と、3候補のCDS・手動範囲の整列を実測。実受領案件でGOIとCDR/FRを一連で確認する。 |
 | AC-03 | プラスミド全体から個々のコドンまで拡大 | 実装中 | public-cds.json・whole-record.png | 公開直線DNAと合成3,000 nt環状記録で全長から単一塩基まで照合。原点をまたぐコドン3000・1・2を確認。実受領プラスミドでの操作評価が残る。 |
 | AC-04 | 同義コドン最適化配列を比較 | 実装中 | desktop.json | 同義DNAの差を実画面表示。成熟AAとの明示対応とCAI/tAIを検証する。 |
 | AC-05 | SP変更体を比較 | 未確認 | — | SPの変更・切断・由来の根拠を確認する。 |
@@ -98,7 +98,7 @@
 | V-04 | SAP/TAP等の実装と参照値の定義、構造・対象領域の条件 | 未確認 | — | 実装・対象領域・参照集合が一致する公開値を選ぶ。 |
 | V-05 | SP切断、由来推定、G4、RNAi等の予測手法と内部/外部の境界 | 未確認 | — | SP切断等の根拠、対象範囲と外部境界を確認する。 |
 | V-06 | ヒト・マウス標準参照とCHO等の扱い、参照切り替えのライセンス境界 | 未確認 | — | 生物種と宿主の参照条件を別々に検証する。 |
-| V-07 | 配列一致度、CDR境界、Germline、tAI/CAI、局所RNA指標等の計算定義 | 実装中 | alignment.py・test_pairwise.py | 全長整列の採点・一致分母を明示し手計算で照合。公式IMGTのCDR境界、1IGTの番号・長さと比較した。内外の番号体系、Germline、宿主依存指標が残る。 |
+| V-07 | 配列一致度、CDR境界、Germline、tAI/CAI、局所RNA指標等の計算定義 | 実装中 | alignment.py・test_pairwise.py | 全長整列の採点・一致分母を明示し手計算で照合。公式IMGTとKabat境界・挿入順を1IGT・1MCP・2FB4で照合。Germline、宿主依存指標が残る。 |
 | V-08 | PCA・クラスタリングの特徴量選定、集約・正規化、欠測処理 | 未確認 | — | 特徴量・距離・正規化・欠測の判断を検証する。 |
 | V-09 | 塩基、翻訳残基、成熟配列、番号付け、構造座標の対応 | 実装中 | public-cds.json・public-structure.json・native-files.json | 塩基→翻訳→成熟鎖と、公開IMGT 58→登録53→著者D 52Aを確認。実案件で両経路が同一鎖を指すことを検証する。 |
 | V-10 | ADC、糖鎖、複合体、修飾、複数構造の必要なデータ表現範囲 | 未確認 | structures.py | 1モデルの正確な鎖を対象とする。ADC・糖鎖・修飾や部分構造は要検証。 |
@@ -133,7 +133,7 @@ Q1・Q7・Q21、R-21・R-33、AC-01、V-02。公開のSnapGeneサンプルDの�
 - 合成の反復値0、2、4と欠測1件の平均2、標本SD 2、SEM 1.1547005383792517、n=3を手計算と照合した。別候補の提供平均5・SEM 0.5にはnも個別値も追加していない。画面でSD・SEM・個別点を切り替え、元試料と欠測行を確認した。直接入力と表貼付のプレビューを共通化した際のファイル名参照エラーを実画面で見つけ、修正後に両経路を再走した。[実測](docs/evidence/measurements.json)・[表示](docs/evidence/measurement-means.png)
 - Biopython 1.88 の公開ファイル sample-d.dna で、4注釈の元座標と方向属性を突き合わせた。3件は原本で方向未指定、1件は正鎖。さらに公開の短い環状記録2件の原点をまたぐ区間を確認した。Excelの値は公開配列長を記した検査用の計算値であり、実験測定値の照合には使っていない。[実測](docs/evidence/public-snapgene.json)・[公開バイナリ](https://github.com/biopython/biopython/tree/biopython-188/Tests/SnapGene)
 
-公開データをローカルに保存して再走するには、NCBI Nucleotideから M27660.1.gb と M27661.1.gb、NCBI Proteinから AAA58746.1.faa と AAA58747.1.faa、RCSB PDBから1IGT.cifとポリマーFASTA 1IGT.faa・1MCP.faa、Biopythonの上記ディレクトリから sample-d.dna、looped_feature.dna、looped_feature_origin.dna を同じ場所に置く。入手した版は各結果のハッシュで照合できる。[NCBI重鎖記録](https://www.ncbi.nlm.nih.gov/nuccore/M27660.1)・[NCBI軽鎖記録](https://www.ncbi.nlm.nih.gov/nuccore/M27661.1)・[RCSB PDB 1IGT](https://www.rcsb.org/structure/1IGT)
+公開データをローカルに保存して再走するには、NCBI Nucleotideから M27660.1.gb と M27661.1.gb、NCBI Proteinから AAA58746.1.faa と AAA58747.1.faa、RCSB PDBから1IGT.cifとポリマーFASTA 1IGT.faa・1MCP.faa・2FB4.faa、Biopythonの上記ディレクトリから sample-d.dna、looped_feature.dna、looped_feature_origin.dna を同じ場所に置く。入手した版は各結果のハッシュで照合できる。[NCBI重鎖記録](https://www.ncbi.nlm.nih.gov/nuccore/M27660.1)・[NCBI軽鎖記録](https://www.ncbi.nlm.nih.gov/nuccore/M27661.1)・[RCSB PDB 1IGT](https://www.rcsb.org/structure/1IGT)
 
 配布ZIPの再走は `tests/verify_windows.py dist/AntibodyInsight-Windows-x64.zip <公開入力の場所> docs/evidence/windows` を仮想環境のPythonで実行する。新しい一時フォルダに展開して全UI資産とソースを照合し、その実行ファイルを通常の案件パスから起動する。独立したクリーンOSでの試験は別途必要である。
 
@@ -196,3 +196,19 @@ Windows用wheelのMITライセンスを収録し、計算に含まれるIMGT/GEN
 GitHubの成果物は公開用の workspace ブランチに置く。ローカル原本3件へのリンクは公開用記録で文書名に置き換え、原本を含むローカル履歴を公開ブランチの親にしない。公開対象は製品ソース、起動・試験手順、検証済みの公開・合成データによる証拠と要求ID別の進捗である。
 
 番号付けを含むWindows ZIPで、UI資産照合と15本の実GUI再走を通過した。新しい仮想環境に指定依存を導入し、61件の回帰試験、ビルド、案件再開、カメラと代表構造の再起動照合を確認した。ZIP内の番号付けライブラリにMITライセンスが含まれることを確認した。[配布の照合](docs/evidence/windows/bundle.json)・[配布版のCDR比較](docs/evidence/windows/numbering.json)・[クリーンビルド](docs/evidence/windows/clean-numbering-build.json)
+
+## GOI・任意範囲を共通参照で比較
+
+Q1・Q5・Q19・Q29、R-19・R-22・R-23、AC-02・AC-04・AC-05、V-07・V-09。研究者が候補ごとに原本アノテーションまたは元配列の範囲を選ぶ。登録配列からその範囲を採り、先頭の比較対象を共通参照にしてDNA同士またはAA同士を比較する。ギャップ、元座標、分母、観測文字を表示し、列を選ぶと選んだ行の元塩基・残基を開く。テストは3候補の挿入・置換、逆鎖分割注釈、同点対応、異なるアルファベット、差異と欠測、再開を扱う。先頭参照にない異種挿入を同じ相同列に帰属させない。
+
+Q8・Q19・Q32、R-22・R-34、AC-02・AC-24、V-09。観察した領域比較をExcelに書き出し、差異・ギャップだけでなく入力原本、選択範囲、元位置、一致率の分子と分母を保持する。逆鎖の文字と座標、別ファイルのハッシュ、挿入列の帰属を保存後に独立して読み戻す。
+
+Q22・Q29、R-22、AC-02・AC-06、V-07・V-09。番号付けのAPIを再確認すると、1IGT軽鎖の正規終端127と長いCDR3の英字挿入番号が、既存実装の比較条件から外れていた。軽鎖と長いCDR3の表示を修正し、Kabatを選択可能にする。入力は同じ登録蛋白。方式を変えても元位置と著者座標を保持し、重鎖と軽鎖のCDR境界に対応する。IMGTとKabatを同じ表で混ぜない。正常例は公開1IGTの重鎖N53、軽鎖終端、McPC603のKabat挿入。公式番号の照合と、公開のライブラリ例での挿入順を別々に確認する。
+
+3候補のDNAを比較し、異なる長さの1候補だけにある挿入3列を確認した。逆鎖注釈は記録上の12・11・10・9・8・4・3・2・1の順に並び、元塩基8から翻訳残基2・構造A 10Aを選択できた。範囲のGCは既知9塩基中3、比較の一致率は参照に対応する既知9塩基中9。同点経路がある行は比較の一致率を未確定とし、参照にない挿入は比較分母に入れない。Excelには欠番、元位置、鎖の向き、入力ハッシュが出力され、読み戻しで足し合わせずに照合した。[実GUIと復元](docs/evidence/regions.json)・[出力例](docs/evidence/regions.xlsx)
+
+IMGTとKabatを切り替えても1IGTの元配列53、著者番号D 52Aの対応を保持した。1MCPでは公開対応表のKabat 52A・52B・52Cを照合した。公開2FB4のKol重鎖でCDR3が19残基となり、六つの挿入番号が111.1・111.2・111.3・112.3・112.2・112.1の順に並ぶことを確認した。1IGTのκ鎖と2FB4のλ鎖はIMGT終端127として比較対象になった。ライブラリが返す英字挿入はIMGT表示で小数表記に正規化し、Kabatの英字は保持した。[GUI再走](docs/evidence/numbering.json)・[IMGTのKolとMcPC603](https://www.imgt.org/IMGTScientificChart/Numbering/CDRlengths.html)・[CDR3挿入順](https://www.imgt.org/IMGTScientificChart/Numbering/CDR3-IMGTposition.html)・[McPC603のKabat CDR2](https://www.imgt.org/IMGTScientificChart/Numbering/CDR2-IMGTposition.html)
+
+150残基ずつの合成蛋白で3・12・32行を5回ずつ比較した。計算と座標・一致率の集計を合わせた中央値は23.4・97.2・368.4 ms。GUI描画時間・実案件・最長範囲は別途検証する。[負荷記録](docs/evidence/region-performance.json)
+
+最終Windows ZIPを展開し、UI資産の一致と16本の実GUI再走を確認した。領域比較・Excel再読・CDR3挿入・方式切替を再走一覧に含めた。別の新規仮想環境では65件の回帰試験、ビルド、案件とカメラ復元、代表構造の照合を確認した。同一Windows端末での測定である。[ZIP照合](docs/evidence/windows/bundle.json)・[クリーン環境の結果](docs/evidence/windows/clean-regions-build.json)・[領域比較の配布実測](docs/evidence/windows/regions.json)・[番号付けの配布実測](docs/evidence/windows/numbering.json)

@@ -6,9 +6,9 @@
   "candidates": 300,
   "observation_rows": 3900,
   "duration_ms": {
-    "Bench 001": 35.200000047683716,
-    "Bench 002": 46,
-    "comparison_response": 128.80000019073486
+    "Bench 001": 89.59999990463257,
+    "Bench 002": 115.5,
+    "comparison_response": 376.2999999523163
   },
   "selected_candidate": "Bench 002",
   "protocol": "Two timed clicks on visible controls during the actual local comparison; single run"

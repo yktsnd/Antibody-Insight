@@ -40,7 +40,7 @@ def verify(archive,public,out):
             "recovery_replay":[out/"recovery.json"],"circular_replay":[out/"circular.json"],
             "comparison_replay":[out/"comparison.json"],"comparison_load":[out/"comparison-load.json"],
             "overlay_replay":[public,out/"overlay.json"],"representative_replay":[out/"representative.json"],
-            "numbering_replay":[public,out/"numbering.json"]
+            "numbering_replay":[public,out/"numbering.json"],"regions_replay":[out/"regions.json"]
         }
         for script,args in cases.items():
             print(script,flush=True)

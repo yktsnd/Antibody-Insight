@@ -1,0 +1,42 @@
+{
+  "case": "Synthetic amino-acid regions of 150 letters, one reference and substituted comparators",
+  "scope": "Backend calculation including coordinate and identity mapping, excluding GUI",
+  "runs": [
+    {
+      "rows": 3,
+      "length": 150,
+      "ms": [
+        75.22690016776323,
+        20.005299942567945,
+        27.06839982420206,
+        15.914000105112791,
+        23.36050011217594
+      ],
+      "median_ms": 23.36050011217594
+    },
+    {
+      "rows": 12,
+      "length": 150,
+      "ms": [
+        97.1703000832349,
+        99.68269988894463,
+        99.20870000496507,
+        72.26220006123185,
+        88.56349997222424
+      ],
+      "median_ms": 97.1703000832349
+    },
+    {
+      "rows": 32,
+      "length": 150,
+      "ms": [
+        350.5899999290705,
+        421.234899898991,
+        368.39409987442195,
+        311.75759993493557,
+        408.4049998782575
+      ],
+      "median_ms": 368.39409987442195
+    }
+  ]
+}

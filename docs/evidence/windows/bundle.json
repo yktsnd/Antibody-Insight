@@ -1,8 +1,8 @@
 {
   "archive": "AntibodyInsight-Windows-x64.zip",
-  "bytes": 32585506,
-  "sha256": "5a11f12dadfaa66758e8d1f7d59700cd42533c9ac401c438b29c68e9616d27c2",
-  "executable_sha256": "5350d1ac0ac02873e1572cc5a6214ebbfa0d3484b2494d8aa1fbd27e8096af3e",
+  "bytes": 32597974,
+  "sha256": "c4b79cfb7c854217289f6d67d98aead4c5f7de04e3dc0a7d438a3ef81041481c",
+  "executable_sha256": "ccf9a2fa8d7dc19251c575c00f91c5df35803cc99eefd15e00e681662fa4c77b",
   "ui_matches_source": true,
   "verification": [
     "desktop_replay",
@@ -19,7 +19,8 @@
     "comparison_load",
     "overlay_replay",
     "representative_replay",
-    "numbering_replay"
+    "numbering_replay",
+    "regions_replay"
   ],
   "environment": "Local Windows x64, installed WebView2"
 }
